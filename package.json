@@ -1,0 +1,22 @@
+{
+  "name": "robcc-web-package",
+  "version": "1.0.0",
+  "description": "Simple package file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobCC/robcc.github.io.git"
+  },
+  "author": "RobCC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobCC/robcc.github.io/issues"
+  },
+  "homepage": "https://github.com/RobCC/robcc.github.io#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
