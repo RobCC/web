@@ -16,7 +16,5 @@
     "url": "https://github.com/RobCC/robcc.github.io/issues"
   },
   "homepage": "https://github.com/RobCC/robcc.github.io#readme",
-  "dependencies": {
-    "jquery": "^3.3.1"
-  }
+  "dependencies": {}
 }
