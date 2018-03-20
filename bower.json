@@ -1,0 +1,21 @@
+{
+  "name": "robcc-bower-package",
+  "description": "RobCC bower dependencies",
+  "main": "index.js",
+  "authors": [
+    "RobCC"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/RobCC/robcc.github.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
