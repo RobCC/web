@@ -39,7 +39,6 @@ gulp.task('watch', function(){
 gulp.task('build:prod', function() {
   runSequence('clean:dist', 'less-min', 'useref');
 });
-});
 /***/
 
 /* Editing dist/ */
