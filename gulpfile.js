@@ -22,11 +22,11 @@ var sourceLibs = [
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
-  runSequence('clean:dist', 'create:js', 'move:index', 'move:js', 'less', 'move:js');
+  runSequence('clean:dist', 'move:index', 'move:js', 'less', 'move:images');
 });
 
 gulp.task('build:prod', function() {
-  runSequence('clean:dist', 'less-min', 'merge-js');
+  runSequence('clean:dist', 'less-min', 'merge-js', 'move:images');
 });
 /*************************************************************************************/
 
@@ -60,7 +60,10 @@ gulp.task('move:js', function() {
     .pipe(gulp.dest('dist/js/lib'));
 });
 
-
+gulp.task('move:images', function() {
+  return gulp.src('app/images/**/*.*')
+    .pipe(gulp.dest('dist/images'));
+});
 
 // Used to merge all JS files in index.html into a single JS
 gulp.task('merge-js', function() {
@@ -80,12 +83,8 @@ gulp.task('create:dist', function() {
   return makeDir('dist');
 });
 
-gulp.task('create:js', function() {
-  return makeDir('dist/js');
-});
-
 gulp.task('clean:dist', function() {
-  runSequence('delete:dist', 'create:dist', 'create:js');
+  runSequence('delete:dist', 'create:dist');
   // runSequence('task-one', ['tasks','to','run','in','parallel'], 'task-three', callback);
 });
 /***/
