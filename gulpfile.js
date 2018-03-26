@@ -28,11 +28,11 @@ var sourceLibsCSS = [
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
-  runSequence('clean:dist', 'move:index', 'move:libs:js', 'move:libs:css', 'less', 'move:images');
+  runSequence('clean:dist', 'move:index', 'move:libs:js', 'move:libs:css', 'less', 'move:images', 'move:fonts');
 });
 
 gulp.task('build:prod', function() {
-  runSequence('clean:dist', 'less-min', 'merge-js', 'move:libs:css', 'move:images');
+  runSequence('clean:dist', 'less-min', 'merge-js', 'move:libs:css', 'move:images', 'move:fonts');
 });
 /*************************************************************************************/
 
@@ -68,7 +68,12 @@ gulp.task('move:libs:js', function() {
 
 gulp.task('move:libs:css', function() {
   return gulp.src(sourceLibsCSS)
-    .pipe(gulp.dest('dist/css/lib'));
+    .pipe(gulp.dest('dist/css'));
+});
+
+gulp.task('move:fonts', function() {
+  return gulp.src('node_modules/materialize-css/dist/fonts/**/*.*')
+    .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('move:images', function() {
