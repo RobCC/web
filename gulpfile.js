@@ -8,6 +8,35 @@ var del         = require('del');
 var makeDir     = require('make-dir');
 var runSequence = require('run-sequence');
 
+var packages = {
+  NPM   : 'node_modules/',
+  BOWER : 'bower_components/'
+};
+
+var sourceLibs = [
+  packages.BOWER + 'jquery/dist/jquery.min.js',
+  packages.BOWER + 'underscore/underscore-min.js',
+  packages.NPM   + 'backbone/backbone-min.js'
+];
+
+/*************************************************************************************/
+/* Builds */
+gulp.task('build:dev', function() {
+  runSequence('clean:dist', 'create:js', 'move:index', 'move:js', 'less', 'move:js');
+});
+
+gulp.task('build:prod', function() {
+  runSequence('clean:dist', 'less-min', 'merge-js');
+});
+/*************************************************************************************/
+
+gulp.task('watch', function(){
+  console.log('Hear my words and bear witness to my vow. Night gathers, and now my watch begins.');
+  gulp.watch('app/less/**/*.less', ['less']);
+});
+
+
+
 gulp.task('less', function(){
   return gulp.src('app/less/**/*.less')
     .pipe(less())
@@ -21,7 +50,20 @@ gulp.task('less-min', function(){
     .pipe(gulp.dest('dist/css'))
 });
 
-gulp.task('useref', function() {
+gulp.task('move:index', function() {
+  return gulp.src('app/index.html')
+    .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('move:js', function() {
+  return gulp.src(sourceLibs)
+    .pipe(gulp.dest('dist/js/lib'));
+});
+
+
+
+// Used to merge all JS files in index.html into a single JS
+gulp.task('merge-js', function() {
   return gulp.src('app/*.html')
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))
@@ -29,29 +71,21 @@ gulp.task('useref', function() {
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('watch', function(){
-  console.log('Hear my words and bear witness to my vow. Night gathers, and now my watch begins.');
-  gulp.watch('app/less/**/*.less', ['less']);
-});
-
-
-/* builds */
-gulp.task('build:prod', function() {
-  runSequence('clean:dist', 'less-min', 'useref');
-});
-/***/
-
 /* Editing dist/ */
-gulp.task('delete:dist', function(){
+gulp.task('delete:dist', function() {
   return del.sync('dist');
 });
 
-gulp.task('create:dist', function(){
+gulp.task('create:dist', function() {
   return makeDir('dist');
 });
 
-gulp.task('clean:dist', function(){
-  runSequence('delete:dist', 'create:dist');
-  // runSequence('task-one', ['tasks','two','run','in','parallel'], 'task-three', callback);
+gulp.task('create:js', function() {
+  return makeDir('dist/js');
+});
+
+gulp.task('clean:dist', function() {
+  runSequence('delete:dist', 'create:dist', 'create:js');
+  // runSequence('task-one', ['tasks','to','run','in','parallel'], 'task-three', callback);
 });
 /***/
