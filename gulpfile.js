@@ -7,6 +7,7 @@ var gulpIf      = require('gulp-if');
 var del         = require('del');
 var makeDir     = require('make-dir');
 var runSequence = require('run-sequence');
+var coffee      = require('gulp-coffee');
 
 var packages = {
   NPM   : 'node_modules/',
@@ -16,17 +17,22 @@ var packages = {
 var sourceLibs = [
   packages.BOWER + 'jquery/dist/jquery.min.js',
   packages.BOWER + 'underscore/underscore-min.js',
-  packages.NPM   + 'backbone/backbone-min.js'
+  packages.NPM   + 'backbone/backbone-min.js',
+  packages.NPM   + 'materialize-css/dist/js/materialize.min.js'
+];
+
+var sourceLibsCSS = [
+  packages.NPM   + 'materialize-css/dist/css/materialize.min.css'
 ];
 
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
-  runSequence('clean:dist', 'move:index', 'move:js', 'less', 'move:images');
+  runSequence('clean:dist', 'move:index', 'move:libs:js', 'move:libs:css', 'less', 'move:images');
 });
 
 gulp.task('build:prod', function() {
-  runSequence('clean:dist', 'less-min', 'merge-js', 'move:images');
+  runSequence('clean:dist', 'less-min', 'merge-js', 'move:libs:css', 'move:images');
 });
 /*************************************************************************************/
 
@@ -55,9 +61,14 @@ gulp.task('move:index', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('move:js', function() {
+gulp.task('move:libs:js', function() {
   return gulp.src(sourceLibs)
     .pipe(gulp.dest('dist/js/lib'));
+});
+
+gulp.task('move:libs:css', function() {
+  return gulp.src(sourceLibsCSS)
+    .pipe(gulp.dest('dist/css/lib'));
 });
 
 gulp.task('move:images', function() {
