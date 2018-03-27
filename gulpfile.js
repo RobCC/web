@@ -8,6 +8,7 @@ var del         = require('del');
 var makeDir     = require('make-dir');
 var runSequence = require('run-sequence');
 var coffee      = require('gulp-coffee');
+var clean       = require('gulp-clean');
 
 var packages = {
   NPM   : 'node_modules/',
@@ -28,11 +29,11 @@ var sourceLibsCSS = [
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
-  runSequence('clean:dist', 'move:index', 'move:libs:js', 'move:libs:css', 'less', 'coffee', 'move:images', 'move:fonts');
+  runSequence('clean:dist', 'move:index', 'less', 'coffee', 'requirejs:move', 'requirejs:main', 'move:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
 });
 
 gulp.task('build:prod', function() {
-  runSequence('clean:dist', 'less-min', 'coffee', 'merge:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
+  // runSequence('clean:dist', 'less-min', 'coffee', 'merge:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
 });
 /*************************************************************************************/
 
@@ -40,8 +41,6 @@ gulp.task('watch', function(){
   console.log('Hear my words and bear witness to my vow. Night gathers, and now my watch begins.');
   gulp.watch('app/less/**/*.less', ['less']);
 });
-
-
 
 gulp.task('coffee', function(){
   return gulp.src('app/coffee/**/*.coffee')
@@ -102,9 +101,27 @@ gulp.task('move:images', function() {
 /*************************************************************************************/
 
 /*************************************************************************************/
-/* Editing dist/ */
+/* requireJS */
+gulp.task('requirejs:move', function() {
+  return gulp.src(packages.NPM + 'requirejs/require.js')
+    .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('requirejs:main', function() {
+  return gulp.src('app/main.coffee')
+    .pipe(coffee({ bare: true }))
+    .pipe(gulp.dest('dist/'));
+});
+
+/*************************************************************************************/
+
+
+
+
+/*************************************************************************************/
+/* Editing dist */
 gulp.task('delete:dist', function() {
-  return del.sync('dist');
+  return del('dist/**', {force:true});
 });
 
 gulp.task('create:dist', function() {
