@@ -33,7 +33,7 @@ gulp.task('build:dev', function() {
 });
 
 gulp.task('build:prod', function() {
-  // runSequence('clean:dist', 'less-min', 'coffee', 'merge:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
+  // runSequence('clean:dist', 'less:min', 'coffee', 'merge:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
 });
 /*************************************************************************************/
 
@@ -54,7 +54,7 @@ gulp.task('less', function(){
     .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('less-min', function(){
+gulp.task('less:min', function(){
   return gulp.src('app/less/**/*.less')
     .pipe(less())
     .pipe(cleanCSS({compatibility: 'ie8'}))
@@ -116,12 +116,11 @@ gulp.task('requirejs:main', function() {
 /*************************************************************************************/
 
 
-
-
 /*************************************************************************************/
 /* Editing dist */
 gulp.task('delete:dist', function() {
-  return del('dist/**', {force:true});
+  return gulp.src('dist/**/*.*', {read: false})
+    .pipe(clean());
 });
 
 gulp.task('create:dist', function() {
@@ -129,7 +128,9 @@ gulp.task('create:dist', function() {
 });
 
 gulp.task('clean:dist', function() {
-  runSequence('delete:dist', 'create:dist');
+  // runSequence('delete:dist', 'create:dist');
+  return gulp.src('dist/**/*.*', {read: false})
+    .pipe(clean());
   // runSequence('task-one', ['tasks','to','run','in','parallel'], 'task-three', callback);
 });
 /*************************************************************************************/
