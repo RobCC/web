@@ -29,7 +29,7 @@ requirejs.config({
 
 // Shimming is saying 'load this non-AMD library and expose the global namespace
 // specified in the exports variable as if it was an AMD module'
-require(['jquery', 'underscore', 'backbone', 'js/app.js'], function($, _, Backbone, App) {
+require(['jquery', 'underscore', 'backbone', 'js/app'], function($, _, Backbone, App) {
   var app;
   console.log("Hello from requireJS");
   return app = new App();
