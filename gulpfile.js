@@ -19,7 +19,8 @@ var sourceLibs = [
   packages.BOWER + 'jquery/dist/jquery.min.js',
   packages.BOWER + 'underscore/underscore-min.js',
   packages.NPM   + 'backbone/backbone-min.js',
-  packages.NPM   + 'materialize-css/dist/js/materialize.min.js'
+  packages.NPM   + 'materialize-css/dist/js/materialize.min.js',
+  packages.NPM   + 'hammerjs/hammer.min.js'
 ];
 
 var sourceLibsCSS = [
@@ -59,17 +60,6 @@ gulp.task('less:min', function(){
     .pipe(less())
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('dist/css'));
-});
-
-
-
-// Used to merge all JS files in index.html into a single JS
-gulp.task('merge:libs:js', function() {
-  return gulp.src('app/*.html')
-    .pipe(useref())
-    .pipe(gulpIf('*.js', uglify()))
-    // .pipe(gulpIf('*.css', cleanCSS({compatibility: 'ie8'})))
-    .pipe(gulp.dest('dist'))
 });
 
 /*************************************************************************************/
@@ -115,22 +105,19 @@ gulp.task('requirejs:main', function() {
 
 /*************************************************************************************/
 
-
-/*************************************************************************************/
-/* Editing dist */
-gulp.task('delete:dist', function() {
-  return gulp.src('dist/**/*.*', {read: false})
-    .pipe(clean());
-});
-
-gulp.task('create:dist', function() {
-  return makeDir('dist');
-});
-
 gulp.task('clean:dist', function() {
-  // runSequence('delete:dist', 'create:dist');
   return gulp.src('dist/**/*.*', {read: false})
     .pipe(clean());
   // runSequence('task-one', ['tasks','to','run','in','parallel'], 'task-three', callback);
 });
-/*************************************************************************************/
+
+
+
+// Used to merge all JS files in index.html into a single JS
+gulp.task('merge:libs:js', function() {
+  return gulp.src('app/*.html')
+    .pipe(useref())
+    .pipe(gulpIf('*.js', uglify()))
+    // .pipe(gulpIf('*.css', cleanCSS({compatibility: 'ie8'})))
+    .pipe(gulp.dest('dist'))
+});
