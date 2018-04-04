@@ -1,4 +1,4 @@
-require ['jquery', 'underscore', 'backbone'], ($, _, Backbone) ->
+define ['jquery', 'underscore', 'backbone'], ($, _, Backbone) ->
   new Backbone.View.extend
     id : 'main-container'
     initialize: ->

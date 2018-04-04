@@ -1,4 +1,4 @@
-require(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
+define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
   return new Backbone.View.extend({
     id: 'main-container',
     initialize: function() {
