@@ -25,6 +25,6 @@ requirejs.config
 # specified in the exports variable as if it was an AMD module'
 
 
-require ['jquery', 'underscore', 'backbone', 'js/app'], ($, _, Backbone, App) ->
+require ['jquery', 'underscore', 'backbone', './js/app'], ($, _, Backbone, App) ->
   console.log "Hello from requireJS"
   app = new App();
