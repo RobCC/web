@@ -27,6 +27,8 @@ var sourceLibsCSS = [
   packages.NPM   + 'materialize-css/dist/css/materialize.min.css'
 ];
 
+gulp.task('default', function(){ runSequence('build:dev'); });
+
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
@@ -50,7 +52,7 @@ gulp.task('coffee', function(){
 });
 
 gulp.task('less', function(){
-  return gulp.src('app/less/**/*.less')
+  return gulp.src('app/less/app.less')
     .pipe(less())
     .pipe(gulp.dest('dist/css'));
 });
