@@ -32,7 +32,7 @@ gulp.task('default', function(){ runSequence('build:dev'); });
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
-  runSequence('clean:dist', 'move:index', 'less', 'coffee', 'requirejs:move', 'requirejs:main', 'move:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
+  runSequence('clean:dist', 'move:index', 'less', 'coffee', 'requirejs:move', 'rjs:move', 'requirejs:main', 'move:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
 });
 
 gulp.task('build:prod', function() {
