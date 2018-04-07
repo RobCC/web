@@ -32,7 +32,7 @@ requirejs.config({
 
 //require does not return node_modules
 //define does
-define(['jquery', 'underscore', 'backbone', './js/app'], function($, _, Backbone, App) {
+requirejs(['jquery', 'underscore', 'backbone', './js/app'], function($, _, Backbone, App) {
   var app;
   console.log("Hello from requireJS");
   return app = new App();
