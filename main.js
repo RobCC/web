@@ -34,6 +34,6 @@ requirejs.config({
 //define does
 requirejs(['jquery', 'underscore', 'backbone', './js/app'], function($, _, Backbone, App) {
   var app;
-  console.log("Hello from requireJS1");
+  console.log("Hello from requireJS12");
   return app = new App();
 });
