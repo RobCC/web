@@ -1,5 +1,5 @@
 define ['jquery', 'underscore', 'backbone'], ($, _, Backbone) ->
-  new Backbone.View.extend
+  Backbone.View.extend
     id : 'main-container'
     initialize: ->
 

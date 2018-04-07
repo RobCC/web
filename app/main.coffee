@@ -27,5 +27,5 @@ requirejs.config
 #require does not return node_modules
 #define does
 requirejs ['jquery', 'underscore', 'backbone', './js/app'], ($, _, Backbone, App) ->
-  console.log "Hello from requireJS with rjs"
+  console.log "Hello from requireJS"
   app = new App();
