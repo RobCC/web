@@ -5,7 +5,7 @@ requirejs.config
     'backbone'    : 'js/lib/backbone-min'
     'materialize' : 'js/lib/materialize.min'
     'hammer'      : 'js/lib/hammer.min'
-    'hammer'      : 'js/lib/text'
+    'text  '      : 'js/lib/text'
   shim:
     'underscore':
       exports : '_'
