@@ -4,7 +4,8 @@ requirejs.config({
     'underscore': 'js/lib/underscore-min',
     'backbone': 'js/lib/backbone-min',
     'materialize': 'js/lib/materialize.min',
-    'hammer': 'js/lib/hammer.min'
+    'hammer': 'js/lib/hammer.min',
+    'hammer': 'js/lib/text'
   },
   shim: {
     'underscore': {
@@ -34,6 +35,5 @@ requirejs.config({
 //define does
 requirejs(['jquery', 'underscore', 'backbone', './js/app'], function($, _, Backbone, App) {
   var app;
-  console.log("Hello from requireJS");
   return app = new App();
 });

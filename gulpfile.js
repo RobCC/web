@@ -20,7 +20,8 @@ var sourceLibs = [
   packages.BOWER + 'underscore/underscore-min.js',
   packages.NPM   + 'backbone/backbone-min.js',
   packages.NPM   + 'materialize-css/dist/js/materialize.min.js',
-  packages.NPM   + 'hammerjs/hammer.min.js'
+  packages.NPM   + 'hammerjs/hammer.min.js',
+  packages.NPM   + 'text/text.js'
 ];
 
 var sourceLibsCSS = [

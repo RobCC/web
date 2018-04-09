@@ -5,6 +5,7 @@ requirejs.config
     'backbone'    : 'js/lib/backbone-min'
     'materialize' : 'js/lib/materialize.min'
     'hammer'      : 'js/lib/hammer.min'
+    'hammer'      : 'js/lib/text'
   shim:
     'underscore':
       exports : '_'
@@ -27,5 +28,4 @@ requirejs.config
 #require does not return node_modules
 #define does
 requirejs ['jquery', 'underscore', 'backbone', './js/app'], ($, _, Backbone, App) ->
-  console.log "Hello from requireJS"
   app = new App();

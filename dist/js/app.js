@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone'], function($, _, Backbone) {
+define(['jquery', 'underscore', 'backbone', 'text!../html/app.html'], function($, _, Backbone, Template) {
   return Backbone.View.extend({
     id: 'main-container',
     initialize: function() {

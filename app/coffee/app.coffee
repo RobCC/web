@@ -1,6 +1,5 @@
-define ['jquery', 'underscore', 'backbone'], ($, _, Backbone) ->
+define ['jquery', 'underscore', 'backbone', 'text!../html/app.html'], ($, _, Backbone, Template) ->
   Backbone.View.extend
     id : 'main-container'
     initialize: ->
-
       console.log "Hello from Backbone!"
