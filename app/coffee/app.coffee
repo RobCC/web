@@ -2,10 +2,11 @@ define ['jquery', 'underscore', 'backbone', 'text!../html/app.html'], ($, _, Bac
   Backbone.View.extend
     id : 'main-container'
     initialize: ->
-      console.log "Hello from Backbone!"
       @render()
 
     render:  ->
       $body = $ 'body'
 
-      $body.append Template
+      @$el.html Template
+
+      $body.append @$el
