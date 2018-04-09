@@ -20,8 +20,8 @@ var sourceLibs = [
   packages.BOWER + 'underscore/underscore-min.js',
   packages.NPM   + 'backbone/backbone-min.js',
   packages.NPM   + 'materialize-css/dist/js/materialize.min.js',
-  packages.NPM   + 'hammerjs/hammer.min.js',
-  packages.NPM   + 'text/text.js'
+  packages.NPM   + 'hammerjs/hammer.min.js'
+  // packages.NPM   + 'text/text.js'
 ];
 
 var sourceLibsCSS = [
@@ -33,7 +33,7 @@ gulp.task('default', function(){ runSequence('build:dev'); });
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
-  runSequence('clean:dist', 'move:index', 'less', 'coffee', 'requirejs:move', 'requirejs:main', 'move:libs:js', 'move:html', 'move:libs:css', 'move:images', 'move:fonts');
+  runSequence('clean:dist', 'move:index', 'less', 'coffee', 'requirejs:move', 'requirejs:main', 'move:libs:js', 'move:html', 'text:move', 'move:libs:css', 'move:images', 'move:fonts');
 });
 
 gulp.task('build:prod', function() {
@@ -105,8 +105,8 @@ gulp.task('requirejs:move', function() {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('rjs:move', function() {
-  return gulp.src(packages.NPM + 'requirejs/bin/r.js')
+gulp.task('text:move', function() {
+  return gulp.src(packages.NPM + 'text/text.js')
     .pipe(gulp.dest('dist/'));
 });
 
