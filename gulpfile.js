@@ -33,7 +33,7 @@ gulp.task('default', function(){ runSequence('build:dev'); });
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
-  runSequence('clean:dist', 'move:index', 'less', 'coffee', 'requirejs:move', 'requirejs:main', 'move:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
+  runSequence('clean:dist', 'move:index', 'less', 'coffee', 'requirejs:move', 'requirejs:main', 'move:libs:js', 'move:html', 'move:libs:css', 'move:images', 'move:fonts');
 });
 
 gulp.task('build:prod', function() {
@@ -70,6 +70,11 @@ gulp.task('less:min', function(){
 gulp.task('move:index', function() {
   return gulp.src('app/index.html')
     .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('move:html', function() {
+  return gulp.src('app/html/**/*.html')
+    .pipe(gulp.dest('dist/html'));
 });
 
 gulp.task('move:libs:js', function() {
