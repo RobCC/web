@@ -4,8 +4,9 @@ requirejs.config({
     'underscore': 'js/lib/underscore-min',
     'backbone': 'js/lib/backbone-min',
     'materialize': 'js/lib/materialize.min',
+    'velocity': 'js/lib/velocity.min',
     'hammer': 'js/lib/hammer.min',
-    'text  ': 'text'
+    'text': 'text'
   },
   shim: {
     'underscore': {
@@ -16,7 +17,7 @@ requirejs.config({
     },
     'materialize': {
       exports: 'Materialize',
-      deps: ['hammer', 'jquery']
+      deps: ['hammer', 'velocity', 'jquery']
     }
   }
 });
@@ -35,5 +36,31 @@ requirejs.config({
 //define does
 requirejs(['jquery', 'underscore', 'backbone', './js/app'], function($, _, Backbone, App) {
   var app;
+  $.fn.extend({
+    animateCss: function(animationName, callback) {
+      var animationEnd;
+      animationEnd = (function(el) {
+        var animations, t;
+        animations = {
+          animation: 'animationend',
+          OAnimation: 'oAnimationEnd',
+          MozAnimation: 'mozAnimationEnd',
+          WebkitAnimation: 'webkitAnimationEnd'
+        };
+        for (t in animations) {
+          if (el.style[t] !== void 0) {
+            return animations[t];
+          }
+        }
+      })(document.createElement('div'));
+      this.addClass('animated ' + animationName).one(animationEnd, function() {
+        $(this).removeClass('animated ' + animationName);
+        if (typeof callback === 'function') {
+          callback();
+        }
+      });
+      return this;
+    }
+  });
   return app = new App();
 });

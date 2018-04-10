@@ -9,6 +9,7 @@ var makeDir     = require('make-dir');
 var runSequence = require('run-sequence');
 var coffee      = require('gulp-coffee');
 var clean       = require('gulp-clean');
+var watch       = require('gulp-watch');
 
 var packages = {
   NPM   : 'node_modules/',
@@ -20,12 +21,14 @@ var sourceLibs = [
   packages.BOWER + 'underscore/underscore-min.js',
   packages.NPM   + 'backbone/backbone-min.js',
   packages.NPM   + 'materialize-css/dist/js/materialize.min.js',
+  packages.NPM   + 'materialize-css/js/velocity.min.js',
   packages.NPM   + 'hammerjs/hammer.min.js'
   // packages.NPM   + 'text/text.js'
 ];
 
 var sourceLibsCSS = [
-  packages.NPM   + 'materialize-css/dist/css/materialize.min.css'
+  packages.NPM   + 'materialize-css/dist/css/materialize.min.css',
+  packages.BOWER + 'animate.css/animate.min.css'
 ];
 
 gulp.task('default', function(){ runSequence('build:dev'); });
@@ -44,6 +47,9 @@ gulp.task('build:prod', function() {
 gulp.task('watch', function(){
   console.log('Hear my words and bear witness to my vow. Night gathers, and now my watch begins.');
   gulp.watch('app/less/**/*.less', ['less']);
+  gulp.watch('app/coffee/**/*.coffee', ['coffee']);
+  gulp.watch('app/html/**/*.html', ['move:html']);
+
 });
 
 gulp.task('coffee', function(){

@@ -4,8 +4,9 @@ requirejs.config
     'underscore'  : 'js/lib/underscore-min'
     'backbone'    : 'js/lib/backbone-min'
     'materialize' : 'js/lib/materialize.min'
+    'velocity'    : 'js/lib/velocity.min'
     'hammer'      : 'js/lib/hammer.min'
-    'text  '      : 'text'
+    'text'        : 'text'
   shim:
     'underscore':
       exports : '_'
@@ -13,7 +14,7 @@ requirejs.config
       exports : 'Hammer'
     'materialize' :
       exports : 'Materialize'
-      deps    : ['hammer', 'jquery']
+      deps    : ['hammer', 'velocity', 'jquery']
     # 'backbone':
     #   deps    : ['jquery', 'underscore']
     #   exports : 'Backbone'
@@ -28,4 +29,23 @@ requirejs.config
 #require does not return node_modules
 #define does
 requirejs ['jquery', 'underscore', 'backbone', './js/app'], ($, _, Backbone, App) ->
+  $.fn.extend animateCss: (animationName, callback) ->
+    animationEnd = ((el) ->
+      animations =
+        animation: 'animationend'
+        OAnimation: 'oAnimationEnd'
+        MozAnimation: 'mozAnimationEnd'
+        WebkitAnimation: 'webkitAnimationEnd'
+      for t of animations
+        if el.style[t] != undefined
+          return animations[t]
+      return
+    )(document.createElement('div'))
+    @addClass('animated ' + animationName).one animationEnd, ->
+      $(this).removeClass 'animated ' + animationName
+      if typeof callback == 'function'
+        callback()
+      return
+    this
+
   app = new App();

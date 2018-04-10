@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'text!../html/app.html'], function($, _, Backbone, Template) {
+define(['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/app.html'], function($, _, Backbone, Materialize, Template) {
   return Backbone.View.extend({
     id: 'main-container',
     initialize: function() {
@@ -9,6 +9,11 @@ define(['jquery', 'underscore', 'backbone', 'text!../html/app.html'], function($
       $body = $('body');
       this.$el.html(Template);
       return $body.append(this.$el);
+    },
+    // @initParallax()
+    initParallax: function() {
+      this.$('.main-px').parallax();
+      return this.$('.parallax-container').show().animateCss('fadeIn');
     }
   });
 });

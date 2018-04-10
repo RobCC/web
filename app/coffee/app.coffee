@@ -1,4 +1,4 @@
-define ['jquery', 'underscore', 'backbone', 'text!../html/app.html'], ($, _, Backbone, Template) ->
+define ['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/app.html'], ($, _, Backbone, Materialize, Template) ->
   Backbone.View.extend
     id : 'main-container'
     initialize: ->
@@ -8,5 +8,10 @@ define ['jquery', 'underscore', 'backbone', 'text!../html/app.html'], ($, _, Bac
       $body = $ 'body'
 
       @$el.html Template
-
       $body.append @$el
+
+      # @initParallax()
+
+    initParallax: ->
+      @$('.main-px').parallax()
+      @$('.parallax-container').show().animateCss 'fadeIn'
