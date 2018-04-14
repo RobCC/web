@@ -1,14 +1,19 @@
-define(['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/app.html'], function($, _, Backbone, Materialize, Template) {
+define(['jquery', 'underscore', 'backbone', 'materialize', 'js/header', 'js/navigation', 'js/content'], function($, _, Backbone, Materialize, Header, Nav, Content) {
   return Backbone.View.extend({
-    id: 'main-container',
+    el: 'body',
     initialize: function() {
-      return this.render();
+      return this.initHeader();
     },
-    render: function() {
-      var $body;
-      $body = $('body');
-      this.$el.html(Template);
-      return $body.append(this.$el);
+    initHeader: function() {
+      var content, header, nav;
+      header = new Header();
+      nav = new Nav();
+      content = new Content();
+      this.$el.append(header.render().el);
+      this.$el.append(nav.render().el);
+      this.$el.append(content.render().el);
+      header.$el.animateCss('fadeIn');
+      return nav.$el.animateCss('fadeIn');
     },
     // @initParallax()
     initParallax: function() {
