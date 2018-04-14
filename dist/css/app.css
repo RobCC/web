@@ -1,18 +1,34 @@
 body {
-  background-color: #ffffff;
-  color: #1c1e26;
-}
-#main-container {
-  width: 100%;
-  height: 80%;
-}
-#main-container .parallax-container {
   width: 100%;
   height: 100%;
+  background-color: #1a1c23;
 }
-#main-container .parallax-container img {
-  zoom: 60%;
+body header {
+  width: 100%;
+  height: 94%;
+  background: radial-gradient(circle, #1a1c23, #31343c, #1a1c23);
+  color: white;
+  padding: 2% 3%;
+  transition: all 1s;
 }
-#main-container h1 {
-  height: 100vh;
+body header .title {
+  font-size: 4em;
+}
+body nav {
+  height: 6%;
+  background-color: white;
+  color: #1a1c23;
+  transition: all 1s;
+}
+body nav .nav-wrapper {
+  font-size: 1.2em;
+}
+body nav .nav-wrapper .nav-option {
+  position: relative;
+  top: -5px;
+}
+body .content-wrapper {
+  height: 94%;
+  background-color: white;
+  border: 1px solid #333;
 }

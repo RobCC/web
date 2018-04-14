@@ -1,17 +1,10 @@
-@import 'body';
+@body-bg: #1a1c23;
 
-#main-container {
-  width: 100%;
-  height: 80%;
+body {
+  width             : 100%;
+  height            : 100%;
+  background-color  : @body-bg;
 
-  .parallax-container {
-    width: 100%;
-    height:100%;
-
-    img { zoom: 60%; }
-  }
-
-  h1 {
-    height: 100vh;
-  }
+  @import 'header-nav';
+  @import 'content';
 }

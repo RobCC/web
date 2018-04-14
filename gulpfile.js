@@ -46,7 +46,7 @@ gulp.task('build:prod', function() {
 
 gulp.task('watch', function(){
   console.log('Hear my words and bear witness to my vow. Night gathers, and now my watch begins.');
-  gulp.watch('app/less/**/*.less', ['less']);
+  gulp.watch('app/less/*.less', ['less']);
   gulp.watch('app/coffee/**/*.coffee', ['coffee']);
   gulp.watch('app/html/**/*.html', ['move:html']);
 
