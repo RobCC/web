@@ -1,9 +1,23 @@
-@body-bg: #1a1c23;
+@body-bg          : #1a1c23;
+
+@header-height    : 94vh;
+@remaining-height : 100vh - @header-height;
 
 body {
-  width             : 100%;
-  height            : 100%;
   background-color  : @body-bg;
+
+  header {
+    height      : 100vh;
+  }
+
+  nav {
+    height      : @remaining-height;
+  }
+
+  .content-wrapper {
+    min-height  : @header-height;
+    margin-top  : 100vh;
+  }
 
   @import 'header-nav';
   @import 'content';
