@@ -8,6 +8,9 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/header.
     render: function() {
       this.$el.html(Template);
       return this;
+    },
+    animate: function() {
+      return this.$el.animateCss('fadeIn');
     }
   });
 });

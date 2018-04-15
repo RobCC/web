@@ -12,8 +12,8 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'js/header', 'js/navi
       this.$el.append(header.render().el);
       this.$el.append(nav.render().el);
       this.$el.append(content.render().el);
-      header.$el.animateCss('fadeIn');
-      return nav.$el.animateCss('fadeInUp');
+      header.animate();
+      return nav.animate();
     }
   });
 });

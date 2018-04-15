@@ -17,5 +17,5 @@ define ['jquery', 'underscore', 'backbone', 'materialize'
       @$el.append nav.render().el
       @$el.append content.render().el
 
-      header.$el.animateCss 'fadeIn'
-      nav.$el.animateCss 'fadeInUp'
+      header.animate()
+      nav.animate()

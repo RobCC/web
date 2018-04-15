@@ -33,10 +33,31 @@ body nav {
 }
 body nav .nav-wrapper {
   font-size: 1.2em;
+  display: flex;
+  align-items: center;
 }
-body nav .nav-wrapper .nav-option {
+body nav .nav-wrapper .col {
   position: relative;
-  top: -5px;
+  height: 70%;
+  margin: 0 15px;
+  border-left: 0px solid #333;
+  border-right: 0px solid #333;
+}
+body nav .nav-wrapper .option {
+  position: relative;
+  height: 100%;
+  display: flex;
+  padding: 5px 7px;
+  color: #333;
+  transition: all 250ms;
+  border-radius: 2px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+body nav .nav-wrapper .option:hover {
+  letter-spacing: 2px;
+  font-weight: bold;
 }
 body .content-wrapper {
   background-color: white;
