@@ -1,24 +1,35 @@
 body {
-  width: 100%;
-  height: 100%;
   background-color: #1a1c23;
 }
 body header {
+  height: 100vh;
+}
+body nav {
+  height: 6vh;
+}
+body .content-wrapper {
+  min-height: 94vh;
+  margin-top: 100vh;
+}
+body header {
   width: 100%;
-  height: 94%;
   background: radial-gradient(circle, #1a1c23, #31343c, #1a1c23);
   color: white;
   padding: 2% 3%;
   transition: all 1s;
+  position: absolute;
+  top: 0;
 }
 body header .title {
   font-size: 4em;
 }
 body nav {
-  height: 6%;
+  position: absolute;
   background-color: white;
   color: #1a1c23;
-  transition: all 1s;
+  transition: all 500ms;
+  padding: 0 20%;
+  bottom: 0;
 }
 body nav .nav-wrapper {
   font-size: 1.2em;
@@ -28,7 +39,5 @@ body nav .nav-wrapper .nav-option {
   top: -5px;
 }
 body .content-wrapper {
-  height: 94%;
   background-color: white;
-  border: 1px solid #333;
 }

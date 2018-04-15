@@ -2,9 +2,9 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'js/header', 'js/navi
   return Backbone.View.extend({
     el: 'body',
     initialize: function() {
-      return this.initHeader();
+      return this.render();
     },
-    initHeader: function() {
+    render: function() {
       var content, header, nav;
       header = new Header();
       nav = new Nav();
@@ -13,12 +13,7 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'js/header', 'js/navi
       this.$el.append(nav.render().el);
       this.$el.append(content.render().el);
       header.$el.animateCss('fadeIn');
-      return nav.$el.animateCss('fadeIn');
-    },
-    // @initParallax()
-    initParallax: function() {
-      this.$('.main-px').parallax();
-      return this.$('.parallax-container').show().animateCss('fadeIn');
+      return nav.$el.animateCss('fadeInUp');
     }
   });
 });
