@@ -17,7 +17,9 @@ define ['jquery', 'underscore', 'backbone', 'materialize'
 
     goToSection: (e) ->
       $target = $ e.currentTarget
+      $dest = $ $target.data 'target'
 
       @$('.col.active').removeClass 'active'
-
       $target.parent().addClass 'active'
+
+      $('html,body').animate { scrollTop: $dest.offset().top }, 'slow'
