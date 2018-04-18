@@ -15,10 +15,14 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/navigat
       return this.$el.animateCss('fadeInUp');
     },
     goToSection: function(e) {
-      var $target;
+      var $dest, $target;
       $target = $(e.currentTarget);
+      $dest = $($target.data('target'));
       this.$('.col.active').removeClass('active');
-      return $target.parent().addClass('active');
+      $target.parent().addClass('active');
+      return $('html,body').animate({
+        scrollTop: $dest.offset().top
+      }, 'slow');
     }
   });
 });

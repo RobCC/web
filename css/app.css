@@ -56,9 +56,15 @@ body nav .nav-wrapper .option {
   justify-content: center;
 }
 body nav .nav-wrapper .option:hover {
+  background-color: #e0e0e0;
   letter-spacing: 2px;
   font-weight: bold;
 }
 body .content-wrapper {
   background-color: white;
+  padding: 50px;
+  font-size: 2em;
+}
+body .content-wrapper .important {
+  font-weight: bold;
 }
