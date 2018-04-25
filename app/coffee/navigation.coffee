@@ -13,7 +13,7 @@ define ['jquery', 'underscore', 'backbone', 'materialize'
       @
 
     animate: ->
-      @$el.animateCss 'fadeInUp'
+      @$el.animateCss 'fadeInUpBig'
 
     goToSection: (e) ->
       $target = $ e.currentTarget

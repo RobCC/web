@@ -1,27 +1,53 @@
-@header-bg    : #1a1c23;
-@header-bg2   : #31343c;
+@header-bg    : #6b6b6b;
+@header-bg2   : #333;
 @heaver-color : white;
 @black        : @header-bg;
 
 header {
+  position          : absolute;
+  top               : 0;
   width             : 100%;
-
-  // background-color  : @header-bg;
-  // background: linear-gradient(-150deg, @header-bg, @header-bg2);
-  background        : radial-gradient(circle, @header-bg, @header-bg2, @header-bg);
   color             : @heaver-color;
   padding           : 2% 3%;
+  text-align        : center;
   transition        : all 1s;
 
-  position: absolute;
-  top: 0;
-
-  &.gradient {
-
+  &.circle-bg {
+    background : radial-gradient(circle, @header-bg, @header-bg2, @header-bg2);
   }
+
+  &.diagonal-bg {
+    background: linear-gradient(-150deg, @header-bg, @header-bg2);
+  }
+
+  &.left-bg {
+    background: linear-gradient(-90deg, @header-bg, @header-bg2);
+  }
+
 
   .title {
     font-size: 4em;
+    @media @under-large { display: none; }
+  }
+
+  @image-size : 200px;
+  @half-size  : @image-size / 2;
+
+  .image-wrapper {
+    position          : absolute;
+    width             : @image-size;
+    height            : 200px;
+    background-color  : white;
+    border-radius     : 100px;
+    top               : 50%;
+    left              : 50%;
+    margin-top        : ~"calc(-@{half-size} - @{remaining-height})";
+    margin-left       : -@half-size;
+    border            : 1px solid #444;
+
+    background-image  : url(../images/dontlookatme.jpg);
+    background-repeat : no-repeat;
+    background-size   : contain;
   }
 }
 
@@ -29,21 +55,23 @@ nav {
   position          : absolute;
   background-color  : white;
   color             : @black;
-  transition        : all 500ms;
+  // transition        : all 500ms;
   padding           : 0 20%;
   bottom            : 0;
 
   .nav-wrapper {
-    font-size       : 1.2em;
+    font-size       : 2vh;
     display         : flex;
     align-items     : center;
+
+    @media @under-large { font-size: 1.8vh; }
 
     .col {
       position      : relative;
       height        : 70%;
-      margin        : 0 15px;
       border-left   : 0px solid #333;
       border-right  : 0px solid #333;
+      padding       : 0 2px;
 
       &.active {
         // border-width: 1px;
@@ -56,7 +84,7 @@ nav {
       display       : flex;
       padding       : 5px 7px;
       color         : #333;
-      transition    : all 250ms;
+      transition    : background-color 250ms, letter-spacing 250ms, font-weight 250ms;
       border-radius : 2px;
       cursor        : pointer;
       align-items   : center;
@@ -64,10 +92,10 @@ nav {
 
 
       &:hover {
-        background-color: #e0e0e0;
+        // background-color  : #e0e0e0;
         // color: white;
-        letter-spacing: 2px;
-        font-weight: bold;
+        letter-spacing    : 1px;
+        font-weight       : bold;
       }
     }
   }

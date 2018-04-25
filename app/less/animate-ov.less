@@ -1,0 +1,91 @@
+@fade-distance: 30%;
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, @fade-distance, 0);
+    transform: translate3d(0, @fade-distance, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, @fade-distance, 0);
+    transform: translate3d(0, @fade-distance, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes fadeInUpBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUpBig {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUpBig {
+  -webkit-animation-name: fadeInUpBig;
+  animation-name: fadeInUpBig;
+}
+
+
+
+
+//header
+@per: ~"0%";
+@rotate-bg    : #6b6b6b;
+@rotate-bg2   : #333;
+
+.loop-rotate(@counter) when (@counter > 0) {
+  @deg: 3.6deg * @counter;
+  @rotate-bg    : #6b6b6b;
+  @rotate-bg2   : #333;
+  .loop-rotate((@counter - 1)); // next iteration
+  @{counter}  { background: linear-gradient(@deg, @rotate-bg, @rotate-bg2); }
+}
+
+@-webkit-keyframes rotate-bg {
+  .loop-rotate(100%);
+}
+
+@keyframes rotate-bg {
+  .loop-rotate(100%);
+}
+
+.rotate-bg {
+  -webkit-animation: rotate-bg 5s infinite;
+  animation: rotate-bg 5s infinite;
+}
