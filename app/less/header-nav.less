@@ -10,7 +10,7 @@ header {
   color             : @heaver-color;
   padding           : 2% 3%;
   text-align        : center;
-  transition        : all 1s;
+  // transition        : all 1s;
 
   &.circle-bg {
     background : radial-gradient(circle, @header-bg, @header-bg2, @header-bg2);
@@ -30,24 +30,53 @@ header {
     @media @under-large { display: none; }
   }
 
-  @image-size : 200px;
-  @half-size  : @image-size / 2;
-
   .image-wrapper {
     position          : absolute;
-    width             : @image-size;
-    height            : 200px;
     background-color  : white;
     border-radius     : 100px;
     top               : 50%;
     left              : 50%;
-    margin-top        : ~"calc(-@{half-size} - @{remaining-height})";
-    margin-left       : -@half-size;
     border            : 1px solid #444;
 
     background-image  : url(../images/dontlookatme.jpg);
     background-repeat : no-repeat;
     background-size   : contain;
+
+    @media @xl {
+      @image-size : 200px;
+      @half-size  : @image-size / 2;
+      width       : @image-size;
+      height      : @image-size;
+      margin-top  : ~"calc(-@{half-size} - @{remaining-height})";
+      margin-left : -@half-size;
+    }
+
+    @media @l {
+      @image-size : 200px;
+      @half-size  : @image-size / 2;
+      width       : @image-size;
+      height      : @image-size;
+      margin-top  : ~"calc(-@{half-size} - @{remaining-height})";
+      margin-left : -@half-size;
+    }
+
+    @media @m {
+      @image-size : 175px;
+      @half-size  : @image-size / 2;
+      width       : @image-size;
+      height      : @image-size;
+      margin-top  : ~"calc(-@{half-size} - @{remaining-height})";
+      margin-left : -@half-size;
+    }
+
+    @media @s {
+      @image-size : 130px;
+      @half-size  : @image-size / 2;
+      width       : @image-size;
+      height      : @image-size;
+      margin-top  : ~"calc(-@{half-size} - @{remaining-height})";
+      margin-left : -@half-size;
+    }
   }
 }
 
@@ -64,7 +93,7 @@ nav {
     display         : flex;
     align-items     : center;
 
-    @media @under-large { font-size: 1.8vh; }
+    // @media @under-large { font-size: 1.8vh; }
 
     .col {
       position      : relative;
@@ -90,6 +119,8 @@ nav {
       align-items   : center;
       justify-content: center;
 
+
+      @media @under-large { padding: 1px 2px; }
 
       &:hover {
         // background-color  : #e0e0e0;

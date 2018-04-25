@@ -3,14 +3,6 @@
 @header-height    : 94vh;
 @remaining-height : 100vh - @header-height;
 
-@xl : ~"only screen and (min-width: 1201px)";
-@l  : ~"only screen and (min-width: 993px) and (max-width: 1200px)";
-@m  : ~"only screen and (min-width: 601px) and (max-width: 992px)";
-
-@under-large : ~"only screen and (max-width: 801px)";
-
-// @xs : ~"only screen and (max-width: 600x)";
-
 body {
   background-color  : @body-bg;
 
@@ -27,7 +19,8 @@ body {
     margin-top  : 100vh;
   }
 
+  @import 'animate-ov';
+  @import 'medias';
   @import 'header-nav';
   @import 'content';
-  @import 'animate-ov';
 }

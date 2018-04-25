@@ -11,95 +11,6 @@ body .content-wrapper {
   min-height: 94vh;
   margin-top: 100vh;
 }
-body header {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  color: white;
-  padding: 2% 3%;
-  text-align: center;
-  transition: all 1s;
-}
-body header.circle-bg {
-  background: radial-gradient(circle, #6b6b6b, #333, #333);
-}
-body header.diagonal-bg {
-  background: linear-gradient(-150deg, #6b6b6b, #333);
-}
-body header.left-bg {
-  background: linear-gradient(-90deg, #6b6b6b, #333);
-}
-body header .title {
-  font-size: 4em;
-}
-@media only screen and (max-width: 801px) {
-  body header .title {
-    display: none;
-  }
-}
-body header .image-wrapper {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background-color: white;
-  border-radius: 100px;
-  top: 50%;
-  left: 50%;
-  margin-top: calc(-100px - 6vh);
-  margin-left: -100px;
-  border: 1px solid #444;
-  background-image: url(../images/dontlookatme.jpg);
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-body nav {
-  position: absolute;
-  background-color: white;
-  color: #6b6b6b;
-  padding: 0 20%;
-  bottom: 0;
-}
-body nav .nav-wrapper {
-  font-size: 2vh;
-  display: flex;
-  align-items: center;
-}
-@media only screen and (max-width: 801px) {
-  body nav .nav-wrapper {
-    font-size: 1.8vh;
-  }
-}
-body nav .nav-wrapper .col {
-  position: relative;
-  height: 70%;
-  border-left: 0px solid #333;
-  border-right: 0px solid #333;
-  padding: 0 2px;
-}
-body nav .nav-wrapper .option {
-  position: relative;
-  height: 100%;
-  display: flex;
-  padding: 5px 7px;
-  color: #333;
-  transition: background-color 250ms, letter-spacing 250ms, font-weight 250ms;
-  border-radius: 2px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-}
-body nav .nav-wrapper .option:hover {
-  letter-spacing: 1px;
-  font-weight: bold;
-}
-body .content-wrapper {
-  background-color: white;
-  padding: 50px;
-  font-size: 2em;
-}
-body .content-wrapper .important {
-  font-weight: bold;
-}
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
@@ -759,4 +670,120 @@ body .fadeInUpBig {
 body .rotate-bg {
   -webkit-animation: rotate-bg 5s infinite;
   animation: rotate-bg 5s infinite;
+}
+body header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  color: white;
+  padding: 2% 3%;
+  text-align: center;
+}
+body header.circle-bg {
+  background: radial-gradient(circle, #6b6b6b, #333, #333);
+}
+body header.diagonal-bg {
+  background: linear-gradient(-150deg, #6b6b6b, #333);
+}
+body header.left-bg {
+  background: linear-gradient(-90deg, #6b6b6b, #333);
+}
+body header .title {
+  font-size: 4em;
+}
+@media only screen and (max-width: 801px) {
+  body header .title {
+    display: none;
+  }
+}
+body header .image-wrapper {
+  position: absolute;
+  background-color: white;
+  border-radius: 100px;
+  top: 50%;
+  left: 50%;
+  border: 1px solid #444;
+  background-image: url(../images/dontlookatme.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media only screen and (min-width: 1201px) {
+  body header .image-wrapper {
+    width: 200px;
+    height: 200px;
+    margin-top: calc(-100px - 6vh);
+    margin-left: -100px;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  body header .image-wrapper {
+    width: 200px;
+    height: 200px;
+    margin-top: calc(-100px - 6vh);
+    margin-left: -100px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  body header .image-wrapper {
+    width: 175px;
+    height: 175px;
+    margin-top: calc(-87.5px - 6vh);
+    margin-left: -87.5px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body header .image-wrapper {
+    width: 130px;
+    height: 130px;
+    margin-top: calc(-65px - 6vh);
+    margin-left: -65px;
+  }
+}
+body nav {
+  position: absolute;
+  background-color: white;
+  color: #6b6b6b;
+  padding: 0 20%;
+  bottom: 0;
+}
+body nav .nav-wrapper {
+  font-size: 2vh;
+  display: flex;
+  align-items: center;
+}
+body nav .nav-wrapper .col {
+  position: relative;
+  height: 70%;
+  border-left: 0px solid #333;
+  border-right: 0px solid #333;
+  padding: 0 2px;
+}
+body nav .nav-wrapper .option {
+  position: relative;
+  height: 100%;
+  display: flex;
+  padding: 5px 7px;
+  color: #333;
+  transition: background-color 250ms, letter-spacing 250ms, font-weight 250ms;
+  border-radius: 2px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (max-width: 801px) {
+  body nav .nav-wrapper .option {
+    padding: 1px 2px;
+  }
+}
+body nav .nav-wrapper .option:hover {
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+body .content-wrapper {
+  background-color: white;
+  padding: 50px;
+  font-size: 2em;
+}
+body .content-wrapper .important {
+  font-weight: bold;
 }
