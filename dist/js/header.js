@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/header.html'], function($, _, Backbone, Materialize, Template) {
+define(['jquery', 'underscore', 'backbone', 'materialize', 'anime', 'text!../html/header.html'], function($, _, Backbone, Materialize, anime, Template) {
   return Backbone.View.extend({
     tagName: 'header',
     classStyles: ['circle-bg'],

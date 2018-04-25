@@ -22,7 +22,8 @@ var sourceLibs = [
   packages.NPM   + 'backbone/backbone-min.js',
   packages.NPM   + 'materialize-css/dist/js/materialize.min.js',
   packages.NPM   + 'materialize-css/js/velocity.min.js',
-  packages.NPM   + 'hammerjs/hammer.min.js'
+  packages.NPM   + 'hammerjs/hammer.min.js',
+  packages.BOWER + 'animejs/anime.min.js',
   // packages.NPM   + 'text/text.js'
 ];
 

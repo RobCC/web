@@ -6,12 +6,15 @@ requirejs.config
     'materialize' : 'js/lib/materialize.min'
     'velocity'    : 'js/lib/velocity.min'
     'hammer'      : 'js/lib/hammer.min'
+    'anime'       : 'js/lib/anime.min'
     'text'        : 'text'
   shim:
     'underscore':
       exports : '_'
     'hammer' :
       exports : 'Hammer'
+    'anime' :
+      exports : 'anime'
     'materialize' :
       exports : 'Materialize'
       deps    : ['hammer', 'velocity', 'jquery']
