@@ -12,7 +12,7 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/navigat
       return this;
     },
     animate: function() {
-      return this.$el.animateCss('fadeInUp');
+      return this.$el.animateCss('fadeInUpBig');
     },
     goToSection: function(e) {
       var $dest, $target;
