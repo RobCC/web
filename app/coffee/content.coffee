@@ -4,7 +4,6 @@ define ['jquery', 'underscore', 'backbone', 'materialize'
   Backbone.View.extend
     className  : 'content-wrapper'
     initialize : ->
-      @render()
 
     render:  ->
       @$el.html Template

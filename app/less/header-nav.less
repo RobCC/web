@@ -78,6 +78,38 @@ header {
       margin-left : -@half-size;
     }
   }
+
+  .ml11 {
+    font-size: 3.5em;
+  }
+
+  .ml11 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.1em;
+    padding-right: 0.05em;
+    padding-bottom: 0.15em;
+  }
+
+  .ml11 .line {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: #fff;
+    transform-origin: 0 50%;
+  }
+
+  .ml11 .line1 {
+    top: 0;
+    left: 0;
+  }
+
+  .ml11 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
 }
 
 nav {
@@ -87,6 +119,11 @@ nav {
   // transition        : all 500ms;
   padding           : 0 20%;
   bottom            : 0;
+
+  &.stick {
+    position: fixed;
+    top: 0;
+  }
 
   .nav-wrapper {
     font-size       : 2vh;
@@ -103,7 +140,19 @@ nav {
       padding       : 0 2px;
 
       &.active {
-        // border-width: 1px;
+        border-width: 1px;
+
+        .option {
+          &:after {
+            content: '';
+            // position: absolute;
+            // width: 45%;
+            // height: 2px;
+            // background-color: #75686a;
+            // bottom: 0;
+            // border-radius: 100px;
+          }
+        }
       }
     }
 

@@ -4,15 +4,30 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/navigat
     events: {
       'click .option': 'goToSection'
     },
-    initialize: function() {
-      return this.render();
-    },
+    initialize: function() {},
     render: function() {
       this.$el.html(Template);
       return this;
     },
+    stickNavigation: function() {
+      var self;
+      self = this;
+      this.distance = this.$el.offset().top;
+      $(document).on('scroll', function() {
+        if ($(window).scrollTop() >= self.distance) {
+          return self.$el.addClass('stick');
+        } else {
+          return self.$el.removeClass('stick');
+        }
+      });
+      return this;
+    },
     animate: function() {
-      return this.$el.animateCss('fadeInUpBig');
+      var self;
+      self = this;
+      return this.$el.animateCss('fadeInUpBig', function() {
+        return self.stickNavigation();
+      });
     },
     goToSection: function(e) {
       var $dest, $target;

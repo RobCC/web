@@ -6,18 +6,28 @@ define ['jquery', 'underscore', 'backbone', 'materialize'
     events     :
       'click .option' : 'goToSection'
     initialize : ->
-      @render()
 
     render:  ->
       @$el.html Template
       @
 
+    stickNavigation: ->
+      self = @
+      @distance = @$el.offset().top
+      $(document).on 'scroll', ->
+        if $(window).scrollTop() >= self.distance
+          self.$el.addClass 'stick'
+        else
+          self.$el.removeClass 'stick'
+      @
+
     animate: ->
-      @$el.animateCss 'fadeInUpBig'
+      self = @
+      @$el.animateCss 'fadeInUpBig', -> self.stickNavigation()
 
     goToSection: (e) ->
       $target = $ e.currentTarget
-      $dest = $ $target.data 'target'
+      $dest   = $ $target.data 'target'
 
       @$('.col.active').removeClass 'active'
       $target.parent().addClass 'active'
