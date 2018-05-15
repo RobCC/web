@@ -3,12 +3,11 @@ define ['jquery', 'underscore', 'backbone', 'materialize', 'anime'
 ], ($, _, Backbone, Materialize, anime, Template) ->
   Backbone.View.extend
     tagName        : 'header'
-    classStyles    : ['circle-bg']
+    classStyles    : ['simple']
     welcomeOptions : [
       'Hi!', 'Welcome!', 'Greetings!', 'Nice to see you!'
-      'How do you do?', 'Life is suffering!', 'Why so serious?'
+      'May the force be with you!'
       #'Yippee Ki Yay, Mr. Falcon'
-      'May the force be with you!', 'Ayyyyy'
     ]
     initialize  : ->
 

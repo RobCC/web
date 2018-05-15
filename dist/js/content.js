@@ -4,6 +4,7 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'text!../html/content
     initialize: function() {},
     render: function() {
       this.$el.html(Template);
+      this.$('.parallax').parallax();
       return this;
     }
   });

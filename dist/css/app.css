@@ -12,6 +12,9 @@ body .content-wrapper {
   min-height: 94vh;
   margin-top: 100vh;
 }
+body .parallax {
+  z-index: 0 !important;
+}
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
@@ -680,14 +683,17 @@ body header {
   padding: 2% 3%;
   text-align: center;
 }
+body header.simple {
+  background-color: #292929;
+}
 body header.circle-bg {
-  background: radial-gradient(circle, #6b6b6b, #333, #333);
+  background-color: radial-gradient(circle, #6b6b6b, #333, #333);
 }
 body header.diagonal-bg {
-  background: linear-gradient(-150deg, #6b6b6b, #333);
+  background-color: linear-gradient(-150deg, #6b6b6b, #333);
 }
 body header.left-bg {
-  background: linear-gradient(-90deg, #6b6b6b, #333);
+  background-color: linear-gradient(-90deg, #6b6b6b, #333);
 }
 body header .title {
   font-size: 4em;
@@ -700,7 +706,7 @@ body header .title {
 body header .image-wrapper {
   position: absolute;
   background-color: white;
-  border-radius: 100px;
+  border-radius: 100%;
   top: 50%;
   left: 50%;
   border: 1px solid #444;
@@ -710,34 +716,34 @@ body header .image-wrapper {
 }
 @media only screen and (min-width: 1201px) {
   body header .image-wrapper {
-    width: 200px;
-    height: 200px;
-    margin-top: calc(-100px - 6vh);
-    margin-left: -100px;
+    width: 300px;
+    height: 300px;
+    margin-top: calc(-150px - 6vh);
+    margin-left: -150px;
   }
 }
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
   body header .image-wrapper {
-    width: 200px;
-    height: 200px;
-    margin-top: calc(-100px - 6vh);
-    margin-left: -100px;
+    width: 300px;
+    height: 300px;
+    margin-top: calc(-150px - 6vh);
+    margin-left: -150px;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 992px) {
   body header .image-wrapper {
-    width: 175px;
-    height: 175px;
-    margin-top: calc(-87.5px - 6vh);
-    margin-left: -87.5px;
+    width: 275px;
+    height: 275px;
+    margin-top: calc(-137.5px - 6vh);
+    margin-left: -137.5px;
   }
 }
 @media only screen and (max-width: 600px) {
   body header .image-wrapper {
-    width: 130px;
-    height: 130px;
-    margin-top: calc(-65px - 6vh);
-    margin-left: -65px;
+    width: 230px;
+    height: 230px;
+    margin-top: calc(-115px - 6vh);
+    margin-left: -115px;
   }
 }
 body header .ml11 {
@@ -773,6 +779,8 @@ body nav {
   color: #6b6b6b;
   padding: 0 20%;
   bottom: 0;
+  z-index: 1000;
+  box-shadow: none;
 }
 body nav.stick {
   position: fixed;
@@ -789,6 +797,7 @@ body nav .nav-wrapper .col {
   border-left: 0px solid #333;
   border-right: 0px solid #333;
   padding: 0 2px;
+  color: #333;
 }
 body nav .nav-wrapper .col.active {
   border-width: 1px;
@@ -801,7 +810,6 @@ body nav .nav-wrapper .option {
   height: 100%;
   display: flex;
   padding: 5px 7px;
-  color: #333;
   transition: background-color 250ms, letter-spacing 250ms, font-weight 250ms;
   border-radius: 2px;
   cursor: pointer;
@@ -818,10 +826,58 @@ body nav .nav-wrapper .option:hover {
   font-weight: bold;
 }
 body .content-wrapper {
-  background-color: white;
-  padding: 50px;
-  font-size: 2em;
+  background-color: #edf0f0;
+  padding: 25px 20%;
+  font-size: 1.5em;
 }
-body .content-wrapper .important {
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  body .content-wrapper {
+    font-size: 0.9em;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body .content-wrapper {
+    font-size: 0.5em;
+  }
+}
+body .content-wrapper .bold {
   font-weight: bold;
+}
+body .content-wrapper .title {
+  font-size: 1.2em;
+}
+body .content-wrapper section {
+  position: relative;
+  min-height: 300px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 15px 5px;
+}
+body .content-wrapper section:first-of-type {
+  border-top: 0;
+  border-bottom: 0;
+}
+body .content-wrapper section:last-of-type {
+  border-top: 0;
+  border-bottom: 0;
+}
+body .content-wrapper section .parallax img {
+  bottom: 40%;
+  zoom: 0.1;
+}
+body .content-wrapper section#connect .contact-image {
+  display: inline-block;
+  width: 75px;
+  height: 75px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+body .content-wrapper section#connect .contact-image.linked {
+  background-image: url(../images/contact/logo_in.png);
+}
+body .content-wrapper section#connect .contact-image.ghub {
+  background-image: url(../images/contact/logo_ghub.png);
+}
+body .content-wrapper section#connect .contact-image.fb {
+  background-image: url(../images/contact/logo_fb.png);
 }

@@ -3,6 +3,11 @@
 @heaver-color : white;
 @black        : @header-bg;
 
+
+// 212121
+//2f2f2f
+//292929
+
 header {
   position          : absolute;
   top               : 0;
@@ -12,16 +17,20 @@ header {
   text-align        : center;
   // transition        : all 1s;
 
+  &.simple {
+    background-color: #292929;
+  }
+
   &.circle-bg {
-    background : radial-gradient(circle, @header-bg, @header-bg2, @header-bg2);
+    background-color : radial-gradient(circle, @header-bg, @header-bg2, @header-bg2);
   }
 
   &.diagonal-bg {
-    background: linear-gradient(-150deg, @header-bg, @header-bg2);
+    background-color : linear-gradient(-150deg, @header-bg, @header-bg2);
   }
 
   &.left-bg {
-    background: linear-gradient(-90deg, @header-bg, @header-bg2);
+    background-color : linear-gradient(-90deg, @header-bg, @header-bg2);
   }
 
 
@@ -33,7 +42,7 @@ header {
   .image-wrapper {
     position          : absolute;
     background-color  : white;
-    border-radius     : 100px;
+    border-radius     : 100%;
     top               : 50%;
     left              : 50%;
     border            : 1px solid #444;
@@ -43,7 +52,7 @@ header {
     background-size   : contain;
 
     @media @xl {
-      @image-size : 200px;
+      @image-size : 300px;
       @half-size  : @image-size / 2;
       width       : @image-size;
       height      : @image-size;
@@ -52,7 +61,7 @@ header {
     }
 
     @media @l {
-      @image-size : 200px;
+      @image-size : 300px;
       @half-size  : @image-size / 2;
       width       : @image-size;
       height      : @image-size;
@@ -61,7 +70,7 @@ header {
     }
 
     @media @m {
-      @image-size : 175px;
+      @image-size : 275px;
       @half-size  : @image-size / 2;
       width       : @image-size;
       height      : @image-size;
@@ -70,7 +79,7 @@ header {
     }
 
     @media @s {
-      @image-size : 130px;
+      @image-size : 230px;
       @half-size  : @image-size / 2;
       width       : @image-size;
       height      : @image-size;
@@ -119,6 +128,10 @@ nav {
   // transition        : all 500ms;
   padding           : 0 20%;
   bottom            : 0;
+  z-index           : 1000;
+
+  box-shadow: none;
+  // background-color: linear-gradient(-90deg, #59707f, white, #59707f);
 
   &.stick {
     position: fixed;
@@ -138,6 +151,7 @@ nav {
       border-left   : 0px solid #333;
       border-right  : 0px solid #333;
       padding       : 0 2px;
+      color         : #333;
 
       &.active {
         border-width: 1px;
@@ -161,7 +175,6 @@ nav {
       height        : 100%;
       display       : flex;
       padding       : 5px 7px;
-      color         : #333;
       transition    : background-color 250ms, letter-spacing 250ms, font-weight 250ms;
       border-radius : 2px;
       cursor        : pointer;

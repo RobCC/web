@@ -7,4 +7,6 @@ define ['jquery', 'underscore', 'backbone', 'materialize'
 
     render:  ->
       @$el.html Template
+
+      @$('.parallax').parallax();
       @

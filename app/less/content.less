@@ -1,10 +1,63 @@
 .content-wrapper {
-  background-color: white;
+  background-color: #edf0f0;
+  padding         : 25px 20%;
+  font-size       : 1.5em;
 
-  padding: 50px;
-  font-size: 2em;
+  @media @m { font-size: 0.9em; }
+  @media @s { font-size: 0.5em; }
 
-  .important {
+  .bold {
     font-weight: bold;
+  }
+
+  .title {
+    font-size: 1.2em;
+  }
+
+  section {
+    position        : relative;
+    min-height      : 300px;
+    border-top      : 1px solid #ccc;
+    border-bottom   : 1px solid #ccc;
+    padding         : 15px 5px;
+
+    &:first-of-type {
+      border-top    : 0;
+      border-bottom : 0;
+    }
+    &:last-of-type {
+      border-top    : 0;
+      border-bottom : 0;
+    }
+
+    .parallax {
+      img {
+        bottom  : 40%;
+        zoom    : 0.1;
+      }
+    }
+
+    &#connect {
+      .contact-image {
+        display             : inline-block;
+        width               : 75px;
+        height              : 75px;
+        background-repeat   : no-repeat;
+        background-size     : contain;
+
+        &.linked {
+          background-image  : url(../images/contact/logo_in.png);
+        }
+
+        &.ghub {
+          background-image  : url(../images/contact/logo_ghub.png);
+        }
+
+        &.fb {
+          background-image  : url(../images/contact/logo_fb.png);
+        }
+
+      }
+    }
   }
 }
