@@ -865,12 +865,18 @@ body .content-wrapper section .parallax img {
   bottom: 40%;
   zoom: 0.1;
 }
+body .content-wrapper section#connect .contact {
+  display: block;
+  font-size: 0.9em;
+  font-family: monospace;
+}
 body .content-wrapper section#connect .contact-image {
   display: inline-block;
   width: 75px;
   height: 75px;
   background-repeat: no-repeat;
   background-size: contain;
+  margin: 0 15px;
 }
 body .content-wrapper section#connect .contact-image.linked {
   background-image: url(../images/contact/logo_in.png);
