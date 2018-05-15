@@ -1,19 +1,9 @@
 define(['jquery', 'underscore', 'backbone', 'materialize', 'anime', 'text!../html/header.html'], function($, _, Backbone, Materialize, anime, Template) {
   return Backbone.View.extend({
     tagName: 'header',
-    classStyles: ['circle-bg'],
-    welcomeOptions: [
-      'Hi!',
-      'Welcome!',
-      'Greetings!',
-      'Nice to see you!',
-      'How do you do?',
-      'Life is suffering!',
-      'Why so serious?',
-      //'Yippee Ki Yay, Mr. Falcon'
-      'May the force be with you!',
-      'Ayyyyy'
-    ],
+    classStyles: ['simple'],
+    welcomeOptions: ['Hi!', 'Welcome!', 'Greetings!', 'Nice to see you!', 'May the force be with you!'],
+    //'Yippee Ki Yay, Mr. Falcon'
     initialize: function() {},
     render: function() {
       this.$el.html(Template);
