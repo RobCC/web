@@ -703,6 +703,11 @@ body header .title {
     display: none;
   }
 }
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  body header .title {
+    margin-top: 100px;
+  }
+}
 body header .image-wrapper {
   position: absolute;
   background-color: white;
@@ -716,26 +721,26 @@ body header .image-wrapper {
 }
 @media only screen and (min-width: 1201px) {
   body header .image-wrapper {
-    width: 300px;
-    height: 300px;
-    margin-top: calc(-150px - 6vh);
-    margin-left: -150px;
+    width: 400px;
+    height: 400px;
+    margin-top: calc(-200px - 6vh);
+    margin-left: -200px;
   }
 }
 @media only screen and (min-width: 993px) and (max-width: 1200px) {
   body header .image-wrapper {
-    width: 300px;
-    height: 300px;
-    margin-top: calc(-150px - 6vh);
-    margin-left: -150px;
+    width: 375px;
+    height: 375px;
+    margin-top: calc(-187.5px - 6vh);
+    margin-left: -187.5px;
   }
 }
 @media only screen and (min-width: 601px) and (max-width: 992px) {
   body header .image-wrapper {
-    width: 275px;
-    height: 275px;
-    margin-top: calc(-137.5px - 6vh);
-    margin-left: -137.5px;
+    width: 350px;
+    height: 350px;
+    margin-top: calc(-175px - 6vh);
+    margin-left: -175px;
   }
 }
 @media only screen and (max-width: 600px) {
@@ -781,6 +786,16 @@ body nav {
   bottom: 0;
   z-index: 1000;
   box-shadow: none;
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  body nav {
+    padding: 0 75px;
+  }
+}
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  body nav {
+    padding: 0 50px;
+  }
 }
 body nav.stick {
   position: fixed;
@@ -832,12 +847,14 @@ body .content-wrapper {
 }
 @media only screen and (min-width: 601px) and (max-width: 992px) {
   body .content-wrapper {
-    font-size: 0.9em;
+    font-size: 2.2em;
+    padding: 25px 35px;
   }
 }
 @media only screen and (max-width: 600px) {
   body .content-wrapper {
-    font-size: 0.5em;
+    font-size: 1em;
+    padding: 25px 35px;
   }
 }
 body .content-wrapper .bold {

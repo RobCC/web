@@ -37,6 +37,10 @@ header {
   .title {
     font-size: 4em;
     @media @under-large { display: none; }
+
+    @media @m {
+      margin-top: 100px;
+    }
   }
 
   .image-wrapper {
@@ -52,7 +56,7 @@ header {
     background-size   : contain;
 
     @media @xl {
-      @image-size : 300px;
+      @image-size : 400px;
       @half-size  : @image-size / 2;
       width       : @image-size;
       height      : @image-size;
@@ -61,7 +65,7 @@ header {
     }
 
     @media @l {
-      @image-size : 300px;
+      @image-size : 375px;
       @half-size  : @image-size / 2;
       width       : @image-size;
       height      : @image-size;
@@ -70,7 +74,7 @@ header {
     }
 
     @media @m {
-      @image-size : 275px;
+      @image-size : 350px;
       @half-size  : @image-size / 2;
       width       : @image-size;
       height      : @image-size;
@@ -132,6 +136,14 @@ nav {
 
   box-shadow: none;
   // background-color: linear-gradient(-90deg, #59707f, white, #59707f);
+
+  @media @m {
+    padding         : 0 75px;
+  }
+
+  @media @m {
+    padding         : 0 50px;
+  }
 
   &.stick {
     position: fixed;
