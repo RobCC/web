@@ -887,20 +887,8 @@ body .content-wrapper section#connect .contact {
   font-size: 0.9em;
   font-family: monospace;
 }
-body .content-wrapper section#connect .contact-image {
-  display: inline-block;
-  width: 75px;
-  height: 75px;
-  background-repeat: no-repeat;
-  background-size: contain;
+body .content-wrapper section#connect .contact-links i {
+  color: #333;
+  font-size: 4em;
   margin: 0 15px;
-}
-body .content-wrapper section#connect .contact-image.linked {
-  background-image: url(../images/contact/logo_in.png);
-}
-body .content-wrapper section#connect .contact-image.ghub {
-  background-image: url(../images/contact/logo_ghub.png);
-}
-body .content-wrapper section#connect .contact-image.fb {
-  background-image: url(../images/contact/logo_fb.png);
 }
