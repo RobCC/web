@@ -10,6 +10,7 @@ var runSequence = require('run-sequence');
 var coffee      = require('gulp-coffee');
 var clean       = require('gulp-clean');
 var watch       = require('gulp-watch');
+var merge       = require('merge-stream');
 
 var packages = {
   NPM   : 'node_modules/',
@@ -24,20 +25,20 @@ var sourceLibs = [
   packages.NPM   + 'materialize-css/js/velocity.min.js',
   packages.NPM   + 'hammerjs/hammer.min.js',
   packages.BOWER + 'animejs/anime.min.js',
-  // packages.NPM   + 'text/text.js'
 ];
 
 var sourceLibsCSS = [
   packages.NPM   + 'materialize-css/dist/css/materialize.min.css',
+  packages.NPM   + '@fortawesome/fontawesome-free/css/all.css',
   packages.BOWER + 'animate.css/animate.min.css'
 ];
 
-gulp.task('default', function(){ runSequence('build:dev'); });
+gulp.task('default', ['build:dev'], function(){});
 
 /*************************************************************************************/
 /* Builds */
 gulp.task('build:dev', function() {
-  runSequence('clean:dist', 'move:index', 'less', 'coffee', 'requirejs:move', 'requirejs:main', 'move:libs:js', 'move:html', 'text:move', 'move:libs:css', 'move:images', 'move:fonts');
+  runSequence('clean:dist', 'less', 'coffee', 'move:requirejs', 'move:html', 'move:libs', 'move:fonts:images');
 });
 
 gulp.task('build:prod', function() {
@@ -74,53 +75,39 @@ gulp.task('less:min', function(){
 
 /*************************************************************************************/
 /* Move Commands */
-gulp.task('move:index', function() {
-  return gulp.src('app/index.html')
-    .pipe(gulp.dest('dist/'));
-});
-
 gulp.task('move:html', function() {
-  return gulp.src('app/html/**/*.html')
-    .pipe(gulp.dest('dist/html'));
+  var moveIndex = gulp.src('app/index.html').pipe(gulp.dest('dist/'));
+  var moveHTML  = gulp.src('app/html/**/*.html').pipe(gulp.dest('dist/html'));
+
+  return merge(moveIndex, moveHTML);
 });
 
-gulp.task('move:libs:js', function() {
+gulp.task('move:libs', function() {
+  var libsjs  = gulp.src(sourceLibs).pipe(gulp.dest('dist/js/lib'));
+  var libscss = gulp.src(sourceLibsCSS).pipe(gulp.dest('dist/css'));
+
+  return merge(libsjs, libscss);
+
   return gulp.src(sourceLibs)
     .pipe(gulp.dest('dist/js/lib'));
 });
 
-gulp.task('move:libs:css', function() {
-  return gulp.src(sourceLibsCSS)
-    .pipe(gulp.dest('dist/css'));
-});
+gulp.task('move:fonts:images', function() {
+  var moveImg       = gulp.src('app/images/**/*.*').pipe(gulp.dest('dist/images'));
+  var moveMatFonts  = gulp.src('node_modules/materialize-css/dist/fonts/**/*.*').pipe(gulp.dest('dist/fonts'));
+  var moveFAFonts   = gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/**/*.*').pipe(gulp.dest('dist/webfonts'));
 
-gulp.task('move:fonts', function() {
-  return gulp.src('node_modules/materialize-css/dist/fonts/**/*.*')
-    .pipe(gulp.dest('dist/fonts'));
+  return merge(moveImg, moveMatFonts, moveFAFonts);
 });
-
-gulp.task('move:images', function() {
-  return gulp.src('app/images/**/*.*')
-    .pipe(gulp.dest('dist/images'));
-});
-/*************************************************************************************/
 
 /*************************************************************************************/
 /* requireJS */
-gulp.task('requirejs:move', function() {
-  return gulp.src(packages.NPM + 'requirejs/require.js')
-    .pipe(gulp.dest('dist/'));
-});
+gulp.task('move:requirejs', function() {
+  var moveRequire = gulp.src(packages.NPM + 'requirejs/require.js').pipe(gulp.dest('dist/'));
+  var moveText    = gulp.src(packages.NPM + 'requirejs-text/text.js').pipe(gulp.dest('dist/'));
+  var moveMain    = gulp.src('app/main.coffee').pipe(coffee({ bare: true })).pipe(gulp.dest('dist/'));
 
-gulp.task('text:move', function() {
-  return gulp.src(packages.NPM + 'text/text.js')
-    .pipe(gulp.dest('dist/'));
-});
-
-gulp.task('requirejs:main', function() {
-  return gulp.src('app/main.coffee')
-    .pipe(coffee({ bare: true }))
-    .pipe(gulp.dest('dist/'));
+  return merge(moveRequire, moveText, moveMain);
 });
 
 /*************************************************************************************/
@@ -130,8 +117,6 @@ gulp.task('clean:dist', function() {
     .pipe(clean());
   // runSequence('task-one', ['tasks','to','run','in','parallel'], 'task-three', callback);
 });
-
-
 
 // Used to merge all JS files in index.html into a single JS
 gulp.task('merge:libs:js', function() {
