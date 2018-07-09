@@ -1,6 +1,7 @@
 body {
   background-color: #1a1c23;
   overflow-y: auto;
+  font-family: 'Raleway', 'Roboto', sans-serif;
 }
 body header {
   height: 100vh;
@@ -14,6 +15,10 @@ body .content-wrapper {
 }
 body .parallax {
   z-index: 0 !important;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url(../fonts/raleway/Raleway-Regular.ttf);
 }
 @-webkit-keyframes fadeInUp {
   from {

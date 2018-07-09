@@ -11,6 +11,7 @@ var coffee      = require('gulp-coffee');
 var clean       = require('gulp-clean');
 var watch       = require('gulp-watch');
 var merge       = require('merge-stream');
+var multProcess = require('gulp-multi-process'); //Fix for cache issue on less files when compiling
 
 var packages = {
   NPM   : 'node_modules/',
@@ -48,7 +49,7 @@ gulp.task('build:prod', function() {
 
 gulp.task('watch', function(){
   console.log('Hear my words and bear witness to my vow. Night gathers, and now my watch begins.');
-  gulp.watch('app/less/*.less', ['less']);
+  gulp.watch('app/less/*.less', function () { multProcess(['less'], function(){})});
   gulp.watch('app/coffee/**/*.coffee', ['coffee']);
   gulp.watch('app/html/**/*.html', ['move:html']);
 
@@ -94,10 +95,12 @@ gulp.task('move:libs', function() {
 
 gulp.task('move:fonts:images', function() {
   var moveImg       = gulp.src('app/images/**/*.*').pipe(gulp.dest('dist/images'));
+  var moveAppFonts  = gulp.src('app/fonts/**/*.*').pipe(gulp.dest('dist/fonts'));
   var moveMatFonts  = gulp.src('node_modules/materialize-css/dist/fonts/**/*.*').pipe(gulp.dest('dist/fonts'));
   var moveFAFonts   = gulp.src('node_modules/@fortawesome/fontawesome-free/webfonts/**/*.*').pipe(gulp.dest('dist/webfonts'));
 
-  return merge(moveImg, moveMatFonts, moveFAFonts);
+  var moveAppFonts  = gulp.src('app/fonts/**/*.*').pipe(gulp.dest('dist/fonts'));
+  return merge(moveImg, moveAppFonts, moveMatFonts, moveFAFonts);
 });
 
 /*************************************************************************************/

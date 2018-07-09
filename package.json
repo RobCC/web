@@ -19,6 +19,7 @@
   "dependencies": {
     "backbone": "^1.3.3",
     "gulp-coffee": "^3.0.2",
+    "gulp-multi-process": "^1.3.1",
     "hammerjs": "^2.0.8",
     "make-dir": "^1.2.0",
     "materialize-css": "^0.100.2",
