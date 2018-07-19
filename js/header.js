@@ -17,7 +17,7 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'anime', 'text!../htm
       return this.animateTitle();
     },
     animateTitle: function() {
-      var fadeInStart, fadeOutVerticalLine, showLetters, translateLetters;
+      var fadeInStart, fadeOutVerticalLine, translateLetters, translateLine;
       this.$('.ml11 .letters').each(function() {
         $(this).html($(this).text().replace(/([^\x00-\x80]|\w|[-!$%^&*()_+|~=`@#{}\[\]:";'<>?,.\/])/g, '<span class=\'letter\'>$&</span>'));
       });
@@ -28,21 +28,21 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'anime', 'text!../htm
         easing: 'easeOutExpo',
         duration: 700
       };
-      translateLetters = {
+      translateLine = {
         targets: '.ml11 .line',
-        translateX: [0, $('.ml11 .letters').width() + 5],
+        translateX: [0, $('.ml11 .letters').outerWidth() + 5 + ($('.ml11 .letters').outerWidth() * .05)],
         easing: 'easeOutExpo',
         duration: 700,
         delay: 100
       };
-      showLetters = {
+      translateLetters = {
         targets: '.ml11 .letter',
         opacity: [0, 1],
         easing: 'easeOutExpo',
         duration: 600,
         offset: '-=775',
         delay: function(el, i) {
-          return 34 * (i + 1);
+          return 50 * (i + 1);
         }
       };
       fadeOutVerticalLine = {
@@ -54,7 +54,7 @@ define(['jquery', 'underscore', 'backbone', 'materialize', 'anime', 'text!../htm
       };
       return anime.timeline({
         loop: false
-      }).add(fadeInStart).add(translateLetters).add(showLetters).add(fadeOutVerticalLine);
+      }).add(fadeInStart).add(translateLine).add(translateLetters).add(fadeOutVerticalLine);
     },
     getRandomWelcomePhrase: function() {
       var randomLength;
