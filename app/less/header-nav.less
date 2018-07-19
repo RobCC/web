@@ -13,7 +13,7 @@ header {
   top               : 0;
   width             : 100%;
   color             : @heaver-color;
-  padding           : 2% 3%;
+  padding           : 5% 3% 2% 3%;
   text-align        : center;
   // transition        : all 1s;
 
@@ -131,8 +131,10 @@ nav {
   color             : @black;
   // transition        : all 500ms;
   padding           : 0 20%;
-  bottom            : 0;
+  top               : 0;
   z-index           : 1000;
+  opacity           : 1;
+  // animation-duration: 500ms !important;
 
   box-shadow: none;
   // background-color: linear-gradient(-90deg, #59707f, white, #59707f);
@@ -148,6 +150,11 @@ nav {
   &.stick {
     position: fixed;
     top: 0;
+  }
+
+  &.nav-hidden {
+    top: -@remaining-height;
+    opacity: 0;
   }
 
   .nav-wrapper {
@@ -197,11 +204,13 @@ nav {
       @media @under-large { padding: 1px 2px; }
 
       &:hover {
-        // background-color  : #e0e0e0;
+        background-color  : #f2f2f2;
         // color: white;
         letter-spacing    : 1px;
         font-weight       : bold;
+
       }
     }
+
   }
 } //nav

@@ -88,9 +88,6 @@ gulp.task('move:libs', function() {
   var libscss = gulp.src(sourceLibsCSS).pipe(gulp.dest('dist/css'));
 
   return merge(libsjs, libscss);
-
-  return gulp.src(sourceLibs)
-    .pipe(gulp.dest('dist/js/lib'));
 });
 
 gulp.task('move:fonts:images', function() {

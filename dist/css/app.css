@@ -685,7 +685,7 @@ body header {
   top: 0;
   width: 100%;
   color: white;
-  padding: 2% 3%;
+  padding: 5% 3% 2% 3%;
   text-align: center;
 }
 body header.simple {
@@ -788,8 +788,9 @@ body nav {
   background-color: white;
   color: #6b6b6b;
   padding: 0 20%;
-  bottom: 0;
+  top: 0;
   z-index: 1000;
+  opacity: 1;
   box-shadow: none;
 }
 @media only screen and (min-width: 601px) and (max-width: 992px) {
@@ -805,6 +806,10 @@ body nav {
 body nav.stick {
   position: fixed;
   top: 0;
+}
+body nav.nav-hidden {
+  top: -6vh;
+  opacity: 0;
 }
 body nav .nav-wrapper {
   font-size: 2vh;
@@ -842,6 +847,7 @@ body nav .nav-wrapper .option {
   }
 }
 body nav .nav-wrapper .option:hover {
+  background-color: #f2f2f2;
   letter-spacing: 1px;
   font-weight: bold;
 }
@@ -864,6 +870,7 @@ body .content-wrapper {
 }
 body .content-wrapper .bold {
   font-weight: bold;
+  color: #2a598a;
 }
 body .content-wrapper .title {
   font-size: 1.2em;
@@ -887,6 +894,13 @@ body .content-wrapper section .parallax img {
   bottom: 40%;
   zoom: 0.1;
 }
+body .content-wrapper section#projects .latest-pen span {
+  position: relative;
+  display: block;
+  font-size: 1.2em;
+  color: black;
+  letter-spacing: 2px;
+}
 body .content-wrapper section#connect .contact {
   display: block;
   font-size: 0.9em;
@@ -896,4 +910,13 @@ body .content-wrapper section#connect .contact-links i {
   color: #333;
   font-size: 4em;
   margin: 0 15px;
+  transition: color 250ms;
+}
+body .content-wrapper section#connect .contact-links i.fa-github:hover,
+body .content-wrapper section#connect .contact-links i.fa-codepen:hover,
+body .content-wrapper section#connect .contact-links i.fa-steam:hover {
+  color: #222;
+}
+body .content-wrapper section#connect .contact-links i.fa-linkedin:hover {
+  color: #0077b5;
 }

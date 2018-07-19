@@ -31,24 +31,24 @@ define ['jquery', 'underscore', 'backbone', 'materialize', 'anime'
       fadeInStart =
         targets     : '.ml11 .line'
         scaleY      : [0, 1]
-        opacity     :   [0.5 ,1]
+        opacity     : [0.5 ,1]
         easing      : 'easeOutExpo'
         duration    : 700
 
-      translateLetters =
+      translateLine =
         targets     : '.ml11 .line'
-        translateX  : [0, $('.ml11 .letters').width() + 5]
+        translateX  : [0, $('.ml11 .letters').outerWidth() + 5 + ($('.ml11 .letters').outerWidth() * .05)]
         easing      : 'easeOutExpo'
         duration    : 700
         delay       : 100
 
-      showLetters =
+      translateLetters =
         targets     : '.ml11 .letter'
         opacity     : [0, 1]
         easing      : 'easeOutExpo'
         duration    : 600
         offset      : '-=775'
-        delay       : (el, i) -> 34 * (i + 1)
+        delay       : (el, i) -> 50 * (i + 1)
 
       fadeOutVerticalLine =
         targets     : '.line'
@@ -57,7 +57,7 @@ define ['jquery', 'underscore', 'backbone', 'materialize', 'anime'
         easing      : 'easeOutExpo'
         delay       : 500
 
-      anime.timeline(loop: false).add(fadeInStart).add(translateLetters).add(showLetters).add fadeOutVerticalLine
+      anime.timeline(loop: false).add(fadeInStart).add(translateLine).add(translateLetters).add fadeOutVerticalLine
 
     getRandomWelcomePhrase: ->
       randomLength = Math.random() * @welcomeOptions.length
