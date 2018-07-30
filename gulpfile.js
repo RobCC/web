@@ -44,6 +44,7 @@ gulp.task('build:dev', function() {
 
 gulp.task('build:prod', function() {
   // runSequence('clean:dist', 'less:min', 'coffee', 'merge:libs:js', 'move:libs:css', 'move:images', 'move:fonts');
+  runSequence('clean:dist', 'less:min', 'coffee:min', 'move:requirejs', 'move:html', 'move:libs', 'move:fonts:images');
 });
 /*************************************************************************************/
 
@@ -61,6 +62,13 @@ gulp.task('coffee', function(){
   .pipe(gulp.dest('dist/js'));
 });
 
+gulp.task('coffee:min', function(){
+  return gulp.src('app/coffee/**/*.coffee')
+  .pipe(coffee({ bare: true }))
+  .pipe(uglify())
+  .pipe(gulp.dest('dist/js'));
+});
+
 gulp.task('less', function(){
   return gulp.src('app/less/app.less')
     .pipe(less())
@@ -68,9 +76,9 @@ gulp.task('less', function(){
 });
 
 gulp.task('less:min', function(){
-  return gulp.src('app/less/**/*.less')
+  return gulp.src('app/less/app.less')
     .pipe(less())
-    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(cleanCSS())
     .pipe(gulp.dest('dist/css'));
 });
 

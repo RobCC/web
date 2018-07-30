@@ -14,12 +14,6 @@ define ['jquery', 'underscore', 'backbone', 'materialize'
 
     animate: ->
       self = @
-
-      # bodyScroll = $('body').scrollTop()
-
-      # if bodyScroll > 0
-      #   @$el.addClass 'stick'
-
       @$el.animateCss 'fadeInDown', -> self.stickNavigation()
 
     stickNavigation: ->
@@ -27,22 +21,18 @@ define ['jquery', 'underscore', 'backbone', 'materialize'
       @scrollDistance = $('body').scrollTop()
 
       $(document).on 'mousewheel', (e) ->
-        # self.wheeled = true
 
       $(document).on 'scroll', (e) ->
-        # self.wheeled = false
-        console.log 'scrolled'
-
-        newDistance = $('body').scrollTop()
-        isScrollDown = newDistance > self.scrollDistance
+        newDistance         = $('body').scrollTop()
+        isScrollDown        = newDistance > self.scrollDistance
         self.scrollDistance = newDistance
 
         if isScrollDown or self.optionClicked
           self.hideHeader()
+          self.scrollTimes = 0
         else
           self.showHeader()
-
-
+          self.scrollTimes = 0
 
     showHeader: ->
       self = @
