@@ -1,1 +1,0 @@
-define(["jquery","underscore","backbone","materialize","js/header","js/navigation","js/content"],function(e,n,r,i,t,a,d){return r.View.extend({el:"body",initialize:function(){return this.render()},render:function(){var e,n,r;return n=new t,r=new a,e=new d,this.$el.append(n.render().el),this.$el.append(r.render().el),this.$el.append(e.render().el),n.animate(),r.animate()}})});
