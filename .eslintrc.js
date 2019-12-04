@@ -12,6 +12,7 @@ module.exports = {
       alias: {
         map: [
           ['#', path.resolve(path.join(__dirname, './src'))],
+          ['Components', path.resolve(path.join(__dirname, './src/components'))],
           ['~', path.resolve(path.join(__dirname, '.'))],
         ],
         extensions: ['.js'],
@@ -19,7 +20,7 @@ module.exports = {
     },
   },
   rules: {
-    'max-len': ['error', { 'code': 90, 'tabWidth': 2, 'comments': 80 }],
+    'max-len': ['error', { 'code': 100, 'tabWidth': 2, 'comments': 80 }],
     'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
     'import/no-named-as-default': 0,
     'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],

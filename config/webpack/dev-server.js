@@ -13,6 +13,7 @@ module.exports = {
   open: false,
   overlay: false,
   hot: true,
+  inline: true,
   clientLogLevel: 'silent',
   // noInfo: true,
   historyApiFallback: true,
