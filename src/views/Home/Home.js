@@ -2,11 +2,11 @@ import React from 'react';
 
 import L from 'Components/CodeLine/CodeLine';
 
-import homeLines from '#/codeLines/home';
+import greets from '#/codeLines/home/greet';
 
 const Home = () => (
   <div>
-    {homeLines.map((line, i) => (
+    {greets.saluteYou.map((line, i) => (
       <L key={line} lineNumber={i}>{line}</L>
     ))}
   </div>

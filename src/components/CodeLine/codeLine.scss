@@ -4,6 +4,11 @@
   font-family: "Fira Code", monospace;
   font-size: 15px;
   height: 22px;
+  line-height: 22px;
+
+  ::selection {
+    background: #ffffff22;
+  }
 
   &:hover {
     background-color: #3e3e32;
@@ -13,6 +18,7 @@
     color: #8f8f89;
     display: inline-block;
     text-align: center;
+    user-select: none;
     width: 4%;
   }
 
