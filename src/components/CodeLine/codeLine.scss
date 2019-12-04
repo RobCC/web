@@ -10,10 +10,6 @@
     background: #ffffff22;
   }
 
-  &:hover {
-    background-color: #3e3e32;
-  }
-
   .number {
     color: #8f8f89;
     display: inline-block;
@@ -27,6 +23,12 @@
 
     &.comment {
       color: #878470;
+    }
+  }
+
+  &:hover {
+    .content {
+      background-color: #3e3e32;
     }
   }
 }
