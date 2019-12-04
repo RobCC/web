@@ -12,7 +12,7 @@ export const useIconStyles = makeStyles(() => ({
   root: {
     minWidth: 30,
     color: '#80827b',
-    justifyContent: 'center',
+    margin: '0 auto',
     '&:hover': {
       color: 'white',
     },

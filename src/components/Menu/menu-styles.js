@@ -1,13 +1,17 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+const DRAWER_WIDTH = 70;
+
 export const useDrawerStyles = makeStyles(() => ({
   paper: {
-    backgroundColor: '#23241f',
+    backgroundColor: '#272822',
+    width: DRAWER_WIDTH,
   },
   drawer: {
-    width: 200,
     flexShrink: 0,
     whiteSpace: 'nowrap',
+    overflowX: 'hidden',
+    width: DRAWER_WIDTH,
   },
 }));
 export const useListStyles = makeStyles(() => ({
