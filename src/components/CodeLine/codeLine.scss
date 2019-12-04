@@ -18,5 +18,9 @@
 
   .content {
     width: 96%;
+
+    &.comment {
+      color: #878470;
+    }
   }
 }
