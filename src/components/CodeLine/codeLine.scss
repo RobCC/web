@@ -1,8 +1,9 @@
 .line {
   align-items: center;
   display: flex;
-  font-family: monospace;
+  font-family: "Fira Code", monospace;
   font-size: 15px;
+  height: 22px;
 
   &:hover {
     background-color: #3e3e32;
@@ -12,10 +13,10 @@
     color: #8f8f89;
     display: inline-block;
     text-align: center;
-    width: 50px;
+    width: 4%;
   }
 
   .content {
-    width: 100px;
+    width: 96%;
   }
 }
