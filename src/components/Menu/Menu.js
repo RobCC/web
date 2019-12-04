@@ -1,6 +1,7 @@
 import React from 'react';
 import generateId from 'uuid/v1';
 import { Drawer, List } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
 import {
   Home,
   Person,
@@ -10,8 +11,8 @@ import MenuItem from 'Components/MenuItem/MenuItem';
 import { useDrawerStyles, useListStyles } from './menu-styles';
 
 const menuIcons = [
-  Home,
-  Person,
+  [Home, '/'],
+  [Person, '/about'],
 ];
 
 const Menu = () => {
@@ -23,15 +24,15 @@ const Menu = () => {
       classes={{ paper: classes.paper }}
       variant="permanent"
     >
-      <div>
-        <List classes={useListStyles()}>
-          {menuIcons.map((Icon) => (
-            <MenuItem key={generateId()}>
+      <List classes={useListStyles()}>
+        {menuIcons.map(([Icon, route]) => (
+          <NavLink key={generateId()} to={route} exact>
+            <MenuItem>
               <Icon style={{ fontSize: 35 }} />
             </MenuItem>
-          ))}
-        </List>
-      </div>
+          </NavLink>
+        ))}
+      </List>
     </Drawer>
   );
 };

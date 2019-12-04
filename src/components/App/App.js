@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 import Menu from 'Components/Menu/Menu';
 import Routes from 'Components/Routes/Routes';
@@ -12,17 +12,6 @@ const App = () => (
       <Menu />
 
       <div className={styles.content}>
-        <nav>
-          <ul>
-            <li>
-              <NavLink to="/" exact>Home</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">About</NavLink>
-            </li>
-          </ul>
-        </nav>
-
         <div>
           <Routes />
         </div>

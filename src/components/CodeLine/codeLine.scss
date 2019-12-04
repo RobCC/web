@@ -1,0 +1,21 @@
+.line {
+  align-items: center;
+  display: flex;
+  font-family: monospace;
+  font-size: 15px;
+
+  &:hover {
+    background-color: #3e3e32;
+  }
+
+  .number {
+    color: #8f8f89;
+    display: inline-block;
+    text-align: center;
+    width: 50px;
+  }
+
+  .content {
+    width: 100px;
+  }
+}
