@@ -6,7 +6,7 @@ import greets from '#/codeLines/home/greet';
 
 const Home = () => (
   <div>
-    {greets.saluteYou.map((line, i) => (
+    {greets.trustNoOne.map((line, i) => (
       <L key={line} lineNumber={i}>{line}</L>
     ))}
   </div>
