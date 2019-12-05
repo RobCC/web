@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Menu from 'Components/Menu/Menu';
-import Routes from 'Components/Routes/Routes';
+import MenuRoutes from 'Components/Routes/MenuRoutes';
 
 import styles from './app.scss';
 
@@ -12,9 +12,7 @@ const App = () => (
       <Menu />
 
       <div className={styles.content}>
-        <div>
-          <Routes />
-        </div>
+        <MenuRoutes />
       </div>
 
     </div>

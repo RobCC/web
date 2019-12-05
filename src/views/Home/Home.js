@@ -1,28 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import L from 'Components/CodeLine/CodeLine';
 import FileMenu from 'Components/FileTabMenu/FileTabMenu';
+import FileRoutes from 'Components/Routes/FileRoutes';
 
-import greets from '#/codeLines/home/greets';
-import home from '#/codeLines/home/home';
-import getRandomElement from '#/utils/getRandomElement';
-
-const greet = getRandomElement(Object.keys(greets).map((k) => greets[k]));
+const HOME_PATH = '/home';
 
 const files = [
-  { name: 'intro.js' },
-  { name: 'intro2.js' },
+  { name: 'greet.js', to: `${HOME_PATH}/greet` },
+  { name: 'intro2.js', to: `${HOME_PATH}/intro2` },
 ];
 
 const Home = () => (
-  <>
+  <Router>
     <FileMenu files={files} />
     <div>
-      {[...greet, ...home].map((line, i) => (
-        <L key={line} lineNumber={i + 1}>{line}</L>
-      ))}
+      <FileRoutes />
     </div>
-  </>
+  </Router>
 );
 
 export default Home;

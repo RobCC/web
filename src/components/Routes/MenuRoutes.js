@@ -1,15 +1,18 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { Home, About } from '../../views';
 
-const Routes = () => (
+const MenuRoutes = () => (
   <Switch>
     <Route path="/" exact>
+      <Redirect to="/home" />
+    </Route>
+    <Route path="/home" exact>
       <Home />
     </Route>
     <Route path="/about" component={About} />
   </Switch>
 );
 
-export default Routes;
+export default MenuRoutes;

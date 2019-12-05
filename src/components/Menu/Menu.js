@@ -11,7 +11,7 @@ import MenuItem from 'Components/MenuItem/MenuItem';
 import { useDrawerStyles, useListStyles } from './menu-styles';
 
 const menuIcons = [
-  [Home, '/'],
+  [Home, '/home'],
   [Person, '/about'],
 ];
 
