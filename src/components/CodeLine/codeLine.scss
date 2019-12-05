@@ -1,3 +1,5 @@
+@use "variables";
+
 .line {
   align-items: center;
   display: flex;
@@ -7,7 +9,7 @@
   line-height: 22px;
 
   ::selection {
-    background: #ffffff22;
+    background: variables.$editor-line-highlight;
   }
 
   .number {
@@ -22,13 +24,18 @@
     width: 97%;
 
     &.comment {
-      color: #878470;
+      color: variables.$editor-comment;
     }
   }
 
   &:hover {
     .content {
-      background-color: #3e3e32;
+      background-color: variables.$editor-line-hover;
     }
+  }
+
+  a {
+    text-decoration: none;
+    color: variables.$monokai-green;
   }
 }

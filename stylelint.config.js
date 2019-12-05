@@ -36,6 +36,8 @@ module.exports = {
     'max-empty-lines': 2,
     'no-eol-whitespace': true,
     'no-empty-first-line': true,
+    'at-rule-no-unknown': null,
     'scss/at-else-if-parentheses-space-before': 'always',
+    'scss/at-rule-no-unknown': true,
   },
 };

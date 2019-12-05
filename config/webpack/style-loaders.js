@@ -1,7 +1,9 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Sass = require('sass');
 
-const { DEV, PROD, CONFIG_PATH } = require('./constants');
+const {
+  DEV, PROD, CONFIG_PATH, SRC_PATH,
+} = require('./constants');
 
 module.exports = (NODE_ENV) => {
   const stylingLoaders = [
@@ -27,6 +29,9 @@ module.exports = (NODE_ENV) => {
     {
       loader: 'sass-loader',
       options: {
+        sassOptions: {
+          includePaths: [`${SRC_PATH}/scss`],
+        },
         implementation: Sass,
       },
     },
