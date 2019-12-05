@@ -48,6 +48,10 @@
     }
   }
 
+  span {
+    color: variables.$editor-comment;
+  }
+
   i {
     color: variables.$monokai-green;
     font-style: normal;

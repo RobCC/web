@@ -2,7 +2,8 @@ import React from 'react';
 
 const LINK_REGEX = /\$\[(.*)\]/;
 const MARK_REGEX = /\$<(.*)>/;
-const TO_PARSE = /\$\[(.*?)\]|\$<(.*?)>/;
+const COMMENT_REGEX = /\/\/(.*)/;
+const TO_PARSE = /\$\[(.*?)\]|\$<(.*?)>|\/\/(.*)/;
 
 const isComment = (text) => typeof text === 'string'
   && (text.startsWith('/*') || text.startsWith('*') || text.startsWith('*/'));
@@ -14,6 +15,8 @@ const parseMark = (text) => <i>{text}</i>;
 const parseLink = (text, url) => (
   <a title={text} href={url} target="_blank" rel="noopener noreferrer">{text}</a>
 );
+
+const parseComment = (text) => (<span>{text}</span>);
 
 const parseLine = (line) => {
   const parsingNeeded = line.match(TO_PARSE);
@@ -32,10 +35,10 @@ const parseLine = (line) => {
     const [linkText, linkUrl] = parseContent.split(',');
 
     parsedElement = parseLink(linkText, linkUrl);
-  }
-
-  if (fullParse.match(MARK_REGEX)) {
+  } else if (fullParse.match(MARK_REGEX)) {
     parsedElement = parseMark(parseContent);
+  } else if (fullParse.match(COMMENT_REGEX)) {
+    parsedElement = parseComment(fullParse);
   }
 
   return (
