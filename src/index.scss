@@ -5,10 +5,3 @@ body {
   background: variables.$editor-bg;
   color: white;
 }
-
-@font-face {
-  font-family: "Fira Code";
-  src: url("../public/fonts/FiraCode/woff/FiraCode-Light.woff") format("woff"),
-    url("../public/fonts/FiraCode/woff2/FiraCode-Light.woff2") format("woff2");
-
-}

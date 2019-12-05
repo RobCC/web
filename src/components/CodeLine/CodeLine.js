@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
 
-import lineParser from '#/utils/lineParser';
+import parser from '#/utils/lineParser';
 
 import styles from './codeLine.scss';
 
 const CodeLine = ({ lineNumber, children: line }) => {
   const lineStyles = classNames(styles.content, {
-    [styles.comment]: lineParser.isComment(line),
+    [styles.comment]: parser.isComment(line),
   });
 
 
@@ -16,12 +16,8 @@ const CodeLine = ({ lineNumber, children: line }) => {
   return (
     <div className={styles.line}>
       <span className={styles.number}>{lineNumber}</span>
-      {lineParser.hasLink(line)
-        ? (lineParser.convertLink(line))
-        : lineParser.hasMark(line)
-          ? (lineParser.convertMark(line))
-          : (<pre className={lineStyles}>{line}</pre>
-          )}
+      <pre className={lineStyles}>{parser.parseLine(line)}</pre>
+
     </div>
   );
 };

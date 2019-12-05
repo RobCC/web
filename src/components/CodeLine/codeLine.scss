@@ -35,12 +35,21 @@
   }
 
   a {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: variables.$monokai-blue;
+    font-family: "Fira Code Bold", monospace;
+    padding: 0 2px;
     text-decoration: none;
-    color: variables.$monokai-green;
+    transition: border 250ms;
+
+    &:hover {
+      border: 1px solid variables.$monokai-blue;
+    }
   }
 
   i {
+    color: variables.$monokai-green;
     font-style: normal;
-    color: variables.$monokai-blue;
   }
 }
