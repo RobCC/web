@@ -1,7 +1,8 @@
 @use "variables";
 
 body {
-  font-family: sans-serif;
   background: variables.$editor-bg;
   color: white;
+  font-family: sans-serif;
+  margin: 0;
 }
