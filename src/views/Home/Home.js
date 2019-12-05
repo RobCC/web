@@ -2,12 +2,15 @@ import React from 'react';
 
 import L from 'Components/CodeLine/CodeLine';
 
-import greets from '#/codeLines/home/greet';
+import greets from '#/codeLines/home/greets';
+import getRandomElement from '#/utils/getRandomElement';
+
+const greet = getRandomElement(Object.keys(greets).map((k) => greets[k]));
 
 const Home = () => (
   <div>
-    {greets.trustNoOne.map((line, i) => (
-      <L key={line} lineNumber={i}>{line}</L>
+    {greet.map((line, i) => (
+      <L key={line} lineNumber={i + 1}>{line}</L>
     ))}
   </div>
 );
