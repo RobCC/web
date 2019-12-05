@@ -5,6 +5,7 @@ const MARK_START = '$<';
 
 const LINK_REGEX = /\[(.*)\]/;
 const MARK_REGEX = /<(.*)>/;
+const TO_PARSE = /((\$\[)|(\$<))?/;
 
 const isComment = (text) => typeof text === 'string'
   && (text.startsWith('/*') || text.startsWith('*') || text.startsWith('*/'));
@@ -12,6 +13,10 @@ const isComment = (text) => typeof text === 'string'
 const hasLink = (text) => typeof text === 'string' && text.includes(LINK_START);
 
 const hasMark = (text) => typeof text === 'string' && text.includes(MARK_START);
+
+const parseLine = (line) => {
+  // const parse = line.match(TO_PARSE);
+};
 
 const convertLink = (line) => {
   const linkData = line.match(LINK_REGEX).pop();
@@ -48,4 +53,5 @@ export default {
   hasMark,
   convertLink,
   convertMark,
+  parseLine,
 };
