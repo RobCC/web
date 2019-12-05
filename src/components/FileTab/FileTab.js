@@ -1,18 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
+import classNames from 'classnames';
 
 import styles from './fileTab.scss';
 
-const FileTab = ({ to, children: fileName }) => (
-  <NavLink to={to} className={styles.tab}>
-    {fileName}
-  </NavLink>
-);
+const FileTab = ({ location, to, children: fileName }) => {
+  const tabClasses = classNames(styles.tab, {
+    [styles.active]: location.pathname === to,
+  });
+
+  return (
+    <NavLink to={to} className={tabClasses}>
+      {fileName}
+    </NavLink>
+  );
+};
 
 FileTab.propTypes = {
-  to: PropTypes.string,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }),
+  to: PropTypes.string.isRequired,
   children: PropTypes.string,
 };
 
-export default FileTab;
+export default React.memo(withRouter(FileTab));
