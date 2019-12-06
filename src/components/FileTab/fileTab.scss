@@ -15,6 +15,7 @@
 
   &.active {
     background-color: variables.$editor-bg;
+    font-weight: bold;
   }
 
   &:focus,

@@ -15,7 +15,7 @@ const files = [
   {
     name: 'contact.css',
     extension: '#',
-    to: `${HOME_PATH}/intro2`,
+    to: `${HOME_PATH}/contact`,
   },
 ];
 

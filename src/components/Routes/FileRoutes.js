@@ -8,6 +8,7 @@ import codeLines from '#/codeLines';
 const {
   greets,
   home,
+  contact,
 } = codeLines;
 
 const greet = getRandomElement(Object.keys(greets).map((k) => greets[k]));
@@ -22,8 +23,8 @@ const FileRoutes = () => (
       <Editor codeLines={[...greet, ...home]} />
     </Route>
 
-    <Route path="/home/intro2" exact>
-      <div>Help Me</div>
+    <Route path="/home/contact" exact>
+      <Editor codeLines={contact} />
     </Route>
   </Switch>
 );
