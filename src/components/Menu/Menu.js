@@ -4,20 +4,26 @@ import generateId from 'uuid/v1';
 import { Drawer, List } from '@material-ui/core';
 import { NavLink, withRouter } from 'react-router-dom';
 import {
-  Home,
-  Person,
+  HomeOutlined,
+  EmailOutlined,
+  WorkOutlineOutlined,
 } from '@material-ui/icons';
 
 import MenuItem from 'Components/MenuItem/MenuItem';
 import { useDrawerStyles, useListStyles } from './menu-styles';
 
 const menuIcons = [
-  [Home, '/home'],
-  [Person, '/about'],
+  [HomeOutlined, 'Home', '/home'],
+  [WorkOutlineOutlined, 'Resume', '/resume'],
+  [EmailOutlined, '', '/mail'],
 ];
+
 
 const Menu = ({ location }) => {
   const classes = useDrawerStyles();
+  const fontSize = 34;
+
+  const isPathSelected = (route) => location.pathname.includes(route);
 
   return (
     <Drawer
@@ -26,10 +32,10 @@ const Menu = ({ location }) => {
       variant="permanent"
     >
       <List classes={useListStyles()}>
-        {menuIcons.map(([Icon, route]) => (
+        {menuIcons.map(([Icon, title, route]) => (
           <NavLink key={generateId()} to={route} exact>
-            <MenuItem selected={location.pathname.includes(route)}>
-              <Icon style={{ fontSize: 35 }} />
+            <MenuItem selected={isPathSelected(route)} title={title} iconSize={fontSize}>
+              <Icon style={{ fontSize }} />
             </MenuItem>
           </NavLink>
         ))}
@@ -44,4 +50,6 @@ Menu.propTypes = {
   }).isRequired,
 };
 
-export default withRouter(Menu);
+export default withRouter(
+  React.memo(Menu),
+);

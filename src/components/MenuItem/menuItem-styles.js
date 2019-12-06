@@ -5,6 +5,7 @@ export const useItemStyles = makeStyles(() => ({
     color: 'white',
     paddingTop: 16,
     paddingBottom: 16,
+    userSelect: 'none',
     borderLeft: '2px solid transparent',
     '&:hover': {
       backgroundColor: 'transparent',
@@ -26,6 +27,12 @@ export const useItemStyles = makeStyles(() => ({
     minWidth: 30,
     color: '#80827b',
     margin: '0 auto',
+  },
+  itemTitle: {
+    fontSize: 12,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   selected: {
     backgroundColor: 'transparent !important',

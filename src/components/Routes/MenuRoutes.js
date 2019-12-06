@@ -11,7 +11,7 @@ const MenuRoutes = () => (
     <Route path="/home">
       <Home />
     </Route>
-    <Route path="/about" component={About} />
+    <Route path="/resume" component={About} />
   </Switch>
 );
 
