@@ -4,12 +4,12 @@ import { ListItem, ListItemIcon } from '@material-ui/core';
 
 import { useItemStyles, useIconStyles } from './menuItem-styles';
 
-const MenuItem = ({ children }) => {
+const MenuItem = ({ selected, children }) => {
   const iconClasses = useIconStyles();
   const itemClasses = useItemStyles();
 
   return (
-    <ListItem button classes={itemClasses}>
+    <ListItem button classes={itemClasses} selected={selected}>
       <ListItemIcon classes={iconClasses}>
         {children}
       </ListItemIcon>
@@ -18,6 +18,7 @@ const MenuItem = ({ children }) => {
 };
 
 MenuItem.propTypes = {
+  selected: PropTypes.bool,
   children: PropTypes.node,
 };
 

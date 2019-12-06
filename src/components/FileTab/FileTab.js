@@ -20,7 +20,7 @@ const FileTab = ({ location, to, children: fileName }) => {
 FileTab.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
-  }),
+  }).isRequired,
   to: PropTypes.string.isRequired,
   children: PropTypes.string,
 };

@@ -5,6 +5,11 @@ export const useItemStyles = makeStyles(() => ({
     color: 'white',
     paddingTop: 16,
     paddingBottom: 16,
+    borderLeft: '2px solid transparent',
+  },
+  selected: {
+    backgroundColor: 'transparent',
+    borderLeft: '2px solid white',
   },
 }));
 

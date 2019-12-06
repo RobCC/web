@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import generateId from 'uuid/v1';
 import { Drawer, List } from '@material-ui/core';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import {
   Home,
   Person,
@@ -15,7 +16,7 @@ const menuIcons = [
   [Person, '/about'],
 ];
 
-const Menu = () => {
+const Menu = ({ location }) => {
   const classes = useDrawerStyles();
 
   return (
@@ -27,7 +28,7 @@ const Menu = () => {
       <List classes={useListStyles()}>
         {menuIcons.map(([Icon, route]) => (
           <NavLink key={generateId()} to={route} exact>
-            <MenuItem>
+            <MenuItem selected={location.pathname.includes(route)}>
               <Icon style={{ fontSize: 35 }} />
             </MenuItem>
           </NavLink>
@@ -37,4 +38,10 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+Menu.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default withRouter(Menu);
