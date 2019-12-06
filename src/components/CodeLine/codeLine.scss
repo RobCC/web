@@ -40,8 +40,10 @@
     color: variables.$monokai-blue;
     font-family: "Fira Code Bold", monospace;
     padding: 0 2px;
+    position: relative;
     text-decoration: none;
     transition: border 250ms;
+    top: -1px;
 
     &:hover {
       border: 1px solid variables.$monokai-blue;
