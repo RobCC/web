@@ -6,6 +6,17 @@ export const useItemStyles = makeStyles(() => ({
     paddingTop: 16,
     paddingBottom: 16,
     borderLeft: '2px solid transparent',
+    '&:hover': {
+      backgroundColor: 'transparent',
+      '& $itemIcon': {
+        color: 'white',
+      },
+    },
+  },
+  itemIcon: {
+    minWidth: 30,
+    color: '#80827b',
+    margin: '0 auto',
   },
   selected: {
     backgroundColor: 'transparent',
@@ -13,18 +24,6 @@ export const useItemStyles = makeStyles(() => ({
   },
 }));
 
-export const useIconStyles = makeStyles(() => ({
-  root: {
-    minWidth: 30,
-    color: '#80827b',
-    margin: '0 auto',
-    '&:hover': {
-      color: 'white',
-    },
-  },
-}));
-
 export default {
   useItemStyles,
-  useIconStyles,
 };
