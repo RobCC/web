@@ -31,5 +31,10 @@
     &.js {
       color: yellow;
     }
+
+    &.css {
+      color: variables.$file-color-css;
+      font-size: 13px;
+    }
   }
 }

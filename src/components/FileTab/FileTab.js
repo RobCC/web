@@ -14,6 +14,7 @@ const FileTab = ({
 
   const extensionClasses = classNames({
     [styles.js]: extension && extension === 'JS',
+    [styles.css]: extension && extension === '#',
   });
 
   return (

@@ -13,8 +13,8 @@ const files = [
     to: `${HOME_PATH}/greet`,
   },
   {
-    name: 'intro2.js',
-    extension: 'JS',
+    name: 'contact.css',
+    extension: '#',
     to: `${HOME_PATH}/intro2`,
   },
 ];
