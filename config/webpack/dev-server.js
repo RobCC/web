@@ -9,6 +9,7 @@ const { BUILD_PATH, ROOT_PATH } = require('./constants');
 module.exports = {
   contentBase: BUILD_PATH,
   host: '0.0.0.0',
+  publicPath: '/',
   port: 1234,
   open: false,
   overlay: false,
