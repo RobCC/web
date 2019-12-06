@@ -8,7 +8,7 @@ const MenuRoutes = () => (
     <Route path="/" exact>
       <Redirect to="/home" />
     </Route>
-    <Route path="/home" exact>
+    <Route path="/home">
       <Home />
     </Route>
     <Route path="/about" component={About} />

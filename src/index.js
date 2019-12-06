@@ -8,18 +8,9 @@ import store from './store/store';
 import './index.scss';
 // import AuthContextProvider from './context/auth-context';
 
-const insertRoot = () => {
-  const root = document.createElement('div');
-
-  root.setAttribute('id', 'root');
-  document.body.appendChild(root);
-
-  return root;
-};
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  insertRoot(),
+  document.getElementById('root'),
 );
