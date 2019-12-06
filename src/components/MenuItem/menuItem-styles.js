@@ -12,6 +12,15 @@ export const useItemStyles = makeStyles(() => ({
         color: 'white',
       },
     },
+    '&::before': {
+      content: '""',
+      background: 'white',
+      height: '100%',
+      left: -2,
+      top: 0,
+      position: 'absolute',
+      width: 2,
+    },
   },
   itemIcon: {
     minWidth: 30,
@@ -21,6 +30,12 @@ export const useItemStyles = makeStyles(() => ({
   selected: {
     backgroundColor: 'transparent !important',
     borderLeft: '2px solid white',
+    '&::before': {
+      left: 0,
+    },
+    '& $itemIcon': {
+      color: 'white',
+    },
   },
 }));
 
