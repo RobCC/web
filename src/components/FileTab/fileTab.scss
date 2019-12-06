@@ -22,4 +22,14 @@
     outline: none;
     border-color: variables.$editor-bg;
   }
+
+  span {
+    font-weight: bold;
+    font-size: 12px;
+    margin-right: 5px;
+
+    &.js {
+      color: yellow;
+    }
+  }
 }

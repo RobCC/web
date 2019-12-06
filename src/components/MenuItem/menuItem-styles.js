@@ -19,7 +19,7 @@ export const useItemStyles = makeStyles(() => ({
     margin: '0 auto',
   },
   selected: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'transparent !important',
     borderLeft: '2px solid white',
   },
 }));

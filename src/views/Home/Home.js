@@ -7,8 +7,16 @@ import FileRoutes from 'Components/Routes/FileRoutes';
 const HOME_PATH = '/home';
 
 const files = [
-  { name: 'greet.js', to: `${HOME_PATH}/greet` },
-  { name: 'intro2.js', to: `${HOME_PATH}/intro2` },
+  {
+    name: 'greet.js',
+    extension: 'JS',
+    to: `${HOME_PATH}/greet`,
+  },
+  {
+    name: 'intro2.js',
+    extension: 'JS',
+    to: `${HOME_PATH}/intro2`,
+  },
 ];
 
 const Home = () => (
