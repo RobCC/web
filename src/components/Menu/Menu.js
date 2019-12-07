@@ -18,12 +18,10 @@ const menuIcons = [
   [EmailOutlined, '', '/mail'],
 ];
 
-
 const Menu = ({ location }) => {
+  const isPathSelected = (route) => location.pathname.includes(route);
   const classes = useDrawerStyles();
   const fontSize = 34;
-
-  const isPathSelected = (route) => location.pathname.includes(route);
 
   return (
     <Drawer

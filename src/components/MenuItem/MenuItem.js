@@ -23,9 +23,6 @@ const MenuItem = ({
     height: iconSize,
   };
 
-  window.e = onMouseEnter;
-  window.l = onMouseLeave;
-
   return (
     <ListItem
       button
