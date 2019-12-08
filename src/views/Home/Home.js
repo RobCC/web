@@ -4,6 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import FileMenu from 'Components/FileTabMenu/FileTabMenu';
 import FileRoutes from 'Components/Routes/FileRoutes';
 
+import styles from './home.scss';
+
 const HOME_PATH = '/home';
 
 const files = [
@@ -20,7 +22,7 @@ const files = [
 ];
 
 const Home = () => (
-  <div>
+  <div className={styles.homeWrapper}>
     <Router>
       <FileMenu files={files} />
       <FileRoutes />
