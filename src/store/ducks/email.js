@@ -28,15 +28,15 @@ export default (state = initialState, { type }) => {
   }
 };
 
-export const showEmail = ({
+export const showEmail = () => ({
   type: SHOW_EMAIL,
 });
 
-export const hideEmail = ({
+export const hideEmail = () => ({
   type: HIDE_EMAIL,
 });
 
-export const toggleEmail = ({
+export const toggleEmail = () => ({
   type: TOGGLE_EMAIL,
 });
 

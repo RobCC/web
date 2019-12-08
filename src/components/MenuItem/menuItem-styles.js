@@ -17,7 +17,7 @@ export const useItemStyles = makeStyles(() => ({
       content: '""',
       background: 'white',
       height: '100%',
-      left: -2,
+      left: -10,
       top: 0,
       position: 'absolute',
       width: 2,

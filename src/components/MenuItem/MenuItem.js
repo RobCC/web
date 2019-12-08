@@ -5,7 +5,7 @@ import { ListItem, ListItemIcon } from '@material-ui/core';
 import { useItemStyles } from './menuItem-styles';
 
 const MenuItem = ({
-  iconSize, title, selected, children,
+  iconSize, title, selected, children, onClick,
 }) => {
   const [isHovered, setHovered] = useState(false);
   const {
@@ -30,6 +30,7 @@ const MenuItem = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       classes={{ root, selected: selectedClass }}
+      onClick={onClick}
     >
       {title && isHovered ? (
         <span style={textSize} className={itemTitle}>
@@ -46,6 +47,7 @@ const MenuItem = ({
 
 MenuItem.propTypes = {
   title: PropTypes.string,
+  onClick: PropTypes.func,
   selected: PropTypes.bool,
   iconSize: PropTypes.number,
   children: PropTypes.node,

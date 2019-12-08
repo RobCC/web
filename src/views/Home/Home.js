@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import FileMenu from 'Components/FileTabMenu/FileTabMenu';
 import FileRoutes from 'Components/Routes/FileRoutes';
+import { email } from '#/store/ducks';
 
 const HOME_PATH = '/home';
 
@@ -20,17 +21,16 @@ const files = [
   },
 ];
 
-// TODO: Remove div in FileRoutes, add div on Editor component
-
 const Home = () => {
-  const store = useSelector((state) => state);
+  const isEmailOpen = useSelector((state) => email.isEmailOpen(state));
 
   return (
     <Router>
       <FileMenu files={files} />
-      <div>
-        <FileRoutes />
-      </div>
+      {isEmailOpen && (
+        <div>Help me</div>
+      )}
+      <FileRoutes />
     </Router>
   );
 };
