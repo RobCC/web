@@ -2,4 +2,9 @@
   overflow: hidden;
   transition: width 200ms;
   white-space: nowrap;
+  width: 0;
+
+  &.active {
+    width: 200px;
+  }
 }
