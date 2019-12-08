@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 import FileMenu from 'Components/FileTabMenu/FileTabMenu';
 import FileRoutes from 'Components/Routes/FileRoutes';
-import { email } from '#/store/ducks';
 
 const HOME_PATH = '/home';
 
@@ -21,18 +19,13 @@ const files = [
   },
 ];
 
-const Home = () => {
-  const isEmailOpen = useSelector((state) => email.isEmailOpen(state));
-
-  return (
+const Home = () => (
+  <div>
     <Router>
       <FileMenu files={files} />
-      {isEmailOpen && (
-        <div>Help me</div>
-      )}
       <FileRoutes />
     </Router>
-  );
-};
+  </div>
+);
 
 export default Home;

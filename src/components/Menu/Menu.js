@@ -13,11 +13,12 @@ import MenuItem from 'Components/MenuItem/MenuItem';
 import { email } from '#/store/ducks';
 import { useDrawerStyles, useListStyles } from './menu-styles';
 
+const fontSize = 34;
+
 const Menu = ({ location }) => {
   const isPathSelected = (route) => location.pathname.includes(route);
   const dispatch = useDispatch();
   const classes = useDrawerStyles();
-  const fontSize = 34;
 
   const openEmail = () => dispatch(email.toggleEmail());
 
