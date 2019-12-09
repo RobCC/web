@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import Menu from 'Components/Menu/Menu';
 import MenuRoutes from 'Components/Routes/MenuRoutes';
-import Email from '#/views/Email/Email';
+import Contact from '#/views/Contact/Contact';
 
 import styles from './app.scss';
 
@@ -13,7 +13,7 @@ const App = () => (
       <Menu />
 
       <div className={styles.content}>
-        <Email />
+        <Contact />
         <MenuRoutes />
       </div>
 

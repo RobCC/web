@@ -1,5 +1,4 @@
 import Home from './Home/Home';
+import Resume from './Resume/Resume';
 
-export { Home };
-
-export default Home;
+export { Home, Resume };

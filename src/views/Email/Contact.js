@@ -2,17 +2,17 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
-import SocialButton from 'Components/SocialButton/SocialButton';
+import SocialButton from './node_modules/Components/SocialButton/SocialButton';
 import {
   Facebook,
   LinkedIn,
   GitHub,
   Gmail,
-} from 'Components/Icons';
-import { email } from '#/store/ducks';
+} from './node_modules/Components/Icons';
+import { email } from './node_modules/#/store/ducks';
 import styles from './email.scss';
 
-const Email = () => {
+const Contact = () => {
   const isEmailOpen = useSelector((state) => email.isEmailOpen(state));
   const emailClasses = classNames(styles.email, { [styles.active]: isEmailOpen });
 
@@ -48,4 +48,4 @@ const Email = () => {
   );
 };
 
-export default React.memo(Email);
+export default React.memo(Contact);
