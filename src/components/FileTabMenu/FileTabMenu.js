@@ -5,7 +5,7 @@ import FileTab from 'Components/FileTab/FileTab';
 import styles from './fileTabMenu.scss';
 
 const FileTabMenu = ({ files }) => (
-  <div className={styles.menu}>
+  <div className={styles.tabMenu}>
     {files.map(({ name, to, extension }) => (
       <FileTab key={name} to={to} extension={extension}>{name}</FileTab>
     ))}

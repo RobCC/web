@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Drawer, List } from '@material-ui/core';
 import { NavLink, withRouter } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   HomeOutlined,
   EmailOutlined,
@@ -17,6 +17,7 @@ const fontSize = 34;
 
 const Menu = ({ location }) => {
   const isPathSelected = (route) => location.pathname.includes(route);
+  const isEmailOpen = useSelector((state) => email.isEmailOpen(state));
   const dispatch = useDispatch();
   const classes = useDrawerStyles();
 
@@ -39,7 +40,7 @@ const Menu = ({ location }) => {
             <WorkOutlineOutlined style={{ fontSize }} />
           </MenuItem>
         </NavLink>
-        <MenuItem title="Email" iconSize={fontSize} onClick={openEmail}>
+        <MenuItem selected={isEmailOpen} title="Email" iconSize={fontSize} onClick={openEmail}>
           <EmailOutlined style={{ fontSize }} />
         </MenuItem>
       </List>
