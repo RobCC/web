@@ -19,7 +19,7 @@ const Gmail = ({ size = '1em', color }) => (
 );
 
 Gmail.propTypes = {
-  size: PropTypes.string,
+  size: PropTypes.number,
   color: PropTypes.string,
 };
 

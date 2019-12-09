@@ -15,7 +15,7 @@ const GitHub = ({ size = '1em', color }) => (
 );
 
 GitHub.propTypes = {
-  size: PropTypes.string,
+  size: PropTypes.number,
   color: PropTypes.string,
 };
 

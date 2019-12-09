@@ -16,7 +16,7 @@ const LinkedIn = ({ size = '1em', color }) => (
 );
 
 LinkedIn.propTypes = {
-  size: PropTypes.string,
+  size: PropTypes.number,
   color: PropTypes.string,
 };
 
