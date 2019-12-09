@@ -7,7 +7,7 @@ import L from 'Components/CodeLine/CodeLine';
 const Editor = ({ codeLines }) => (
   <div>
     {codeLines.map((line, i) => (
-      <L key={generateId()} lineNumber={i + 1}>{line}</L>
+      <L key={generateId()} lineNumber={i + 1} isAnimated={i === codeLines.length - 1}>{line}</L>
     ))}
   </div>
 );

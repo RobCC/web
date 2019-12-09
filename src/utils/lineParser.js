@@ -1,5 +1,7 @@
 import React from 'react';
 
+import lineStyles from 'Components/CodeLine/codeLine.scss';
+
 const LINK_REGEX = /\$\[(.*)\]/;
 const MARK_REGEX = /\$<(.*)>/;
 const COMMENT_REGEX = /\/\/(.*)/;
@@ -10,13 +12,21 @@ const isComment = (text) => typeof text === 'string'
 
 const filterResults = (parseResult) => parseResult.filter((e) => e !== undefined);
 
-const parseMark = (text) => <i>{text}</i>;
+const parseMark = (text) => <span className={lineStyles.mark}>{text}</span>;
 
 const parseLink = (text, url) => (
-  <a title={text} href={url} target="_blank" rel="noopener noreferrer">{text}</a>
+  <a
+    className={lineStyles.editorLink}
+    title={text}
+    href={url}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    {text}
+  </a>
 );
 
-const parseComment = (text) => (<span>{text}</span>);
+const parseComment = (text) => (<span className={lineStyles.comment}>{text}</span>);
 
 const parseLine = (line) => {
   const parsingNeeded = line.match(TO_PARSE);
