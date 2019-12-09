@@ -1,0 +1,12 @@
+.social-button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  transition: background 200ms;
+
+  svg {
+    transition: width 200ms, height 200ms, fill 200ms;
+  }
+}

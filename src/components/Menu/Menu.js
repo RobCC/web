@@ -5,7 +5,7 @@ import { NavLink, withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   HomeOutlined,
-  EmailOutlined,
+  PersonOutline,
   WorkOutlineOutlined,
 } from '@material-ui/icons';
 
@@ -40,8 +40,8 @@ const Menu = ({ location }) => {
             <WorkOutlineOutlined style={{ fontSize }} />
           </MenuItem>
         </NavLink>
-        <MenuItem selected={isEmailOpen} title="Email" iconSize={fontSize} onClick={openEmail}>
-          <EmailOutlined style={{ fontSize }} />
+        <MenuItem selected={isEmailOpen} title="Contact" iconSize={fontSize} onClick={openEmail}>
+          <PersonOutline style={{ fontSize }} />
         </MenuItem>
       </List>
     </Drawer>

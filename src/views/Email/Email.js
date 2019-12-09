@@ -2,8 +2,13 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
+import SocialButton from 'Components/SocialButton/SocialButton';
+import {
+  Facebook,
+  LinkedIn,
+  GitHub,
+} from 'Components/Icons';
 import { email } from '#/store/ducks';
-import linkedIn from '~/public/images/linkedIn.svg';
 import styles from './email.scss';
 
 const Email = () => {
@@ -12,8 +17,25 @@ const Email = () => {
 
   return (
     <div className={emailClasses}>
-      Help me
-      {linkedIn}
+      <SocialButton
+        color="#0077b5"
+        Icon={LinkedIn}
+        title="LinkedIn"
+        href="https://www.linkedin.com/in/jrobcc/"
+      />
+      <SocialButton
+        color="#eee"
+        Icon={GitHub}
+        title="Github"
+        href="https://github.com/RobCC"
+        altIcon
+      />
+      <SocialButton
+        color="#1777f2"
+        Icon={Facebook}
+        title="Facebook"
+        href="https://www.facebook.com/jrobcc"
+      />
     </div>
   );
 };
