@@ -7,6 +7,7 @@ import {
   Facebook,
   LinkedIn,
   GitHub,
+  Gmail,
 } from 'Components/Icons';
 import { email } from '#/store/ducks';
 import styles from './email.scss';
@@ -35,6 +36,13 @@ const Email = () => {
         Icon={Facebook}
         title="Facebook"
         href="https://www.facebook.com/jrobcc"
+      />
+      <SocialButton
+        color="#cd201f"
+        size={25}
+        Icon={Gmail}
+        title="Gmail"
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=rrc0138@gmail.com"
       />
     </div>
   );

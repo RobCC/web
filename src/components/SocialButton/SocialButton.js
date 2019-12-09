@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import styles from './socialButton.scss';
 
 const SocialButton = ({
-  title, href, altIcon, color, Icon,
+  title, href, altIcon, size = 35, color, Icon,
 }) => {
   const [isHovered, setHovered] = useState(false);
   const onMouseEnter = () => setHovered(true);
@@ -24,13 +24,14 @@ const SocialButton = ({
       rel="noopener noreferrer"
       target="_blank"
     >
-      <Icon color={iconColor} size={isHovered ? '40px' : '35px'} />
+      <Icon color={iconColor} size={isHovered ? size + 5 : size} />
     </a>
   );
 };
 
 SocialButton.propTypes = {
   altIcon: PropTypes.bool,
+  size: PropTypes.number,
   href: PropTypes.string,
   title: PropTypes.string,
   color: PropTypes.string.isRequired,
