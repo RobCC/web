@@ -6,7 +6,7 @@ module.exports = {
   rules: {
     'number-max-precision': 4,
     'max-nesting-depth': 2,
-    'number-leading-zero': ['always', { severity: 'warning' }],
+    'number-leading-zero': ['never', { severity: 'warning' }],
     'number-no-trailing-zeros': [true, { severity: 'warning' }],
     'string-quotes': 'double',
     'length-zero-no-unit': true,
@@ -23,7 +23,7 @@ module.exports = {
     'declaration-block-semicolon-space-after': 'always-single-line',
     'declaration-block-trailing-semicolon': 'always',
     'rule-empty-line-before': null,
-    'block-closing-brace-space-after': 'always-single-line',
+    'block-closing-brace-space-after': null,
     'block-closing-brace-space-before': 'always-single-line',
     'block-opening-brace-space-before': 'always-single-line',
     'block-opening-brace-space-after': 'always-single-line',
