@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
 import { email } from '#/store/ducks';
+import linkedIn from '~/public/images/linkedIn.svg';
 import styles from './email.scss';
 
 const Email = () => {
@@ -10,7 +11,10 @@ const Email = () => {
   const emailClasses = classNames(styles.email, { [styles.active]: isEmailOpen });
 
   return (
-    <div className={emailClasses}>Help me</div>
+    <div className={emailClasses}>
+      Help me
+      {linkedIn}
+    </div>
   );
 };
 
