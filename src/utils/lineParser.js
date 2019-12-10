@@ -5,7 +5,8 @@ import lineStyles from 'Components/CodeLine/codeLine.scss';
 const LINK_REGEX = /\$\[(.*)\]/;
 const MARK_REGEX = /\$<(.*)>/;
 const COMMENT_REGEX = /\/\/(.*)/;
-const TO_PARSE = /\$\[(.*?)\]|\$<(.*?)>|\/\/(.*)/;
+const IMPORTANT_REGEX = /\$\((.*)\)/;
+const TO_PARSE = /\$\[(.*?)\]|\$<(.*?)>|\/\/(.*)|\$\((.*)\)/;
 
 const isComment = (text) => typeof text === 'string'
   && (text.startsWith('/*') || text.startsWith('*') || text.startsWith('*/'));
@@ -27,6 +28,7 @@ const parseLink = (text, url) => (
 );
 
 const parseComment = (text) => (<span className={lineStyles.comment}>{text}</span>);
+const parseImportant = (text) => (<span className={lineStyles.important}>{text}</span>);
 
 const parseLine = (line) => {
   const parsingNeeded = line.match(TO_PARSE);
@@ -49,6 +51,8 @@ const parseLine = (line) => {
     parsedElement = parseMark(parseContent);
   } else if (fullParse.match(COMMENT_REGEX)) {
     parsedElement = parseComment(fullParse);
+  } else if (fullParse.match(IMPORTANT_REGEX)) {
+    parsedElement = parseImportant(parseContent);
   }
 
   return (

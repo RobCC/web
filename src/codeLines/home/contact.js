@@ -1,5 +1,5 @@
 const contact = [
-  'You can contact me through the following:',
+  'You can reach me through email at $(rrc0138@gmail.com).',
 ];
 
 export default contact;
