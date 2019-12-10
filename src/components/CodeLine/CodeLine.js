@@ -21,10 +21,7 @@ const CodeLine = ({ lineNumber, isAnimated = false, children: line }) => {
     [styles.caretAnimated]: isAnimated && typingFinished,
   });
 
-  /* eslint-disable arrow-body-style */
-  useEffect(() => {
-    return () => isAnimated && !typingFinished && dispatch(setAnimationFinished());
-  }, []);
+  useEffect(() => () => isAnimated && !typingFinished && dispatch(setAnimationFinished()), []);
 
   return (
     <div className={styles.line}>
