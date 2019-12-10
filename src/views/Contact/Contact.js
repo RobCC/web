@@ -26,6 +26,7 @@ const Contact = () => {
       />
       <SocialButton
         color="#eee"
+        size={40}
         Icon={GitHub}
         title="Github"
         href="https://github.com/RobCC"
