@@ -1,61 +1,88 @@
 @use "variables";
 
+.content {
+  margin: 0;
+  width: 97%;
+
+  &.comment {
+    color: variables.$editor-comment;
+  }
+
+  &.animated {
+    width: auto;
+
+    .text {
+      animation: typing 3500ms steps(40, end), caret 1500ms infinite;
+      border-right: .15em solid #f5f5f5;
+      display: inline-block;
+      overflow: hidden;
+      padding-right: 3px;
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+
+.number {
+  color: #8f8f89;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  width: 3%;
+}
+
 .line {
   align-items: center;
   display: flex;
   font-family: "Fira Code", monospace;
   font-size: 15px;
-  height: 22px;
-  line-height: 22px;
+  height: 21px;
+  line-height: 21px;
 
   ::selection {
     background: variables.$editor-line-highlight;
   }
 
-  .number {
-    color: #8f8f89;
-    display: inline-block;
-    text-align: center;
-    user-select: none;
-    width: 3%;
-  }
+  &:hover {
+    background-color: variables.$editor-line-hover;
 
-  .content {
-    width: 97%;
-
-    &.comment {
-      color: variables.$editor-comment;
+    .number {
+      background-color: variables.$editor-bg;
     }
   }
+}
+
+.editor-link {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: variables.$monokai-blue;
+  font-family: "Fira Code Bold", monospace;
+  padding: 0 2px;
+  position: relative;
+  text-decoration: none;
+  transition: border 250ms;
+  top: 0;
 
   &:hover {
-    .content {
-      background-color: variables.$editor-line-hover;
-    }
+    border: 1px solid variables.$monokai-blue;
   }
+}
 
-  a {
-    border: 1px solid transparent;
-    border-radius: 4px;
-    color: variables.$monokai-blue;
-    font-family: "Fira Code Bold", monospace;
-    padding: 0 2px;
-    position: relative;
-    text-decoration: none;
-    transition: border 250ms;
-    top: -1px;
+.comment {
+  color: variables.$editor-comment;
+}
 
-    &:hover {
-      border: 1px solid variables.$monokai-blue;
-    }
-  }
+.mark {
+  color: variables.$monokai-green;
+  font-style: normal;
+}
 
-  span {
-    color: variables.$editor-comment;
-  }
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
 
-  i {
-    color: variables.$monokai-green;
-    font-style: normal;
-  }
+@keyframes caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #f5f5f5; }
 }
