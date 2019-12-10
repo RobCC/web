@@ -7,15 +7,24 @@ import parser from '#/utils/lineParser';
 import styles from './codeLine.scss';
 import { editor } from '#/store/ducks';
 
+const {
+  hasAnimationFinished,
+  setAnimationFinished,
+} = editor;
+
 const CodeLine = ({ lineNumber, isAnimated = false, children: line }) => {
-  const hasAnimationFinished = useSelector((store) => editor.hasAnimationFinished(store));
+  const typingFinished = useSelector((store) => hasAnimationFinished(store));
   const dispatch = useDispatch();
   const lineClasses = classNames(styles.content, {
     [styles.comment]: parser.isComment(line),
-    [styles.animated]: isAnimated && !hasAnimationFinished,
+    [styles.typeAnimated]: isAnimated && !typingFinished,
+    [styles.caretAnimated]: isAnimated && typingFinished,
   });
 
-  useEffect(() => () => isAnimated && dispatch(editor.setAnimationFinished()), []);
+  /* eslint-disable arrow-body-style */
+  useEffect(() => {
+    return () => isAnimated && !typingFinished && dispatch(setAnimationFinished());
+  }, []);
 
   return (
     <div className={styles.line}>
