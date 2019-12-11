@@ -25,7 +25,7 @@ module.exports = ({ NODE_ENV }) => ({
   output: {
     path: BUILD_PATH,
     filename: 'index.js',
-    publicPath: '/',
+    publicPath: '',
   },
   resolve: {
     alias,
