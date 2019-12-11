@@ -1,29 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import FileMenu from 'Components/FileTabMenu/FileTabMenu';
 import FileRoutes from 'Components/Routes/FileRoutes';
 
 import styles from './home.scss';
 
-const HOME_PATH = '/home';
-
 const files = [
   {
     name: 'greet.js',
     extension: 'JS',
-    to: `${HOME_PATH}/greet`,
+    to: '/',
   },
   {
     name: 'contact.css',
     extension: '#',
-    to: `${HOME_PATH}/contact`,
+    to: '/contact',
   },
 ];
 
 const Home = () => (
   <div className={styles.homeWrapper}>
-    <Router>
+    <Router basename="/">
       <FileMenu files={files} />
       <FileRoutes />
     </Router>

@@ -30,12 +30,12 @@ const Menu = ({ location }) => {
       variant="permanent"
     >
       <List classes={useListStyles()}>
-        <NavLink to="/home" exact>
-          <MenuItem selected={isPathSelected('/home')} title="Home" iconSize={fontSize}>
+        <NavLink to="/" exact>
+          <MenuItem selected={isPathSelected('/')} title="Home" iconSize={fontSize}>
             <HomeOutlined style={{ fontSize }} />
           </MenuItem>
         </NavLink>
-        <NavLink to="/resume" exact>
+        <NavLink to="/resume">
           <MenuItem selected={isPathSelected('/resume')} title="Resume" iconSize={fontSize}>
             <WorkOutlineOutlined style={{ fontSize }} />
           </MenuItem>
