@@ -16,7 +16,7 @@ import { useDrawerStyles, useListStyles } from './menu-styles';
 const fontSize = 34;
 
 const Menu = ({ location }) => {
-  const isPathSelected = (route) => location.pathname.includes(route);
+  const isPathSelected = (route) => location.pathname === route;
   const isEmailOpen = useSelector((state) => email.isEmailOpen(state));
   const dispatch = useDispatch();
   const classes = useDrawerStyles();
