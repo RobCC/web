@@ -1,1 +1,0 @@
-define(["jquery","underscore","backbone","materialize","text!../html/content.html"],function(e,t,n,i,r){return n.View.extend({className:"content-wrapper",initialize:function(){},render:function(){return this.$el.html(r),this.$(".parallax").parallax(),this}})});
