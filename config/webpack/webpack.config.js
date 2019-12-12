@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const StyleLintFormatter = require('stylelint-formatter-pretty');
 const EsLintFormatter = require('eslint-formatter-pretty');
+const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 
 const {
   DEV, ROOT_PATH, SRC_PATH, BUILD_PATH,
@@ -11,6 +12,7 @@ const {
 const setStyleLoaders = require('./style-loaders');
 const devServer = require('./dev-server');
 const alias = require('./alias');
+const listeningMsg = require('./listeningMsg');
 
 module.exports = ({ NODE_ENV }) => ({
   devServer,
@@ -20,11 +22,12 @@ module.exports = ({ NODE_ENV }) => ({
     'regenerator-runtime/runtime',
     `${SRC_PATH}/index.js`,
   ],
-  devtool: NODE_ENV === DEV ? 'eval-source-map' : false,
+  devtool: NODE_ENV === DEV ? 'cheap-module-eval-source-map' : false,
   context: ROOT_PATH,
   output: {
     path: BUILD_PATH,
     filename: 'index.js',
+    pathinfo: false,
     publicPath: '',
   },
   resolve: {
@@ -83,5 +86,8 @@ module.exports = ({ NODE_ENV }) => ({
       favicon: 'public/icons/favicon.ico',
     }),
     new MiniCssExtractPlugin({ filename: 'index.css' }),
+    new CleanTerminalPlugin({
+      message: listeningMsg(),
+    }),
   ],
 });

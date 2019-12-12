@@ -1,16 +1,15 @@
 const chalk = require('chalk');
 const logSymbols = require('log-symbols');
-const internalIp = require('internal-ip');
 
 const { log } = console;
 
-const { BUILD_PATH, ROOT_PATH } = require('./constants');
+const { PORT, BUILD_PATH, ROOT_PATH } = require('./constants');
 
 module.exports = {
   contentBase: BUILD_PATH,
   host: '0.0.0.0',
   publicPath: '/',
-  port: 1234,
+  port: PORT,
   open: false,
   overlay: false,
   hot: true,
@@ -38,23 +37,10 @@ module.exports = {
     usedExports: false,
     version: false,
   },
-  onListening: (server) => {
-    const PORT = server.listeningApp.address().port;
-
+  onListening: () => {
     log(
       `\n${logSymbols.success}`,
       `${chalk.green.bold(`Running on ${process.env.NODE_ENV}`)}`,
-    );
-    log(
-      logSymbols.info,
-      chalk.cyan.bold('Listening on:'),
-      `${chalk.cyan(`http://localhost:${PORT}`)}`,
-    );
-    log(
-      logSymbols.info,
-      chalk.cyan.bold('Listening on:'),
-      `${chalk.cyan(`http://${internalIp.v4.sync()}:${PORT}`)}`,
-      '\n',
     );
   },
 };
