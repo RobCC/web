@@ -16,7 +16,7 @@ import { useDrawerStyles, useListStyles } from './menu-styles';
 const fontSize = 34;
 
 const Menu = ({ location }) => {
-  const isPathSelected = (route) => location.pathname.includes(route);
+  const isPathSelected = (route) => location.pathname === route;
   const isEmailOpen = useSelector((state) => email.isEmailOpen(state));
   const dispatch = useDispatch();
   const classes = useDrawerStyles();
@@ -30,12 +30,12 @@ const Menu = ({ location }) => {
       variant="permanent"
     >
       <List classes={useListStyles()}>
-        <NavLink to="/home" exact>
-          <MenuItem selected={isPathSelected('/home')} title="Home" iconSize={fontSize}>
+        <NavLink to="/" exact replace={location.pathname === '/'}>
+          <MenuItem selected={isPathSelected('/')} title="Home" iconSize={fontSize}>
             <HomeOutlined style={{ fontSize }} />
           </MenuItem>
         </NavLink>
-        <NavLink to="/resume" exact>
+        <NavLink to="/resume" replace={location.pathname === '/resume'}>
           <MenuItem selected={isPathSelected('/resume')} title="Resume" iconSize={fontSize}>
             <WorkOutlineOutlined style={{ fontSize }} />
           </MenuItem>

@@ -1,15 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, withRouter } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
+import { tabs } from '#/store/ducks';
 import styles from './fileTab.scss';
 
 const FileTab = ({
-  location, to, extension, children: fileName,
+  id, extension, children: fileName,
 }) => {
+  const dispatch = useDispatch();
+  const currentTab = useSelector((store) => tabs.getCurrentTab(store));
   const tabClasses = classNames(styles.tab, {
-    [styles.active]: location.pathname === to,
+    [styles.active]: currentTab === id,
   });
 
   const extensionClasses = classNames({
@@ -17,21 +20,22 @@ const FileTab = ({
     [styles.css]: extension && extension === '#',
   });
 
+  const changeCurrentTab = () => {
+    dispatch(tabs.changeTab(id));
+  };
+
   return (
-    <NavLink to={to} className={tabClasses}>
+    <button type="button" to={id} className={tabClasses} onClick={changeCurrentTab}>
       {extension && <span className={extensionClasses}>{extension}</span>}
       {fileName}
-    </NavLink>
+    </button>
   );
 };
 
 FileTab.propTypes = {
+  id: PropTypes.string.isRequired,
   extension: PropTypes.string,
-  to: PropTypes.string.isRequired,
   children: PropTypes.string,
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
-export default React.memo(withRouter(FileTab));
+export default React.memo(FileTab);
