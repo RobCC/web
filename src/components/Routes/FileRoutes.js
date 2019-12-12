@@ -13,6 +13,8 @@ const {
 
 const greet = getRandomElement(Object.keys(greets).map((k) => greets[k]));
 
+
+// TODO: Remove
 const FileRoutes = () => (
   <Switch>
     <Route path="/" exact>
