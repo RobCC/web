@@ -10,18 +10,18 @@ import {
 } from '@material-ui/icons';
 
 import MenuItem from 'Components/MenuItem/MenuItem';
-import { email } from '#/store/ducks';
+import { isEmailOpen, toggleEmail } from '#/store/ducks/email';
 import { useDrawerStyles, useListStyles } from './menu-styles';
 
 const fontSize = 34;
 
 const Menu = ({ location }) => {
   const isPathSelected = (route) => location.pathname === route;
-  const isEmailOpen = useSelector((state) => email.isEmailOpen(state));
+  const isEmailOpenSelector = useSelector((state) => isEmailOpen(state));
   const dispatch = useDispatch();
   const classes = useDrawerStyles();
 
-  const openEmail = () => dispatch(email.toggleEmail());
+  const openEmail = () => dispatch(toggleEmail());
 
   return (
     <Drawer
@@ -40,7 +40,12 @@ const Menu = ({ location }) => {
             <WorkOutlineOutlined style={{ fontSize }} />
           </MenuItem>
         </NavLink>
-        <MenuItem selected={isEmailOpen} title="Contact" iconSize={fontSize} onClick={openEmail}>
+        <MenuItem
+          selected={isEmailOpenSelector}
+          title="Contact"
+          iconSize={fontSize}
+          onClick={openEmail}
+        >
           <PersonOutline style={{ fontSize }} />
         </MenuItem>
       </List>

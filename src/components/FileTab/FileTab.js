@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
-import { tabs } from '#/store/ducks';
+import { getCurrentTab, changeTab } from '#/store/ducks/tabs';
 import styles from './fileTab.scss';
 
 const FileTab = ({
   id, extension, children: fileName,
 }) => {
   const dispatch = useDispatch();
-  const currentTab = useSelector((store) => tabs.getCurrentTab(store));
+  const currentTab = useSelector((store) => getCurrentTab(store));
   const tabClasses = classNames(styles.tab, {
     [styles.active]: currentTab === id,
   });
@@ -21,7 +21,7 @@ const FileTab = ({
   });
 
   const changeCurrentTab = () => {
-    dispatch(tabs.changeTab(id));
+    dispatch(changeTab(id));
   };
 
   return (

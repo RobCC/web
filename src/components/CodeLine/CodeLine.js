@@ -5,12 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import parser from '#/utils/lineParser';
 import styles from './codeLine.scss';
-import { editor } from '#/store/ducks';
-
-const {
-  hasAnimationFinished,
-  setAnimationFinished,
-} = editor;
+import { hasAnimationFinished, setAnimationFinished } from '#/store/ducks/editor';
 
 const CodeLine = ({ lineNumber, isAnimated = false, children: line }) => {
   const typingFinished = useSelector((store) => hasAnimationFinished(store));

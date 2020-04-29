@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import FileMenu from 'Components/FileTabMenu/FileTabMenu';
 import Editor from 'Components/Editor/Editor';
 import { tabList, tabMap } from '#/utils/content';
-import { tabs } from '#/store/ducks';
+import { getCurrentTab } from '#/store/ducks/tabs';
 
 import styles from './home.scss';
 
@@ -22,7 +22,7 @@ const files = [
 ];
 
 const Home = () => {
-  const currentTab = useSelector((store) => tabs.getCurrentTab(store));
+  const currentTab = useSelector((store) => getCurrentTab(store));
 
   return (
     <div className={styles.homeWrapper}>
