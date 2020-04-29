@@ -9,12 +9,12 @@ import {
   GitHub,
   Gmail,
 } from 'Components/Icons';
-import { email } from '#/store/ducks';
+import { isEmailOpen } from '#/store/ducks/email';
 import styles from './contact.scss';
 
 const Contact = () => {
-  const isEmailOpen = useSelector((state) => email.isEmailOpen(state));
-  const emailClasses = classNames(styles.email, { [styles.active]: isEmailOpen });
+  const isEmailOpenSelector = useSelector((state) => isEmailOpen(state));
+  const emailClasses = classNames(styles.email, { [styles.active]: isEmailOpenSelector });
 
   return (
     <div className={emailClasses}>

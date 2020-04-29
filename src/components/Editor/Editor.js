@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import generateId from 'uuid/v1';
+import { v1 as generateId } from 'uuid';
 import React from 'react';
 
 import L from 'Components/CodeLine/CodeLine';
