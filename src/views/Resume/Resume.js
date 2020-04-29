@@ -20,6 +20,16 @@ const Resume = () => {
 
   return (
     <div className={styles.wip} ref={ballRef}>
+      <div>
+        In the meantime, you can visit the old
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://robcc.github.io/resume/"
+        >
+          site
+        </a>.
+      </div>
       <div>Work in progress!</div>
     </div>
   );
