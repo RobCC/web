@@ -7,7 +7,7 @@ import parser from './lineParser';
 import styles from './editorLine.scss';
 import { hasAnimationFinished, setAnimationFinished } from '#/store/ducks/editor';
 
-const EditorLine = ({ lineNumber, shouldAnimate = false, line }) => {
+const EditorLine = ({ lineNumber, shouldAnimate = false, line = '' }) => {
   const typingFinished = useSelector((store) => hasAnimationFinished(store));
   const dispatch = useDispatch();
   const lineClasses = classNames(styles.content, {

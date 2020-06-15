@@ -88,13 +88,20 @@
   color: variables.$editor-comment;
 }
 
-.mark {
-  color: variables.$monokai-green;
-  font-style: normal;
-}
-
 .important {
   color: variables.$monokai-red;
+}
+
+.color {
+  &.red {
+    color: variables.$monokai-red;
+  }
+  &.green {
+    color: variables.$monokai-green;
+  }
+  &.blue {
+    color: variables.$monokai-blue;
+  }
 }
 
 @keyframes typing {

@@ -1,23 +1,29 @@
 import React from 'react';
+import classNames from 'classnames';
 
-import lineStyles from 'Components/EditorLine/editorLine.scss';
+import styles from 'Components/EditorLine/editorLine.scss';
 
-const LINK_REGEX = /\$\[(.*)\]/;
-const MARK_REGEX = /\$<(.*)>/;
-const COMMENT_REGEX = /\/\/(.*)/;
-const IMPORTANT_REGEX = /\$\((.*)\)/;
-const TO_PARSE = /\$\[(.*?)\]|\$<(.*?)>|\/\/(.*)|\$\((.*)\)/;
+// https://github.com/tc39/proposal-regexp-named-groups - ?
 
-const isComment = (text) => typeof text === 'string'
-  && (text.startsWith('/*') || text.startsWith('*') || text.startsWith('*/'));
+const REGEX_MAP = {
+  link: new RegExp(/\$\[(.*?)\]/),
+  color: new RegExp(/\$\((.*?)\)/),
+  comment: new RegExp(/\/\/(.*?)/),
+};
 
-const filterResults = (parseResult) => parseResult.filter((e) => e !== undefined);
+function getMapKV() {
+  const keys = Object.keys(REGEX_MAP);
+  const values = keys.map((k) => REGEX_MAP[k]);
 
-const parseMark = (text) => <span className={lineStyles.mark}>{text}</span>;
+  return {
+    keys,
+    values,
+  };
+}
 
 const parseLink = (text, url) => (
   <a
-    className={lineStyles.editorLink}
+    className={styles.editorLink}
     title={text}
     href={url}
     target="_blank"
@@ -27,44 +33,80 @@ const parseLink = (text, url) => (
   </a>
 );
 
-const parseComment = (text) => (<span className={lineStyles.comment}>{text}</span>);
-const parseImportant = (text) => (<span className={lineStyles.important}>{text}</span>);
+const parseComment = (text) => (<span className={styles.comment}>{text}</span>);
+
+function parseTextColor(color, text) {
+  const classes = classNames(styles.color, styles[color]);
+  return <span className={classes}>{text}</span>;
+}
+
+function needsParsing(line) {
+  const { values } = getMapKV();
+  const regexSources = values.map((rx) => rx.source);
+  const allParsesRegex = new RegExp(regexSources.join('|'));
+  const matchResults = line.match(allParsesRegex) || [];
+  // destructuring order is the same as in the REGEX_MAP
+  const [parse, link, color, comment] = matchResults;
+
+  return {
+    parseIndex: matchResults.index,
+    matchFound: !!parse,
+    parse,
+    link,
+    color,
+    comment,
+  };
+}
 
 const parseLine = (line) => {
-  const parsingNeeded = line.match(TO_PARSE);
+  const {
+    parseIndex,
+    matchFound,
+    parse,
+    link,
+    color,
+    comment,
+  } = needsParsing(line);
 
-  if (!parsingNeeded) {
+  if (!matchFound) {
     return (<>{line}</>);
   }
 
-  const [fullParse, parseContent] = filterResults(parsingNeeded);
-  const parseIndex = line.indexOf(fullParse);
-  const preParse = line.slice(0, parseIndex);
-  const postParse = line.slice(line.indexOf(fullParse) + fullParse.length, line.length);
+  const textBeforeParse = line.slice(0, parseIndex);
+  const textAfterParse = line.slice(parseIndex + parse.length, line.length);
   let parsedElement;
 
-  if (fullParse.match(LINK_REGEX)) {
-    const [linkText, linkUrl] = parseContent.split(',');
+  if (link) {
+    const [linkText, linkUrl] = link.split(',').map((e) => e.trim());
 
     parsedElement = parseLink(linkText, linkUrl);
-  } else if (fullParse.match(MARK_REGEX)) {
-    parsedElement = parseMark(parseContent);
-  } else if (fullParse.match(COMMENT_REGEX)) {
-    parsedElement = parseComment(fullParse);
-  } else if (fullParse.match(IMPORTANT_REGEX)) {
-    parsedElement = parseImportant(parseContent);
+  } else if (color) {
+    const [colorValue, text] = color.split(',').map((e) => e.trim());
+
+    parsedElement = parseTextColor(colorValue, text);
+  } else if (comment) {
+    parsedElement = parseComment(parse);
   }
 
   return (
     <>
-      {preParse}
+      {textBeforeParse}
       {parsedElement}
-      {parseLine(postParse)}
+      {parseLine(textAfterParse)}
     </>
   );
 };
 
+function isComment(text) {
+  const commentIdentifiers = ['*', '/*', '*/'];
+  const isString = typeof text === 'string';
+
+  return isString && commentIdentifiers.some(
+    (identifier) => text.startsWith(identifier),
+  );
+}
+
 export default {
-  isComment,
   parseLine,
+  isComment,
 };
