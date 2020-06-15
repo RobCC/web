@@ -8,7 +8,7 @@ import styles from 'Components/EditorLine/editorLine.scss';
 const REGEX_MAP = {
   link: new RegExp(/\$\[(.*?)\]/),
   color: new RegExp(/\$\((.*?)\)/),
-  comment: new RegExp(/\/\/(.*?)/),
+  comment: new RegExp(/\/\/(.*?)+/),
 };
 
 function getMapKV() {
