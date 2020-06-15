@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <div className={styles.homeWrapper}>
       <FileMenu tabs={files} />
-      <Editor codeLines={tabMap[currentTab]} />
+      <Editor file={tabMap[currentTab]} />
     </div>
   );
 };

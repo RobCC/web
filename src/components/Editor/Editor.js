@@ -2,18 +2,23 @@ import PropTypes from 'prop-types';
 import { v1 as generateId } from 'uuid';
 import React from 'react';
 
-import L from 'Components/CodeLine/CodeLine';
+import EditorLine from 'Components/EditorLine/EditorLine';
 
-const Editor = ({ codeLines }) => (
+const Editor = ({ file }) => (
   <div>
-    {codeLines.map((line, i) => (
-      <L key={generateId()} lineNumber={i + 1} isAnimated={i === codeLines.length - 1}>{line}</L>
+    {file.map((line, i) => (
+      <EditorLine
+        key={generateId()}
+        lineNumber={i + 1}
+        shouldAnimate={i === file.length - 1}
+        line={line}
+      />
     ))}
   </div>
 );
 
 Editor.propTypes = {
-  codeLines: PropTypes.arrayOf(
+  file: PropTypes.arrayOf(
     PropTypes.string,
   ),
 };

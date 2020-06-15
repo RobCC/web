@@ -1,6 +1,6 @@
 import React from 'react';
 
-import lineStyles from 'Components/CodeLine/codeLine.scss';
+import lineStyles from 'Components/EditorLine/editorLine.scss';
 
 const LINK_REGEX = /\$\[(.*)\]/;
 const MARK_REGEX = /\$<(.*)>/;
