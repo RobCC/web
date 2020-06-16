@@ -1,4 +1,4 @@
-import Home from './Home/Home';
+import EditorView from './EditorView/EditorView';
 import Resume from './Resume/Resume';
 
-export { Home, Resume };
+export { EditorView, Resume };

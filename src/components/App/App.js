@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 
-import Menu from 'Components/Menu/Menu';
+import SideMenu from 'Components/SideMenu/SideMenu';
 import MenuRoutes from 'Components/Routes/MenuRoutes';
 import Contact from '#/views/Contact/Contact';
 
@@ -10,7 +10,7 @@ import styles from './app.scss';
 const App = () => (
   <Router basename="/">
     <div className={styles.root}>
-      <Menu />
+      <SideMenu />
 
       <div className={styles.content}>
         <Contact />

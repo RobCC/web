@@ -1,0 +1,43 @@
+@use "variables";
+
+.icon {
+  min-width: 30px;
+  color: #80827b;
+  margin: 0 auto;
+}
+
+.item {
+  align-items: center;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  display: flex;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  justify-content: center;
+  user-select: none;
+  outline: none;
+  height: variables.$menu-size;
+
+  &.active {
+    border-left: 3px solid white;
+
+    .icon {
+      color: white;
+    }
+  }
+
+  &:hover {
+    .icon {
+      color: white;
+    }
+  }
+}
+
+.title {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
