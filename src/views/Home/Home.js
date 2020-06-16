@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import FileMenu from 'Components/FileTabMenu/FileTabMenu';
+import TabMenu from 'Components/TabMenu/TabMenu';
 import Editor from 'Components/Editor/Editor';
 import { tabList, tabMap } from '#/utils/content';
 import { getCurrentTab } from '#/store/ducks/tabs';
@@ -12,12 +12,12 @@ const files = [
   {
     id: tabList.greet,
     name: 'greet.js',
-    extension: 'JS',
+    icon: 'JS',
   },
   {
     id: tabList.contact,
     name: 'contact.css',
-    extension: '#',
+    icon: '#',
   },
 ];
 
@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <div className={styles.homeWrapper}>
-      <FileMenu tabs={files} />
+      <TabMenu tabs={files} />
       <Editor file={tabMap[currentTab]} />
     </div>
   );

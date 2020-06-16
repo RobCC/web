@@ -33,7 +33,18 @@ const parseLink = (text, url) => (
   </a>
 );
 
-const parseComment = (text) => (<span className={styles.comment}>{text}</span>);
+function isComment(text) {
+  const commentIdentifiers = ['*', '/*', '*/'];
+  const isString = typeof text === 'string';
+
+  return isString && commentIdentifiers.some(
+    (identifier) => text.startsWith(identifier),
+  );
+}
+
+function parseComment(text) {
+  return <span className={styles.comment}>{text}</span>;
+}
 
 function parseTextColor(color, text) {
   const classes = classNames(styles.color, styles[color]);
@@ -69,7 +80,7 @@ const parseLine = (line) => {
   } = needsParsing(line);
 
   if (!matchFound) {
-    return (<>{line}</>);
+    return line;
   }
 
   const textBeforeParse = line.slice(0, parseIndex);
@@ -96,15 +107,6 @@ const parseLine = (line) => {
     </>
   );
 };
-
-function isComment(text) {
-  const commentIdentifiers = ['*', '/*', '*/'];
-  const isString = typeof text === 'string';
-
-  return isString && commentIdentifiers.some(
-    (identifier) => text.startsWith(identifier),
-  );
-}
 
 export default {
   parseLine,

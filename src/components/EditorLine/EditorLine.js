@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
-import parser from './lineParser';
+import parser from './parser';
 import styles from './editorLine.scss';
 import { hasAnimationFinished, setAnimationFinished } from '#/store/ducks/editor';
 

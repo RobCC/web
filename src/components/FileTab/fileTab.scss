@@ -5,7 +5,7 @@
   border: none;
   border-right: 1px solid;
   border-color: variables.$editor-bg;
-  color: white;
+  color: variables.$tab-text;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -15,7 +15,7 @@
 
   &.active {
     background-color: variables.$editor-bg;
-    font-weight: bold;
+    color: variables.$tab-text-active;
   }
 
   &:focus,
@@ -30,7 +30,7 @@
     margin-right: 7px;
 
     &.js {
-      color: yellow;
+      color: variables.$file-color-js;
     }
 
     &.css {
