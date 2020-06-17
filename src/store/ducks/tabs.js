@@ -1,26 +1,20 @@
+import { createAction, handleAction } from 'redux-actions';
+
 const CHANGE_TAB = 'tabs/CHANGE_TAB';
 
 const initialState = {
   currentTab: 'greet',
 };
 
-export default (state = initialState, { type, tabName }) => {
-  switch (type) {
-    case CHANGE_TAB:
-      return {
-        ...state,
-        currentTab: tabName,
-      };
-    default:
-      return state;
-  }
-};
+export const changeTab = createAction(CHANGE_TAB);
 
-export const changeTab = (tabName) => ({
-  type: CHANGE_TAB,
-  tabName,
+const onChangeTab = (state, { payload }) => ({
+  ...state,
+  currentTab: payload,
 });
 
-const getRoot = (state) => state.tabs;
+const reducer = handleAction(changeTab, onChangeTab, initialState);
 
-export const getCurrentTab = (state) => getRoot(state).currentTab;
+export const getCurrentTab = (state) => state.tabs.currentTab;
+
+export default reducer;
