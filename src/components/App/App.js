@@ -4,6 +4,7 @@ import { HashRouter as Router } from 'react-router-dom';
 import SideMenu from 'Components/SideMenu/SideMenu';
 import MenuRoutes from 'Components/Routes/MenuRoutes';
 import Contact from '#/views/Contact/Contact';
+import { Resume } from '#/views';
 
 import styles from './app.scss';
 
@@ -16,6 +17,8 @@ const App = () => (
         <Contact />
         <MenuRoutes />
       </div>
+
+      <Resume />
 
     </div>
   </Router>

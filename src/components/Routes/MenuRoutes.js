@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import { EditorView, Resume } from '../../views';
+import { EditorView } from '../../views';
 
 export const PATHS = {
   root: '/',
@@ -12,7 +12,7 @@ export const PATHS = {
 const MenuRoutes = () => (
   <Switch>
     <Route path={PATHS.root} exact component={EditorView} />
-    <Route path={PATHS.resume} exact component={Resume} />
+    {/* <Route path={PATHS.resume} exact component={() => <Resume />} /> */}
     <Route path={PATHS.allPaths} component={EditorView} />
   </Switch>
 );

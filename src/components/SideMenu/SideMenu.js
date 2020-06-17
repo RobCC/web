@@ -12,6 +12,7 @@ import SideMenuItem from 'Components/SideMenuItem/SideMenuItem';
 import { PATHS } from 'Components/Routes/MenuRoutes';
 
 import { isEmailOpen, toggleEmail } from '#/store/ducks/email';
+import { toggleResume } from '#/store/ducks/resume';
 
 import styles from './sideMenu.scss';
 
@@ -21,6 +22,7 @@ const SideMenu = ({ location }) => {
   const isEmailOpenSelector = useSelector((state) => isEmailOpen(state));
 
   const openEmail = () => dispatch(toggleEmail());
+  const onResumeClick = () => dispatch(toggleResume());
 
   return (
     <div className={styles.menu}>
@@ -31,13 +33,12 @@ const SideMenu = ({ location }) => {
           Icon={HomeOutlined}
         />
       </NavLink>
-      <NavLink to={PATHS.resume} replace={location.pathname === PATHS.resume}>
-        <SideMenuItem
-          title="Resume"
-          selected={isCurrentPath('/resume')}
-          Icon={WorkOutlineOutlined}
-        />
-      </NavLink>
+      <SideMenuItem
+        title="Resume"
+        selected={false}
+        onClick={onResumeClick}
+        Icon={PersonOutline}
+      />
       <SideMenuItem
         title="Contact"
         selected={isEmailOpenSelector}
