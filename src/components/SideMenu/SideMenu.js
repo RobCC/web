@@ -37,7 +37,7 @@ const SideMenu = ({ location }) => {
         title="Resume"
         selected={false}
         onClick={onResumeClick}
-        Icon={PersonOutline}
+        Icon={WorkOutlineOutlined}
       />
       <SideMenuItem
         title="Contact"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
@@ -18,9 +18,9 @@ const FileTab = ({ id, icon, name }) => {
     [styles.css]: icon && icon === '#',
   });
 
-  const changeCurrentTab = () => {
+  const changeCurrentTab = useCallback(() => {
     dispatch(changeTab(id));
-  };
+  }, [id]);
 
   return (
     <button type="button" to={id} className={tabClasses} onClick={changeCurrentTab}>

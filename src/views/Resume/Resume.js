@@ -80,13 +80,13 @@ const Resume = () => {
 
   const onUnmount = useCallback(() => {
     reduxDispatch(toggleResume());
-  });
+  }, []);
 
   const onAnimationEnd = useCallback(() => {
     dispatch({
       type: 'animationFinished',
     });
-  });
+  }, []);
 
   const classes = classNames(styles.wip, {
     [styles.slideIn]: show,

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import parser from './parser';
 import styles from './editorLine.scss';
-import { hasAnimationFinished, setAnimationFinished } from '#/store/ducks/editor';
+import { hasAnimationFinished, animationFinished } from '#/store/ducks/editor';
 
 const EditorLine = ({ lineNumber, shouldAnimate = false, line = '' }) => {
   const typingFinished = useSelector((store) => hasAnimationFinished(store));
@@ -18,7 +18,7 @@ const EditorLine = ({ lineNumber, shouldAnimate = false, line = '' }) => {
 
   useEffect(() => () => {
     if (shouldAnimate && !typingFinished) {
-      dispatch(setAnimationFinished());
+      dispatch(animationFinished());
     }
   }, []);
 
