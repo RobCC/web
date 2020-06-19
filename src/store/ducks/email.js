@@ -1,45 +1,20 @@
-export const SHOW_EMAIL = 'email/SHOW_EMAIL';
-export const HIDE_EMAIL = 'email/HIDE_EMAIL';
-export const TOGGLE_EMAIL = 'email/TOGGLE_EMAIL';
+import { createAction, handleAction } from 'redux-actions';
+
+const TOGGLE_EMAIL = 'email/TOGGLE_EMAIL';
 
 const initialState = {
   isEmailOpen: false,
 };
 
-export default (state = initialState, { type }) => {
-  switch (type) {
-    case SHOW_EMAIL:
-      return {
-        ...state,
-        isEmailOpen: true,
-      };
-    case HIDE_EMAIL:
-      return {
-        ...state,
-        isEmailOpen: false,
-      };
-    case TOGGLE_EMAIL:
-      return {
-        ...state,
-        isEmailOpen: !state.isEmailOpen,
-      };
-    default:
-      return state;
-  }
-};
+export const toggleEmail = createAction(TOGGLE_EMAIL);
 
-export const showEmail = () => ({
-  type: SHOW_EMAIL,
+const onToggleEmail = (state) => ({
+  ...state,
+  isEmailOpen: !state.isEmailOpen,
 });
 
-export const hideEmail = () => ({
-  type: HIDE_EMAIL,
-});
+const reducer = handleAction(toggleEmail, onToggleEmail, initialState);
 
-export const toggleEmail = () => ({
-  type: TOGGLE_EMAIL,
-});
+export const isEmailOpen = (state) => state.email.isEmailOpen;
 
-const getRoot = (state) => state.email;
-
-export const isEmailOpen = (state) => getRoot(state).isEmailOpen;
+export default reducer;

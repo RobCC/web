@@ -1,0 +1,9 @@
+@use "variables";
+
+.menu {
+  display: flex;
+  background-color: #272822;
+  flex-direction: column;
+  height: 100vh;
+  width: variables.$menu-size;
+}

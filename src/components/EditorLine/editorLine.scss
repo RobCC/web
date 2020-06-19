@@ -1,7 +1,7 @@
 @use "variables";
 
 @mixin caret-border {
-  border-right: 2px solid #f5f5f5;
+  border-right: 2px solid variables.$editor-caret-cursor;
   display: inline-block;
   overflow: hidden;
   padding-right: 3px;
@@ -9,7 +9,36 @@
   top: 2px;
 }
 
+.line {
+  align-items: center;
+  display: flex;
+  font-size: 15px;
+  height: 21px;
+  line-height: 21px;
+
+  ::selection {
+    background: variables.$editor-line-highlight;
+  }
+
+  &:hover {
+    background-color: variables.$editor-line-hover;
+
+    .number {
+      background-color: variables.$editor-bg;
+    }
+  }
+}
+
+.line-number {
+  color: variables.$editor-line-number;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  width: 3%;
+}
+
 .content {
+  font-family: Fira Code, monospace;
   margin: 0;
   width: 97%;
 
@@ -39,40 +68,11 @@
   }
 }
 
-.number {
-  color: #8f8f89;
-  display: inline-block;
-  text-align: center;
-  user-select: none;
-  width: 3%;
-}
-
-.line {
-  align-items: center;
-  display: flex;
-  font-family: "Fira Code", monospace;
-  font-size: 15px;
-  height: 21px;
-  line-height: 21px;
-
-  ::selection {
-    background: variables.$editor-line-highlight;
-  }
-
-  &:hover {
-    background-color: variables.$editor-line-hover;
-
-    .number {
-      background-color: variables.$editor-bg;
-    }
-  }
-}
-
 .editor-link {
   border: 1px solid transparent;
   border-radius: 4px;
   color: variables.$monokai-blue;
-  font-family: "Fira Code Bold", monospace;
+  font-family: "Fira Code Bold", Fira Code, monospace;
   padding: 0 2px;
   position: relative;
   text-decoration: none;
@@ -88,13 +88,20 @@
   color: variables.$editor-comment;
 }
 
-.mark {
-  color: variables.$monokai-green;
-  font-style: normal;
-}
-
 .important {
   color: variables.$monokai-red;
+}
+
+.color {
+  &.red {
+    color: variables.$monokai-red;
+  }
+  &.green {
+    color: variables.$monokai-green;
+  }
+  &.blue {
+    color: variables.$monokai-blue;
+  }
 }
 
 @keyframes typing {
@@ -104,5 +111,5 @@
 
 @keyframes caret {
   from, to { border-color: transparent; }
-  50% { border-color: #f5f5f5; }
+  50% { border-color: variables.$editor-caret-cursor; }
 }

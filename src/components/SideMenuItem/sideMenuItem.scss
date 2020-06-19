@@ -1,0 +1,80 @@
+@use "variables";
+
+.icon {
+  min-width: 30px;
+  color: #7b7a75;
+  transition: color 200ms;
+  margin: 0 auto;
+}
+
+.item {
+  align-items: center;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  display: flex;
+  height: variables.$menu-size;
+  justify-content: center;
+  outline: none;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  position: relative;
+  text-align: center;
+  user-select: none;
+
+  &.active {
+    border-left: 3px solid white;
+
+    .icon {
+      color: white;
+    }
+  }
+
+  &:hover {
+    .icon {
+      color: white;
+    }
+  }
+}
+
+.title {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 2px;
+}
+
+.title-fade-in {
+  animation: titleFadeInKF 200ms forwards;
+}
+
+.title-fade-out {
+  animation: titleFadeOutKF 200ms forwards;
+}
+
+@keyframes titleFadeInKF {
+  from {
+    opacity: 0;
+    bottom: 10px;
+  }
+
+  to {
+    opacity: 1;
+    bottom: 2px;
+  }
+}
+
+@keyframes titleFadeOutKF {
+  from {
+    opacity: 1;
+    bottom: 2px;
+  }
+
+  to {
+    opacity: 0;
+    bottom: 10px;
+  }
+}
