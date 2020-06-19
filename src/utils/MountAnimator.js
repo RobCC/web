@@ -59,7 +59,6 @@ function reducer(state, action) {
   }
 }
 
-
 const MountAnimator = ({
   children, mount, className, inAnimation, outAnimation, animationFinishedCb,
 }) => {
