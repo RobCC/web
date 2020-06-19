@@ -11,8 +11,8 @@ import FileCopySharp from '@material-ui/icons/FileCopySharp';
 import SideMenuItem from 'Components/SideMenuItem/SideMenuItem';
 import { PATHS } from 'Components/Routes/MenuRoutes';
 
-import { isEmailOpen, toggleEmail } from '#/store/ducks/email';
-import { isExplorerOpen, toggleExplorer } from '#/store/ducks/explorer';
+import { isEmailOpen as isEmailOpenFn, toggleEmail } from '#/store/ducks/email';
+import { isExplorerOpen as isExplorerOpenFn, toggleExplorer } from '#/store/ducks/explorer';
 import { toggleResume } from '#/store/ducks/resume';
 
 import styles from './sideMenu.scss';
@@ -20,12 +20,28 @@ import styles from './sideMenu.scss';
 const SideMenu = ({ location }) => {
   const dispatch = useDispatch();
   const isCurrentPath = (route) => location.pathname === route;
-  const isEmailOpenFn = useSelector((state) => isEmailOpen(state));
-  const isExplorerOpenFn = useSelector((state) => isExplorerOpen(state));
+  const isEmailOpen = useSelector((state) => isEmailOpenFn(state));
+  const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
 
-  const openEmail = useCallback(() => dispatch(toggleEmail()), []);
-  const onResumeClick = useCallback(() => dispatch(toggleResume()), []);
-  const onExplorerClick = useCallback(() => dispatch(toggleExplorer()), []);
+  const openEmail = useCallback(() => {
+    if (isExplorerOpen) {
+      dispatch(toggleExplorer());
+    }
+
+    dispatch(toggleEmail());
+  }, [isExplorerOpen]);
+
+  const onResumeClick = useCallback(() => {
+    dispatch(toggleResume());
+  }, []);
+
+  const onExplorerClick = useCallback(() => {
+    if (isEmailOpen) {
+      dispatch(toggleEmail());
+    }
+
+    dispatch(toggleExplorer());
+  }, [isEmailOpen]);
 
   return (
     <div className={styles.menu}>
@@ -38,7 +54,7 @@ const SideMenu = ({ location }) => {
       </NavLink>
       <SideMenuItem
         title="Explorer"
-        selected={isExplorerOpenFn}
+        selected={isExplorerOpen}
         onClick={onExplorerClick}
         Icon={FileCopySharp}
       />
@@ -50,7 +66,7 @@ const SideMenu = ({ location }) => {
       />
       <SideMenuItem
         title="Contact"
-        selected={isEmailOpenFn}
+        selected={isEmailOpen}
         onClick={openEmail}
         Icon={PersonOutline}
       />
