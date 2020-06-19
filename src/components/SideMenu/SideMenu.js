@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -6,11 +6,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import HomeOutlined from '@material-ui/icons/HomeOutlined';
 import PersonOutline from '@material-ui/icons/PersonOutline';
 import WorkOutlineOutlined from '@material-ui/icons/WorkOutlineOutlined';
+import FileCopySharp from '@material-ui/icons/FileCopySharp';
 
 import SideMenuItem from 'Components/SideMenuItem/SideMenuItem';
 import { PATHS } from 'Components/Routes/MenuRoutes';
 
 import { isEmailOpen, toggleEmail } from '#/store/ducks/email';
+import { isExplorerOpen, toggleExplorer } from '#/store/ducks/explorer';
 import { toggleResume } from '#/store/ducks/resume';
 
 import styles from './sideMenu.scss';
@@ -18,10 +20,12 @@ import styles from './sideMenu.scss';
 const SideMenu = ({ location }) => {
   const dispatch = useDispatch();
   const isCurrentPath = (route) => location.pathname === route;
-  const isEmailOpenSelector = useSelector((state) => isEmailOpen(state));
+  const isEmailOpenFn = useSelector((state) => isEmailOpen(state));
+  const isExplorerOpenFn = useSelector((state) => isExplorerOpen(state));
 
-  const openEmail = () => dispatch(toggleEmail());
-  const onResumeClick = () => dispatch(toggleResume());
+  const openEmail = useCallback(() => dispatch(toggleEmail()), []);
+  const onResumeClick = useCallback(() => dispatch(toggleResume()), []);
+  const onExplorerClick = useCallback(() => dispatch(toggleExplorer()), []);
 
   return (
     <div className={styles.menu}>
@@ -33,6 +37,12 @@ const SideMenu = ({ location }) => {
         />
       </NavLink>
       <SideMenuItem
+        title="Explorer"
+        selected={isExplorerOpenFn}
+        onClick={onExplorerClick}
+        Icon={FileCopySharp}
+      />
+      <SideMenuItem
         title="Resume"
         selected={false}
         onClick={onResumeClick}
@@ -40,7 +50,7 @@ const SideMenu = ({ location }) => {
       />
       <SideMenuItem
         title="Contact"
-        selected={isEmailOpenSelector}
+        selected={isEmailOpenFn}
         onClick={openEmail}
         Icon={PersonOutline}
       />

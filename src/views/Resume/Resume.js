@@ -1,6 +1,4 @@
-import React, {
-  useCallback, useRef,
-} from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import lottie from 'lottie-web';
 import NavigateBeforeSharpIcon from '@material-ui/icons/NavigateBeforeSharp';

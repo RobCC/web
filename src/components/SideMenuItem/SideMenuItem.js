@@ -13,14 +13,14 @@ const MenuItem = ({
   const onMouseEnter = () => setHovered(true);
   const onMouseLeave = () => setHovered(false);
 
-  const textSize = {
-    width: ICON_SIZE,
-    height: ICON_SIZE,
-  };
-
   const itemClasses = classNames(styles.item, {
     [styles.active]: selected,
   });
+
+  const titleClasses = classNames(
+    styles.title,
+    isHovered ? styles.titleFadeIn : styles.titleFadeOut,
+  );
 
   return (
     <div
@@ -32,14 +32,13 @@ const MenuItem = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {title && isHovered ? (
-        <span style={textSize} className={styles.title}>
+      <div className={styles.icon}>
+        <Icon size={ICON_SIZE} />
+      </div>
+      {title && isHovered && (
+        <span className={titleClasses}>
           {title}
         </span>
-      ) : (
-        <div className={styles.icon}>
-          <Icon size={ICON_SIZE} />
-        </div>
       )}
     </div>
   );

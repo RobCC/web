@@ -12,7 +12,6 @@ export const PATHS = {
 const MenuRoutes = () => (
   <Switch>
     <Route path={PATHS.root} exact component={EditorView} />
-    {/* <Route path={PATHS.resume} exact component={() => <Resume />} /> */}
     <Route path={PATHS.allPaths} component={EditorView} />
   </Switch>
 );
