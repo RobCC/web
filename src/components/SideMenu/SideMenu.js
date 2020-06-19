@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  HomeOutlined,
-  PersonOutline,
-  WorkOutlineOutlined,
-} from '@material-ui/icons';
+
+import HomeOutlined from '@material-ui/icons/HomeOutlined';
+import PersonOutline from '@material-ui/icons/PersonOutline';
+import WorkOutlineOutlined from '@material-ui/icons/WorkOutlineOutlined';
 
 import SideMenuItem from 'Components/SideMenuItem/SideMenuItem';
 import { PATHS } from 'Components/Routes/MenuRoutes';
