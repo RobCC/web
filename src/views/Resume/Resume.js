@@ -1,52 +1,54 @@
 import React, {
-  useCallback, useRef, useEffect,
+  useCallback, useRef,
 } from 'react';
-import classNames from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import lottie from 'lottie-web';
+import NavigateBeforeSharpIcon from '@material-ui/icons/NavigateBeforeSharp';
 
 import bouncingBall from '~/public/ae/ball.json';
 import { toggleResume, isResumeOpen as selector } from '../../store/ducks/resume';
-import useAnimation from '../../utils/useAnimation';
+import MountAnimator from '../../utils/MountAnimator';
 
 import styles from './resume.scss';
-
 
 const Resume = () => {
   const reduxDispatch = useDispatch();
   const isResumeOpen = useSelector((store) => selector(store));
-  const {
-    show,
-    isMounted,
-    dispatchAnimationFinished,
-  } = useAnimation(isResumeOpen);
   const ballRef = useRef(null);
 
-  useEffect(() => {
-    lottie.loadAnimation({
-      container: ballRef.current,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      animationData: bouncingBall,
-    });
+  const onAnimationFinished = useCallback((isOpened) => {
+    if (isOpened) {
+      lottie.loadAnimation({
+        container: ballRef.current,
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        animationData: bouncingBall,
+      });
+    }
   }, []);
 
   const hideResume = useCallback(() => {
     reduxDispatch(toggleResume());
   }, []);
 
-  const classes = classNames(
-    styles.wip,
-    show ? styles.slideIn : styles.slideOut,
-  );
-
-  return isMounted && (
-    <div
-      className={classes}
-      ref={ballRef}
-      onAnimationEnd={dispatchAnimationFinished}
+  return (
+    <MountAnimator
+      mount={isResumeOpen}
+      className={styles.resumeWrapper}
+      inAnimation={styles.slideIn}
+      outAnimation={styles.slideOut}
+      animationFinishedCb={onAnimationFinished}
     >
+      <button
+        type="button"
+        onClick={hideResume}
+        className={styles.exitWrapper}
+      >
+        <NavigateBeforeSharpIcon className={styles.icon} />
+      </button>
+      <div className={styles.ball} ref={ballRef} />
+      <div>Work in progress!</div>
       <div>
         In the meantime, you can visit the old
         <a
@@ -56,10 +58,8 @@ const Resume = () => {
         >
           site
         </a>.
-        <button type="button" onClick={hideResume}>Unmount</button>
       </div>
-      <div>Work in progress!</div>
-    </div>
+    </MountAnimator>
   );
 };
 
