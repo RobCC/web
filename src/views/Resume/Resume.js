@@ -1,29 +1,21 @@
-import React, { useCallback, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import lottie from 'lottie-web';
+// import lottie from 'lottie-web';
 import NavigateBeforeSharpIcon from '@material-ui/icons/NavigateBeforeSharp';
 
-import bouncingBall from '~/public/ae/ball.json';
+import Wrapper from 'Components/ResumeStuff/Wrapper/Wrapper';
 import { toggleResume, isResumeOpen as selector } from '../../store/ducks/resume';
 import MountAnimator from '../../utils/MountAnimator';
 
 import styles from './resume.scss';
 
 const Resume = () => {
+  const [onScreen, setOnScreen] = useState(false);
   const reduxDispatch = useDispatch();
   const isResumeOpen = useSelector((store) => selector(store));
-  const ballRef = useRef(null);
 
-  const onAnimationFinished = useCallback((isOpened) => {
-    if (isOpened) {
-      lottie.loadAnimation({
-        container: ballRef.current,
-        renderer: 'svg',
-        loop: true,
-        autoplay: true,
-        animationData: bouncingBall,
-      });
-    }
+  const animationFinishedCb = useCallback((isShown) => {
+    setOnScreen(isShown);
   }, []);
 
   const hideResume = useCallback(() => {
@@ -35,28 +27,17 @@ const Resume = () => {
       mount={isResumeOpen}
       className={styles.resumeWrapper}
       inAnimation={styles.slideIn}
+      animationFinishedCb={animationFinishedCb}
       outAnimation={styles.slideOut}
-      animationFinishedCb={onAnimationFinished}
     >
+      <Wrapper onScreen={onScreen} />
       <button
         type="button"
         onClick={hideResume}
-        className={styles.exitWrapper}
+        className={styles.exitResume}
       >
         <NavigateBeforeSharpIcon className={styles.icon} />
       </button>
-      <div className={styles.ball} ref={ballRef} />
-      <div>Work in progress!</div>
-      <div>
-        In the meantime, you can visit the old
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://robcc.github.io/resume/"
-        >
-          site
-        </a>.
-      </div>
     </MountAnimator>
   );
 };

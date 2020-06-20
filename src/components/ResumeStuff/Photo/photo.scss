@@ -1,0 +1,13 @@
+@use "utils";
+
+.photo {
+  border-radius: 100%;
+  height: utils.vw(200px);
+  transition: filter 500ms;
+  width: utils.vw(200px);
+  filter: blur(3px);
+}
+
+.remove-blur {
+  filter: blur(0);
+}
