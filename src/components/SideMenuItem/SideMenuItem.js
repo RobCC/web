@@ -35,7 +35,7 @@ const MenuItem = ({
       <div className={styles.icon}>
         <Icon size={ICON_SIZE} />
       </div>
-      {title && isHovered && (
+      {title && (
         <span className={titleClasses}>
           {title}
         </span>
