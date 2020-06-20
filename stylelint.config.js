@@ -6,7 +6,7 @@ module.exports = {
   rules: {
     'number-max-precision': null,
     'max-nesting-depth': 2,
-    'number-leading-zero': ['never', { severity: 'warning' }],
+    'number-leading-zero': null,
     'number-no-trailing-zeros': [true, { severity: 'warning' }],
     'string-quotes': 'double',
     'length-zero-no-unit': true,

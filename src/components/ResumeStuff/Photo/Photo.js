@@ -5,19 +5,23 @@ import PropTypes from 'prop-types';
 import styles from './photo.scss';
 
 const Photo = ({ src, triggerAnimation }) => {
-  const [photoStyles, setStyles] = useState(styles.photo);
+  const [photoStyles, setPhotoStyles] = useState(styles.photo);
+  const orbit = classNames(styles.orbit, styles.spin);
 
   useEffect(() => {
     if (triggerAnimation) {
-      setStyles(
+      setPhotoStyles(
         classNames(styles.photo, styles.removeBlur),
       );
-    } else {
-      setStyles(classNames(styles.photo));
     }
   }, [triggerAnimation]);
 
-  return <img className={photoStyles} alt="Me" src={src} />;
+  return (
+    <div className={`${styles.wrapper}`}>
+      <img className={photoStyles} alt="Me" src={src} />
+      <div className={orbit} />
+    </div>
+  );
 };
 
 Photo.propTypes = {

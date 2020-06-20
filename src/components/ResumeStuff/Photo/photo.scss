@@ -1,13 +1,53 @@
 @use "utils";
 
+.wrapper {
+  position: relative;
+  height: utils.vw(200px);
+  width: utils.vw(200px);
+}
+
+.orbit {
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
+  top: -10px;
+  left: -10px;
+
+  &::before {
+    content: "";
+    background: white;
+    border-radius: 100%;
+    height: utils.vw(10px);
+    left: utils.vw(100px);
+    position: absolute;
+    top: utils.vw(-5px);
+    width: utils.vw(10px);
+  }
+
+  &.spin {
+    animation: spinFK 60s linear infinite;
+  }
+}
+
 .photo {
+  filter: blur(3px);
+  border: 1px solid transparent;
   border-radius: 100%;
   height: utils.vw(200px);
   transition: filter 500ms;
+  user-select: none;
   width: utils.vw(200px);
-  filter: blur(3px);
 }
 
 .remove-blur {
   filter: blur(0);
+}
+
+@keyframes spinFK {
+  100% {
+    transform: rotate(360deg);
+  }
 }
