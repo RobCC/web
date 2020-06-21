@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import lottie from 'lottie-web';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCaretLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import Wrapper from 'Components/ResumeStuff/Wrapper/Wrapper';
 import { toggleResume, isResumeOpen as selector } from '../../store/ducks/resume';
@@ -38,7 +38,7 @@ const Resume = () => {
         onClick={hideResume}
         className={styles.exitResume}
       >
-        <FontAwesomeIcon icon={faCaretLeft} className={styles.icon} />
+        <FontAwesomeIcon icon={faArrowLeft} className={styles.icon} />
       </button>
     </MountAnimator>
   );

@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedinIn, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub, faLinkedinIn, faFacebookF, faSteamSymbol, faCodepen,
+} from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 import TabLink from 'Components/TabLink/TabLink';
@@ -40,6 +42,16 @@ const Header = ({ onScreen }) => (
       <div className={styles.net}>
         <TabLink href="https://www.facebook.com/jrobcc">
           <FontAwesomeIcon icon={faFacebookF} className={styles.facebook} />
+        </TabLink>
+      </div>
+      <div className={styles.net}>
+        <TabLink href="https://codepen.io/robcc/">
+          <FontAwesomeIcon icon={faCodepen} />
+        </TabLink>
+      </div>
+      <div className={styles.net}>
+        <TabLink href="https://steamcommunity.com/id/rrc0138/">
+          <FontAwesomeIcon icon={faSteamSymbol} className={styles.steam} />
         </TabLink>
       </div>
     </div>
