@@ -46,32 +46,28 @@
     width: 1.5em;
     transition: width 200ms, height 200ms, color 200ms;
   }
+}
 
-  .net {
-    cursor: pointer;
-    padding: 10px;
-    background: transparent;
-    transition: padding 200ms, color 200ms;
+.net {
+  cursor: pointer;
+  padding: 10px;
+  background: transparent;
+  transition: padding 200ms, color 200ms;
 
-    &:hover {
-      padding: 15px;
+  &:hover {
+    padding: 15px;
 
-      svg {
-        width: 1.8em;
-        height: 1.8em;
-      }
+    .facebook {
+      color: variables.$color-facebook;
     }
-  }
-}
 
-.facebook {
-  &:hover {
-    color: variables.$color-facebook;
-  }
-}
+    .linkedin {
+      color: variables.$color-linkedin;
+    }
 
-.linkedin {
-  &:hover {
-    color: variables.$color-linkedin;
+    svg {
+      width: 1.8em;
+      height: 1.8em;
+    }
   }
 }

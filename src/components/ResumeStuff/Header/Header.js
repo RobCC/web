@@ -6,6 +6,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import FacebookIcon from '@material-ui/icons/Facebook';
 
+import TabLink from 'Components/TabLink/TabLink';
+
 import Photo from '../Photo/Photo';
 
 import styles from './header.scss';
@@ -18,25 +20,29 @@ const Header = ({ onScreen }) => (
     <div className={styles.personalInfo}>
       <div className={styles.info}>
         <MailOutlineIcon /> :
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
+        <TabLink
           href={`https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=${email}&amp;tf=1`}
         >
           rrc0138@gmail.com
-        </a>
+        </TabLink>
       </div>
     </div>
     <Photo src={me} triggerAnimation={onScreen} />
     <div className={styles.networks}>
       <div className={styles.net}>
-        <GitHubIcon />
+        <TabLink href="https://github.com/RobCC">
+          <GitHubIcon />
+        </TabLink>
       </div>
       <div className={styles.net}>
-        <LinkedInIcon className={styles.linkedin} />
+        <TabLink href="https://www.linkedin.com/in/jrobcc/">
+          <LinkedInIcon className={styles.linkedin} />
+        </TabLink>
       </div>
       <div className={styles.net}>
-        <FacebookIcon className={styles.facebook} />
+        <TabLink href="https://www.facebook.com/jrobcc">
+          <FacebookIcon className={styles.facebook} />
+        </TabLink>
       </div>
     </div>
   </div>
