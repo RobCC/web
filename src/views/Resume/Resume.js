@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 // import lottie from 'lottie-web';
-import NavigateBeforeSharpIcon from '@material-ui/icons/NavigateBeforeSharp';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretLeft } from '@fortawesome/free-solid-svg-icons';
 
 import Wrapper from 'Components/ResumeStuff/Wrapper/Wrapper';
 import { toggleResume, isResumeOpen as selector } from '../../store/ducks/resume';
@@ -36,7 +38,7 @@ const Resume = () => {
         onClick={hideResume}
         className={styles.exitResume}
       >
-        <NavigateBeforeSharpIcon className={styles.icon} />
+        <FontAwesomeIcon icon={faCaretLeft} className={styles.icon} />
       </button>
     </MountAnimator>
   );

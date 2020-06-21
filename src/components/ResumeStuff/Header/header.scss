@@ -29,7 +29,8 @@
   svg {
     position: relative;
     top: 6px;
-    left: 6px;
+    width: 1.5em;
+    height: 1.5em;
   }
 }
 
@@ -39,13 +40,6 @@
   justify-content: center;
   display: flex;
   flex: 1;
-
-  svg {
-    color: white;
-    height: 1.5em;
-    width: 1.5em;
-    transition: width 200ms, height 200ms, color 200ms;
-  }
 }
 
 .net {
@@ -53,6 +47,13 @@
   padding: 10px;
   background: transparent;
   transition: padding 200ms, color 200ms;
+
+  svg {
+    color: white;
+    height: 2.5em;
+    width: 2.5em;
+    transition: width 200ms, height 200ms, color 200ms;
+  }
 
   &:hover {
     padding: 15px;
@@ -66,8 +67,8 @@
     }
 
     svg {
-      width: 1.8em;
-      height: 1.8em;
+      width: 3em;
+      height: 3em;
     }
   }
 }

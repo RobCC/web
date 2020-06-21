@@ -4,10 +4,8 @@ import classNames from 'classnames';
 
 import styles from './sideMenuItem.scss';
 
-const ICON_SIZE = 34;
-
 const MenuItem = ({
-  title, selected, onClick, Icon,
+  title, selected, onClick, children,
 }) => {
   const [isHovered, setHovered] = useState(false);
   const onMouseEnter = () => setHovered(true);
@@ -33,7 +31,7 @@ const MenuItem = ({
       onMouseLeave={onMouseLeave}
     >
       <div className={styles.icon}>
-        <Icon size={ICON_SIZE} />
+        {children}
       </div>
       {title && (
         <span className={titleClasses}>
@@ -48,7 +46,7 @@ MenuItem.propTypes = {
   title: PropTypes.string,
   selected: PropTypes.bool,
   onClick: PropTypes.func,
-  Icon: PropTypes.elementType,
+  children: PropTypes.node,
 };
 
 export default React.memo(MenuItem);

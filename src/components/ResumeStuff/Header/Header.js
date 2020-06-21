@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import GitHubIcon from '@material-ui/icons/GitHub';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedinIn, faFacebookF } from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 import TabLink from 'Components/TabLink/TabLink';
 
@@ -19,7 +17,7 @@ const Header = ({ onScreen }) => (
   <div className={styles.header}>
     <div className={styles.personalInfo}>
       <div className={styles.info}>
-        <MailOutlineIcon /> :
+        <FontAwesomeIcon icon={faEnvelope} />:
         <TabLink
           href={`https://mail.google.com/mail/u/0/?view=cm&amp;fs=1&amp;to=${email}&amp;tf=1`}
         >
@@ -31,17 +29,17 @@ const Header = ({ onScreen }) => (
     <div className={styles.networks}>
       <div className={styles.net}>
         <TabLink href="https://github.com/RobCC">
-          <GitHubIcon />
+          <FontAwesomeIcon icon={faGithub} />
         </TabLink>
       </div>
       <div className={styles.net}>
         <TabLink href="https://www.linkedin.com/in/jrobcc/">
-          <LinkedInIcon className={styles.linkedin} />
+          <FontAwesomeIcon icon={faLinkedinIn} className={styles.linkedin} />
         </TabLink>
       </div>
       <div className={styles.net}>
         <TabLink href="https://www.facebook.com/jrobcc">
-          <FacebookIcon className={styles.facebook} />
+          <FontAwesomeIcon icon={faFacebookF} className={styles.facebook} />
         </TabLink>
       </div>
     </div>
