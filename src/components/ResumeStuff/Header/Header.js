@@ -2,12 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faGithub, faLinkedinIn, faFacebookF, faSteamSymbol, faCodepen,
+  faGithub, faLinkedinIn, faFacebookF, faSteamSymbol, faCodepen, faNpm,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 import TabLink from 'Components/TabLink/TabLink';
-
 import Photo from '../Photo/Photo';
 
 import styles from './header.scss';
@@ -15,6 +14,7 @@ import me from '~/public/images/me.png';
 
 const email = 'rrc0138@gmail';
 
+/* eslint-disable max-len */
 const Header = ({ onScreen }) => (
   <div className={styles.header}>
     <div className={styles.personalInfo}>
@@ -32,6 +32,11 @@ const Header = ({ onScreen }) => (
       <div className={styles.net}>
         <TabLink href="https://github.com/RobCC">
           <FontAwesomeIcon icon={faGithub} />
+        </TabLink>
+      </div>
+      <div className={styles.net}>
+        <TabLink href="https://www.npmjs.com/~robcc">
+          <FontAwesomeIcon icon={faNpm} className={styles.npm} />
         </TabLink>
       </div>
       <div className={styles.net}>

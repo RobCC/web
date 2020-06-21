@@ -58,6 +58,10 @@
   &:hover {
     padding: 15px;
 
+    .npm {
+      color: variables.$color-npm;
+    }
+
     .facebook {
       color: variables.$color-facebook;
     }
