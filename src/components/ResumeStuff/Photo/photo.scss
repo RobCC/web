@@ -1,9 +1,26 @@
 @use "utils";
 
 .wrapper {
-  position: relative;
+  position: absolute;
+  margin-top: 10px;
   height: utils.vw(200px);
   width: utils.vw(200px);
+  left: 50%;
+  margin-left: utils.vw(-100px);
+}
+
+.photo {
+  filter: blur(3px);
+  border: 1px solid transparent;
+  border-radius: 100%;
+  height: utils.vw(200px);
+  transition: filter 500ms;
+  user-select: none;
+  width: utils.vw(200px);
+}
+
+.remove-blur {
+  filter: blur(0);
 }
 
 .orbit {
@@ -30,20 +47,6 @@
   &.spin {
     animation: spinFK 60s linear infinite;
   }
-}
-
-.photo {
-  filter: blur(3px);
-  border: 1px solid transparent;
-  border-radius: 100%;
-  height: utils.vw(200px);
-  transition: filter 500ms;
-  user-select: none;
-  width: utils.vw(200px);
-}
-
-.remove-blur {
-  filter: blur(0);
 }
 
 @keyframes spinFK {

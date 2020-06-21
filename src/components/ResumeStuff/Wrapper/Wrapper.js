@@ -1,19 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Section from '../Section/Section';
 import Header from '../Header/Header';
-import Photo from '../Photo/Photo';
 
 import styles from './wrapper.scss';
-import me from '~/public/images/me.png';
 
 const Wrapper = ({ onScreen }) => (
   <div className={styles.wrapper}>
-    <Header>
-      <Photo src={me} triggerAnimation={onScreen} />
-    </Header>
+    <Header onScreen={onScreen} />
     <div>
-      Hi
+      <Section style={{
+        flex: '0 0 42%',
+        height: '50%',
+      }}
+      >
+        Hi
+      </Section>
+      <Section style={{
+        flex: '0 0 40%',
+        height: '50%',
+      }}
+      >
+        Hi 2
+      </Section>
     </div>
   </div>
 );

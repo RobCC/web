@@ -1,7 +1,77 @@
+@use "utils";
+@use "variables";
+
 .header {
   align-self: stretch;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 0 30px;
-  top: 40px;
+  min-height: utils.vw(250px);
+  position: relative;
+  // center
+  // position: absolute;
+  // left: 50%;
+  // top: 50%;
+  // margin-top: utils.vw(-100px);
+  // margin-left: utils.vw(-100px);
+}
+
+.personal-info {
+  font-size: 15px;
+  align-items: center;
+  display: flex;
+  flex: 1;
+
+  .info {
+    padding: 10px;
+  }
+
+  svg {
+    position: relative;
+    top: 6px;
+    left: 6px;
+  }
+}
+
+.networks {
+  align-items: center;
+  font-size: 15px;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+
+  svg {
+    color: white;
+    height: 1.5em;
+    width: 1.5em;
+    transition: width 200ms, height 200ms, color 200ms;
+  }
+
+  .net {
+    cursor: pointer;
+    padding: 10px;
+    background: transparent;
+    transition: padding 200ms, color 200ms;
+
+    &:hover {
+      padding: 15px;
+
+      svg {
+        width: 1.8em;
+        height: 1.8em;
+      }
+    }
+  }
+}
+
+.facebook {
+  &:hover {
+    color: variables.$color-facebook;
+  }
+}
+
+.linkedin {
+  &:hover {
+    color: variables.$color-linkedin;
+  }
 }
