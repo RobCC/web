@@ -5,12 +5,13 @@ import PropTypes from 'prop-types';
 import styles from './section.scss';
 
 /* eslint-disable max-len */
-const Section = ({ style, classes = '', children }) => (
-  <div style={style} className={classNames(styles.section, classes)}>
+const Section = ({ style, className = '', children }) => (
+  <div style={style} className={classNames(styles.section, className)}>
     {children}
   </div>
 );
 
+/* eslint-disable react/forbid-prop-types */
 Section.propTypes = {
   style: PropTypes.shape({
     height: PropTypes.string,
@@ -19,7 +20,7 @@ Section.propTypes = {
     right: PropTypes.string,
     width: PropTypes.string,
   }),
-  classes: PropTypes.string,
+  className: PropTypes.string,
   children: PropTypes.node,
 };
 

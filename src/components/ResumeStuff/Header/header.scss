@@ -44,19 +44,19 @@
 
 .net {
   cursor: pointer;
-  padding: 10px;
+  padding: utils.vw(10px);
   background: transparent;
   transition: padding 200ms, color 200ms;
 
   svg {
     color: white;
-    height: 2.5em;
-    width: 2.5em;
+    height: utils.vw(50px);
+    width: utils.vw(50px);
     transition: width 200ms, height 200ms, color 200ms;
   }
 
   &:hover {
-    padding: 15px;
+    padding: utils.vw(15px);
 
     .npm {
       color: variables.$color-npm;
@@ -75,8 +75,8 @@
     }
 
     svg {
-      width: 3em;
-      height: 3em;
+      height: utils.vw(70px);
+      width: utils.vw(70px);
     }
   }
 }

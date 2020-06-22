@@ -2,14 +2,11 @@
 
 .tab {
   background-color: #2e2f2a;
-  border: none;
   border-right: 1px solid;
   border-color: variables.$editor-bg;
   color: variables.$tab-text;
-  cursor: pointer;
   display: inline-block;
   font-size: 14px;
-  outline: none;
   padding: 10px 20px;
   text-decoration: none;
 
@@ -20,7 +17,6 @@
 
   &:focus,
   &:active {
-    outline: none;
     border-color: variables.$editor-bg;
   }
 

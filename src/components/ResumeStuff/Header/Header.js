@@ -40,6 +40,11 @@ const Header = ({ onScreen }) => (
         </TabLink>
       </div>
       <div className={styles.net}>
+        <TabLink href="https://codepen.io/robcc/">
+          <FontAwesomeIcon icon={faCodepen} />
+        </TabLink>
+      </div>
+      <div className={styles.net}>
         <TabLink href="https://www.linkedin.com/in/jrobcc/">
           <FontAwesomeIcon icon={faLinkedinIn} className={styles.linkedin} />
         </TabLink>
@@ -47,11 +52,6 @@ const Header = ({ onScreen }) => (
       <div className={styles.net}>
         <TabLink href="https://www.facebook.com/jrobcc">
           <FontAwesomeIcon icon={faFacebookF} className={styles.facebook} />
-        </TabLink>
-      </div>
-      <div className={styles.net}>
-        <TabLink href="https://codepen.io/robcc/">
-          <FontAwesomeIcon icon={faCodepen} />
         </TabLink>
       </div>
       <div className={styles.net}>

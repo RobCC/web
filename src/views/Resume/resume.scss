@@ -16,30 +16,17 @@ $resume-wrapper: linear-gradient(330deg, #1d354c 0%, #281e2d 90%);
   width: 240px;
 }
 
-.go-back {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: 1px solid black;
-  outline: none;
-  cursor: pointer;
-}
-
 $icon-size: utils.vw(40px);
 
 .exit-resume {
   align-items: center;
   background-color: transparent;
-  border: 0;
   border-radius: 50px;
   color: white;
-  cursor: pointer;
   display: flex;
   height: $icon-size;
   justify-content: center;
   right: 30px;
-  outline: none;
   top: 30px;
   position: absolute;
   width: $icon-size;
