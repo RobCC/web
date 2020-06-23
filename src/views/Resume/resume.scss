@@ -10,24 +10,18 @@ $resume-wrapper: linear-gradient(330deg, #1d354c 0%, #281e2d 90%);
   left: -100%;
 }
 
-.ball {
-  margin: 0 auto;
-  height: 240px;
-  width: 240px;
-}
-
 $icon-size: utils.vw(40px);
 
 .exit-resume {
   align-items: center;
   background-color: transparent;
-  border-radius: 50px;
+  border-radius: utils.vw(50px);
   color: white;
   display: flex;
   height: $icon-size;
   justify-content: center;
-  right: 30px;
-  top: 30px;
+  right: utils.vw(30px);
+  top: utils.vw(30px);
   position: absolute;
   width: $icon-size;
   transition: color 150ms, background-color 150ms;

@@ -2,7 +2,7 @@
 
 .wrapper {
   position: absolute;
-  margin-top: 10px;
+  margin-top: utils.vw(10px);
   height: utils.vw(200px);
   width: utils.vw(200px);
   left: 50%;
@@ -28,10 +28,10 @@
   border-radius: 50%;
   position: absolute;
   height: 100%;
-  padding: 10px;
+  padding: utils.vw(14px);
   width: 100%;
-  top: -10px;
-  left: -10px;
+  top: utils.vw(-14px);
+  left: utils.vw(-14px);
 
   &::before {
     content: "";

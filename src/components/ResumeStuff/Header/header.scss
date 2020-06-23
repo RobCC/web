@@ -6,7 +6,6 @@
   display: flex;
   flex: 0 0 variables.$resume-header-height;
   justify-content: space-between;
-  min-height: utils.vw(250px);
   position: relative;
   // center
   // position: absolute;
@@ -17,26 +16,25 @@
 }
 
 .personal-info {
-  font-size: 15px;
+  font-size: utils.vw(20px);
   align-items: center;
   display: flex;
   flex: 1;
 
   .info {
-    padding: 10px;
+    padding: utils.vw(10px);
   }
 
   svg {
     position: relative;
-    top: 6px;
-    width: 1.5em;
-    height: 1.5em;
+    top: utils.vw(10px);
+    width: utils.vw(35px);
+    height: utils.vw(35px);
   }
 }
 
 .networks {
   align-items: center;
-  font-size: 15px;
   justify-content: center;
   display: flex;
   flex: 1;
