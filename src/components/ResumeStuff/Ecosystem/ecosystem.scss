@@ -1,17 +1,67 @@
 @use "utils";
+@use "variables";
 
 .wrapper {
   flex: 1;
 }
 
+.table {
+  display: flex;
+  width: 69%;
+  flex-wrap: wrap;
+}
+
 .element {
-  background: #6b3838;
+  background: white;
   height: utils.vw(50px);
   padding: utils.vw(10px);
   width: utils.vw(50px);
 
-  svg {
+  svg, img {
     height: inherit;
     width: inherit;
+  }
+
+  &.vscode {
+    background-color: variables.$color-bg-vscode;
+  }
+
+  &.ts {
+    background-color: variables.$color-bg-ts;
+  }
+
+  &.js {
+    background-color: variables.$color-bg-js;
+    color: variables.$color-js;
+  }
+
+  &.node {
+    background-color: variables.$color-bg-nodejs;
+    color: variables.$color-nodejs;
+  }
+
+  &.react {
+    background-color: variables.$color-bg-react;
+    color: variables.$color-react;
+  }
+
+  &.redux {
+    background-color: variables.$color-bg-redux;
+  }
+
+  &.sass {
+    background-color: variables.$color-bg-sass;
+  }
+
+  &.npm {
+    background-color: variables.$color-npm;
+  }
+
+  &.babel {
+    background-color: variables.$color-bg-react;
+  }
+
+  &.webpack {
+    background-color: variables.$color-bg-webpack;
   }
 }
