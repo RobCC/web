@@ -7,14 +7,14 @@
 
 .content {
   color: white;
-  font-size: utils.vw(18px);
+  font-size: utils.vw(15px);
 
   & > div {
-    margin: utils.vw(10px) 0;
+    margin: utils.vw(6px) 0;
   }
 
   .company-title {
-    font-size: utils.vw(28px);
+    font-size: utils.vw(22px);
   }
 
   .period {

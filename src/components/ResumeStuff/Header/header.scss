@@ -4,7 +4,7 @@
 .header {
   align-self: stretch;
   display: flex;
-  flex: 0 0 variables.$resume-header-height;
+  flex: 0 0 23%;
   justify-content: space-between;
   position: relative;
   // center
@@ -16,7 +16,7 @@
 }
 
 .personal-info {
-  font-size: utils.vw(20px);
+  font-size: utils.vw(18px);
   align-items: center;
   display: flex;
   flex: 1;

@@ -7,8 +7,7 @@ import companies from './data';
 import Section from '../Section/Section';
 
 const Career = () => (
-  <Section className={styles.wrapper}>
-    <div className={styles.title}>Career</div>
+  <Section className={styles.wrapper} title="Career">
     {companies.map((company) => (
       <div key={generateId()} className={styles.content}>
         <div className={styles.companyTitle}>

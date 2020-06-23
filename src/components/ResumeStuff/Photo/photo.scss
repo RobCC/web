@@ -1,22 +1,25 @@
 @use "utils";
 
+$image-size: 175px;
+
 .wrapper {
   position: absolute;
-  margin-top: utils.vw(10px);
-  height: utils.vw(200px);
-  width: utils.vw(200px);
+  height: utils.vw($image-size);
+  width: utils.vw($image-size);
   left: 50%;
-  margin-left: utils.vw(-100px);
+  top: 50%;
+  margin-left: utils.vw(-($image-size / 2));
+  margin-top: utils.vw(-($image-size / 2));
 }
 
 .photo {
   filter: blur(3px);
   border: 1px solid transparent;
   border-radius: 100%;
-  height: utils.vw(200px);
+  height: utils.vw($image-size);
   transition: filter 500ms;
   user-select: none;
-  width: utils.vw(200px);
+  width: utils.vw($image-size);
 }
 
 .remove-blur {

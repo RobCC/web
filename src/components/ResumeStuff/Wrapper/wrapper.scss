@@ -7,9 +7,9 @@
   flex-direction: column;
   font-size: utils.vw(24px);
   font-family: Fira Code, monospace;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
-  padding: utils.vw(20px);
+  padding: 1vw;
   position: relative;
 
   a {
@@ -21,7 +21,7 @@
 
 .body {
   display: flex;
-  flex: 0 0 variables.$resume-body-height;
+  flex: 0 0 77%;
   flex-direction: row;
 
   .left {
