@@ -1,0 +1,17 @@
+@use "utils";
+
+.wrapper {
+  flex: 1;
+}
+
+.element {
+  background: #6b3838;
+  height: utils.vw(50px);
+  padding: utils.vw(10px);
+  width: utils.vw(50px);
+
+  svg {
+    height: inherit;
+    width: inherit;
+  }
+}

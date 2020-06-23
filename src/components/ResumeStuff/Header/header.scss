@@ -4,8 +4,8 @@
 .header {
   align-self: stretch;
   display: flex;
+  flex: 0 0 variables.$resume-header-height;
   justify-content: space-between;
-  margin: 0 0 30px;
   min-height: utils.vw(250px);
   position: relative;
   // center

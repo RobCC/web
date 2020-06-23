@@ -1,9 +1,18 @@
+@use "utils";
+
+
 .section {
-  border-radius: 10px;
+  border-radius: utils.vw(15px);
   border: 1px solid white;
   box-sizing: border-box;
   color: white;
-  font-size: 12px;
-  padding: 10px;
+  font-size: utils.vw(20px);
+  padding: utils.vw(10px);
   position: relative;
+}
+
+.title {
+  font-size: utils.vw(35px);
+  letter-spacing: 1px;
+  margin: 0 0 utils.vw(10px);
 }
