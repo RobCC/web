@@ -28,9 +28,6 @@ const Ecosystem = ({ onScreen }) => (
       <div className={setStyles(styles.vscode)}>
         <VsCode />
       </div>
-      <div className={setStyles(styles.ts)}>
-        <Typescript />
-      </div>
       <div className={setStyles(styles.js)}>
         <FontAwesomeIcon icon={faJs} />
       </div>
@@ -54,6 +51,9 @@ const Ecosystem = ({ onScreen }) => (
       </div>
       <div className={setStyles(styles.webpack)}>
         <Webpack />
+      </div>
+      <div className={setStyles(styles.ts)}>
+        <Typescript />
       </div>
       <div className={styles.element}>
         <img alt="Rollup" src={rollup} />

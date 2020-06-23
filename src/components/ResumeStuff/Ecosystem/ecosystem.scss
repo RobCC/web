@@ -7,19 +7,34 @@
 
 .table {
   display: flex;
-  width: 69%;
   flex-wrap: wrap;
+  position: relative;
+  width: 69%;
 }
 
 .element {
+  align-items: center;
   background: white;
+  display: flex;
   height: utils.vw(50px);
+  justify-content: center;
   padding: utils.vw(10px);
+  transition: width 200ms, height 200ms;
   width: utils.vw(50px);
 
-  svg, img {
+  &:hover {
+    height: utils.vw(60px);
+    width: utils.vw(60px);
+  }
+
+  svg {
     height: inherit;
     width: inherit;
+  }
+
+  img {
+    height: utils.vw(45px);
+    width: utils.vw(45px);
   }
 
   &.vscode {
@@ -27,7 +42,7 @@
   }
 
   &.ts {
-    background-color: variables.$color-bg-ts;
+    background-color: variables.$color-bg-js;
   }
 
   &.js {
