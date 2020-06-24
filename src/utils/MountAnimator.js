@@ -60,7 +60,13 @@ function reducer(state, action) {
 }
 
 const MountAnimator = ({
-  children, mount, className, inAnimation, outAnimation, animationFinishedCb,
+  children,
+  mount,
+  className,
+  inAnimation,
+  outAnimation,
+  animationFinishedCb,
+  style = {},
 }) => {
   const parentRef = useRef(null);
   const prevMount = usePrevious(mount);
@@ -115,6 +121,7 @@ const MountAnimator = ({
 
   return (show || animationInProgress) ? (
     <div
+      style={style}
       ref={parentRef}
       className={classes}
       onAnimationEnd={onAnimationEnd}
@@ -124,8 +131,10 @@ const MountAnimator = ({
   ) : null;
 };
 
+/* eslint-disable react/forbid-prop-types */
 MountAnimator.propTypes = {
   children: PropTypes.node,
+  style: PropTypes.object,
   mount: PropTypes.bool.isRequired,
   className: PropTypes.string,
   inAnimation: PropTypes.string.isRequired,

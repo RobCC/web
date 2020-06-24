@@ -1,56 +1,29 @@
+@use "utils";
+
 $resume-wrapper: linear-gradient(330deg, #1d354c 0%, #281e2d 90%);
 
 .resume-wrapper {
-  display: flex;
-  font-size: 24px;
-  font-family: monospace;
-  justify-content: center;
-  margin: 0 auto;
-  text-align: center;
-  flex-direction: column;
   background: $resume-wrapper;
   position: absolute;
-  width: 100%;
   height: 100%;
   left: -100%;
-
-  a {
-    padding-left: 15px;
-    color: cyan;
-  }
+  width: 100%;
 }
 
-.ball {
-  margin: 0 auto;
-  height: 240px;
-  width: 240px;
-}
+$icon-size: utils.vw(40px);
 
-.go-back {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: transparent;
-  border: 1px solid black;
-  outline: none;
-  cursor: pointer;
-}
-
-.exit-wrapper {
+.exit-resume {
   align-items: center;
   background-color: transparent;
-  border: 0;
-  border-radius: 50px;
+  border-radius: utils.vw(50px);
   color: white;
-  cursor: pointer;
   display: flex;
-  height: 30px;
+  height: $icon-size;
   justify-content: center;
-  right: 20px;
-  outline: none;
-  top: 20px;
+  right: utils.vw(30px);
+  top: utils.vw(30px);
   position: absolute;
-  width: 30px;
+  width: $icon-size;
   transition: color 150ms, background-color 150ms;
 
   &:hover {
@@ -59,9 +32,11 @@ $resume-wrapper: linear-gradient(330deg, #1d354c 0%, #281e2d 90%);
   }
 
   .icon {
-    font-size: 26px;
+    font-size: $icon-size;
     position: relative;
+    height: utils.vw(40px);
     right: 1px;
+    width: utils.vw(40px);
   }
 }
 

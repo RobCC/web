@@ -1,0 +1,148 @@
+@use "utils";
+@use "variables";
+
+.wrapper {
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.table {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  flex: 2;
+}
+
+.detail {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+
+  .detail-element {
+    border-radius: 10px;
+    border: 1px solid transparent;
+    height: utils.vw(70px);
+    transition: none;
+    width: utils.vw(70px);
+
+    &:hover {
+      border: 1px solid transparent;
+    }
+  }
+
+  .detail-title {
+    margin: utils.vw(10px) 0;
+  }
+}
+
+.element {
+  align-items: center;
+  background: white;
+  border: 1px solid transparent;
+  display: flex;
+  height: utils.vw(50px);
+  justify-content: center;
+  padding: utils.vw(10px);
+  user-select: none;
+  transition: width 200ms, height 200ms, border 200ms;
+  width: utils.vw(50px);
+
+  &:hover {
+    border: 1px solid white;
+  }
+
+  svg {
+    height: inherit;
+    width: inherit;
+  }
+
+  img {
+    height: utils.vw(45px);
+    width: utils.vw(45px);
+  }
+
+  &.vscode {
+    background-color: variables.$color-bg-vscode;
+  }
+
+  &.ts {
+    background-color: variables.$color-bg-js;
+  }
+
+  &.js {
+    background-color: variables.$color-bg-js;
+    color: variables.$color-js;
+  }
+
+  &.node {
+    background-color: variables.$color-bg-nodejs;
+    color: variables.$color-nodejs;
+  }
+
+  &.react {
+    background-color: variables.$color-bg-react;
+    color: variables.$color-react;
+  }
+
+  &.redux {
+    background-color: variables.$color-bg-redux;
+  }
+
+  &.sass {
+    background-color: variables.$color-bg-sass;
+  }
+
+  &.npm {
+    background-color: variables.$color-npm;
+  }
+
+  &.babel {
+    background-color: variables.$color-bg-react;
+  }
+
+  &.webpack {
+    background-color: variables.$color-bg-webpack;
+  }
+
+  &.git {
+    background-color: variables.$color-git;
+  }
+}
+
+.fade-in-right {
+  animation: fadeInRightKF 250ms forwards;
+}
+
+.fade-out-right {
+  animation: fadeOutRightKF 250ms forwards;
+}
+
+@keyframes fadeInRightKF {
+  from {
+    left: 50px;
+    opacity: 0;
+  }
+
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutRightKF {
+  from {
+    left: 0;
+    opacity: 1;
+  }
+
+  to {
+    left: 50px;
+    opacity: 0;
+  }
+}

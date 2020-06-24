@@ -4,9 +4,9 @@ module.exports = {
   ],
   extends: 'stylelint-config-recommended',
   rules: {
-    'number-max-precision': 4,
-    'max-nesting-depth': 2,
-    'number-leading-zero': ['never', { severity: 'warning' }],
+    'number-max-precision': null,
+    'max-nesting-depth': 3,
+    'number-leading-zero': null,
     'number-no-trailing-zeros': [true, { severity: 'warning' }],
     'string-quotes': 'double',
     'length-zero-no-unit': true,

@@ -1,0 +1,59 @@
+@use "utils";
+
+$image-size: 175px;
+
+.wrapper {
+  position: absolute;
+  height: utils.vw($image-size);
+  width: utils.vw($image-size);
+  left: 50%;
+  top: 50%;
+  margin-left: utils.vw(-($image-size / 2));
+  margin-top: utils.vw(-($image-size / 2));
+}
+
+.photo {
+  filter: blur(3px);
+  border: 1px solid transparent;
+  border-radius: 100%;
+  height: utils.vw($image-size);
+  transition: filter 500ms;
+  user-select: none;
+  width: utils.vw($image-size);
+}
+
+.remove-blur {
+  filter: blur(0);
+}
+
+.orbit {
+  border: 1px solid white;
+  border-radius: 50%;
+  position: absolute;
+  height: 100%;
+  padding: utils.vw(14px);
+  width: 100%;
+  top: utils.vw(-14px);
+  left: utils.vw(-14px);
+
+  &::before {
+    content: "";
+    background: white;
+    border-radius: 100%;
+    height: utils.vw(10px);
+    left: utils.vw(100px);
+    position: absolute;
+    top: utils.vw(-5px);
+    width: utils.vw(10px);
+  }
+
+  &.spin {
+    animation: spinFK 60s linear infinite;
+  }
+}
+
+@keyframes spinFK {
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,40 @@
+@use "utils";
+@use "variables";
+
+.wrapper {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  font-size: utils.vw(24px);
+  font-family: Fira Code, monospace;
+  height: 100%;
+  overflow: hidden;
+  padding: 1vw;
+  position: relative;
+
+  a {
+    color: white;
+    padding-left: utils.vw(5px);
+    text-decoration: underline;
+  }
+}
+
+.body {
+  display: flex;
+  flex: 0 0 77%;
+  flex-direction: row;
+
+  .left {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .right {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}

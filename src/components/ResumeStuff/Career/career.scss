@@ -1,0 +1,63 @@
+@use "utils";
+@use "variables";
+
+.wrapper {
+  position: relative;
+}
+
+.section {
+  flex: 1;
+}
+
+.content {
+  color: white;
+  font-size: utils.vw(15px);
+
+  & > div {
+    margin: utils.vw(6px) 0;
+  }
+
+  .company-title {
+    font-size: utils.vw(22px);
+  }
+
+  .period {
+    display: inline-block;
+    color: #ddd;
+    font-size: utils.vw(15px);
+    margin: 0 10px;
+  }
+}
+
+.fade-in-left {
+  animation: fadeInLeftKF 250ms forwards;
+}
+
+.fade-out-left {
+  animation: fadeOutLeftKF 250ms forwards;
+}
+
+@keyframes fadeInLeftKF {
+  from {
+    right: 50px;
+    opacity: 0;
+  }
+
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutLeftKF {
+  from {
+    right: 0;
+    opacity: 1;
+  }
+
+  to {
+    right: 50px;
+    opacity: 0;
+  }
+}
+

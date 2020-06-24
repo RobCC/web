@@ -1,0 +1,80 @@
+@use "utils";
+@use "variables";
+
+.header {
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 23%;
+  justify-content: space-between;
+  position: relative;
+  // center
+  // position: absolute;
+  // left: 50%;
+  // top: 50%;
+  // margin-top: utils.vw(-100px);
+  // margin-left: utils.vw(-100px);
+}
+
+.personal-info {
+  font-size: utils.vw(18px);
+  align-items: center;
+  display: flex;
+  flex: 1;
+
+  .info {
+    padding: utils.vw(10px);
+  }
+
+  svg {
+    position: relative;
+    top: utils.vw(10px);
+    width: utils.vw(35px);
+    height: utils.vw(35px);
+  }
+}
+
+.networks {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex: 1;
+}
+
+.net {
+  cursor: pointer;
+  padding: utils.vw(10px);
+  background: transparent;
+  transition: padding 200ms, color 200ms;
+
+  svg {
+    color: white;
+    height: utils.vw(50px);
+    width: utils.vw(50px);
+    transition: width 200ms, height 200ms, color 200ms;
+  }
+
+  &:hover {
+    padding: utils.vw(15px);
+
+    .npm {
+      color: variables.$color-npm;
+    }
+
+    .facebook {
+      color: variables.$color-facebook;
+    }
+
+    .linkedin {
+      color: variables.$color-linkedin;
+    }
+
+    .steam {
+      color: variables.$color-steam;
+    }
+
+    svg {
+      height: utils.vw(70px);
+      width: utils.vw(70px);
+    }
+  }
+}
