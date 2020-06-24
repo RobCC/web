@@ -104,4 +104,8 @@
   &.webpack {
     background-color: variables.$color-bg-webpack;
   }
+
+  &.git {
+    background-color: variables.$color-git;
+  }
 }

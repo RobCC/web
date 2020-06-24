@@ -32,4 +32,7 @@ export default {
   rollup: {
     name: 'Rollup',
   },
+  git: {
+    name: 'Git',
+  },
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faJs, faNodeJs, faReact, faSass, faNpm,
+  faJs, faNodeJs, faReact, faSass, faNpm, faGitAlt,
 } from '@fortawesome/free-brands-svg-icons';
 
 import VsCode from '#/svg/VsCode';
@@ -25,12 +25,13 @@ function clearChildren(element) {
 }
 
 const EcoElement = ({
-  name, className, onHover, children,
+  name, className, onHover, onBlur, children,
 }) => (
   <div
     className={classNames(styles.element, className)}
     onMouseOver={onHover}
     onFocus={onHover}
+    onMouseLeave={onBlur}
     data-name={name}
   >
     {children}
@@ -41,6 +42,7 @@ EcoElement.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   onHover: PropTypes.func,
+  onBlur: PropTypes.func,
   children: PropTypes.node,
 };
 
@@ -69,42 +71,51 @@ const Ecosystem = ({ onScreen }) => {
     titleElement.textContent = elementData.name;
   }, []);
 
+  const onBlur = useCallback(() => {
+    clearChildren(detailRef.current);
+    detailRef.current.className = '';
+    titleRef.current.textContent = '';
+  }, []);
+
   return (
     <Section title="Ecosystem">
       <div className={styles.content}>
         <div className={styles.table}>
-          <EcoElement name="vscode" className={styles.vscode} onHover={onHover}>
+          <EcoElement name="vscode" className={styles.vscode} onHover={onHover} onBlur={onBlur}>
             <VsCode />
           </EcoElement>
-          <EcoElement name="js" className={styles.js} onHover={onHover}>
+          <EcoElement name="js" className={styles.js} onHover={onHover} onBlur={onBlur}>
             <FontAwesomeIcon icon={faJs} />
           </EcoElement>
-          <EcoElement name="node" className={styles.node} onHover={onHover}>
+          <EcoElement name="node" className={styles.node} onHover={onHover} onBlur={onBlur}>
             <FontAwesomeIcon icon={faNodeJs} />
           </EcoElement>
-          <EcoElement name="react" className={styles.react} onHover={onHover}>
+          <EcoElement name="react" className={styles.react} onHover={onHover} onBlur={onBlur}>
             <FontAwesomeIcon icon={faReact} />
           </EcoElement>
-          <EcoElement name="redux" className={styles.redux} onHover={onHover}>
+          <EcoElement name="redux" className={styles.redux} onHover={onHover} onBlur={onBlur}>
             <Redux />
           </EcoElement>
-          <EcoElement name="sass" className={styles.sass} onHover={onHover}>
+          <EcoElement name="sass" className={styles.sass} onHover={onHover} onBlur={onBlur}>
             <FontAwesomeIcon icon={faSass} />
           </EcoElement>
-          <EcoElement name="npm" className={styles.npm} onHover={onHover}>
+          <EcoElement name="npm" className={styles.npm} onHover={onHover} onBlur={onBlur}>
             <FontAwesomeIcon icon={faNpm} />
           </EcoElement>
-          <EcoElement name="babel" className={styles.babel} onHover={onHover}>
+          <EcoElement name="babel" className={styles.babel} onHover={onHover} onBlur={onBlur}>
             <Babel />
           </EcoElement>
-          <EcoElement name="rollup" className="" onHover={onHover}>
+          <EcoElement name="rollup" className="" onHover={onHover} onBlur={onBlur}>
             <img alt="Rollup" src={rollup} />
           </EcoElement>
-          <EcoElement name="webpack" className={styles.webpack} onHover={onHover}>
+          <EcoElement name="webpack" className={styles.webpack} onHover={onHover} onBlur={onBlur}>
             <Webpack />
           </EcoElement>
-          <EcoElement name="ts" className={styles.ts} onHover={onHover}>
+          <EcoElement name="ts" className={styles.ts} onHover={onHover} onBlur={onBlur}>
             <Typescript />
+          </EcoElement>
+          <EcoElement name="git" className={styles.git} onHover={onHover} onBlur={onBlur}>
+            <FontAwesomeIcon icon={faGitAlt} />
           </EcoElement>
         </div>
         <div className={styles.detail}>
