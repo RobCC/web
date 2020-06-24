@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -48,7 +48,7 @@ const Ecosystem = ({ onScreen }) => {
   const titleRef = useRef(null);
   const detailRef = useRef(null);
 
-  const onHover = (event) => {
+  const onHover = useCallback((event) => {
     const { target } = event;
 
     if (!target.classList.contains(styles.element)) {
@@ -67,10 +67,10 @@ const Ecosystem = ({ onScreen }) => {
     detailElement.className = target.className;
     detailElement.classList.add(styles.detailElement);
     titleElement.textContent = elementData.name;
-  };
+  }, []);
 
   return (
-    <Section className={styles.wrapper} title="Ecosystem">
+    <Section title="Ecosystem">
       <div className={styles.content}>
         <div className={styles.table}>
           <EcoElement name="vscode" className={styles.vscode} onHover={onHover}>
