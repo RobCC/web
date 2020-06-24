@@ -25,7 +25,7 @@
   justify-content: center;
 
   .detail-element {
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid transparent;
     height: utils.vw(70px);
     transition: none;
@@ -37,7 +37,7 @@
   }
 
   .detail-title {
-    margin: 10px 0;
+    margin: utils.vw(10px) 0;
   }
 }
 
