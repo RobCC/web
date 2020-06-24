@@ -5,26 +5,54 @@
   flex: 1;
 }
 
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
 .table {
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  width: 69%;
+  flex: 2;
+}
+
+.detail {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+
+  .detail-element {
+    border-radius: 5px;
+    height: utils.vw(70px);
+    width: utils.vw(70px);
+
+    &:hover {
+      border: 1px solid transparent;
+    }
+  }
+
+  .detail-title {
+    margin: 10px 0;
+  }
 }
 
 .element {
   align-items: center;
   background: white;
+  border: 1px solid transparent;
   display: flex;
   height: utils.vw(50px);
   justify-content: center;
   padding: utils.vw(10px);
-  transition: width 200ms, height 200ms;
+  user-select: none;
+  transition: width 200ms, height 200ms, border 200ms;
   width: utils.vw(50px);
 
   &:hover {
-    height: utils.vw(60px);
-    width: utils.vw(60px);
+    border: 1px solid white;
   }
 
   svg {
