@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TabLink from 'Components/TabLink/TabLink';
+import MountAnimator from '#/utils/MountAnimator';
 import Section from '../Section/Section';
 
 import styles from './projects.scss';
 
-const Ecosystem = ({ onScreen }) => {
-  console.log('projects');
-
-  return (
+const Projects = ({ onScreen = false }) => (
+  <MountAnimator
+    mount={onScreen}
+    className={styles.wrapper}
+    inAnimation={styles.fadeInDown}
+    outAnimation={styles.fadeOutDown}
+  >
     <Section title="Personal Projects">
-      <div className={styles.wrapper}>
+      <div className={styles.section}>
         <div className={styles.project}>
           <TabLink className={styles.title} href="https://github.com/RobCC/git-jira-hook">
             Git Jira Hook
@@ -37,11 +41,11 @@ const Ecosystem = ({ onScreen }) => {
         </div>
       </div>
     </Section>
-  );
-};
+  </MountAnimator>
+);
 
-Ecosystem.propTypes = {
+Projects.propTypes = {
   onScreen: PropTypes.bool,
 };
 
-export default Ecosystem;
+export default Projects;

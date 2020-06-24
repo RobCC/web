@@ -2,6 +2,10 @@
 @use "variables";
 
 .wrapper {
+  position: relative;
+}
+
+.section {
   flex: 1;
 }
 
@@ -24,3 +28,36 @@
     margin: 0 10px;
   }
 }
+
+.fade-in-left {
+  animation: fadeInLeftKF 250ms forwards;
+}
+
+.fade-out-left {
+  animation: fadeOutLeftKF 250ms forwards;
+}
+
+@keyframes fadeInLeftKF {
+  from {
+    right: 50px;
+    opacity: 0;
+  }
+
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutLeftKF {
+  from {
+    right: 0;
+    opacity: 1;
+  }
+
+  to {
+    right: 50px;
+    opacity: 0;
+  }
+}
+

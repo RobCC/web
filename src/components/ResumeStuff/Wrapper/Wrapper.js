@@ -13,11 +13,11 @@ const Wrapper = ({ onScreen }) => (
     <Header onScreen={onScreen} />
     <div className={styles.body}>
       <div className={styles.left}>
-        <Career />
+        <Career onScreen={onScreen} />
       </div>
       <div className={styles.right}>
-        <Ecosystem />
-        <Projects />
+        <Ecosystem onScreen={onScreen} />
+        <Projects onScreen={onScreen} />
       </div>
     </div>
   </div>

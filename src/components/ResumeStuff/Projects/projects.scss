@@ -1,6 +1,10 @@
 @use "utils";
 
 .wrapper {
+  position: relative;
+}
+
+.section {
   .title {
     padding: 0;
   }
@@ -13,4 +17,36 @@
 .content {
   margin: utils.vw(5px) 0 0;
   font-size: utils.vw(15px);
+}
+
+.fade-in-down {
+  animation: fadeInDownKF 250ms forwards;
+}
+
+.fade-out-down {
+  animation: fadeOutDownKF 250ms forwards;
+}
+
+@keyframes fadeInDownKF {
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutDownKF {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+
+  to {
+    top: -50px;
+    opacity: 0;
+  }
 }

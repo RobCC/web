@@ -6,8 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import Wrapper from 'Components/ResumeStuff/Wrapper/Wrapper';
-import { toggleResume, isResumeOpen as selector } from '../../store/ducks/resume';
-import MountAnimator from '../../utils/MountAnimator';
+import { toggleResume, isResumeOpen as selector } from '#/store/ducks/resume';
+import MountAnimator from '#/utils/MountAnimator';
 
 import styles from './resume.scss';
 

@@ -1,6 +1,10 @@
 @use "utils";
 @use "variables";
 
+.wrapper {
+  position: relative;
+}
+
 .content {
   display: flex;
   flex-direction: row;
@@ -108,5 +112,37 @@
 
   &.git {
     background-color: variables.$color-git;
+  }
+}
+
+.fade-in-right {
+  animation: fadeInRightKF 250ms forwards;
+}
+
+.fade-out-right {
+  animation: fadeOutRightKF 250ms forwards;
+}
+
+@keyframes fadeInRightKF {
+  from {
+    left: 50px;
+    opacity: 0;
+  }
+
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutRightKF {
+  from {
+    left: 0;
+    opacity: 1;
+  }
+
+  to {
+    left: 50px;
+    opacity: 0;
   }
 }
