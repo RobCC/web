@@ -1,7 +1,6 @@
 @use "utils";
 @use "variables";
 
-
 .content {
   display: flex;
   flex-direction: row;
@@ -23,7 +22,9 @@
 
   .detail-element {
     border-radius: 5px;
+    border: 1px solid transparent;
     height: utils.vw(70px);
+    transition: none;
     width: utils.vw(70px);
 
     &:hover {

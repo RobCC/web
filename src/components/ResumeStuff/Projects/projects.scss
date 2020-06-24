@@ -1,0 +1,16 @@
+@use "utils";
+
+.wrapper {
+  .title {
+    padding: 0;
+  }
+}
+
+.project {
+  margin: utils.vw(10px) 0;
+}
+
+.content {
+  margin: utils.vw(5px) 0 0;
+  font-size: utils.vw(15px);
+}

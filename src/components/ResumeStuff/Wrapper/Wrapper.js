@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import Career from '../Career/Career';
 import Ecosystem from '../Ecosystem/Ecosystem';
+import Projects from '../Projects/Projects';
 
 import styles from './wrapper.scss';
 
@@ -16,6 +17,7 @@ const Wrapper = ({ onScreen }) => (
       </div>
       <div className={styles.right}>
         <Ecosystem />
+        <Projects />
       </div>
     </div>
   </div>

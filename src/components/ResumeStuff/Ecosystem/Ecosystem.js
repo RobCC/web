@@ -6,13 +6,15 @@ import {
   faJs, faNodeJs, faReact, faSass, faNpm, faGitAlt,
 } from '@fortawesome/free-brands-svg-icons';
 
-import VsCode from '#/svg/VsCode';
-import Typescript from '#/svg/Typescript';
-import Webpack from '#/svg/Webpack';
-import Babel from '#/svg/Babel';
-import Redux from '#/svg/Redux';
-import Section from '../Section/Section';
+import {
+  VsCode,
+  Typescript,
+  Webpack,
+  Babel,
+  Redux,
+} from '#/svg';
 
+import Section from '../Section/Section';
 import styles from './ecosystem.scss';
 import data from './data';
 
@@ -46,7 +48,7 @@ EcoElement.propTypes = {
   children: PropTypes.node,
 };
 
-const Ecosystem = ({ onScreen }) => {
+const Ecosystem = () => {
   const titleRef = useRef(null);
   const detailRef = useRef(null);
 
@@ -125,10 +127,6 @@ const Ecosystem = ({ onScreen }) => {
       </div>
     </Section>
   );
-};
-
-Ecosystem.propTypes = {
-  onScreen: PropTypes.bool,
 };
 
 export default Ecosystem;
