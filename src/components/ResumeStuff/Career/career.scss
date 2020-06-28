@@ -1,5 +1,6 @@
-@use "utils";
 @use "variables";
+@use "keyframes";
+@use "utils";
 
 .wrapper {
   position: relative;
@@ -36,28 +37,3 @@
 .fade-out-left {
   animation: fadeOutLeftKF 250ms forwards;
 }
-
-@keyframes fadeInLeftKF {
-  from {
-    right: 50px;
-    opacity: 0;
-  }
-
-  to {
-    right: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOutLeftKF {
-  from {
-    right: 0;
-    opacity: 1;
-  }
-
-  to {
-    right: 50px;
-    opacity: 0;
-  }
-}
-

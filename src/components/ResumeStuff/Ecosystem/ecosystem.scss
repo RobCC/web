@@ -1,5 +1,6 @@
-@use "utils";
 @use "variables";
+@use "keyframes";
+@use "utils";
 
 .wrapper {
   position: relative;
@@ -123,26 +124,3 @@
   animation: fadeOutRightKF 250ms forwards;
 }
 
-@keyframes fadeInRightKF {
-  from {
-    left: 50px;
-    opacity: 0;
-  }
-
-  to {
-    left: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOutRightKF {
-  from {
-    left: 0;
-    opacity: 1;
-  }
-
-  to {
-    left: 50px;
-    opacity: 0;
-  }
-}

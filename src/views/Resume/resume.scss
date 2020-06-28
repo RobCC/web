@@ -1,4 +1,5 @@
 @use "utils";
+@use "keyframes";
 
 $resume-wrapper: linear-gradient(330deg, #1d354c 0%, #281e2d 90%);
 
@@ -42,29 +43,9 @@ $icon-size: utils.vw(40px);
 
 
 .slide-in {
-  animation: slideInKF 250ms forwards;
+  animation: slideInRightKF 250ms forwards;
 }
 
 .slide-out {
-  animation: slideOutKF 250ms forwards;
-}
-
-@keyframes slideInKF {
-  from {
-    left: -100%;
-  }
-
-  to {
-    left: 0;
-  }
-}
-
-@keyframes slideOutKF {
-  from {
-    left: 0;
-  }
-
-  to {
-    left: -100%;
-  }
+  animation: slideOutRightKF 250ms forwards;
 }

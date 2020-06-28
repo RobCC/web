@@ -1,3 +1,4 @@
+@use "keyframes";
 @use "utils";
 
 $image-size: 175px;
@@ -49,11 +50,5 @@ $image-size: 175px;
 
   &.spin {
     animation: spinFK 60s linear infinite;
-  }
-}
-
-@keyframes spinFK {
-  100% {
-    transform: rotate(360deg);
   }
 }
