@@ -6,12 +6,16 @@ import classNames from 'classnames';
 import { getCurrentTab, changeTab } from '#/store/ducks/tabs';
 import styles from './fileTab.scss';
 
+function getTabStyles(isCurrentTab) {
+  return classNames(styles.tab, {
+    [styles.active]: isCurrentTab,
+  });
+}
+
 const FileTab = ({ id, icon, name }) => {
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentTab(store));
-  const tabClasses = classNames(styles.tab, {
-    [styles.active]: currentTab === id,
-  });
+  const tabClasses = getTabStyles(id === currentTab);
 
   const iconClasses = classNames({
     [styles.js]: icon && icon === 'JS',

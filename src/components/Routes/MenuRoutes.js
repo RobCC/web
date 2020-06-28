@@ -5,7 +5,6 @@ import { EditorView } from '../../views';
 
 export const PATHS = {
   root: '/',
-  resume: '/resume',
   allPaths: '*',
 };
 
