@@ -8,10 +8,10 @@ Hi! My name's Roberto. I'm a $(green, web) developer, living in Guadalajara, Mé
 Currently working at $[Accedo,https://www.accedo.tv/]. // As a web developer
 `;
 
-export default {
+export default [
   name,
-  content: [
+  [
     ...getRandomGreet(),
     ...content,
   ],
-};
+];
