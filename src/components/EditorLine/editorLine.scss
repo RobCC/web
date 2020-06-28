@@ -1,4 +1,5 @@
 @use "variables";
+@use "keyframes";
 
 @mixin caret-border {
   border-right: 2px solid variables.$editor-caret-cursor;
@@ -104,12 +105,3 @@
   }
 }
 
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@keyframes caret {
-  from, to { border-color: transparent; }
-  50% { border-color: variables.$editor-caret-cursor; }
-}
