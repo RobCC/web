@@ -9,10 +9,8 @@ import files from '#/_files';
 
 import styles from './editorView.scss';
 
-const fileNames = [...files.keys()];
-
 const EditorView = ({ location }) => {
-  // TODO: To be used
+  // TODO: To be used?
   /* eslint-disable */
   const [, ...path] = location.pathname.split('/');
   const currentTabName = useSelector((store) => getCurrentFile(store));
@@ -20,7 +18,7 @@ const EditorView = ({ location }) => {
 
   return (
     <div className={styles.wrapper}>
-      <TabMenu openFiles={fileNames} />
+      <TabMenu />
       <Editor file={currentFile} />
     </div>
   );
