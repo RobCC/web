@@ -4,34 +4,25 @@ import { useSelector } from 'react-redux';
 
 import TabMenu from 'Components/TabMenu/TabMenu';
 import Editor from 'Components/Editor/Editor';
-import { tabList, tabMap } from '#/utils/content';
-import { getCurrentTab } from '#/store/ducks/tabs';
+import { getCurrentFile } from '#/store/ducks/file';
+import files from '#/_files';
 
 import styles from './editorView.scss';
 
-const files = [
-  {
-    id: tabList.greet,
-    name: 'greet.js',
-    icon: 'JS',
-  },
-  {
-    id: tabList.contact,
-    name: 'contact.css',
-    icon: '#',
-  },
-];
+const fileNames = Object.keys(files).map((file) => files[file].name);
 
 const EditorView = ({ location }) => {
   // TODO: To be used
   /* eslint-disable */
   const [, ...path] = location.pathname.split('/');
-  const currentTab = useSelector((store) => getCurrentTab(store));
+  const currentTabName = useSelector((store) => getCurrentFile(store));
+  const currentFile = files[currentTabName];
+
 
   return (
     <div className={styles.wrapper}>
-      <TabMenu tabs={files} />
-      <Editor file={tabMap[currentTab]} />
+      <TabMenu openFiles={fileNames} />
+      <Editor file={currentFile.content} />
     </div>
   );
 };

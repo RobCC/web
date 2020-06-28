@@ -8,6 +8,7 @@ export const PATHS = {
   allPaths: '*',
 };
 
+// TODO: No longer needed?
 const MenuRoutes = () => (
   <Switch>
     <Route path={PATHS.root} exact component={EditorView} />

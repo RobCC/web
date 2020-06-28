@@ -2,22 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import FileTab from 'Components/FileTab/FileTab';
+import getFileIcon from '#/utils/getFileIcon';
+
 import styles from './tabMenu.scss';
 
-const FileTabMenu = ({ tabs }) => (
+const FileTabMenu = ({ openFiles }) => (
   <div className={styles.tabMenu}>
     {
-      tabs.map(({ id, name, icon }) => <FileTab key={name} name={name} id={id} icon={icon} />)
+      openFiles.map((name) => <FileTab key={name} name={name} icon={getFileIcon(name)} />)
     }
   </div>
 );
 
 FileTabMenu.propTypes = {
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      icon: PropTypes.string,
-    }),
+  openFiles: PropTypes.arrayOf(
+    PropTypes.string,
   ),
 };
 

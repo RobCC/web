@@ -1,13 +1,12 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faFile, faUser } from '@fortawesome/free-regular-svg-icons';
 
 import SideMenuItem from 'Components/SideMenuItem/SideMenuItem';
-import { PATHS } from 'Components/Routes/MenuRoutes';
 
 import { isEmailOpen as isEmailOpenFn, toggleEmail } from '#/store/ducks/email';
 import { isExplorerOpen as isExplorerOpenFn, toggleExplorer } from '#/store/ducks/explorer';
@@ -16,9 +15,8 @@ import { toggleResume } from '#/store/ducks/resume';
 import styles from './sideMenu.scss';
 
 /* eslint-disable max-len */
-const SideMenu = ({ location }) => {
+const SideMenu = () => {
   const dispatch = useDispatch();
-  const isCurrentPath = (route) => location.pathname === route;
   const isEmailOpen = useSelector((state) => isEmailOpenFn(state));
   const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
-import { getCurrentTab, changeTab } from '#/store/ducks/tabs';
+import { getCurrentFile, changeFile } from '#/store/ducks/file';
 import styles from './fileTab.scss';
 
 function getTabStyles(isCurrentTab) {
@@ -12,10 +12,10 @@ function getTabStyles(isCurrentTab) {
   });
 }
 
-const FileTab = ({ id, icon, name }) => {
+const FileTab = ({ icon = '', name }) => {
   const dispatch = useDispatch();
-  const currentTab = useSelector((store) => getCurrentTab(store));
-  const tabClasses = getTabStyles(id === currentTab);
+  const currentTab = useSelector((store) => getCurrentFile(store));
+  const tabClasses = getTabStyles(name === currentTab);
 
   const iconClasses = classNames({
     [styles.js]: icon && icon === 'JS',
@@ -23,11 +23,11 @@ const FileTab = ({ id, icon, name }) => {
   });
 
   const changeCurrentTab = useCallback(() => {
-    dispatch(changeTab(id));
-  }, [id]);
+    dispatch(changeFile(name));
+  }, [name]);
 
   return (
-    <button type="button" to={id} className={tabClasses} onClick={changeCurrentTab}>
+    <button type="button" className={tabClasses} onClick={changeCurrentTab}>
       {icon && <span className={iconClasses}>{icon}</span>}
       {name}
     </button>
@@ -35,7 +35,6 @@ const FileTab = ({ id, icon, name }) => {
 };
 
 FileTab.propTypes = {
-  id: PropTypes.string.isRequired,
   icon: PropTypes.string,
   name: PropTypes.string,
 };
