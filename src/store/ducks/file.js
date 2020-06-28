@@ -34,9 +34,53 @@ const onFileChange = (state, { payload }) => ({
   currentTab: payload,
 });
 
+const onFileOpen = (state, { payload }) => {
+  const isFileAlreadyOpen = state.openFiles.indexOf(payload) > -1;
+
+  if (isFileAlreadyOpen) {
+    return state;
+  }
+
+  return ({
+    ...state,
+    openFiles: [
+      ...state.openFiles,
+      payload,
+    ],
+  });
+};
+
+const onFileClose = (state, { payload }) => ({
+  ...state,
+  openFiles: state.openFiles.filter((file) => file !== payload),
+});
+
+const onFileChangeOpen = (state, { payload }) => {
+  const isFileAlreadyOpen = state.openFiles.indexOf(payload) > -1;
+
+  if (isFileAlreadyOpen) {
+    return {
+      ...state,
+      currentTab: payload,
+    };
+  }
+
+  return ({
+    ...state,
+    currentTab: payload,
+    openFiles: [
+      ...state.openFiles,
+      payload,
+    ],
+  });
+};
+
 const reducer = handleActions(
   new Map([
     [changeFile, onFileChange],
+    [openFile, onFileOpen],
+    [closeFile, onFileClose],
+    [openChangeFile, onFileChangeOpen],
   ]),
   initialState,
 );
