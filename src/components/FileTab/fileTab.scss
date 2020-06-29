@@ -1,4 +1,5 @@
 @use "variables";
+@use "utils";
 
 .tab {
   background-color: #2e2f2a;
@@ -6,9 +7,10 @@
   border-color: variables.$editor-bg;
   color: variables.$tab-text;
   display: inline-block;
-  font-family: sans-serif;
   font-size: 14px;
   padding: 10px 20px;
+  padding-right: 30px;
+  position: relative;
   text-decoration: none;
 
   &.active {
@@ -34,5 +36,20 @@
       color: variables.$file-color-css;
       font-size: 13px;
     }
+  }
+}
+
+.close {
+  background: transparent;
+  height: 20px;
+  opacity: 0;
+  position: absolute;
+  right: 7px;
+  top: 10px;
+  transition: opacity 100ms;
+  width: 20px;
+
+  &.show {
+    opacity: 1;
   }
 }

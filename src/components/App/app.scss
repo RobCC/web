@@ -8,7 +8,8 @@
   flex-direction: row;
 }
 
-button {
+button,
+div[role=button] {
   border: 0;
   color: white;
   font-family: inherit;
