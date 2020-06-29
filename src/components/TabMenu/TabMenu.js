@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 
 import FileTab from 'Components/FileTab/FileTab';
@@ -11,7 +12,11 @@ const FileTabMenu = () => {
   const openFiles = useSelector((store) => getOpenFiles(store));
 
   return (
-    <div className={styles.tabMenu}>
+    <div
+      className={classNames(styles.tabMenu, {
+        [styles.empty]: !openFiles.length,
+      })}
+    >
       {
         openFiles.map((name) => <FileTab key={name} name={name} icon={getFileIcon(name)} />)
       }

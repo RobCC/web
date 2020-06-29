@@ -2,14 +2,17 @@
 @use "utils";
 
 .tab {
+  align-items: center;
   background-color: #2e2f2a;
   border-right: 1px solid;
   border-color: variables.$editor-bg;
+  box-sizing: border-box;
   color: variables.$tab-text;
-  display: inline-block;
+  display: inline-flex;
   font-size: 14px;
   padding: 10px 20px;
   padding-right: 30px;
+  height: variables.$file-tab-height;
   position: relative;
   text-decoration: none;
 
@@ -22,20 +25,19 @@
   &:active {
     border-color: variables.$editor-bg;
   }
+}
 
-  span {
-    font-weight: bold;
-    font-size: 12px;
-    margin-right: 7px;
+.icon {
+  font-weight: bold;
+  font-size: 13px;
+  margin-right: 7px;
 
-    &.js {
-      color: variables.$file-color-js;
-    }
+  &.js {
+    color: variables.$file-color-js;
+  }
 
-    &.css {
-      color: variables.$file-color-css;
-      font-size: 13px;
-    }
+  &.css {
+    color: variables.$file-color-css;
   }
 }
 

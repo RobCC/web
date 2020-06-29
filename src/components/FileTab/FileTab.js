@@ -38,7 +38,7 @@ const FileTab = ({ icon = '', name }) => {
     dispatch(changeFile(name));
   }, [name]);
 
-  const iconClasses = classNames({
+  const iconClasses = classNames(styles.icon, {
     [styles.js]: icon && icon === 'JS',
     [styles.css]: icon && icon === '#',
   });
@@ -57,11 +57,12 @@ const FileTab = ({ icon = '', name }) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
+      {icon && <span className={iconClasses}>{icon}</span>}
+      {getFileName(name)}
+
       <button type="button" className={closeClasses} onClick={closeTab}>
         <FontAwesomeIcon icon={faTimes} />
       </button>
-      {icon && <span className={iconClasses}>{icon}</span>}
-      {getFileName(name)}
     </div>
   );
 };

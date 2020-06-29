@@ -43,10 +43,6 @@
   margin: 0;
   width: 97%;
 
-  &.comment {
-    color: variables.$editor-comment;
-  }
-
   &.type-animated,
   &.caret-animated {
     width: auto;

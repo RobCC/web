@@ -50,10 +50,15 @@ const onFileOpen = (state, { payload }) => {
   });
 };
 
-const onFileClose = (state, { payload }) => ({
-  ...state,
-  openFiles: state.openFiles.filter((file) => file !== payload),
-});
+const onFileClose = (state, { payload }) => {
+  const newOpenFiles = state.openFiles.filter((file) => file !== payload);
+
+  return {
+    ...state,
+    currentTab: newOpenFiles.length ? newOpenFiles[newOpenFiles.length - 1] : '',
+    openFiles: newOpenFiles,
+  };
+};
 
 const onFileChangeOpen = (state, { payload }) => {
   const isFileAlreadyOpen = state.openFiles.indexOf(payload) > -1;

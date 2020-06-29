@@ -1,4 +1,12 @@
+@use "variables";
+
 .tab-menu {
-  user-select: none;
+  background-color: variables.$file-menu-bg;
   font-family: sans-serif;
+  user-select: none;
+  height: variables.$file-tab-height;
+
+  &.empty {
+    background-color: variables.$editor-bg;
+  }
 }
