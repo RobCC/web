@@ -44,7 +44,7 @@ const FileTab = ({ icon = '', name }) => {
   });
 
   const closeClasses = classNames(styles.close, {
-    [styles.show]: showClose,
+    [styles.show]: showClose || name === currentTab,
   });
 
   return (
