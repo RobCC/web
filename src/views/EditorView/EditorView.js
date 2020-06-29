@@ -9,21 +9,17 @@ import files from '#/_files';
 
 import styles from './editorView.scss';
 
-const EditorView = ({ location }) => {
-  // TODO: To be used?
-  /* eslint-disable */
-  const [, ...path] = location.pathname.split('/');
+const EditorView = () => {
   const currentTabName = useSelector((store) => getCurrentFile(store));
-  const currentFile = files.get(currentTabName);
+  const currentFileContent = files.get(currentTabName);
 
   return (
     <div className={styles.wrapper}>
       <TabMenu />
-      <Editor file={currentFile} />
+      <Editor file={currentFileContent} />
     </div>
   );
 };
-
 
 EditorView.propTypes = {
   location: PropTypes.shape({

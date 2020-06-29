@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import classNames from 'classnames';
 
 import { getCurrentFile, changeFile } from '#/store/ducks/file';
+import { getFileName } from '#/_files';
+
 import styles from './fileTab.scss';
 
 function getTabStyles(isCurrentTab) {
@@ -29,7 +31,7 @@ const FileTab = ({ icon = '', name }) => {
   return (
     <button type="button" className={tabClasses} onClick={changeCurrentTab}>
       {icon && <span className={iconClasses}>{icon}</span>}
-      {name}
+      {getFileName(name)}
     </button>
   );
 };
