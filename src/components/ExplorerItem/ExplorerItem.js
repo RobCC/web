@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 
@@ -9,9 +9,9 @@ import styles from './explorerItem.scss';
 
 const ExplorerItem = ({ name }) => {
   const dispatch = useDispatch();
-  const onClick = () => {
+  const onClick = useCallback(() => {
     dispatch(openChangeFile(name));
-  };
+  }, [name]);
 
   return (
     <div

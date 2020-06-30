@@ -16,7 +16,9 @@ const EditorView = () => {
   return (
     <div className={styles.wrapper}>
       <TabMenu />
-      <Editor file={currentFileContent} />
+      {currentFileContent
+        ? <Editor file={currentFileContent} />
+        : <div className={styles.placeholder}>:)</div>}
     </div>
   );
 };

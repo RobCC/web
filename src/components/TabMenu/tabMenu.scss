@@ -2,9 +2,9 @@
 
 .tab-menu {
   background-color: variables.$file-menu-bg;
+  flex: 0 0 variables.$file-tab-height;
   font-family: sans-serif;
   user-select: none;
-  height: variables.$file-tab-height;
 
   &.empty {
     background-color: variables.$editor-bg;
