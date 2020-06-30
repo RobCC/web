@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { getCurrentFile, changeFile, closeFile } from '#/store/ducks/file';
-import { getFileName } from '#/_files';
+import { getFileName, getFileIcon, getExtension } from '#/_files';
 
 import styles from './fileTab.scss';
 
@@ -16,31 +16,34 @@ function getTabStyles(isCurrentTab) {
   });
 }
 
-const FileTab = ({ icon = '', name }) => {
+const FileTab = ({ name }) => {
   const [showClose, setShowClose] = useState(false);
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
   const tabClasses = getTabStyles(name === currentTab);
+  const extension = getExtension(name);
+  const icon = getFileIcon(name);
 
   const onMouseEnter = useCallback(() => setShowClose(true, []));
   const onMouseLeave = useCallback(() => setShowClose(false, []));
   const closeTab = useCallback((e) => {
     e.stopPropagation();
 
-    if (!showClose) {
-      return;
+    if (showClose || name === currentTab) {
+      dispatch(closeFile(name));
     }
-
-    dispatch(closeFile(name));
   }, [showClose, name]);
 
   const changeCurrentTab = useCallback(() => {
     dispatch(changeFile(name));
   }, [name]);
 
-  const iconClasses = classNames(styles.icon, {
-    [styles.js]: icon && icon === 'JS',
-    [styles.css]: icon && icon === '#',
+  const iconClasses = classNames({
+    [styles.icon]: typeof icon === 'string',
+    [styles.logoIcon]: typeof icon !== 'string',
+    [styles.js]: (typeof icon === 'string') && extension === 'js',
+    [styles.css]: (typeof icon === 'string') && extension === 'css',
+    [styles.md]: extension === 'md',
   });
 
   const closeClasses = classNames(styles.close, {
@@ -57,7 +60,8 @@ const FileTab = ({ icon = '', name }) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {icon && <span className={iconClasses}>{icon}</span>}
+      {typeof icon === 'string' && <span className={iconClasses}>{icon}</span>}
+      {typeof icon !== 'string' && <FontAwesomeIcon icon={icon} className={iconClasses} />}
       {getFileName(name)}
 
       <button type="button" className={closeClasses} onClick={closeTab}>
@@ -68,7 +72,6 @@ const FileTab = ({ icon = '', name }) => {
 };
 
 FileTab.propTypes = {
-  icon: PropTypes.string,
   name: PropTypes.string,
 };
 

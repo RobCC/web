@@ -1,3 +1,5 @@
+import { faInfo } from '@fortawesome/free-solid-svg-icons';
+
 import greet from './greet';
 import contact from './contact';
 
@@ -6,6 +8,7 @@ const EXTENSION_REGEX = new RegExp(/\.([0-9a-z]+)$/);
 const icons = {
   js: 'JS',
   css: '#',
+  md: faInfo,
 };
 
 const files = new Map([
@@ -20,9 +23,15 @@ export function getFileName(fullName) {
   return [fileName, paths];
 }
 
-export function getFileIcon(fullName) {
+export function getExtension(fullName) {
   const [name] = getFileName(fullName);
   const [, extension] = name.match(EXTENSION_REGEX) || {};
+
+  return extension;
+}
+
+export function getFileIcon(fullName) {
+  const extension = getExtension(fullName);
 
   return icons[extension] || '';
 }

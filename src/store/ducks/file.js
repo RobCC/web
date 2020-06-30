@@ -22,9 +22,9 @@ export const {
 );
 
 const initialState = {
-  currentTab: 'greet.js',
+  currentTab: 'greet.md',
   openFiles: [
-    'greet.js',
+    'greet.md',
     'contact.css',
   ],
 };

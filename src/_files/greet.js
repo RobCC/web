@@ -1,7 +1,7 @@
 import parseToCodelines from '#/utils/parseToCodelines';
 import getRandomGreet from '#/utils/greets';
 
-const name = 'greet.js';
+const name = 'greet.md';
 const content = parseToCodelines`
 Hi! My name's Roberto. I'm a $(green, web) developer, living in Guadalajara, México.
 

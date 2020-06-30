@@ -41,6 +41,16 @@
   }
 }
 
+.logo-icon {
+  width: 10px;
+  height: 10px;
+  margin-right: 7px;
+
+  &.md {
+    color: variables.$color-md;
+  }
+}
+
 .close {
   background: transparent;
   height: 20px;
