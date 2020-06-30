@@ -6,6 +6,8 @@
   overflow: hidden;
   white-space: nowrap;
   width: 0;
+  font-size: 14px;
+  font-family: sans-serif;
 
   &.active {
     width: 25%;
