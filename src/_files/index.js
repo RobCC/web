@@ -8,6 +8,7 @@ const EXTENSION_REGEX = new RegExp(/\.([0-9a-z]+)$/);
 const icons = {
   js: 'JS',
   css: '#',
+  json: '{}',
   md: faInfo,
 };
 
