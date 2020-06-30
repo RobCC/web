@@ -1,8 +1,44 @@
+@use "variables";
+
 .item {
   color: white;
   cursor: pointer;
   font-size: 12px;
   outline: none;
-  padding: 2px 0;
+  padding: 3px 15px;
   user-select: none;
+
+  &:hover {
+    background-color: variables.$explorer-item-hover;
+  }
+
+  &.active {
+    background-color: variables.$explorer-item-active;
+  }
+
+}
+
+.icon-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  width: 15px;
+}
+
+.icon {
+  width: 4px;
+  height: 4px;
+  display: inline-block;
+  margin-right: 10px;
+
+  &.js {
+    color: variables.$file-color-js;
+  }
+
+  &.css {
+    color: variables.$file-color-css;
+  }
+
+  &.md {
+    color: variables.$color-md;
+  }
 }

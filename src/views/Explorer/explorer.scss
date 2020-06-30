@@ -1,5 +1,7 @@
+@use "variables";
+
 .explorer {
-  background-color: #1a1a1a;
+  background-color: variables.$explorer-bg;
   transition: width 200ms;
   overflow: hidden;
   white-space: nowrap;

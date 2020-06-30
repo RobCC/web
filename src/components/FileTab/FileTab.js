@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { getCurrentFile, changeFile, closeFile } from '#/store/ducks/file';
-import { getFileName, getFileIcon, getExtension } from '#/_files';
+import { getFileName, getFileIcon } from '#/_files';
 
 import styles from './fileTab.scss';
 
@@ -16,13 +16,23 @@ function getTabStyles(isCurrentTab) {
   });
 }
 
+function getIconStyles(extension, icon) {
+  return classNames({
+    [styles.icon]: typeof icon === 'string',
+    [styles.logoIcon]: typeof icon !== 'string',
+    [styles.js]: (typeof icon === 'string') && extension === 'js',
+    [styles.css]: (typeof icon === 'string') && extension === 'css',
+    [styles.md]: extension === 'md',
+  });
+}
+
 const FileTab = ({ name }) => {
   const [showClose, setShowClose] = useState(false);
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
-  const tabClasses = getTabStyles(name === currentTab);
-  const extension = getExtension(name);
-  const icon = getFileIcon(name);
+
+  const [extension, icon] = getFileIcon(name);
+  const [fileName] = getFileName(name);
 
   const onMouseEnter = useCallback(() => setShowClose(true, []));
   const onMouseLeave = useCallback(() => setShowClose(false, []));
@@ -38,14 +48,8 @@ const FileTab = ({ name }) => {
     dispatch(changeFile(name));
   }, [name]);
 
-  const iconClasses = classNames({
-    [styles.icon]: typeof icon === 'string',
-    [styles.logoIcon]: typeof icon !== 'string',
-    [styles.js]: (typeof icon === 'string') && extension === 'js',
-    [styles.css]: (typeof icon === 'string') && extension === 'css',
-    [styles.md]: extension === 'md',
-  });
-
+  const tabClasses = getTabStyles(name === currentTab);
+  const iconClasses = getIconStyles(extension, icon);
   const closeClasses = classNames(styles.close, {
     [styles.show]: showClose || name === currentTab,
   });
@@ -62,7 +66,7 @@ const FileTab = ({ name }) => {
     >
       {typeof icon === 'string' && <span className={iconClasses}>{icon}</span>}
       {typeof icon !== 'string' && <FontAwesomeIcon icon={icon} className={iconClasses} />}
-      {getFileName(name)}
+      {fileName}
 
       <button type="button" className={closeClasses} onClick={closeTab}>
         <FontAwesomeIcon icon={faTimes} />

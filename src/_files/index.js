@@ -23,7 +23,7 @@ export function getFileName(fullName) {
   return [fileName, paths];
 }
 
-export function getExtension(fullName) {
+function getExtension(fullName) {
   const [name] = getFileName(fullName);
   const [, extension] = name.match(EXTENSION_REGEX) || {};
 
@@ -32,8 +32,9 @@ export function getExtension(fullName) {
 
 export function getFileIcon(fullName) {
   const extension = getExtension(fullName);
+  const icon = icons[extension] || '';
 
-  return icons[extension] || '';
+  return [extension, icon];
 }
 
 export default files;
