@@ -10,7 +10,6 @@
 
 button,
 div[role=button] {
-  border: 0;
   color: white;
   font-family: inherit;
   cursor: pointer;
@@ -20,4 +19,8 @@ div[role=button] {
   &:active {
     outline: none;
   }
+}
+
+button {
+  border: 0;
 }
