@@ -16,22 +16,14 @@ function getTabStyles(isCurrentTab) {
   });
 }
 
-function getIconStyles(extension, icon) {
-  return classNames({
-    [styles.icon]: typeof icon === 'string',
-    [styles.logoIcon]: typeof icon !== 'string',
-    [styles.js]: (typeof icon === 'string') && extension === 'js',
-    [styles.css]: (typeof icon === 'string') && extension === 'css',
-    [styles.md]: extension === 'md',
-  });
-}
-
 const FileTab = ({ name }) => {
   const [showClose, setShowClose] = useState(false);
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
 
-  const [extension, icon] = getFileIcon(name);
+  const {
+    icon, iconStyles, isStringIcon,
+  } = getFileIcon(name);
   const [fileName] = getFileName(name);
 
   const onMouseEnter = useCallback(() => setShowClose(true, []));
@@ -49,7 +41,10 @@ const FileTab = ({ name }) => {
   }, [name]);
 
   const tabClasses = getTabStyles(name === currentTab);
-  const iconClasses = getIconStyles(extension, icon);
+  const tabIconStyles = classNames(iconStyles, {
+    [styles.icon]: isStringIcon,
+    [styles.logoIcon]: !isStringIcon,
+  });
   const closeClasses = classNames(styles.close, {
     [styles.show]: showClose || name === currentTab,
   });
@@ -64,8 +59,12 @@ const FileTab = ({ name }) => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      {typeof icon === 'string' && <span className={iconClasses}>{icon}</span>}
-      {typeof icon !== 'string' && <FontAwesomeIcon icon={icon} className={iconClasses} />}
+      {isStringIcon && <div className={tabIconStyles}>{icon}</div>}
+      {!isStringIcon && (
+      <div className={tabIconStyles}>
+        <FontAwesomeIcon icon={icon} />
+      </div>
+      )}
       {fileName}
 
       <button type="button" className={closeClasses} onClick={closeTab}>

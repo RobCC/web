@@ -9,25 +9,23 @@ import { getFileName, getFileIcon } from '#/_files';
 
 import styles from './explorerItem.scss';
 
-function getIconStyles(extension, icon) {
-  return classNames(styles.icon, {
-    [styles.js]: (typeof icon === 'string') && extension === 'js',
-    [styles.css]: (typeof icon === 'string') && extension === 'css',
-    [styles.md]: extension === 'md',
-  });
-}
-
 const ExplorerItem = ({ name }) => {
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
-  const [extension, icon] = getFileIcon(name);
+  const {
+    extension, icon, iconStyles, isStringIcon,
+  } = getFileIcon(name);
   const [fileName] = getFileName(name);
 
   const onClick = useCallback(() => {
     dispatch(openChangeFile(name));
   }, [name]);
 
-  const iconClasses = getIconStyles(extension, icon);
+  const explorerIconClasses = classNames(iconStyles, {
+    [styles.icon]: isStringIcon,
+    [styles.logoIcon]: !isStringIcon,
+    [styles.json]: extension === 'json',
+  });
 
   return (
     <div
@@ -39,17 +37,17 @@ const ExplorerItem = ({ name }) => {
       onClick={onClick}
       onKeyDown={onClick}
     >
-      {typeof icon === 'string'
+      {isStringIcon
       && (
         <div className={styles.iconWrapper}>
-          <div className={iconClasses}>
+          <div className={explorerIconClasses}>
             {icon}
           </div>
         </div>
       )}
-      {typeof icon !== 'string' && (
+      {!isStringIcon && (
         <div className={styles.iconWrapper}>
-          <div className={iconClasses}>
+          <div className={explorerIconClasses}>
             <FontAwesomeIcon icon={icon} />
           </div>
         </div>

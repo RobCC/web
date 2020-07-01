@@ -24,20 +24,14 @@
 }
 
 .icon {
-  width: 4px;
-  height: 4px;
-  display: inline-block;
-  margin-right: 10px;
+  position: relative;
 
-  &.js, &.json {
-    color: variables.$file-color-js;
+  &.json {
+    bottom: 1px;
+    right: 1px;
   }
+}
 
-  &.css {
-    color: variables.$file-color-css;
-  }
-
-  &.md {
-    color: variables.$color-md;
-  }
+.logo-icon {
+  position: relative;
 }

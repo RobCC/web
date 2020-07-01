@@ -8,6 +8,10 @@
   flex-direction: row;
 }
 
+button {
+  border: 0;
+}
+
 button,
 div[role=button] {
   color: white;
@@ -19,8 +23,4 @@ div[role=button] {
   &:active {
     outline: none;
   }
-}
-
-button {
-  border: 0;
 }
