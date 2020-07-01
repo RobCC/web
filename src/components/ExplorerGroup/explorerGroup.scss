@@ -1,0 +1,23 @@
+@use "variables";
+
+.group {
+  height: auto;
+  overflow: hidden;
+  transition: height 100ms;
+
+  &.closed {
+    height: variables.$explorer-item-height;
+  }
+
+  .title {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: variables.$explorer-item-height;
+    padding: 5px 15px;
+
+    &:hover {
+      background-color: variables.$explorer-item-hover;
+    }
+  }
+}

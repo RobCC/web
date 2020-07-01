@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
 import Item from 'Components/ExplorerItem/ExplorerItem';
+import Group from 'Components/ExplorerGroup/ExplorerGroup';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import files from '#/_files';
 
@@ -18,6 +19,8 @@ const Explorer = () => {
   return (
     <div className={explorerClasses}>
       {fileNames.map((fullFileName) => <Item key={fullFileName} name={fullFileName} />)}
+      <Group title="Group 1" items={['inside.json']} />
+      <Item name="outside.json" />
     </div>
   );
 };

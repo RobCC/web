@@ -6,6 +6,8 @@
   outline: none;
   padding: 5px 15px;
   user-select: none;
+  box-sizing: border-box;
+  height: variables.$explorer-item-height;
 
   &:hover {
     background-color: variables.$explorer-item-hover;

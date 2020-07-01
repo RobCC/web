@@ -1,6 +1,6 @@
 import parseToCodelines from '#/utils/parseToCodelines';
 
-const name = 'contact.json';
+const name = 'test.json';
 const content = parseToCodelines`
 hi :)
 `;
