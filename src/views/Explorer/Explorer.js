@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import Item from 'Components/ExplorerItem/ExplorerItem';
 import Group from 'Components/ExplorerGroup/ExplorerGroup';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
-import files from '#/_files';
+import { getRootFiles } from '#/_files';
 
 import styles from './explorer.scss';
 
@@ -14,12 +14,12 @@ const Explorer = () => {
   const explorerClasses = classNames(styles.explorer, {
     [styles.active]: isExplorerOpen,
   });
-  const fileNames = [...files.keys()];
+  const fileNames = getRootFiles();
 
   return (
     <div className={explorerClasses}>
       {fileNames.map((fullFileName) => <Item key={fullFileName} name={fullFileName} />)}
-      <Group title="Group 1" items={['inside.json']} />
+      <Group name="Group 1" groups={['Sub-Group']} />
       <Item name="outside.json" />
     </div>
   );

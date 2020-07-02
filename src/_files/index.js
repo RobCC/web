@@ -33,7 +33,7 @@ function getIconStyles(extension, isStringIcon) {
   });
 }
 
-export function getFileName(fullName) {
+export function getShortName(fullName) {
   const paths = fullName.split('/');
   const fileName = paths.pop();
 
@@ -41,7 +41,7 @@ export function getFileName(fullName) {
 }
 
 function getExtension(fullName) {
-  const [name] = getFileName(fullName);
+  const [name] = getShortName(fullName);
   const [, extension] = name.match(EXTENSION_REGEX) || {};
 
   return extension;
@@ -56,6 +56,18 @@ export function getFileIcon(fullName) {
   return {
     extension, icon, iconStyles, isStringIcon,
   };
+}
+
+export function getRootFiles() {
+  const fileNames = [...files.keys()];
+
+  return fileNames.filter((name) => name.startsWith('/'));
+}
+
+export function getFilesByPath(path) {
+  const fileNames = [...files.keys()];
+
+  return fileNames.filter((name) => name.indexOf(path) > -1);
 }
 
 export default files;

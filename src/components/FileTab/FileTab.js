@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { getCurrentFile, changeFile, closeFile } from '#/store/ducks/file';
-import { getFileName, getFileIcon } from '#/_files';
+import { getShortName, getFileIcon } from '#/_files';
 
 import styles from './fileTab.scss';
 
@@ -24,7 +24,7 @@ const FileTab = ({ name }) => {
   const {
     icon, iconStyles, isStringIcon,
   } = getFileIcon(name);
-  const [fileName] = getFileName(name);
+  const [shortName] = getShortName(name);
 
   const onMouseEnter = useCallback(() => setShowClose(true, []));
   const onMouseLeave = useCallback(() => setShowClose(false, []));
@@ -65,7 +65,7 @@ const FileTab = ({ name }) => {
         <FontAwesomeIcon icon={icon} />
       </div>
       )}
-      {fileName}
+      {shortName}
 
       <button type="button" className={closeClasses} onClick={closeTab}>
         <FontAwesomeIcon icon={faTimes} />

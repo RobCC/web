@@ -171,6 +171,15 @@ const greets = {
 
 const getRandomElement = (items) => items[Math.floor(Math.random() * items.length)];
 
-const getRandomGreet = () => getRandomElement(Object.keys(greets).map((k) => greets[k]));
+const getRandomGreet = () => {
+  const greetNames = Object.keys(greets);
+  const greetsContent = greetNames.map((k) => greets[k]);
+  const randomGreet = getRandomElement(greetsContent);
+
+  return [
+    '!editor',
+    ...randomGreet,
+  ];
+};
 
 export default getRandomGreet;

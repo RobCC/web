@@ -5,17 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { openChangeFile, getCurrentFile } from '#/store/ducks/file';
-import { getFileName, getFileIcon } from '#/_files';
+import { getShortName, getFileIcon } from '#/_files';
 
 import styles from './explorerItem.scss';
 
-const ExplorerItem = ({ name }) => {
+const ExplorerItem = ({ level = 0, name }) => {
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
   const {
     extension, icon, iconStyles, isStringIcon,
   } = getFileIcon(name);
-  const [fileName] = getFileName(name);
+  const [shortName] = getShortName(name);
 
   const onClick = useCallback(() => {
     dispatch(openChangeFile(name));
@@ -31,11 +31,14 @@ const ExplorerItem = ({ name }) => {
     <div
       role="button"
       tabIndex={0}
-      className={classNames(styles.item, {
-        [styles.active]: fileName === currentTab,
-      })}
       onClick={onClick}
       onKeyDown={onClick}
+      className={classNames(styles.item, {
+        [styles.active]: shortName === currentTab,
+      })}
+      style={{
+        paddingLeft: 15 + (level * 7),
+      }}
     >
       {isStringIcon
       && (
@@ -52,12 +55,13 @@ const ExplorerItem = ({ name }) => {
           </div>
         </div>
       )}
-      {fileName}
+      {shortName}
     </div>
   );
 };
 
 ExplorerItem.propTypes = {
+  level: PropTypes.number,
   name: PropTypes.string,
 };
 

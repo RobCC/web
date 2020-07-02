@@ -9,6 +9,14 @@ import files from '#/_files';
 
 import styles from './editorView.scss';
 
+function renderContent(fileContent) {
+  const isEditorContent = fileContent?.[0] === '!editor';
+
+  return isEditorContent
+    ? <Editor file={fileContent} />
+    : <div className="custom?">{fileContent}</div>;
+}
+
 const EditorView = () => {
   const currentTabName = useSelector((store) => getCurrentFile(store));
   const currentFileContent = files.get(currentTabName);
@@ -17,7 +25,7 @@ const EditorView = () => {
     <div className={styles.wrapper}>
       <TabMenu />
       {currentFileContent
-        ? <Editor file={currentFileContent} />
+        ? renderContent(currentFileContent)
         : <div className={styles.placeholder}>:)</div>}
     </div>
   );

@@ -1,7 +1,8 @@
 @use "variables";
 
 .item {
-  color: white;
+  // TODO: Being ovewritten
+  color: #ccc;
   cursor: pointer;
   outline: none;
   padding: 5px 15px;
@@ -15,6 +16,7 @@
 
   &.active {
     background-color: variables.$explorer-item-active;
+    color: white;
   }
 
 }
