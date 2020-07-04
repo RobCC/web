@@ -5,7 +5,7 @@ import { v1 as generateId } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import Item from 'Components/ExplorerItem/ExplorerItem';
+import File from 'Components/ExplorerFile/ExplorerFile';
 import { getShortName, getItemsByGroup } from '#/_files';
 
 import styles from './explorerGroup.scss';
@@ -43,7 +43,7 @@ const Group = ({
         />
       ))}
       {files.map((fullFileName) => (
-        <Item
+        <File
           key={fullFileName}
           name={fullFileName}
           level={level + 1}

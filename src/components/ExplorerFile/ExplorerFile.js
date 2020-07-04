@@ -7,9 +7,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { openChangeFile, getCurrentFile } from '#/store/ducks/file';
 import { getShortName, getFileIcon } from '#/_files';
 
-import styles from './explorerItem.scss';
+import styles from './explorerFile.scss';
 
-const ExplorerItem = ({ level = 0, name }) => {
+const ExplorerFile = ({ level = 0, name }) => {
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
   const {
@@ -60,9 +60,9 @@ const ExplorerItem = ({ level = 0, name }) => {
   );
 };
 
-ExplorerItem.propTypes = {
+ExplorerFile.propTypes = {
   level: PropTypes.number,
   name: PropTypes.string,
 };
 
-export default ExplorerItem;
+export default ExplorerFile;

@@ -25,15 +25,8 @@ function setGroup(name) {
 const files = new Map([
   greet,
   contact,
-  test,
   setGroup('/Test group'),
 ]);
-
-function isFile(name) {
-  const content = files.get(name);
-
-  return content;
-}
 
 function getIconStyles(extension, isStringIcon) {
   return classNames({

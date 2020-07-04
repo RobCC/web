@@ -3,12 +3,16 @@ import { useSelector } from 'react-redux';
 import { v1 as generateId } from 'uuid';
 import classNames from 'classnames';
 
-import Item from 'Components/ExplorerItem/ExplorerItem';
+import File from 'Components/ExplorerFile/ExplorerFile';
+import FFile from 'Components/ExplorerItems/File/File';
 import Group from 'Components/ExplorerGroup/ExplorerGroup';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import { getRootFiles } from '#/_files';
 
 import styles from './explorer.scss';
+
+import rootFiles from '#/fileExplorer/files/root';
+import testFile from '#/fileExplorer/files/root/greet';
 
 const Explorer = () => {
   const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
@@ -20,7 +24,8 @@ const Explorer = () => {
   return (
     <div className={explorerClasses}>
       {groups.map((groupFullName) => <Group key={generateId()} name={groupFullName} />)}
-      {files.map((fullFileName) => <Item key={generateId()} name={fullFileName} />)}
+      {files.map((fullFileName) => <File key={generateId()} name={fullFileName} />)}
+      <FFile file={testFile} />
     </div>
   );
 };
