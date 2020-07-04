@@ -29,6 +29,12 @@ const files = new Map([
   setGroup('/Test group'),
 ]);
 
+function isFile(name) {
+  const content = files.get(name);
+
+  return content;
+}
+
 function getIconStyles(extension, isStringIcon) {
   return classNames({
     [styles.icon]: isStringIcon,
@@ -83,9 +89,8 @@ function getFilesAndGroups(mixedFileNames) {
 export function getRootFiles() {
   const fileNames = [...files.keys()];
   const rootFiles = fileNames.filter((name) => name.startsWith('/'));
-  const filesNames = rootFiles.map(([name]) => name);
 
-  return getFilesAndGroups(filesNames);
+  return getFilesAndGroups(rootFiles);
 }
 
 export function getItemsByGroup(path) {
