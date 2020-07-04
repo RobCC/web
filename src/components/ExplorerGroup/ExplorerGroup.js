@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { v1 as generateId } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import Item from 'Components/ExplorerItem/ExplorerItem';
-import { getShortName, getFilesByPath } from '#/_files';
+import { getShortName, getItemsByGroup } from '#/_files';
 
 import styles from './explorerGroup.scss';
 
 const Group = ({
-  level = 0, name, groups = [],
+  level = 0, name,
 }) => {
   const [isClosed, setIsClosed] = useState(true);
   const groupStyles = classNames(styles.group, {
     [styles.closed]: isClosed,
   });
   const [shortName] = getShortName(name);
-  const groupFiles = getFilesByPath(name);
+  const [files, groups] = getItemsByGroup(name);
 
   return (
     <div className={groupStyles}>
@@ -36,12 +37,12 @@ const Group = ({
       </div>
       {groups.map((groupName) => (
         <Group
-          key={`${name}/${groupName}`}
+          key={generateId()}
           name={`${name}/${groupName}`}
           level={level + 1}
         />
       ))}
-      {groupFiles.map((fullFileName) => (
+      {files.map((fullFileName) => (
         <Item
           key={fullFileName}
           name={fullFileName}
@@ -56,7 +57,6 @@ const Group = ({
 Group.propTypes = {
   level: PropTypes.number,
   name: PropTypes.string,
-  groups: PropTypes.array,
 }
 
 export default Group;

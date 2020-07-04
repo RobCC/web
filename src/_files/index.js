@@ -16,10 +16,17 @@ const icons = {
   md: faInfo,
 };
 
+// Files are arrays of 2 items, [name, content]
+// Files without content are considered groups
+function setGroup(name) {
+  return [name, false];
+}
+
 const files = new Map([
   greet,
   contact,
   test,
+  setGroup('/Test group'),
 ]);
 
 function getIconStyles(extension, isStringIcon) {
@@ -42,7 +49,7 @@ export function getShortName(fullName) {
 
 function getExtension(fullName) {
   const [name] = getShortName(fullName);
-  const [, extension] = name.match(EXTENSION_REGEX) || {};
+  const [, extension] = name.match(EXTENSION_REGEX) || [];
 
   return extension;
 }
@@ -58,16 +65,35 @@ export function getFileIcon(fullName) {
   };
 }
 
-export function getRootFiles() {
-  const fileNames = [...files.keys()];
+function getFilesAndGroups(mixedFileNames) {
+  return mixedFileNames.reduce(([fFiles, fGroups], name) => {
+    const content = files.get(name);
 
-  return fileNames.filter((name) => name.startsWith('/'));
+    return [[
+      ...fFiles,
+      ...(content ? [name] : []),
+    ], [
+      ...fGroups,
+      ...(!content ? [name] : []),
+    ],
+    ];
+  }, [[], []]);
 }
 
-export function getFilesByPath(path) {
+export function getRootFiles() {
   const fileNames = [...files.keys()];
+  const rootFiles = fileNames.filter((name) => name.startsWith('/'));
+  const filesNames = rootFiles.map(([name]) => name);
 
-  return fileNames.filter((name) => name.indexOf(path) > -1);
+  return getFilesAndGroups(filesNames);
+}
+
+export function getItemsByGroup(path) {
+  const subItemsRegex = new RegExp(`^${path}\\/.+?$`);
+  const fileNames = [...files.keys()];
+  const subItems = fileNames.filter((name) => !!name.match(subItemsRegex));
+
+  return getFilesAndGroups(subItems);
 }
 
 export default files;

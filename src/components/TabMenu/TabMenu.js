@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import { v1 as generateId } from 'uuid';
 import { useSelector } from 'react-redux';
 
 import FileTab from 'Components/FileTab/FileTab';
@@ -17,7 +18,7 @@ const FileTabMenu = () => {
       })}
     >
       {
-        openFiles.map((name) => <FileTab key={name} name={name} />)
+        openFiles.map((name) => <FileTab key={generateId()} name={name} />)
       }
     </div>
   );

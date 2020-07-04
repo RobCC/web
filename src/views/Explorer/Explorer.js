@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { v1 as generateId } from 'uuid';
 import classNames from 'classnames';
 
 import Item from 'Components/ExplorerItem/ExplorerItem';
@@ -14,13 +15,12 @@ const Explorer = () => {
   const explorerClasses = classNames(styles.explorer, {
     [styles.active]: isExplorerOpen,
   });
-  const fileNames = getRootFiles();
+  const [files, groups] = getRootFiles();
 
   return (
     <div className={explorerClasses}>
-      {fileNames.map((fullFileName) => <Item key={fullFileName} name={fullFileName} />)}
-      <Group name="Group 1" groups={['Sub-Group']} />
-      <Item name="outside.json" />
+      {groups.map((groupFullName) => <Group key={generateId()} name={groupFullName} />)}
+      {files.map((fullFileName) => <Item key={generateId()} name={fullFileName} />)}
     </div>
   );
 };
