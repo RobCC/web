@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faInfo, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
 
 import files from './files';
 
@@ -12,7 +12,20 @@ const icons = {
   css: '#',
   json: '{}',
   md: faInfo,
+  txt: faAlignLeft,
 };
+
+function getIconStyles(extension, isStringIcon) {
+  return classNames({
+    [styles.icon]: isStringIcon,
+    [styles.logoIcon]: !isStringIcon,
+    [styles.js]: isStringIcon && extension === 'js',
+    [styles.css]: isStringIcon && extension === 'css',
+    [styles.md]: extension === 'md',
+    [styles.json]: extension === 'json',
+    [styles.txt]: extension === 'txt',
+  });
+}
 
 export function getFileContent(fullName) {
   const paths = fullName.split('/');
@@ -27,17 +40,6 @@ export function getFileContent(fullName) {
 
 function isFolder(content) {
   return content instanceof Map;
-}
-
-function getIconStyles(extension, isStringIcon) {
-  return classNames({
-    [styles.icon]: isStringIcon,
-    [styles.logoIcon]: !isStringIcon,
-    [styles.js]: isStringIcon && extension === 'js',
-    [styles.css]: isStringIcon && extension === 'css',
-    [styles.md]: extension === 'md',
-    [styles.json]: extension === 'json',
-  });
 }
 
 export function getShortName(fullName) {
