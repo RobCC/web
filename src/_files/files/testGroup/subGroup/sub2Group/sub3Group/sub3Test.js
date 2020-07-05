@@ -1,11 +1,10 @@
-import parseToCodelines from '#/utils/parseToCodelines';
+import React from 'react';
 
 const name = 'sub3Test.json';
-const content = parseToCodelines(`
-sub3Test :)
-`);
+
+const Content = () => <div>Not on editor</div>;
 
 export default [
   name,
-  content,
+  Content,
 ];

@@ -12,9 +12,13 @@ import styles from './editorView.scss';
 function renderContent(fileContent) {
   const isEditorContent = fileContent?.[0] === '!editor';
 
-  return isEditorContent
-    ? <Editor file={fileContent} />
-    : <div className="custom?">{fileContent}</div>;
+  if (isEditorContent) {
+    return <Editor file={fileContent} />;
+  }
+
+  const Content = fileContent;
+
+  return <Content />;
 }
 
 const EditorView = () => {
