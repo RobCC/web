@@ -31,7 +31,7 @@ const EditorView = () => {
     <div
       className={styles.wrapper}
       style={{
-        maxWidth: isExplorerOpen ? '75%' : '100%',
+        maxWidth: isExplorerOpen ? '80%' : '100%',
       }}
     >
       <TabMenu />
