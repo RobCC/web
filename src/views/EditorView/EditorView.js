@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import TabMenu from 'Components/TabMenu/TabMenu';
 import Editor from 'Components/Editor/Editor';
+import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import { getCurrentFile } from '#/store/ducks/file';
 import { getFileContent } from '#/_files';
 
@@ -23,10 +24,16 @@ function renderContent(fileContent) {
 
 const EditorView = () => {
   const currentFile = useSelector((store) => getCurrentFile(store));
+  const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
   const currentFileContent = getFileContent(currentFile);
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={styles.wrapper}
+      style={{
+        maxWidth: isExplorerOpen ? '75%' : '100%',
+      }}
+    >
       <TabMenu />
       {currentFileContent
         ? renderContent(currentFileContent)
