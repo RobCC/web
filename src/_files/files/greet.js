@@ -1,7 +1,7 @@
 import parseToCodelines from '#/utils/parseToCodelines';
 import getRandomGreet from '#/utils/greets';
 
-const name = '/greet.md';
+const name = 'greet.md';
 const preContent = [
   ...getRandomGreet(),
   "Hi! My name's Roberto. I'm a $(green, web) developer, living in Guadalajara, México",

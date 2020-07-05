@@ -6,19 +6,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 import File from 'Components/ExplorerFile/ExplorerFile';
-import { getShortName, getItemsByGroup } from '#/_files';
+import { getFilesFolders } from '#/_files';
 
 import styles from './explorerGroup.scss';
 
 const Group = ({
-  level = 0, name,
+  level = 0, name, items, parent = '',
 }) => {
   const [isClosed, setIsClosed] = useState(true);
   const groupStyles = classNames(styles.group, {
     [styles.closed]: isClosed,
   });
-  const [shortName] = getShortName(name);
-  const [files, groups] = getItemsByGroup(name);
+  const [files, groups] = getFilesFolders(items);
+  const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   return (
     <div className={groupStyles}>
@@ -33,19 +33,22 @@ const Group = ({
         }}
       >
         <FontAwesomeIcon icon={faAngleRight} className={styles.caret} />
-        {shortName}
+        {name}
       </div>
       {groups.map((groupName) => (
         <Group
           key={generateId()}
-          name={`${name}/${groupName}`}
+          name={groupName}
+          parent={fullName}
           level={level + 1}
+          items={items.get(groupName)}
         />
       ))}
       {files.map((fullFileName) => (
         <File
           key={fullFileName}
           name={fullFileName}
+          parent={fullName}
           level={level + 1}
         />
       ))}
@@ -56,7 +59,9 @@ const Group = ({
 /* eslint-disable */
 Group.propTypes = {
   level: PropTypes.number,
+  items: PropTypes.object,
   name: PropTypes.string,
+  parent: PropTypes.string,
 }
 
 export default Group;

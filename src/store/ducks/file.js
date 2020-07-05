@@ -22,10 +22,10 @@ export const {
 );
 
 const initialState = {
-  currentTab: '/greet.md',
+  currentTab: 'greet.md',
   openFiles: [
-    '/greet.md',
-    '/contact.css',
+    'greet.md',
+    'contact.css',
   ],
 };
 

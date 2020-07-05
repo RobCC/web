@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import TabMenu from 'Components/TabMenu/TabMenu';
 import Editor from 'Components/Editor/Editor';
 import { getCurrentFile } from '#/store/ducks/file';
-import files from '#/_files';
+import { getFileContent } from '#/_files';
 
 import styles from './editorView.scss';
 
@@ -18,8 +18,8 @@ function renderContent(fileContent) {
 }
 
 const EditorView = () => {
-  const currentTabName = useSelector((store) => getCurrentFile(store));
-  const currentFileContent = files.get(currentTabName);
+  const currentFile = useSelector((store) => getCurrentFile(store));
+  const currentFileContent = getFileContent(currentFile);
 
   return (
     <div className={styles.wrapper}>

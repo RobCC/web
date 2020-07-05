@@ -9,17 +9,18 @@ import { getShortName, getFileIcon } from '#/_files';
 
 import styles from './explorerFile.scss';
 
-const ExplorerFile = ({ level = 0, name }) => {
+const ExplorerFile = ({ level = 0, name, parent = '' }) => {
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
   const {
     extension, icon, iconStyles, isStringIcon,
   } = getFileIcon(name);
   const [shortName] = getShortName(name);
+  const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = useCallback(() => {
-    dispatch(openChangeFile(name));
-  }, [name]);
+    dispatch(openChangeFile(fullName));
+  }, [fullName]);
 
   const explorerIconClasses = classNames(iconStyles, {
     [styles.icon]: isStringIcon,
@@ -61,6 +62,7 @@ const ExplorerFile = ({ level = 0, name }) => {
 };
 
 ExplorerFile.propTypes = {
+  parent: PropTypes.string,
   level: PropTypes.number,
   name: PropTypes.string,
 };

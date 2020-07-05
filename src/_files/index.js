@@ -1,9 +1,7 @@
 import classNames from 'classnames';
 import { faInfo } from '@fortawesome/free-solid-svg-icons';
 
-import greet from './greet';
-import contact from './contact';
-import test from './test';
+import files from './files';
 
 import styles from './icons.scss';
 
@@ -16,17 +14,20 @@ const icons = {
   md: faInfo,
 };
 
-// Files are arrays of 2 items, [name, content]
-// Files without content are considered groups
-function setGroup(name) {
-  return [name, false];
+export function getFileContent(fullName) {
+  const paths = fullName.split('/');
+  let content = files;
+
+  paths.forEach((path) => {
+    content = content.get(path);
+  });
+
+  return content;
 }
 
-const files = new Map([
-  greet,
-  contact,
-  setGroup('/Test group'),
-]);
+function isFolder(content) {
+  return content instanceof Map;
+}
 
 function getIconStyles(extension, isStringIcon) {
   return classNames({
@@ -62,6 +63,24 @@ export function getFileIcon(fullName) {
   return {
     extension, icon, iconStyles, isStringIcon,
   };
+}
+
+export function getFilesFolders(items) {
+  const names = [...items.keys()];
+
+  return names.reduce(([fFiles, fGroups], name) => {
+    const content = items.get(name);
+    const isItemFolder = isFolder(content);
+
+    return [[
+      ...fFiles,
+      ...(!isItemFolder ? [name] : []),
+    ], [
+      ...fGroups,
+      ...(isItemFolder ? [name] : []),
+    ],
+    ];
+  }, [[], []]);
 }
 
 function getFilesAndGroups(mixedFileNames) {
