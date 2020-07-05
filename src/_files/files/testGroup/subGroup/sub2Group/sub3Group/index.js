@@ -1,10 +1,10 @@
 import subTest from './sub3Test';
-
-const files = new Map([
-  subTest,
-]);
+import sub4Group from './sub4Group';
 
 export default [
   'Sub 3 Group',
-  files,
+  (new Map([
+    subTest,
+    sub4Group,
+  ])),
 ];

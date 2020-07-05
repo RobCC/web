@@ -1,5 +1,6 @@
 import File from './File';
 
+// TODO: No longer needed?
 export default class Folder {
   constructor(name, files = [], parent = '/') {
     this.name = name;

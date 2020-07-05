@@ -5,6 +5,7 @@ module.exports = {
   extends: 'stylelint-config-recommended',
   rules: {
     'number-max-precision': null,
+    'function-calc-no-invalid': null,
     'max-nesting-depth': 3,
     'number-leading-zero': null,
     'number-no-trailing-zeros': [true, { severity: 'warning' }],

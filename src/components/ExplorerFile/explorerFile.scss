@@ -2,13 +2,13 @@
 
 .item {
   // TODO: Being ovewritten
-  color: #ccc;
-  cursor: pointer;
-  outline: none;
-  padding: 5px 15px;
-  user-select: none;
   box-sizing: border-box;
+  color: #ccc;
   height: variables.$explorer-item-height;
+  overflow: hidden;
+  padding: 5px 15px;
+  text-overflow: ellipsis;
+  user-select: none;
 
   &:hover {
     background-color: variables.$explorer-item-hover;

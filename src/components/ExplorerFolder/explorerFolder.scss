@@ -11,6 +11,7 @@
 .group {
   height: auto;
   overflow: hidden;
+  position: relative;
 
   &.closed {
     height: variables.$explorer-item-height;
@@ -28,6 +29,17 @@
     height: variables.$explorer-item-height;
     user-select: none;
     padding: 5px 15px;
+
+    // TODO: Nested separator logic: Show on explorer hover. When not, only show on active tab group
+    &::before {
+      // content: "";
+      width: 1px;
+      height: calc(100% - #{variables.$explorer-item-height});
+      background: #585858;
+      position: absolute;
+      top: variables.$explorer-item-height;
+      z-index: 1;
+    }
 
     &:hover {
       background-color: variables.$explorer-item-hover;

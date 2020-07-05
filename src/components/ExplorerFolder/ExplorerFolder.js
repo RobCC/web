@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { v1 as generateId } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,13 +19,17 @@ const Folder = ({
   const [files, groups] = getFilesFolders(items);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
+  const onClick = useCallback(() => {
+    setIsClosed(!isClosed);
+  }, [isClosed]);
+
   return (
     <div className={groupStyles}>
       <div
         role="button"
         tabIndex={0}
-        onClick={() => setIsClosed(!isClosed)}
-        onKeyDown={() => setIsClosed(!isClosed)}
+        onClick={onClick}
+        onKeyDown={onClick}
         className={styles.title}
         style={{
           paddingLeft: 15 + (level * 7),
@@ -37,17 +40,17 @@ const Folder = ({
       </div>
       {groups.map((groupName) => (
         <Folder
-          key={generateId()}
+          key={`${fullName}/${groupName}`}
           name={groupName}
           parent={fullName}
           level={level + 1}
           items={items.get(groupName)}
         />
       ))}
-      {files.map((fullFileName) => (
+      {files.map((fileName) => (
         <File
-          key={fullFileName}
-          name={fullFileName}
+          key={`${fullName}/${fileName}`}
+          name={fileName}
           parent={fullName}
           level={level + 1}
         />

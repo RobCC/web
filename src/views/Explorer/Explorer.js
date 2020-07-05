@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { v1 as generateId } from 'uuid';
 import classNames from 'classnames';
 
 import File from 'Components/ExplorerFile/ExplorerFile';
@@ -21,12 +20,12 @@ const Explorer = () => {
     <div className={explorerClasses}>
       {groups.map((groupFullName) => (
         <Folder
-          key={generateId()}
+          key={groupFullName}
           name={groupFullName}
           items={rootFiles.get(groupFullName)}
         />
       ))}
-      {files.map((fullFileName) => <File key={generateId()} name={fullFileName} />)}
+      {files.map((fullFileName) => <File key={fullFileName} name={fullFileName} />)}
     </div>
   );
 };
