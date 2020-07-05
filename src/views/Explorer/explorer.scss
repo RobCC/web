@@ -2,7 +2,8 @@
 
 .explorer {
   background-color: variables.$explorer-bg;
-  transition: width 200ms;
+  flex: 0 0 0%;
+  transition: flex 200ms;
   overflow: hidden;
   white-space: nowrap;
   width: 0;
@@ -10,6 +11,6 @@
   font-family: sans-serif;
 
   &.active {
-    width: 25%;
+    flex: 0 0 25%;
   }
 }
