@@ -5,6 +5,7 @@ module.exports = {
   extends: 'stylelint-config-recommended',
   rules: {
     'number-max-precision': null,
+    'function-calc-no-invalid': null,
     'max-nesting-depth': 3,
     'number-leading-zero': null,
     'number-no-trailing-zeros': [true, { severity: 'warning' }],
@@ -27,8 +28,8 @@ module.exports = {
     'block-closing-brace-space-before': 'always-single-line',
     'block-opening-brace-space-before': 'always-single-line',
     'block-opening-brace-space-after': 'always-single-line',
-    'selector-attribute-quotes': 'always',
-    'selector-attribute-brackets-space-inside': 'always',
+    'selector-attribute-quotes': 'never',
+    'selector-attribute-brackets-space-inside': 'never',
     'selector-pseudo-class-case': 'lower',
     'selector-type-case': 'lower',
     'comment-whitespace-inside': 'always',

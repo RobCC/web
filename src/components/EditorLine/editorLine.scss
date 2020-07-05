@@ -7,7 +7,7 @@
   overflow: hidden;
   padding-right: 3px;
   position: relative;
-  top: 2px;
+  top: 3px;
 }
 
 .line {
@@ -42,10 +42,6 @@
   font-family: Fira Code, monospace;
   margin: 0;
   width: 97%;
-
-  &.comment {
-    color: variables.$editor-comment;
-  }
 
   &.type-animated,
   &.caret-animated {

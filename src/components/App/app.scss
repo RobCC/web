@@ -10,6 +10,10 @@
 
 button {
   border: 0;
+}
+
+button,
+div[role=button] {
   color: white;
   font-family: inherit;
   cursor: pointer;

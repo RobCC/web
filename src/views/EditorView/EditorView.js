@@ -4,38 +4,43 @@ import { useSelector } from 'react-redux';
 
 import TabMenu from 'Components/TabMenu/TabMenu';
 import Editor from 'Components/Editor/Editor';
-import { tabList, tabMap } from '#/utils/content';
-import { getCurrentTab } from '#/store/ducks/tabs';
+import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
+import { getCurrentFile } from '#/store/ducks/file';
+import { getFileContent } from '#/_files';
 
 import styles from './editorView.scss';
 
-const files = [
-  {
-    id: tabList.greet,
-    name: 'greet.js',
-    icon: 'JS',
-  },
-  {
-    id: tabList.contact,
-    name: 'contact.css',
-    icon: '#',
-  },
-];
+function renderContent(fileContent) {
+  const isEditorContent = fileContent?.[0] === '!editor';
 
-const EditorView = ({ location }) => {
-  // TODO: To be used
-  /* eslint-disable */
-  const [, ...path] = location.pathname.split('/');
-  const currentTab = useSelector((store) => getCurrentTab(store));
+  if (isEditorContent) {
+    return <Editor file={fileContent} />;
+  }
+
+  const Content = fileContent;
+
+  return <Content />;
+}
+
+const EditorView = () => {
+  const currentFile = useSelector((store) => getCurrentFile(store));
+  const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
+  const currentFileContent = getFileContent(currentFile);
 
   return (
-    <div className={styles.wrapper}>
-      <TabMenu tabs={files} />
-      <Editor file={tabMap[currentTab]} />
+    <div
+      className={styles.wrapper}
+      style={{
+        maxWidth: isExplorerOpen ? '80%' : '100%',
+      }}
+    >
+      <TabMenu />
+      {currentFileContent
+        ? renderContent(currentFileContent)
+        : <div className={styles.placeholder}>:)</div>}
     </div>
   );
 };
-
 
 EditorView.propTypes = {
   location: PropTypes.shape({

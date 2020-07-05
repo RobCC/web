@@ -5,10 +5,10 @@ import { EditorView } from '../../views';
 
 export const PATHS = {
   root: '/',
-  resume: '/resume',
   allPaths: '*',
 };
 
+// TODO: No longer needed?
 const MenuRoutes = () => (
   <Switch>
     <Route path={PATHS.root} exact component={EditorView} />

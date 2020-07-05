@@ -1,10 +1,10 @@
 .email {
   overflow: hidden;
-  transition: width 200ms;
+  transition: flex 200ms;
   white-space: nowrap;
-  width: 0;
+  flex: 0 0 0;
 
   &.active {
-    width: 50px;
+    flex: 0 0 50px;
   }
 }

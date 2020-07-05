@@ -26,8 +26,8 @@
   user-select: none;
 
   svg {
-    height: utils.vw(30px);
-    width: utils.vw(30px);
+    height: 24px;
+    width: 24px;
   }
 
   &.active {
@@ -46,12 +46,13 @@
 }
 
 .title {
-  font-size: 11px;
-  display: flex;
   align-items: center;
+  bottom: 2px;
+  display: flex;
+  font-size: 11px;
   justify-content: center;
   position: absolute;
-  bottom: 2px;
+  opacity: 0;
 }
 
 .title-fade-in {

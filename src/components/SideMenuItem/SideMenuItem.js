@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -8,8 +8,8 @@ const MenuItem = ({
   title, selected, onClick, children,
 }) => {
   const [isHovered, setHovered] = useState(false);
-  const onMouseEnter = () => setHovered(true);
-  const onMouseLeave = () => setHovered(false);
+  const onMouseEnter = useCallback(() => setHovered(true, []));
+  const onMouseLeave = useCallback(() => setHovered(false, []));
 
   const itemClasses = classNames(styles.item, {
     [styles.active]: selected,

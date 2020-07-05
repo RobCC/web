@@ -1,0 +1,41 @@
+@use "variables";
+
+.item {
+  // TODO: Being ovewritten
+  box-sizing: border-box;
+  color: #ccc;
+  height: variables.$explorer-item-height;
+  overflow: hidden;
+  padding: 5px 15px;
+  text-overflow: ellipsis;
+  user-select: none;
+
+  &:hover {
+    background-color: variables.$explorer-item-hover;
+  }
+
+  &.active {
+    background-color: variables.$explorer-item-active;
+    color: white;
+  }
+
+}
+
+.icon-wrapper {
+  display: inline-flex;
+  justify-content: center;
+  width: 15px;
+}
+
+.icon {
+  position: relative;
+
+  &.json {
+    bottom: 1px;
+    right: 1px;
+  }
+}
+
+.logo-icon {
+  position: relative;
+}
