@@ -4,7 +4,7 @@ import { v1 as generateId } from 'uuid';
 import classNames from 'classnames';
 
 import File from 'Components/ExplorerFile/ExplorerFile';
-import Group from 'Components/ExplorerGroup/ExplorerGroup';
+import Folder from 'Components/ExplorerFolder/ExplorerFolder';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import rootFiles, { getFilesFolders } from '#/_files';
 
@@ -20,7 +20,7 @@ const Explorer = () => {
   return (
     <div className={explorerClasses}>
       {groups.map((groupFullName) => (
-        <Group
+        <Folder
           key={generateId()}
           name={groupFullName}
           items={rootFiles.get(groupFullName)}

@@ -8,9 +8,9 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import File from 'Components/ExplorerFile/ExplorerFile';
 import { getFilesFolders } from '#/_files';
 
-import styles from './explorerGroup.scss';
+import styles from './explorerFolder.scss';
 
-const Group = ({
+const Folder = ({
   level = 0, name, items, parent = '',
 }) => {
   const [isClosed, setIsClosed] = useState(true);
@@ -36,7 +36,7 @@ const Group = ({
         {name}
       </div>
       {groups.map((groupName) => (
-        <Group
+        <Folder
           key={generateId()}
           name={groupName}
           parent={fullName}
@@ -57,11 +57,11 @@ const Group = ({
 };
 
 /* eslint-disable */
-Group.propTypes = {
+Folder.propTypes = {
   level: PropTypes.number,
   items: PropTypes.object,
   name: PropTypes.string,
   parent: PropTypes.string,
 }
 
-export default Group;
+export default Folder;
