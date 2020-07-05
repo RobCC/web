@@ -41,14 +41,17 @@ function getIconStyles(extension, isStringIcon) {
 }
 
 export function getShortName(fullName) {
-  const paths = fullName.split('/');
-  const fileName = paths.pop();
+  const lastSlashIndex = fullName.lastIndexOf('/');
+  const isRoot = lastSlashIndex === -1;
 
-  return [fileName, paths];
+  if (isRoot) {
+    return fullName;
+  }
+
+  return fullName.slice(lastSlashIndex + 1);
 }
 
-function getExtension(fullName) {
-  const [name] = getShortName(fullName);
+function getExtension(name) {
   const [, extension] = name.match(EXTENSION_REGEX) || [];
 
   return extension;
@@ -81,36 +84,6 @@ export function getFilesFolders(items) {
     ],
     ];
   }, [[], []]);
-}
-
-function getFilesAndGroups(mixedFileNames) {
-  return mixedFileNames.reduce(([fFiles, fGroups], name) => {
-    const content = files.get(name);
-
-    return [[
-      ...fFiles,
-      ...(content ? [name] : []),
-    ], [
-      ...fGroups,
-      ...(!content ? [name] : []),
-    ],
-    ];
-  }, [[], []]);
-}
-
-export function getRootFiles() {
-  const fileNames = [...files.keys()];
-  const rootFiles = fileNames.filter((name) => name.startsWith('/'));
-
-  return getFilesAndGroups(rootFiles);
-}
-
-export function getItemsByGroup(path) {
-  const subItemsRegex = new RegExp(`^${path}\\/.+?$`);
-  const fileNames = [...files.keys()];
-  const subItems = fileNames.filter((name) => !!name.match(subItemsRegex));
-
-  return getFilesAndGroups(subItems);
 }
 
 export default files;

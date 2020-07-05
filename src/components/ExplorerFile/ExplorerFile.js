@@ -15,7 +15,7 @@ const ExplorerFile = ({ level = 0, name, parent = '' }) => {
   const {
     extension, icon, iconStyles, isStringIcon,
   } = getFileIcon(name);
-  const [shortName] = getShortName(name);
+  const shortName = getShortName(name);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = useCallback(() => {

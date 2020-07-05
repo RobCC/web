@@ -24,7 +24,7 @@ const FileTab = ({ name }) => {
   const {
     icon, iconStyles, isStringIcon,
   } = getFileIcon(name);
-  const [shortName] = getShortName(name);
+  const shortName = getShortName(name);
 
   const onMouseEnter = useCallback(() => setShowClose(true, []));
   const onMouseLeave = useCallback(() => setShowClose(false, []));
