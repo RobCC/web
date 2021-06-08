@@ -4,7 +4,6 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 
 import SideMenu from 'Components/SideMenu/SideMenu';
 import MenuRoutes from 'Components/Routes/MenuRoutes';
-import Contact from '#/views/Contact/Contact';
 import { Resume, Explorer } from '#/views';
 
 import styles from './app.scss';
@@ -17,7 +16,6 @@ const App = () => (
       <SideMenu />
 
       <div className={styles.content}>
-        <Contact />
         <Explorer />
         <MenuRoutes />
       </div>
