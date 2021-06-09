@@ -32,6 +32,10 @@ const SideMenu = () => {
         title="Explorer"
         selected={isExplorerOpen}
         onClick={onExplorerClick}
+        style={{
+          position: 'relative',
+          left: '-2px',
+        }}
       >
         <FontAwesomeIcon icon={faCopy} />
       </SideMenuItem>
