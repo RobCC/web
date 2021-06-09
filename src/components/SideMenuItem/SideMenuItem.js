@@ -23,6 +23,7 @@ const MenuItem = ({
   return (
     <div
       role="button"
+      title={title}
       tabIndex={0}
       className={itemClasses}
       onClick={onClick}

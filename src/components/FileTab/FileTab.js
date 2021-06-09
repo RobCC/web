@@ -52,6 +52,7 @@ const FileTab = ({ name }) => {
   return (
     <div
       role="button"
+      title={shortName}
       tabIndex={0}
       className={tabClasses}
       onClick={changeCurrentTab}

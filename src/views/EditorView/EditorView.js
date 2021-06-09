@@ -37,7 +37,7 @@ const EditorView = () => {
       <TabMenu />
       {currentFileContent
         ? renderContent(currentFileContent)
-        : <div className={styles.placeholder}>:)</div>}
+        : <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>}
     </div>
   );
 };

@@ -14,11 +14,12 @@ const Explorer = () => {
   const explorerClasses = classNames(styles.explorer, {
     [styles.active]: isExplorerOpen,
   });
-  const [files, groups] = getFilesFolders(rootFiles);
+  const [files, folders] = getFilesFolders(rootFiles);
 
   return (
     <div className={explorerClasses}>
-      {groups.map((groupFullName) => (
+      <div className={styles.title}>EXPLORER</div>
+      {folders.map((groupFullName) => (
         <Folder
           key={groupFullName}
           name={groupFullName}

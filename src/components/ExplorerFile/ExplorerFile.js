@@ -31,6 +31,7 @@ const ExplorerFile = ({ level = 0, name, parent = '' }) => {
   return (
     <div
       role="button"
+      title={shortName}
       tabIndex={0}
       onClick={onClick}
       onKeyDown={onClick}
@@ -38,7 +39,7 @@ const ExplorerFile = ({ level = 0, name, parent = '' }) => {
         [styles.active]: shortName === currentTab,
       })}
       style={{
-        paddingLeft: 15 + (level * 7),
+        paddingLeft: 15 + (level * 8),
       }}
     >
       {isStringIcon

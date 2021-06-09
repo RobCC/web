@@ -16,3 +16,12 @@
     transform: scaleX(1);
   }
 }
+
+
+.title {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  height: variables.$file-tab-height;
+  padding-left: 15px;
+}

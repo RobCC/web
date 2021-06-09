@@ -13,7 +13,7 @@
 .line {
   align-items: center;
   display: flex;
-  font-size: 15px;
+  font-size: 14px;
   height: 21px;
   line-height: 21px;
 
@@ -37,7 +37,7 @@
   padding-right: 13px;
   text-align: right;
   user-select: none;
-  width: 50px;
+  width: 60px;
 }
 
 .content {
@@ -114,6 +114,10 @@
 
   &.yellow {
     @include theme-color(variables.$monokai-yellow);
+  }
+
+  &.string {
+    @include theme-color(variables.$monokai-string);
   }
 }
 
