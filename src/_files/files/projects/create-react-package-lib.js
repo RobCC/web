@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import fetchReadme from '#/utils/fetchReadme';
 import styles from '#/_files/files/projects/projects.scss';
 
-const name = 'git-jira-hook';
+const name = 'create-react-package-lib';
 const fileName = `${name}.js`;
 
 const Content = () => {
