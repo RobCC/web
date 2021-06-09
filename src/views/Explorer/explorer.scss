@@ -2,14 +2,15 @@
 
 .explorer {
   background-color: variables.$explorer-bg;
-  flex: 0 0 variables.$editor-width;
-  transform: scaleX(0);
-  transition: transform 200ms;
-  overflow: hidden;
-  white-space: nowrap;
+  display: inline-block;
   font-size: 14px;
   font-family: sans-serif;
+  transform: scaleX(0);
+  overflow: hidden;
   transform-origin: left;
+  height: 100%;
+  white-space: nowrap;
+  width: variables.$explorer-view;
 
   &.active {
     transform: scaleX(1);

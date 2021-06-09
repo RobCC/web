@@ -1,11 +1,12 @@
 @use "variables";
 
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  transition: transform 200ms;
-  transform: translateX(-(variables.$editor-width));
-  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translateX(0);
 }
 
 .placeholder {
@@ -17,5 +18,5 @@
 }
 
 .explorer-open {
-  transform: translateX(0);
+  left: variables.$explorer-view;
 }
