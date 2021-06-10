@@ -3,7 +3,7 @@
 .item {
   // TODO: Being ovewritten
   box-sizing: border-box;
-  color: #ccc;
+  color: variables.$tab-text;
   height: variables.$explorer-item-height;
   overflow: hidden;
   padding: 5px 15px;

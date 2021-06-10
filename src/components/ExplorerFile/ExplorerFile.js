@@ -36,7 +36,7 @@ const ExplorerFile = ({ level = 0, name, parent = '' }) => {
       onClick={onClick}
       onKeyDown={onClick}
       className={classNames(styles.item, {
-        [styles.active]: shortName === currentTab,
+        [styles.active]: fullName === currentTab,
       })}
       style={{
         paddingLeft: 15 + (level * 8),
