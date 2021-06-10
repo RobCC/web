@@ -1,7 +1,14 @@
+@use "variables";
+
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transform: translateX(0);
 }
 
 .placeholder {
@@ -10,4 +17,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.explorer-open {
+  left: variables.$explorer-view;
 }

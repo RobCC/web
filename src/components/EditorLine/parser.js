@@ -21,9 +21,9 @@ function getMapKV() {
   };
 }
 
-const parseLink = (text, url) => (
+const parseLink = (text, url, color) => (
   <a
-    className={styles.editorLink}
+    className={classNames(styles.editorLink, styles.color, styles[color])}
     title={text}
     href={url}
     target="_blank"
@@ -88,9 +88,9 @@ const parseLine = (line) => {
   let parsedElement;
 
   if (link) {
-    const [linkText, linkUrl] = link.split(',').map((e) => e.trim());
+    const [linkText, linkUrl, linkColor = 'blue'] = link.split(',').map((e) => e.trim());
 
-    parsedElement = parseLink(linkText, linkUrl);
+    parsedElement = parseLink(linkText, linkUrl, linkColor);
   } else if (color) {
     const [colorValue, text] = color.split(',').map((e) => e.trim());
 

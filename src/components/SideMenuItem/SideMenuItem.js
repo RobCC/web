@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './sideMenuItem.scss';
 
 const MenuItem = ({
-  title, selected, onClick, children,
+  title, selected, onClick, children, style = {},
 }) => {
   const [isHovered, setHovered] = useState(false);
   const onMouseEnter = useCallback(() => setHovered(true, []));
@@ -23,12 +23,14 @@ const MenuItem = ({
   return (
     <div
       role="button"
+      title={title}
       tabIndex={0}
       className={itemClasses}
       onClick={onClick}
       onKeyDown={onClick}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
+      style={style}
     >
       <div className={styles.icon}>
         {children}
@@ -47,6 +49,7 @@ MenuItem.propTypes = {
   selected: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node,
+  style: PropTypes.object,
 };
 
 export default React.memo(MenuItem);

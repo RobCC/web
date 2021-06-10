@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 
 import TabMenu from 'Components/TabMenu/TabMenu';
@@ -29,15 +30,14 @@ const EditorView = () => {
 
   return (
     <div
-      className={styles.wrapper}
-      style={{
-        maxWidth: isExplorerOpen ? '80%' : '100%',
-      }}
+      className={classNames(styles.wrapper, {
+        [styles.explorerOpen]: isExplorerOpen,
+      })}
     >
       <TabMenu />
       {currentFileContent
         ? renderContent(currentFileContent)
-        : <div className={styles.placeholder}>:)</div>}
+        : <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>}
     </div>
   );
 };

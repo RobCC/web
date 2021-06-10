@@ -24,7 +24,7 @@ const Folder = ({
   }, [isClosed]);
 
   return (
-    <div className={groupStyles}>
+    <div className={groupStyles} title={name}>
       <div
         role="button"
         tabIndex={0}

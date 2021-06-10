@@ -14,7 +14,6 @@ import me from '~/public/images/me.png';
 
 const email = 'rrc0138@gmail';
 
-/* eslint-disable max-len */
 const Header = ({ onScreen }) => (
   <div className={styles.header}>
     <div className={styles.personalInfo}>

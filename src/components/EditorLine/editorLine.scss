@@ -13,7 +13,7 @@
 .line {
   align-items: center;
   display: flex;
-  font-size: 15px;
+  font-size: 14px;
   height: 21px;
   line-height: 21px;
 
@@ -31,11 +31,13 @@
 }
 
 .line-number {
+  box-sizing: border-box;
   color: variables.$editor-line-number;
   display: inline-block;
-  text-align: center;
+  padding-right: 13px;
+  text-align: right;
   user-select: none;
-  width: 3%;
+  width: 55px;
 }
 
 .content {
@@ -68,7 +70,6 @@
 .editor-link {
   border: 1px solid transparent;
   border-radius: 4px;
-  color: variables.$monokai-blue;
   font-family: "Fira Code Bold", Fira Code, monospace;
   padding: 0 2px;
   position: relative;
@@ -77,7 +78,7 @@
   top: 0;
 
   &:hover {
-    border: 1px solid variables.$monokai-blue;
+    border: 1px solid;
   }
 }
 
@@ -89,15 +90,34 @@
   color: variables.$monokai-red;
 }
 
+
+@mixin theme-color($color) {
+  color: $color;
+
+  &:hover {
+    border-color: $color;
+  }
+}
+
 .color {
   &.red {
-    color: variables.$monokai-red;
+    @include theme-color(variables.$monokai-red);
   }
+
   &.green {
-    color: variables.$monokai-green;
+    @include theme-color(variables.$monokai-green);
   }
+
   &.blue {
-    color: variables.$monokai-blue;
+    @include theme-color(variables.$monokai-blue);
+  }
+
+  &.yellow {
+    @include theme-color(variables.$monokai-yellow);
+  }
+
+  &.string {
+    @include theme-color(variables.$monokai-string);
   }
 }
 

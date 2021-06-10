@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import styles from './section.scss';
 
-/* eslint-disable max-len */
 const Section = ({
   className = '', title, children,
 }) => (

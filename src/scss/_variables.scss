@@ -1,5 +1,7 @@
 $editor-bg: #222;
 
+$url: #3889ff;
+
 $editor-line-highlight: #ffffff22;
 $editor-line-hover: #3e3e32;
 $editor-comment: #878470;
@@ -12,14 +14,15 @@ $explorer-item-active: #414339;
 
 $file-color-css: #519bba;
 $file-color-js: #cbcb41;
-$tab-text: #ccccc7;
+$tab-text: #e2e2e2;
 $tab-text-active: #ffffff;
 
 // Monokai
 $monokai-green: #99d62a;
 $monokai-blue: #5fd1e8;
 $monokai-red: #d61b4a;
-$monokai-yellow: #dccc65;
+$monokai-yellow: #ecc420;
+$monokai-string: #e0d36f;
 
 $color-md: #519aba;
 $color-npm: #cb0303;
@@ -47,6 +50,8 @@ $color-tcs: #3b86c7;
 $color-accedo: #00a2e8;
 
 
-$menu-size: 65px;
+$menu-size: 50px;
 $file-tab-height: 36px;
 $explorer-item-height: 26px;
+
+$explorer-view: 250px;

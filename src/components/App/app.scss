@@ -5,7 +5,7 @@
 .content {
   display: flex;
   flex-grow: 1;
-  flex-direction: row;
+  position: relative;
 }
 
 button {
@@ -14,7 +14,6 @@ button {
 
 button,
 div[role=button] {
-  color: white;
   font-family: inherit;
   cursor: pointer;
   outline: none;

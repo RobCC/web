@@ -2,15 +2,26 @@
 
 .explorer {
   background-color: variables.$explorer-bg;
-  flex: 0 0 0%;
-  transition: flex 200ms;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 0;
+  display: inline-block;
   font-size: 14px;
   font-family: sans-serif;
+  transform: scaleX(0);
+  overflow: hidden;
+  transform-origin: left;
+  height: 100%;
+  white-space: nowrap;
+  width: variables.$explorer-view;
 
   &.active {
-    flex: 0 0 20%;
+    transform: scaleX(1);
   }
+}
+
+
+.title {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  height: variables.$file-tab-height;
+  padding-left: 15px;
 }
