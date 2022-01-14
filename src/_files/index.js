@@ -66,26 +66,28 @@ export function getFileIcon(fullName) {
   const iconStyles = getIconStyles(extension, isStringIcon);
 
   return {
-    extension, icon, iconStyles, isStringIcon,
+    extension,
+    icon,
+    iconStyles,
+    isStringIcon,
   };
 }
 
 export function getFilesFolders(items) {
   const names = [...items.keys()];
 
-  return names.reduce(([fFiles, fGroups], name) => {
-    const content = items.get(name);
-    const isItemFolder = isFolder(content);
+  return names.reduce(
+    ([fFiles, fGroups], name) => {
+      const content = items.get(name);
+      const isItemFolder = isFolder(content);
 
-    return [[
-      ...fFiles,
-      ...(!isItemFolder ? [name] : []),
-    ], [
-      ...fGroups,
-      ...(isItemFolder ? [name] : []),
-    ],
-    ];
-  }, [[], []]);
+      return [
+        [...fFiles, ...(!isItemFolder ? [name] : [])],
+        [...fGroups, ...(isItemFolder ? [name] : [])],
+      ];
+    },
+    [[], []],
+  );
 }
 
 export default files;

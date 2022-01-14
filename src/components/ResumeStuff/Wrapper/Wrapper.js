@@ -8,20 +8,22 @@ import Projects from '../Projects/Projects';
 
 import styles from './wrapper.scss';
 
-const Wrapper = ({ onScreen }) => (
-  <div className={styles.wrapper}>
-    <Header onScreen={onScreen} />
-    <div className={styles.body}>
-      <div className={styles.left}>
-        <Career onScreen={onScreen} />
-      </div>
-      <div className={styles.right}>
-        <Ecosystem onScreen={onScreen} />
-        <Projects onScreen={onScreen} />
+function Wrapper({ onScreen }) {
+  return (
+    <div className={styles.wrapper}>
+      <Header onScreen={onScreen} />
+      <div className={styles.body}>
+        <div className={styles.left}>
+          <Career onScreen={onScreen} />
+        </div>
+        <div className={styles.right}>
+          <Ecosystem onScreen={onScreen} />
+          <Projects onScreen={onScreen} />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+}
 
 Wrapper.propTypes = {
   onScreen: PropTypes.bool,

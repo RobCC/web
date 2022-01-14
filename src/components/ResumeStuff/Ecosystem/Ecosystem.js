@@ -3,22 +3,20 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faJs, faNodeJs, faReact, faSass, faNpm, faGitAlt,
+  faJs,
+  faNodeJs,
+  faReact,
+  faSass,
+  faNpm,
+  faGitAlt,
 } from '@fortawesome/free-brands-svg-icons';
 
-import {
-  VsCode,
-  Typescript,
-  Webpack,
-  Babel,
-  Redux,
-} from '#/svg';
+import { VsCode, Typescript, Webpack, Babel, Redux } from '#/svg';
 import MountAnimator from '#/utils/MountAnimator';
+import rollup from '~/public/images/rollup.png';
 import Section from '../Section/Section';
 import styles from './ecosystem.scss';
 import data from './data';
-
-import rollup from '~/public/images/rollup.png';
 
 function clearChildren(element) {
   while (element.lastChild) {
@@ -26,19 +24,19 @@ function clearChildren(element) {
   }
 }
 
-const EcoElement = ({
-  name, className, onHover, onBlur, children,
-}) => (
-  <div
-    className={classNames(styles.element, className)}
-    onMouseOver={onHover}
-    onFocus={onHover}
-    onMouseLeave={onBlur}
-    data-name={name}
-  >
-    {children}
-  </div>
-);
+function EcoElement({ name, className, onHover, onBlur, children }) {
+  return (
+    <div
+      className={classNames(styles.element, className)}
+      onMouseOver={onHover}
+      onFocus={onHover}
+      onMouseLeave={onBlur}
+      data-name={name}
+    >
+      {children}
+    </div>
+  );
+}
 
 EcoElement.propTypes = {
   className: PropTypes.string,
@@ -48,7 +46,7 @@ EcoElement.propTypes = {
   children: PropTypes.node,
 };
 
-const Ecosystem = ({ onScreen = false }) => {
+function Ecosystem({ onScreen = false }) {
   const titleRef = useRef(null);
   const detailRef = useRef(null);
 
@@ -89,40 +87,100 @@ const Ecosystem = ({ onScreen = false }) => {
       <Section title="Ecosystem">
         <div className={styles.content}>
           <div className={styles.table}>
-            <EcoElement name="vscode" className={styles.vscode} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="vscode"
+              className={styles.vscode}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <VsCode />
             </EcoElement>
-            <EcoElement name="js" className={styles.js} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="js"
+              className={styles.js}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <FontAwesomeIcon icon={faJs} />
             </EcoElement>
-            <EcoElement name="node" className={styles.node} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="node"
+              className={styles.node}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <FontAwesomeIcon icon={faNodeJs} />
             </EcoElement>
-            <EcoElement name="react" className={styles.react} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="react"
+              className={styles.react}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <FontAwesomeIcon icon={faReact} />
             </EcoElement>
-            <EcoElement name="redux" className={styles.redux} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="redux"
+              className={styles.redux}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <Redux />
             </EcoElement>
-            <EcoElement name="sass" className={styles.sass} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="sass"
+              className={styles.sass}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <FontAwesomeIcon icon={faSass} />
             </EcoElement>
-            <EcoElement name="npm" className={styles.npm} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="npm"
+              className={styles.npm}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <FontAwesomeIcon icon={faNpm} />
             </EcoElement>
-            <EcoElement name="babel" className={styles.babel} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="babel"
+              className={styles.babel}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <Babel />
             </EcoElement>
-            <EcoElement name="rollup" className="" onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="rollup"
+              className=""
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <img alt="Rollup" src={rollup} />
             </EcoElement>
-            <EcoElement name="webpack" className={styles.webpack} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="webpack"
+              className={styles.webpack}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <Webpack />
             </EcoElement>
-            <EcoElement name="ts" className={styles.ts} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="ts"
+              className={styles.ts}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <Typescript />
             </EcoElement>
-            <EcoElement name="git" className={styles.git} onHover={onHover} onBlur={onBlur}>
+            <EcoElement
+              name="git"
+              className={styles.git}
+              onHover={onHover}
+              onBlur={onBlur}
+            >
               <FontAwesomeIcon icon={faGitAlt} />
             </EcoElement>
           </div>
@@ -134,7 +192,7 @@ const Ecosystem = ({ onScreen = false }) => {
       </Section>
     </MountAnimator>
   );
-};
+}
 
 Ecosystem.propTypes = {
   onScreen: PropTypes.bool,

@@ -21,7 +21,4 @@ function Content() {
   );
 }
 
-export default [
-  fileName,
-  Content,
-];
+export default [fileName, Content];

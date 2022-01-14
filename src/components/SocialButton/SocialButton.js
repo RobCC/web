@@ -3,14 +3,12 @@ import React, { useState } from 'react';
 
 import styles from './socialButton.scss';
 
-const SocialButton = ({
-  title, href, altIcon, size = 35, color, Icon,
-}) => {
+function SocialButton({ title, href, altIcon, size = 35, color, Icon }) {
   const [isHovered, setHovered] = useState(false);
   const onMouseEnter = () => setHovered(true);
   const onMouseLeave = () => setHovered(false);
 
-  const buttonStyles = { background: (isHovered ? color : '#1f1f1f') };
+  const buttonStyles = { background: isHovered ? color : '#1f1f1f' };
   const iconColor = isHovered && altIcon ? '#333' : '#eee';
 
   return (
@@ -27,7 +25,7 @@ const SocialButton = ({
       <Icon color={iconColor} size={isHovered ? size + 5 : size} />
     </a>
   );
-};
+}
 
 SocialButton.propTypes = {
   altIcon: PropTypes.bool,

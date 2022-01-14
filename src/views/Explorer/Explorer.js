@@ -9,7 +9,7 @@ import rootFiles, { getFilesFolders } from '#/_files';
 
 import styles from './explorer.scss';
 
-const Explorer = () => {
+function Explorer() {
   const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
   const explorerClasses = classNames(styles.explorer, {
     [styles.active]: isExplorerOpen,
@@ -26,9 +26,11 @@ const Explorer = () => {
           items={rootFiles.get(groupFullName)}
         />
       ))}
-      {files.map((fullFileName) => <File key={fullFileName} name={fullFileName} />)}
+      {files.map((fullFileName) => (
+        <File key={fullFileName} name={fullFileName} />
+      ))}
     </div>
   );
-};
+}
 
 export default Explorer;

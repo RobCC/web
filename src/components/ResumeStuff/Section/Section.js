@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 import styles from './section.scss';
 
-const Section = ({
-  className = '', title, children,
-}) => (
-  <div className={classNames(styles.section, className)}>
-    <div className={styles.title}>{title}</div>
-    {children}
-  </div>
-);
+function Section({ className = '', title, children }) {
+  return (
+    <div className={classNames(styles.section, className)}>
+      <div className={styles.title}>{title}</div>
+      {children}
+    </div>
+  );
+}
 
 Section.propTypes = {
   className: PropTypes.string,

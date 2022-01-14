@@ -9,11 +9,13 @@ export const PATHS = {
 };
 
 // TODO: No longer needed?
-const MenuRoutes = () => (
-  <Switch>
-    <Route path={PATHS.root} exact component={EditorView} />
-    <Route path={PATHS.allPaths} component={EditorView} />
-  </Switch>
-);
+function MenuRoutes() {
+  return (
+    <Switch>
+      <Route path={PATHS.root} exact component={EditorView} />
+      <Route path={PATHS.allPaths} component={EditorView} />
+    </Switch>
+  );
+}
 
 export default MenuRoutes;

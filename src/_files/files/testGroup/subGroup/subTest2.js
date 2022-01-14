@@ -5,7 +5,4 @@ const content = parseToCodelines(`
 Test 22
 `);
 
-export default [
-  name,
-  content,
-];
+export default [name, content];

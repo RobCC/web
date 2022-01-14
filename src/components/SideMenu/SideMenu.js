@@ -8,13 +8,16 @@ import { faCopy, faFile } from '@fortawesome/free-regular-svg-icons';
 
 import SideMenuItem from 'Components/SideMenuItem/SideMenuItem';
 
-import { isExplorerOpen as isExplorerOpenFn, toggleExplorer } from '#/store/ducks/explorer';
+import {
+  isExplorerOpen as isExplorerOpenFn,
+  toggleExplorer,
+} from '#/store/ducks/explorer';
 import { toggleResume } from '#/store/ducks/resume';
 
 import styles from './sideMenu.scss';
 
 /* eslint-disable max-len */
-const SideMenu = () => {
+function SideMenu() {
   const dispatch = useDispatch();
   const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
 
@@ -39,16 +42,12 @@ const SideMenu = () => {
       >
         <FontAwesomeIcon icon={faCopy} />
       </SideMenuItem>
-      <SideMenuItem
-        title="Resume"
-        selected={false}
-        onClick={onResumeClick}
-      >
+      <SideMenuItem title="Resume" selected={false} onClick={onResumeClick}>
         <FontAwesomeIcon icon={faFile} />
       </SideMenuItem>
     </div>
   );
-};
+}
 
 SideMenu.propTypes = {
   location: PropTypes.shape({
@@ -56,6 +55,4 @@ SideMenu.propTypes = {
   }).isRequired,
 };
 
-export default withRouter(
-  React.memo(SideMenu),
-);
+export default withRouter(React.memo(SideMenu));

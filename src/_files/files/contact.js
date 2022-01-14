@@ -20,7 +20,4 @@ $(green, .email) $(yellow, {)
 $(yellow, })
 `);
 
-export default [
-  name,
-  content,
-];
+export default [name, content];

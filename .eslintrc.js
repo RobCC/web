@@ -7,7 +7,7 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  plugins: ['prettier'],
+  plugins: ['react', 'prettier'],
   settings: {
     'import/resolver': {
       alias: {

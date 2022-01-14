@@ -11,7 +11,4 @@ const content = parseToCodelines(`
 ${preContent}
 `);
 
-export default [
-  name,
-  content,
-];
+export default [name, content];

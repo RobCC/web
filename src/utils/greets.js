@@ -169,17 +169,15 @@ const greets = {
   wellMet,
 };
 
-const getRandomElement = (items) => items[Math.floor(Math.random() * items.length)];
+const getRandomElement = (items) =>
+  items[Math.floor(Math.random() * items.length)];
 
 const getRandomGreet = () => {
   const greetNames = Object.keys(greets);
   const greetsContent = greetNames.map((k) => greets[k]);
   const randomGreet = getRandomElement(greetsContent);
 
-  return [
-    '!editor',
-    ...randomGreet,
-  ];
+  return ['!editor', ...randomGreet];
 };
 
 export default getRandomGreet;

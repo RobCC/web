@@ -8,33 +8,31 @@ import Section from '../Section/Section';
 import styles from './career.scss';
 import companies from './data';
 
-const Career = ({ onScreen = false }) => (
-  <MountAnimator
-    mount={onScreen}
-    className={styles.wrapper}
-    inAnimation={styles.fadeInLeft}
-    outAnimation={styles.fadeOutLeft}
-  >
-    <Section className={styles.section} title="Career">
-      {companies.map((company) => (
-        <div key={generateId()} className={styles.content}>
-          <div className={styles.companyTitle}>
-            {company.name}
-            <div className={styles.period}>
-              {`${company.from}-${company.to}`}
+function Career({ onScreen = false }) {
+  return (
+    <MountAnimator
+      mount={onScreen}
+      className={styles.wrapper}
+      inAnimation={styles.fadeInLeft}
+      outAnimation={styles.fadeOutLeft}
+    >
+      <Section className={styles.section} title="Career">
+        {companies.map((company) => (
+          <div key={generateId()} className={styles.content}>
+            <div className={styles.companyTitle}>
+              {company.name}
+              <div className={styles.period}>
+                {`${company.from}-${company.to}`}
+              </div>
             </div>
+            <div className={styles.position}>{company.position}</div>
+            <div className={styles.description}>{company.description}</div>
           </div>
-          <div className={styles.position}>
-            { company.position}
-          </div>
-          <div className={styles.description}>
-            {company.description}
-          </div>
-        </div>
-      ))}
-    </Section>
-  </MountAnimator>
-);
+        ))}
+      </Section>
+    </MountAnimator>
+  );
+}
 
 Career.propTypes = {
   onScreen: PropTypes.bool,

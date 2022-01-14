@@ -7,7 +7,7 @@ import styles from '#/_files/files/projects/projects.scss';
 const name = 'git-jira-hook';
 const fileName = `${name}.js`;
 
-const Content = () => {
+function Content() {
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -19,9 +19,6 @@ const Content = () => {
       <ReactMarkdown>{text}</ReactMarkdown>
     </div>
   );
-};
+}
 
-export default [
-  fileName,
-  Content,
-];
+export default [fileName, Content];

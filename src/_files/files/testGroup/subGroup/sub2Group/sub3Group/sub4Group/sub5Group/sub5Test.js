@@ -2,9 +2,8 @@ import React from 'react';
 
 const name = 'sub5Test.json';
 
-const Content = () => <div>Not on editor 5</div>;
+function Content() {
+  return <div>Not on editor 5</div>;
+}
 
-export default [
-  name,
-  Content,
-];
+export default [name, Content];

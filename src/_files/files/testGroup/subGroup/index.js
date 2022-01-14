@@ -7,12 +7,5 @@ import sub2Group from './sub2Group';
 
 export default [
   'Sub Group',
-  (new Map([
-    subTest,
-    subTest2,
-    subTest3,
-    subTest4,
-    subTest5,
-    sub2Group,
-  ])),
+  new Map([subTest, subTest2, subTest3, subTest4, subTest5, sub2Group]),
 ];

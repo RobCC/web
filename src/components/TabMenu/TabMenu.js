@@ -1,6 +1,4 @@
-import React, {
-  useEffect, useState, useRef, useCallback,
-} from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 import { v1 as generateId } from 'uuid';
 import { useSelector } from 'react-redux';
@@ -20,7 +18,7 @@ function getMaxScroll(element) {
   return element ? scrollWidth - offsetWidth : 0;
 }
 
-const FileTabMenu = () => {
+function FileTabMenu() {
   const currentTab = useSelector((store) => getCurrentFile(store));
   const openFiles = useSelector((store) => getOpenFiles(store));
   const [shouldScroll, setShouldScroll] = useState(false);
@@ -61,7 +59,10 @@ const FileTabMenu = () => {
 
     if (previousCurrentTabIndex > currentFileIndex) {
       setScrollLeft(offsetLeft);
-    } else if (previousCurrentTabIndex < currentFileIndex && offsetRight > offsetWidth) {
+    } else if (
+      previousCurrentTabIndex < currentFileIndex &&
+      offsetRight > offsetWidth
+    ) {
       setScrollLeft(offsetLeft);
     }
   }, [currentTab, openFiles]);
@@ -76,22 +77,25 @@ const FileTabMenu = () => {
     menu.scrollLeft = scrollLeft;
   }, [scrollLeft]);
 
-  const scroll = useCallback((newScroll) => () => {
-    const menu = menuScrollRef?.current;
-    const maxScroll = getMaxScroll(menu);
+  const scroll = useCallback(
+    (newScroll) => () => {
+      const menu = menuScrollRef?.current;
+      const maxScroll = getMaxScroll(menu);
 
-    if (newScroll < 50) {
-      setScrollLeft(0);
+      if (newScroll < 50) {
+        setScrollLeft(0);
 
-      return;
-    }
+        return;
+      }
 
-    if ((maxScroll - newScroll) < 50) {
-      setScrollLeft(maxScroll);
-    } else {
-      setScrollLeft(newScroll);
-    }
-  }, [scrollLeft]);
+      if (maxScroll - newScroll < 50) {
+        setScrollLeft(maxScroll);
+      } else {
+        setScrollLeft(newScroll);
+      }
+    },
+    [scrollLeft],
+  );
 
   return (
     <div
@@ -100,11 +104,11 @@ const FileTabMenu = () => {
       })}
     >
       <div className={styles.wrapper} ref={menuScrollRef}>
-        {
-          openFiles.map((name) => <FileTab key={generateId()} name={name} />)
-        }
+        {openFiles.map((name) => (
+          <FileTab key={generateId()} name={name} />
+        ))}
       </div>
-      {(shouldScroll && scrollLeft > 0) && (
+      {shouldScroll && scrollLeft > 0 && (
         <button
           type="button"
           className={classNames(styles.scrollButton, styles.left)}
@@ -113,7 +117,7 @@ const FileTabMenu = () => {
           <FontAwesomeIcon icon={faAngleLeft} />
         </button>
       )}
-      {(shouldScroll && scrollLeft < getMaxScroll(menuScrollRef?.current)) && (
+      {shouldScroll && scrollLeft < getMaxScroll(menuScrollRef?.current) && (
         <button
           type="button"
           className={classNames(styles.scrollButton, styles.right)}
@@ -124,6 +128,6 @@ const FileTabMenu = () => {
       )}
     </div>
   );
-};
+}
 
 export default FileTabMenu;

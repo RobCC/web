@@ -9,9 +9,7 @@ import { getFilesFolders } from '#/_files';
 
 import styles from './explorerFolder.scss';
 
-const Folder = ({
-  level = 0, name, items, parent = '',
-}) => {
+function Folder({ level = 0, name, items, parent = '' }) {
   const [isClosed, setIsClosed] = useState(true);
   const groupStyles = classNames(styles.group, {
     [styles.closed]: isClosed,
@@ -32,7 +30,7 @@ const Folder = ({
         onKeyDown={onClick}
         className={styles.title}
         style={{
-          paddingLeft: 15 + (level * 7),
+          paddingLeft: 15 + level * 7,
         }}
       >
         <FontAwesomeIcon icon={faAngleRight} className={styles.caret} />
@@ -57,7 +55,7 @@ const Folder = ({
       ))}
     </div>
   );
-};
+}
 
 /* eslint-disable */
 Folder.propTypes = {
@@ -65,6 +63,6 @@ Folder.propTypes = {
   items: PropTypes.object,
   name: PropTypes.string,
   parent: PropTypes.string,
-}
+};
 
 export default Folder;

@@ -10,20 +10,21 @@ import styles from './app.scss';
 
 config.autoAddCss = false;
 
-const App = () => (
-  <Router basename="/">
-    <div className={styles.root}>
-      <SideMenu />
+function App() {
+  return (
+    <Router basename="/">
+      <div className={styles.root}>
+        <SideMenu />
 
-      <div className={styles.content}>
-        <Explorer />
-        <MenuRoutes />
+        <div className={styles.content}>
+          <Explorer />
+          <MenuRoutes />
+        </div>
+
+        <Resume />
       </div>
-
-      <Resume />
-
-    </div>
-  </Router>
-);
+    </Router>
+  );
+}
 
 export default App;

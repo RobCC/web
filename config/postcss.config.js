@@ -8,15 +8,10 @@ const env = process.env.NODE_ENV;
 
 if (env === PROD) {
   module.exports = {
-    plugins: [
-      Autoprefixer,
-      CssNano,
-    ],
+    plugins: [Autoprefixer, CssNano],
   };
 } else {
   module.exports = {
-    plugins: [
-      Stylelint,
-    ],
+    plugins: [Stylelint],
   };
 }

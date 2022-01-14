@@ -23,7 +23,7 @@ function renderContent(fileContent) {
   return <Content />;
 }
 
-const EditorView = () => {
+function EditorView() {
   const currentFile = useSelector((store) => getCurrentFile(store));
   const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
   const currentFileContent = getFileContent(currentFile);
@@ -35,12 +35,14 @@ const EditorView = () => {
       })}
     >
       <TabMenu />
-      {currentFileContent
-        ? renderContent(currentFileContent)
-        : <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>}
+      {currentFileContent ? (
+        renderContent(currentFileContent)
+      ) : (
+        <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>
+      )}
     </div>
   );
-};
+}
 
 EditorView.propTypes = {
   location: PropTypes.shape({

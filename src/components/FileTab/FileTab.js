@@ -16,25 +16,26 @@ function getTabStyles(isCurrentTab) {
   });
 }
 
-const FileTab = ({ name }) => {
+function FileTab({ name }) {
   const [showClose, setShowClose] = useState(false);
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
 
-  const {
-    icon, iconStyles, isStringIcon,
-  } = getFileIcon(name);
+  const { icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
 
   const onMouseEnter = useCallback(() => setShowClose(true, []));
   const onMouseLeave = useCallback(() => setShowClose(false, []));
-  const closeTab = useCallback((e) => {
-    e.stopPropagation();
+  const closeTab = useCallback(
+    (e) => {
+      e.stopPropagation();
 
-    if (showClose || name === currentTab) {
-      dispatch(closeFile(name));
-    }
-  }, [showClose, name]);
+      if (showClose || name === currentTab) {
+        dispatch(closeFile(name));
+      }
+    },
+    [showClose, name],
+  );
 
   const changeCurrentTab = useCallback(() => {
     dispatch(changeFile(name));
@@ -62,9 +63,9 @@ const FileTab = ({ name }) => {
     >
       {isStringIcon && <div className={tabIconStyles}>{icon}</div>}
       {!isStringIcon && (
-      <div className={tabIconStyles}>
-        <FontAwesomeIcon icon={icon} />
-      </div>
+        <div className={tabIconStyles}>
+          <FontAwesomeIcon icon={icon} />
+        </div>
       )}
       {shortName}
 
@@ -73,7 +74,7 @@ const FileTab = ({ name }) => {
       </button>
     </div>
   );
-};
+}
 
 FileTab.propTypes = {
   name: PropTypes.string,

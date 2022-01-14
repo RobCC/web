@@ -4,9 +4,7 @@ import classNames from 'classnames';
 
 import styles from './sideMenuItem.scss';
 
-const MenuItem = ({
-  title, selected, onClick, children, style = {},
-}) => {
+function MenuItem({ title, selected, onClick, children, style = {} }) {
   const [isHovered, setHovered] = useState(false);
   const onMouseEnter = useCallback(() => setHovered(true, []));
   const onMouseLeave = useCallback(() => setHovered(false, []));
@@ -32,17 +30,11 @@ const MenuItem = ({
       onMouseLeave={onMouseLeave}
       style={style}
     >
-      <div className={styles.icon}>
-        {children}
-      </div>
-      {title && (
-        <span className={titleClasses}>
-          {title}
-        </span>
-      )}
+      <div className={styles.icon}>{children}</div>
+      {title && <span className={titleClasses}>{title}</span>}
     </div>
   );
-};
+}
 
 MenuItem.propTypes = {
   title: PropTypes.string,

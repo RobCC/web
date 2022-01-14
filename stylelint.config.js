@@ -1,7 +1,5 @@
 module.exports = {
-  plugins: [
-    'stylelint-scss',
-  ],
+  plugins: ['stylelint-scss'],
   extends: 'stylelint-config-recommended',
   rules: {
     'number-max-precision': null,

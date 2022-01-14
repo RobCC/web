@@ -9,12 +9,10 @@ import { getShortName, getFileIcon } from '#/_files';
 
 import styles from './explorerFile.scss';
 
-const ExplorerFile = ({ level = 0, name, parent = '' }) => {
+function ExplorerFile({ level = 0, name, parent = '' }) {
   const dispatch = useDispatch();
   const currentTab = useSelector((store) => getCurrentFile(store));
-  const {
-    extension, icon, iconStyles, isStringIcon,
-  } = getFileIcon(name);
+  const { extension, icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
@@ -39,15 +37,12 @@ const ExplorerFile = ({ level = 0, name, parent = '' }) => {
         [styles.active]: fullName === currentTab,
       })}
       style={{
-        paddingLeft: 15 + (level * 8),
+        paddingLeft: 15 + level * 8,
       }}
     >
-      {isStringIcon
-      && (
+      {isStringIcon && (
         <div className={styles.iconWrapper}>
-          <div className={explorerIconClasses}>
-            {icon}
-          </div>
+          <div className={explorerIconClasses}>{icon}</div>
         </div>
       )}
       {!isStringIcon && (
@@ -60,7 +55,7 @@ const ExplorerFile = ({ level = 0, name, parent = '' }) => {
       {shortName}
     </div>
   );
-};
+}
 
 ExplorerFile.propTypes = {
   parent: PropTypes.string,
