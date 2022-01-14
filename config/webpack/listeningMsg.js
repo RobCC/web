@@ -1,12 +1,12 @@
-const chalk = require('chalk');
+const pc = require('picocolors');
 const logSymbols = require('log-symbols');
 const internalIp = require('internal-ip');
 
 const { PORT } = require('./constants');
 
 module.exports = () => {
-  const LOCAL = chalk.gray('｢loc｣:');
-  const INT = chalk.gray('｢int｣:');
+  const LOCAL = pc.gray('｢loc｣:');
+  const INT = pc.gray('｢int｣:');
   const localIp = `http://localhost:${PORT}`;
   const intIp = `http://${internalIp.v4.sync()}:${PORT}`;
   const top = '┌───────────────────────────────────────┐';

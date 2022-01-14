@@ -1,4 +1,4 @@
-const chalk = require('chalk');
+const pc = require('picocolors');
 const logSymbols = require('log-symbols');
 
 const { PORT, BUILD_PATH, ROOT_PATH } = require('./constants');
@@ -15,7 +15,7 @@ module.exports = {
     // eslint-disable-next-line no-console
     console.log(
       `\n${logSymbols.success}`,
-      `${chalk.green.bold(`Running on ${process.env.NODE_ENV}`)}`,
+      `${pc.green(pc.bold(`Running on ${process.env.NODE_ENV}`))}`,
     );
   },
 };
