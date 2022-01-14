@@ -1,10 +1,9 @@
 import React from 'react';
 
-const name = 'test.txt';
+const name = 'animation_and_positioning.txt';
 
-const Content = () => <div>Hello blog</div>;
+function Content() {
+  return <div>Hello blog</div>;
+}
 
-export default [
-  name,
-  Content,
-];
+export default [name, Content];

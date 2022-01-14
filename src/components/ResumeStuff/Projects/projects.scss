@@ -20,9 +20,6 @@
   font-size: utils.vw(15px);
 }
 
-// @include keyframes.fadeInDown();
-// @include keyframes.fadeOutDown();
-
 .fade-in-down {
   animation: fadeInDownKF 250ms forwards;
 }

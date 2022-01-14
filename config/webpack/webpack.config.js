@@ -3,12 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const StyleLintFormatter = require('stylelint-formatter-pretty');
-const EsLintFormatter = require('eslint-formatter-pretty');
 const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
 
-const {
-  DEV, ROOT_PATH, SRC_PATH, BUILD_PATH,
-} = require('./constants');
+const { DEV, ROOT_PATH, SRC_PATH, BUILD_PATH } = require('./constants');
 const setStyleLoaders = require('./style-loaders');
 const devServer = require('./dev-server');
 const alias = require('./alias');
@@ -22,6 +19,7 @@ module.exports = ({ NODE_ENV }) => ({
     'regenerator-runtime/runtime',
     `${SRC_PATH}/index.js`,
   ],
+  stats: 'errors-warnings',
   devtool: NODE_ENV === DEV ? 'cheap-module-eval-source-map' : false,
   context: ROOT_PATH,
   output: {
@@ -38,15 +36,7 @@ module.exports = ({ NODE_ENV }) => ({
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
-        use: [
-          { loader: 'babel-loader' },
-          {
-            loader: 'eslint-loader',
-            options: {
-              formatter: EsLintFormatter,
-            },
-          },
-        ],
+        use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.(sa|sc|c)ss$/,

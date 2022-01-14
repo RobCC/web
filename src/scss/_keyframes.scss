@@ -1,6 +1,6 @@
 @use "variables";
 
-// Slide in right
+/* Slide in right */
 @keyframes slideInRightKF {
   from {
     left: -100%;
@@ -21,7 +21,7 @@
   }
 }
 
-// Fade in left
+/* Fade in left */
 @keyframes fadeInLeftKF {
   from {
     right: 50px;
@@ -46,7 +46,7 @@
   }
 }
 
-// Fade in right
+/* Fade in right */
 @keyframes fadeInRightKF {
   from {
     left: 50px;
@@ -71,7 +71,7 @@
   }
 }
 
-// Fade in down
+/* Fade in down */
 @keyframes fadeInDownKF {
   from {
     top: -50px;
@@ -96,7 +96,7 @@
   }
 }
 
-// Side menu title
+/* Side menu title */
 @keyframes menuTitleFadeInKF {
   from {
     opacity: 0;
@@ -121,14 +121,14 @@
   }
 }
 
-// Orbit spin
+/* Orbit spin */
 @keyframes spinFK {
   100% {
     transform: rotate(360deg);
   }
 }
 
-// typing animation
+/* typing animation */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }

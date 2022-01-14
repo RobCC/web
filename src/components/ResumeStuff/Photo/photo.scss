@@ -1,3 +1,4 @@
+@use "sass:math";
 @use "keyframes";
 @use "utils";
 
@@ -9,8 +10,8 @@ $image-size: 175px;
   width: utils.vw($image-size);
   left: 50%;
   top: 50%;
-  margin-left: utils.vw(-($image-size / 2));
-  margin-top: utils.vw(-($image-size / 2));
+  margin-left: utils.vw(-(math.div($image-size, 2)));
+  margin-top: utils.vw(-(math.div($image-size, 2)));
 }
 
 .photo {

@@ -30,9 +30,8 @@
     user-select: none;
     padding: 5px 15px;
 
-    // TODO: Nested separator logic: Show on explorer hover. When not, only show on active tab group
+    /* TODO: Nested separator logic: Show on explorer hover. When not, only show on active tab group */
     &::before {
-      // content: "";
       width: 1px;
       height: calc(100% - #{variables.$explorer-item-height});
       background: #585858;

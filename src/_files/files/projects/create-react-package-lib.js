@@ -7,7 +7,7 @@ import styles from '#/_files/files/projects/projects.scss';
 const name = 'create-react-package-lib';
 const fileName = `${name}.js`;
 
-const Content = () => {
+function Content() {
   const [text, setText] = useState('');
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const Content = () => {
       <ReactMarkdown>{text}</ReactMarkdown>
     </div>
   );
-};
+}
 
 export default [
   fileName,
