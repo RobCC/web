@@ -1,12 +1,10 @@
 const pc = require('picocolors');
 const logSymbols = require('log-symbols');
 
-const { PORT, BUILD_PATH, ROOT_PATH } = require('./constants');
+const { PORT } = require('./constants');
 
 module.exports = {
-  //   contentBase: BUILD_PATH,
   host: '0.0.0.0',
-  // publicPath: '/',
   port: PORT,
   open: false,
   hot: true,
