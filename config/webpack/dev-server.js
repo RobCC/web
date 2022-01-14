@@ -8,7 +8,6 @@ module.exports = {
   port: PORT,
   open: false,
   hot: true,
-  historyApiFallback: true,
   onListening: () => {
     // eslint-disable-next-line no-console
     console.log(

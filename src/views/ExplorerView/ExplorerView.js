@@ -5,11 +5,11 @@ import classNames from 'classnames';
 import File from 'Components/ExplorerFile/ExplorerFile';
 import Folder from 'Components/ExplorerFolder/ExplorerFolder';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
-import rootFiles, { getFilesFolders } from '#/_files';
+import rootFiles, { getFilesFolders } from '#/explorer';
 
 import styles from './explorer.scss';
 
-function Explorer() {
+function ExplorerView() {
   const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
   const explorerClasses = classNames(styles.explorer, {
     [styles.active]: isExplorerOpen,
@@ -33,4 +33,4 @@ function Explorer() {
   );
 }
 
-export default Explorer;
+export default ExplorerView;

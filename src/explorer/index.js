@@ -1,13 +1,12 @@
 import classNames from 'classnames';
 import { faInfo, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
 
-import files from './files';
+import { rootFiles } from './files';
 
 import styles from './icons.scss';
 
-const EXTENSION_REGEX = new RegExp(/\.([0-9a-z]+)$/);
-
-const icons = {
+const EXTENSION_REGEX = /\.([0-9a-z]+)$/;
+const ICONS = {
   js: 'JS',
   css: '#',
   json: '{}',
@@ -19,8 +18,8 @@ function getIconStyles(extension, isStringIcon) {
   return classNames({
     [styles.icon]: isStringIcon,
     [styles.logoIcon]: !isStringIcon,
-    [styles.js]: isStringIcon && extension === 'js',
-    [styles.css]: isStringIcon && extension === 'css',
+    [styles.js]: extension === 'js',
+    [styles.css]: extension === 'css',
     [styles.md]: extension === 'md',
     [styles.json]: extension === 'json',
     [styles.txt]: extension === 'txt',
@@ -29,7 +28,7 @@ function getIconStyles(extension, isStringIcon) {
 
 export function getFileContent(fullName) {
   const paths = fullName.split('/');
-  let content = files;
+  let content = rootFiles;
 
   paths.forEach((path) => {
     content = content.get(path);
@@ -53,15 +52,15 @@ export function getShortName(fullName) {
   return fullName.slice(lastSlashIndex + 1);
 }
 
-function getExtension(name) {
+function getFileExtension(name) {
   const [, extension] = name.match(EXTENSION_REGEX) || [];
 
   return extension;
 }
 
 export function getFileIcon(fullName) {
-  const extension = getExtension(fullName);
-  const icon = icons[extension] || '';
+  const extension = getFileExtension(fullName);
+  const icon = ICONS[extension] || '';
   const isStringIcon = typeof icon === 'string';
   const iconStyles = getIconStyles(extension, isStringIcon);
 
@@ -90,4 +89,4 @@ export function getFilesFolders(items) {
   );
 }
 
-export default files;
+export default rootFiles;

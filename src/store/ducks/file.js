@@ -13,7 +13,7 @@ export const { changeFile, openFile, closeFile, openChangeFile } =
 
 const initialState = {
   currentTab: 'greet.md',
-  openFiles: ['greet.md', 'contact.css'],
+  openFiles: ['greet.md', 'contact.css', 'Blog/animation_and_positioning.txt'],
 };
 
 const onFileChange = (state, { payload }) => ({

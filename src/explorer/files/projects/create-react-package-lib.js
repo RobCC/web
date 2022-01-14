@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import fetchReadme from '#/utils/fetchReadme';
-import styles from '#/_files/files/projects/projects.scss';
+import styles from './projects.scss';
 
 const name = 'create-react-package-lib';
 const fileName = `${name}.js`;

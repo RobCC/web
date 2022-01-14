@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { getCurrentFile, changeFile, closeFile } from '#/store/ducks/file';
-import { getShortName, getFileIcon } from '#/_files';
+import { getShortName, getFileIcon } from '#/explorer';
 
 import styles from './fileTab.scss';
 

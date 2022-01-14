@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { openChangeFile, getCurrentFile } from '#/store/ducks/file';
-import { getShortName, getFileIcon } from '#/_files';
+import { getShortName, getFileIcon } from '#/explorer';
 
 import styles from './explorerFile.scss';
 

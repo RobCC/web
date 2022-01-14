@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 
-import TabMenu from 'Components/TabMenu/TabMenu';
+import FileTabMenu from 'Components/FileTabMenu/FileTabMenu';
 import Editor from 'Components/Editor/Editor';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import { getCurrentFile } from '#/store/ducks/file';
-import { getFileContent } from '#/_files';
+import { getFileContent } from '#/explorer';
 
 import styles from './editorView.scss';
 
@@ -34,7 +34,7 @@ function EditorView() {
         [styles.explorerOpen]: isExplorerOpen,
       })}
     >
-      <TabMenu />
+      <FileTabMenu />
       {currentFileContent ? (
         renderContent(currentFileContent)
       ) : (
