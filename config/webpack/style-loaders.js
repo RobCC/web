@@ -1,9 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Sass = require('sass');
 
-const {
-  DEV, PROD, CONFIG_PATH, SRC_PATH,
-} = require('./constants');
+const { DEV, PROD, CONFIG_PATH, SRC_PATH } = require('./constants');
 
 module.exports = (NODE_ENV) => {
   const stylingLoaders = [
@@ -11,19 +9,22 @@ module.exports = (NODE_ENV) => {
       loader: 'css-loader',
       options: {
         importLoaders: true,
-        localsConvention: 'camelCase',
         sourceMap: NODE_ENV === DEV,
         modules: {
-          localIdentName: NODE_ENV === PROD
-            ? '[name]_[local]--[hash:base64:5]'
-            : '[name]_[local]--[hash:base64:2]',
+          exportLocalsConvention: 'camelCase',
+          localIdentName:
+            NODE_ENV === PROD
+              ? '[name]_[local]--[hash:base64:5]'
+              : '[name]_[local]--[hash:base64:2]',
         },
       },
     },
     {
       loader: 'postcss-loader',
       options: {
-        config: { path: `${CONFIG_PATH}/postcss.config.js` },
+        postcssOptions: {
+          config: `${CONFIG_PATH}/postcss.config.js`,
+        },
       },
     },
     {

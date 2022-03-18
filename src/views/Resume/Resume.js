@@ -11,7 +11,7 @@ import MountAnimator from '#/utils/MountAnimator';
 
 import styles from './resume.scss';
 
-const Resume = () => {
+function Resume() {
   const [onScreen, setOnScreen] = useState(false);
   const reduxDispatch = useDispatch();
   const isResumeOpen = useSelector((store) => selector(store));
@@ -33,15 +33,11 @@ const Resume = () => {
       outAnimation={styles.slideOut}
     >
       <Wrapper onScreen={onScreen} />
-      <button
-        type="button"
-        onClick={hideResume}
-        className={styles.exitResume}
-      >
+      <button type="button" onClick={hideResume} className={styles.exitResume}>
         <FontAwesomeIcon icon={faArrowLeft} className={styles.icon} />
       </button>
     </MountAnimator>
   );
-};
+}
 
 export default Resume;

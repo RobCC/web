@@ -1,12 +1,13 @@
 import React, { useState, useCallback } from 'react';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import classNames from 'classnames';
+import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 import { getCurrentFile, changeFile, closeFile } from '#/store/ducks/file';
-import { getShortName, getFileIcon } from '#/_files';
+import { getShortName, getFileIcon } from '#/explorer';
 
 import styles from './fileTab.scss';
 
@@ -16,28 +17,33 @@ function getTabStyles(isCurrentTab) {
   });
 }
 
-const FileTab = ({ name }) => {
+function FileTab({ name }) {
+  const [, setSearchParams] = useSearchParams();
   const [showClose, setShowClose] = useState(false);
   const dispatch = useDispatch();
-  const currentTab = useSelector((store) => getCurrentFile(store));
+  const currentTab = useSelector(getCurrentFile);
 
-  const {
-    icon, iconStyles, isStringIcon,
-  } = getFileIcon(name);
+  const { icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
 
   const onMouseEnter = useCallback(() => setShowClose(true, []));
   const onMouseLeave = useCallback(() => setShowClose(false, []));
-  const closeTab = useCallback((e) => {
-    e.stopPropagation();
+  const closeTab = useCallback(
+    (e) => {
+      e.stopPropagation();
 
-    if (showClose || name === currentTab) {
-      dispatch(closeFile(name));
-    }
-  }, [showClose, name]);
+      if (showClose || name === currentTab) {
+        dispatch(closeFile(name));
+      }
+    },
+    [showClose, name],
+  );
 
   const changeCurrentTab = useCallback(() => {
     dispatch(changeFile(name));
+    setSearchParams({
+      file: name,
+    });
   }, [name]);
 
   const tabClasses = getTabStyles(name === currentTab);
@@ -62,9 +68,9 @@ const FileTab = ({ name }) => {
     >
       {isStringIcon && <div className={tabIconStyles}>{icon}</div>}
       {!isStringIcon && (
-      <div className={tabIconStyles}>
-        <FontAwesomeIcon icon={icon} />
-      </div>
+        <div className={tabIconStyles}>
+          <FontAwesomeIcon icon={icon} />
+        </div>
       )}
       {shortName}
 
@@ -73,7 +79,7 @@ const FileTab = ({ name }) => {
       </button>
     </div>
   );
-};
+}
 
 FileTab.propTypes = {
   name: PropTypes.string,

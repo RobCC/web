@@ -90,7 +90,6 @@
   color: variables.$monokai-red;
 }
 
-
 @mixin theme-color($color) {
   color: $color;
 
@@ -120,4 +119,3 @@
     @include theme-color(variables.$monokai-string);
   }
 }
-

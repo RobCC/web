@@ -4,15 +4,13 @@ import PropTypes from 'prop-types';
 
 import styles from './photo.scss';
 
-const Photo = ({ src, triggerAnimation }) => {
+function Photo({ src, triggerAnimation }) {
   const [photoStyles, setPhotoStyles] = useState(styles.photo);
   const orbit = classNames(styles.orbit, styles.spin);
 
   useEffect(() => {
     if (triggerAnimation) {
-      setPhotoStyles(
-        classNames(styles.photo, styles.removeBlur),
-      );
+      setPhotoStyles(classNames(styles.photo, styles.removeBlur));
     }
   }, [triggerAnimation]);
 
@@ -22,7 +20,7 @@ const Photo = ({ src, triggerAnimation }) => {
       <div className={orbit} />
     </div>
   );
-};
+}
 
 Photo.propTypes = {
   src: PropTypes.string,

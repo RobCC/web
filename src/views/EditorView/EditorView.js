@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 
-import TabMenu from 'Components/TabMenu/TabMenu';
+import FileTabMenu from 'Components/FileTabMenu/FileTabMenu';
 import Editor from 'Components/Editor/Editor';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import { getCurrentFile } from '#/store/ducks/file';
-import { getFileContent } from '#/_files';
+import { getFileContent } from '#/explorer';
 
 import styles from './editorView.scss';
 
@@ -23,9 +23,9 @@ function renderContent(fileContent) {
   return <Content />;
 }
 
-const EditorView = () => {
-  const currentFile = useSelector((store) => getCurrentFile(store));
-  const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
+function EditorView() {
+  const currentFile = useSelector(getCurrentFile);
+  const isExplorerOpen = useSelector(isExplorerOpenFn);
   const currentFileContent = getFileContent(currentFile);
 
   return (
@@ -34,13 +34,15 @@ const EditorView = () => {
         [styles.explorerOpen]: isExplorerOpen,
       })}
     >
-      <TabMenu />
-      {currentFileContent
-        ? renderContent(currentFileContent)
-        : <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>}
+      <FileTabMenu />
+      {currentFileContent ? (
+        renderContent(currentFileContent)
+      ) : (
+        <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>
+      )}
     </div>
   );
-};
+}
 
 EditorView.propTypes = {
   location: PropTypes.shape({

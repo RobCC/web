@@ -13,8 +13,13 @@ const onAnimationFinished = (state) => ({
   hasAnimationFinished: true,
 });
 
-const reducer = handleAction(animationFinished, onAnimationFinished, initialState);
+const reducer = handleAction(
+  animationFinished,
+  onAnimationFinished,
+  initialState,
+);
 
-export const hasAnimationFinished = (state) => state.editor.hasAnimationFinished;
+export const hasAnimationFinished = (state) =>
+  state.editor.hasAnimationFinished;
 
 export default reducer;

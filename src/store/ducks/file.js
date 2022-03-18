@@ -6,27 +6,14 @@ const CLOSE_FILE = 'CLOSE_FILE';
 const OPEN_CHANGE_FILE = 'OPEN_CHANGE_FILE';
 const prefix = 'file';
 
-export const {
-  changeFile,
-  openFile,
-  closeFile,
-  openChangeFile,
-} = createActions(
-  CHANGE_FILE,
-  OPEN_FILE,
-  CLOSE_FILE,
-  OPEN_CHANGE_FILE,
-  {
+export const { changeFile, openFile, closeFile, openChangeFile } =
+  createActions(CHANGE_FILE, OPEN_FILE, CLOSE_FILE, OPEN_CHANGE_FILE, {
     prefix,
-  },
-);
+  });
 
 const initialState = {
   currentTab: 'greet.md',
-  openFiles: [
-    'greet.md',
-    'contact.css',
-  ],
+  openFiles: ['greet.md', 'contact.css', 'Blog/animation_and_positioning.txt'],
 };
 
 const onFileChange = (state, { payload }) => ({
@@ -41,13 +28,10 @@ const onFileOpen = (state, { payload }) => {
     return state;
   }
 
-  return ({
+  return {
     ...state,
-    openFiles: [
-      ...state.openFiles,
-      payload,
-    ],
-  });
+    openFiles: [...state.openFiles, payload],
+  };
 };
 
 const onFileClose = (state, { payload }) => {
@@ -55,7 +39,9 @@ const onFileClose = (state, { payload }) => {
 
   return {
     ...state,
-    currentTab: newOpenFiles.length ? newOpenFiles[newOpenFiles.length - 1] : '',
+    currentTab: newOpenFiles.length
+      ? newOpenFiles[newOpenFiles.length - 1]
+      : '',
     openFiles: newOpenFiles,
   };
 };
@@ -70,14 +56,11 @@ const onFileChangeOpen = (state, { payload }) => {
     };
   }
 
-  return ({
+  return {
     ...state,
     currentTab: payload,
-    openFiles: [
-      ...state.openFiles,
-      payload,
-    ],
-  });
+    openFiles: [...state.openFiles, payload],
+  };
 };
 
 const reducer = handleActions(

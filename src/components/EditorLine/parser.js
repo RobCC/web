@@ -6,9 +6,9 @@ import styles from 'Components/EditorLine/editorLine.scss';
 // https://github.com/tc39/proposal-regexp-named-groups - ?
 
 const REGEX_MAP = {
-  link: new RegExp(/\$\[(.*?)\]/),
-  color: new RegExp(/\$\((.*?)\)/),
-  comment: new RegExp(/\/\/(.*?)+/),
+  link: /\$\[(.*?)\]/,
+  color: /\$\((.*?)\)/,
+  comment: /\/\/(.*?)+/,
 };
 
 function getMapKV() {
@@ -21,12 +21,12 @@ function getMapKV() {
   };
 }
 
-const parseLink = (text, url, color) => (
+const parseLink = (text = '', url = '', color = '') => (
   <a
     className={classNames(styles.editorLink, styles.color, styles[color])}
     title={text}
     href={url}
-    target="_blank"
+    target={url[0] === '#' ? '' : '_blank'}
     rel="noopener noreferrer"
   >
     {text}
@@ -37,8 +37,9 @@ function isComment(text) {
   const commentIdentifiers = ['*', '/*', '*/'];
   const isString = typeof text === 'string';
 
-  return isString && commentIdentifiers.some(
-    (identifier) => text.startsWith(identifier),
+  return (
+    isString &&
+    commentIdentifiers.some((identifier) => text.startsWith(identifier))
   );
 }
 
@@ -70,14 +71,8 @@ function needsParsing(line) {
 }
 
 const parseLine = (line) => {
-  const {
-    parseIndex,
-    matchFound,
-    parse,
-    link,
-    color,
-    comment,
-  } = needsParsing(line);
+  const { parseIndex, matchFound, parse, link, color, comment } =
+    needsParsing(line);
 
   if (!matchFound) {
     return line;
@@ -88,7 +83,9 @@ const parseLine = (line) => {
   let parsedElement;
 
   if (link) {
-    const [linkText, linkUrl, linkColor = 'blue'] = link.split(',').map((e) => e.trim());
+    const [linkText, linkUrl, linkColor = 'blue'] = link
+      .split(',')
+      .map((e) => e.trim());
 
     parsedElement = parseLink(linkText, linkUrl, linkColor);
   } else if (color) {

@@ -1,6 +1,4 @@
-import React, {
-  useReducer, useCallback, useRef, useEffect,
-} from 'react';
+import React, { useReducer, useCallback, useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -59,7 +57,7 @@ function reducer(state, action) {
   }
 }
 
-const MountAnimator = ({
+function MountAnimator({
   children,
   mount,
   className,
@@ -67,7 +65,7 @@ const MountAnimator = ({
   outAnimation,
   animationFinishedCb,
   style = {},
-}) => {
+}) {
   const parentRef = useRef(null);
   const prevMount = usePrevious(mount);
   const isFirstTrigger = useIsMount();
@@ -114,12 +112,9 @@ const MountAnimator = ({
     }
   }, []);
 
-  const classes = classNames(
-    className,
-    show ? inAnimation : outAnimation,
-  );
+  const classes = classNames(className, show ? inAnimation : outAnimation);
 
-  return (show || animationInProgress) ? (
+  return show || animationInProgress ? (
     <div
       style={style}
       ref={parentRef}
@@ -129,7 +124,7 @@ const MountAnimator = ({
       {children}
     </div>
   ) : null;
-};
+}
 
 /* eslint-disable react/forbid-prop-types */
 MountAnimator.propTypes = {

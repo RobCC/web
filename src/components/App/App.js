@@ -4,26 +4,27 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 
 import SideMenu from 'Components/SideMenu/SideMenu';
 import MenuRoutes from 'Components/Routes/MenuRoutes';
-import { Resume, Explorer } from '#/views';
+import { Resume, ExplorerView } from '#/views';
 
 import styles from './app.scss';
 
 config.autoAddCss = false;
 
-const App = () => (
-  <Router basename="/">
-    <div className={styles.root}>
-      <SideMenu />
+function App() {
+  return (
+    <Router basename="/">
+      <div className={styles.root}>
+        <SideMenu />
 
-      <div className={styles.content}>
-        <Explorer />
-        <MenuRoutes />
+        <div className={styles.content}>
+          <ExplorerView />
+          <MenuRoutes />
+        </div>
+
+        <Resume />
       </div>
-
-      <Resume />
-
-    </div>
-  </Router>
-);
+    </Router>
+  );
+}
 
 export default App;

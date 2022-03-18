@@ -1,11 +1,13 @@
+@use "sass:math";
+
 $vw-viewport: 1920;
 $vw-enable: true;
 
 @function vw($n) {
   @if $vw-enable {
-    $vw-context: $vw-viewport * .01 * 1px;
+    $vw-context: $vw-viewport * 0.01 * 1px;
 
-    @return $n / $vw-context * 1vw;
+    @return math.div($n, $vw-context) * 1vw;
   }
 
   @return $n;
