@@ -21,7 +21,7 @@ module.exports = () => ({
     `${SRC_PATH}/index.js`,
   ],
   stats: 'errors-warnings',
-  devtool: NODE_ENV === DEV ? 'eval-source-map' : false,
+  devtool: NODE_ENV === DEV ? 'source-map' : false,
   context: ROOT_PATH,
   output: {
     path: BUILD_PATH,

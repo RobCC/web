@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import classNames from 'classnames';
 
 import File from 'Components/ExplorerFile/ExplorerFile';
@@ -10,11 +11,16 @@ import rootFiles, { getFilesFolders } from '#/explorer';
 import styles from './explorer.scss';
 
 function ExplorerView() {
+  const location = useLocation();
   const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
   const explorerClasses = classNames(styles.explorer, {
     [styles.active]: isExplorerOpen,
   });
   const [files, folders] = getFilesFolders(rootFiles);
+
+  useEffect(() => {
+    console.log({ location });
+  });
 
   return (
     <div className={explorerClasses}>

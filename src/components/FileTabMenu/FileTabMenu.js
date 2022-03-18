@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import classNames from 'classnames';
-import { v1 as generateId } from 'uuid';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
@@ -105,7 +104,7 @@ function FileTabMenu() {
     >
       <div className={styles.wrapper} ref={menuScrollRef}>
         {openFiles.map((name) => (
-          <FileTab key={generateId()} name={name} />
+          <FileTab key={name} name={name} />
         ))}
       </div>
       {shouldScroll && scrollLeft > 0 && (

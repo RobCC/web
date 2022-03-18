@@ -7,9 +7,6 @@ module.exports = {
     browser: true,
     jest: true,
   },
-  globals: {
-    MathJax: 'readonly',
-  },
   plugins: ['react', 'prettier'],
   settings: {
     'import/resolver': {
