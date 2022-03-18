@@ -228,7 +228,7 @@ function AnimationAndPositioning() {
         frameBorder="no"
         loading="lazy"
         allowtransparency="true"
-        allowFullScreen="true"
+        allowFullScreen
       >
         See the Pen{' '}
         <a href="https://codepen.io/robcc/pen/ExoPprp">Shrink animation</a> by

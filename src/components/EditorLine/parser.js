@@ -6,9 +6,9 @@ import styles from 'Components/EditorLine/editorLine.scss';
 // https://github.com/tc39/proposal-regexp-named-groups - ?
 
 const REGEX_MAP = {
-  link: new RegExp(/\$\[(.*?)\]/),
-  color: new RegExp(/\$\((.*?)\)/),
-  comment: new RegExp(/\/\/(.*?)+/),
+  link: /\$\[(.*?)\]/,
+  color: /\$\((.*?)\)/,
+  comment: /\/\/(.*?)+/,
 };
 
 function getMapKV() {
@@ -21,12 +21,12 @@ function getMapKV() {
   };
 }
 
-const parseLink = (text, url, color) => (
+const parseLink = (text = '', url = '', color = '') => (
   <a
     className={classNames(styles.editorLink, styles.color, styles[color])}
     title={text}
     href={url}
-    target="_blank"
+    target={url[0] === '#' ? '' : '_blank'}
     rel="noopener noreferrer"
   >
     {text}

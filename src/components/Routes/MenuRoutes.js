@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import { EditorView } from '../../views';
 
@@ -11,10 +11,10 @@ export const PATHS = {
 // TODO: No longer needed?
 function MenuRoutes() {
   return (
-    <Switch>
-      <Route path={PATHS.root} exact component={EditorView} />
-      <Route path={PATHS.allPaths} component={EditorView} />
-    </Switch>
+    <Routes>
+      <Route path={PATHS.root} exact element={<EditorView />} />
+      <Route path={PATHS.allPaths} element={<EditorView />} />
+    </Routes>
   );
 }
 

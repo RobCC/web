@@ -18,8 +18,8 @@ function getMaxScroll(element) {
 }
 
 function FileTabMenu() {
-  const currentTab = useSelector((store) => getCurrentFile(store));
-  const openFiles = useSelector((store) => getOpenFiles(store));
+  const currentTab = useSelector(getCurrentFile);
+  const openFiles = useSelector(getOpenFiles);
   const [shouldScroll, setShouldScroll] = useState(false);
   const [scrollLeft, setScrollLeft] = useState(0);
   const menuScrollRef = useRef(null);

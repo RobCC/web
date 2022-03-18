@@ -1,6 +1,5 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,7 +15,6 @@ import { toggleResume } from '#/store/ducks/resume';
 
 import styles from './sideMenu.scss';
 
-/* eslint-disable max-len */
 function SideMenu() {
   const dispatch = useDispatch();
   const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
@@ -49,10 +47,4 @@ function SideMenu() {
   );
 }
 
-SideMenu.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-export default withRouter(React.memo(SideMenu));
+export default React.memo(SideMenu);

@@ -24,8 +24,8 @@ function renderContent(fileContent) {
 }
 
 function EditorView() {
-  const currentFile = useSelector((store) => getCurrentFile(store));
-  const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
+  const currentFile = useSelector(getCurrentFile);
+  const isExplorerOpen = useSelector(isExplorerOpenFn);
   const currentFileContent = getFileContent(currentFile);
 
   return (
