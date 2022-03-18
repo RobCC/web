@@ -71,7 +71,7 @@
     "jest": "^27.4.7",
     "log-symbols": "^3.0.0",
     "mini-css-extract-plugin": "^2.4.7",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.7",
     "picocolors": "^1.0.0",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.5.1",
