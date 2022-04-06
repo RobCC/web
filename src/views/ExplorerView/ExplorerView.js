@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
 
-import File from 'Components/ExplorerFile/ExplorerFile';
-import Folder from 'Components/ExplorerFolder/ExplorerFolder';
+import File from '#/components/ExplorerFile/ExplorerFile';
+import Folder from '#/components/ExplorerFolder/ExplorerFolder';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import { openChangeFile } from '#/store/ducks/file';
 import rootFiles, { getFilesFolders } from '#/explorer';

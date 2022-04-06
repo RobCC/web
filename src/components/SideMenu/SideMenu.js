@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy, faFile } from '@fortawesome/free-regular-svg-icons';
 
-import SideMenuItem from 'Components/SideMenuItem/SideMenuItem';
+import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
 
 import {
   isExplorerOpen as isExplorerOpenFn,

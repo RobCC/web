@@ -2,15 +2,15 @@ import React from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import { config } from '@fortawesome/fontawesome-svg-core';
 
-import SideMenu from 'Components/SideMenu/SideMenu';
-import MenuRoutes from 'Components/Routes/MenuRoutes';
+import SideMenu from '#/components/SideMenu/SideMenu';
+import MenuRoutes from '#/components/Routes/MenuRoutes';
 import { Resume, ExplorerView } from '#/views';
 
 import styles from './app.scss';
 
 config.autoAddCss = false;
 
-function App() {
+export default function App() {
   return (
     <Router basename="/">
       <div className={styles.root}>
@@ -26,5 +26,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

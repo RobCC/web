@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { v1 as generateId } from 'uuid';
 import React from 'react';
 
-import EditorLine from 'Components/EditorLine/EditorLine';
+import EditorLine from '#/components/EditorLine/EditorLine';
 
 function Editor({ file }) {
   const [, ...fileContent] = file;

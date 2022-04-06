@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
-import TabLink from 'Components/TabLink/TabLink';
+import TabLink from '#/components/TabLink/TabLink';
 import me from '~/public/images/me.png';
 import Photo from '../Photo/Photo';
 

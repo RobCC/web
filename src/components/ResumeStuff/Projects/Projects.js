@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import TabLink from 'Components/TabLink/TabLink';
+import TabLink from '#/components/TabLink/TabLink';
 import MountAnimator from '#/utils/MountAnimator';
 import Section from '../Section/Section';
 

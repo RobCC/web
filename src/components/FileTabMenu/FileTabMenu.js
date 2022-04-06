@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import FileTab from 'Components/FileTab/FileTab';
+import FileTab from '#/components/FileTab/FileTab';
 import { getOpenFiles, getCurrentFile } from '#/store/ducks/file';
 
 import usePrevious from '#/utils/usePrevious';

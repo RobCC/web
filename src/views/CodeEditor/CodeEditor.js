@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 
-import FileTabMenu from 'Components/FileTabMenu/FileTabMenu';
-import Editor from 'Components/Editor/Editor';
+import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
+import Editor from '#/components/Editor/Editor';
 import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import { getCurrentFile } from '#/store/ducks/file';
 import { getFileContent } from '#/explorer';

@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from 'Components/EditorLine/editorLine.scss';
+import styles from '#/components/EditorLine/editorLine.scss';
 
 // https://github.com/tc39/proposal-regexp-named-groups - ?
 

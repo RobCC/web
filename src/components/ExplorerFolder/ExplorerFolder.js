@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
-import File from 'Components/ExplorerFile/ExplorerFile';
+import File from '#/components/ExplorerFile/ExplorerFile';
 import { getFilesFolders } from '#/explorer';
 
 import styles from './explorerFolder.scss';

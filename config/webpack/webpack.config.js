@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const StyleLintFormatter = require('stylelint-formatter-pretty');
 const CleanTerminalPlugin = require('clean-terminal-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const { NODE_ENV } = process.env;
 const { DEV, ROOT_PATH, SRC_PATH, BUILD_PATH } = require('./constants');
@@ -18,7 +19,7 @@ module.exports = () => ({
   entry: [
     'core-js/stable',
     'regenerator-runtime/runtime',
-    `${SRC_PATH}/index.js`,
+    `${SRC_PATH}/index.tsx`,
   ],
   stats: 'errors-warnings',
   devtool: NODE_ENV === DEV ? 'source-map' : false,
@@ -30,10 +31,21 @@ module.exports = () => ({
     publicPath: '',
   },
   resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
     alias,
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
+          },
+        },
+      },
       {
         test: /\.js$/,
         exclude: /(node_modules)/,
@@ -68,6 +80,7 @@ module.exports = () => ({
     ],
   },
   plugins: [
+    new ForkTsCheckerWebpackPlugin(),
     new CleanWebpackPlugin(),
     new StyleLintPlugin({
       formatter: StyleLintFormatter,
