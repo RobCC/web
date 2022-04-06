@@ -5,9 +5,25 @@ body {
   color: white;
   font-family: Fira Code, monospace;
   margin: 0;
+}
 
-  a {
-    color: variables.$url;
-    text-decoration: none;
+a {
+  color: variables.$url;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+}
+
+button,
+div[role="button"] {
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+
+  &:focus,
+  &:active {
+    outline: none;
   }
 }

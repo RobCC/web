@@ -1,7 +1,17 @@
 module.exports = {
   plugins: ['stylelint-scss'],
-  extends: 'stylelint-config-recommended',
+  extends: [
+    'stylelint-config-recommended',
+    'stylelint-config-recommended-scss',
+  ],
   rules: {
+    'function-no-unknown': [
+      true,
+      {
+        // See: https://github.com/stylelint-scss/stylelint-config-recommended-scss/pull/93
+        ignoreFunctions: ['utils.vw', 'math.div', '-'],
+      },
+    ],
     'number-max-precision': null,
     'max-nesting-depth': 3,
     'number-leading-zero': null,
@@ -25,7 +35,6 @@ module.exports = {
     'block-closing-brace-space-before': 'always-single-line',
     'block-opening-brace-space-before': 'always-single-line',
     'block-opening-brace-space-after': 'always-single-line',
-    'selector-attribute-quotes': 'never',
     'selector-attribute-brackets-space-inside': 'never',
     'selector-pseudo-class-case': 'lower',
     'selector-type-case': 'lower',
