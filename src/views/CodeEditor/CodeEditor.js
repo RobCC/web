@@ -9,7 +9,7 @@ import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
 import { getCurrentFile } from '#/store/ducks/file';
 import { getFileContent } from '#/explorer';
 
-import styles from './editorView.scss';
+import styles from './codeEditor.scss';
 
 function renderContent(fileContent) {
   const isEditorContent = fileContent?.[0] === '!editor';
@@ -23,7 +23,7 @@ function renderContent(fileContent) {
   return <Content />;
 }
 
-function EditorView() {
+function CodeEditor() {
   const currentFile = useSelector(getCurrentFile);
   const isExplorerOpen = useSelector(isExplorerOpenFn);
   const currentFileContent = getFileContent(currentFile);
@@ -44,10 +44,10 @@ function EditorView() {
   );
 }
 
-EditorView.propTypes = {
+CodeEditor.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }),
 };
 
-export default EditorView;
+export default CodeEditor;

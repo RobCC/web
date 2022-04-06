@@ -1,5 +1,5 @@
-import EditorView from './EditorView/EditorView';
+import CodeEditor from './CodeEditor/CodeEditor';
 import Resume from './Resume/Resume';
 import ExplorerView from './ExplorerView/ExplorerView';
 
-export { EditorView, ExplorerView, Resume };
+export { CodeEditor, ExplorerView, Resume };
