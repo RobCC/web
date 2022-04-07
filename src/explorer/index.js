@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { faInfo, faAlignLeft } from '@fortawesome/free-solid-svg-icons';
+import { faInfo } from '@fortawesome/free-solid-svg-icons/faInfo';
+import { faAlignLeft } from '@fortawesome/free-solid-svg-icons/faAlignLeft';
 
 import { rootFiles } from './files';
 

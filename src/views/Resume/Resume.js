@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // import lottie from 'lottie-web';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 
 import Wrapper from '#/components/ResumeStuff/Wrapper/Wrapper';
 import { toggleResume, isResumeOpen as selector } from '#/store/ducks/resume';

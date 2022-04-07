@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
 import FileTab from '#/components/FileTab/FileTab';
 import { getOpenFiles, getCurrentFile } from '#/store/ducks/file';
