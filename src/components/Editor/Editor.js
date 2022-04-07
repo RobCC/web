@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { v1 as generateId } from 'uuid';
 import React from 'react';
 
 import EditorLine from '#/components/EditorLine/EditorLine';
@@ -12,7 +11,7 @@ function Editor({ file }) {
       {fileContent
         ? fileContent.map((line, i) => (
             <EditorLine
-              key={generateId()}
+              key={line}
               lineNumber={i + 1}
               shouldAnimate={i === fileContent.length - 1}
               line={line}
