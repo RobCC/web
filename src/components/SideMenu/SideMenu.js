@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy, faFile } from '@fortawesome/free-regular-svg-icons';
+import { faCopy } from '@fortawesome/free-regular-svg-icons/faCopy';
+import { faFile } from '@fortawesome/free-regular-svg-icons/faFile';
 
 import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
 

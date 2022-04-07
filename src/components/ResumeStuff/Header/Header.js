@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faGithub,
-  faLinkedinIn,
-  faFacebookF,
-  faSteamSymbol,
-  faCodepen,
-  faNpm,
-} from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
+import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
+import { faSteamSymbol } from '@fortawesome/free-brands-svg-icons/faSteamSymbol';
+import { faCodepen } from '@fortawesome/free-brands-svg-icons/faCodepen';
+import { faNpm } from '@fortawesome/free-brands-svg-icons/faNpm';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 
 import TabLink from '#/components/TabLink/TabLink';
 import me from '~/public/images/me.png';

@@ -2,14 +2,12 @@ import React, { useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faJs,
-  faNodeJs,
-  faReact,
-  faSass,
-  faNpm,
-  faGitAlt,
-} from '@fortawesome/free-brands-svg-icons';
+import { faJs } from '@fortawesome/free-brands-svg-icons/faJs';
+import { faNodeJs } from '@fortawesome/free-brands-svg-icons/faNodeJs';
+import { faReact } from '@fortawesome/free-brands-svg-icons/faReact';
+import { faSass } from '@fortawesome/free-brands-svg-icons/faSass';
+import { faNpm } from '@fortawesome/free-brands-svg-icons/faNpm';
+import { faGitAlt } from '@fortawesome/free-brands-svg-icons/faGitAlt';
 
 import { VsCode, Typescript, Webpack, Babel, Redux } from '#/svg';
 import MountAnimator from '#/utils/MountAnimator';
