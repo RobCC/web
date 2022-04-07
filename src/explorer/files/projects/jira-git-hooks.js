@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
+import React, { useEffect, useRef } from 'react';
+import { marked } from 'marked';
 
 import fetchReadme from '#/utils/fetchReadme';
 import styles from './projects.scss';
@@ -8,17 +8,15 @@ const name = 'git-jira-hook';
 const fileName = `${name}.js`;
 
 function Content() {
-  const [text, setText] = useState('');
+  const div = useRef(null);
 
   useEffect(() => {
-    fetchReadme(name).then(setText);
+    fetchReadme(name).then((res) => {
+      div.current.innerHTML = marked.parse(res);
+    });
   }, []);
 
-  return (
-    <div className={styles.wrapper}>
-      <ReactMarkdown>{text}</ReactMarkdown>
-    </div>
-  );
+  return <div className={styles.wrapper} ref={div} />;
 }
 
 export default [fileName, Content];
