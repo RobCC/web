@@ -8,11 +8,14 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { NODE_ENV } = process.env;
 const { DEV, ROOT_PATH, SRC_PATH, BUILD_PATH } = require('./constants');
 const setStyleLoaders = require('./style-loaders');
-const devServer = require('./dev-server');
 const alias = require('./alias');
 
 module.exports = () => ({
-  devServer,
+  devServer: {
+    port: 1234,
+    open: false,
+    hot: true,
+  },
   mode: NODE_ENV,
   entry: [
     'core-js/stable',
@@ -55,25 +58,11 @@ module.exports = () => ({
       },
       {
         test: /\.(png|pje?g|gif|svg)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'images',
-            },
-          },
-        ],
+        type: 'asset/resource',
       },
       {
         test: /\.(woff|woff2|tff|otf|eot)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'fonts',
-            },
-          },
-        ],
+        type: 'asset/resource',
       },
     ],
   },
