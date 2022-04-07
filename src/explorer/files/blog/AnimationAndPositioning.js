@@ -1,13 +1,33 @@
 /* eslint-disable max-len */
 import React from 'react';
 
-import { Title, Wrapper, Image, Katex } from '#/explorer/files/blog/shared';
+import { Title, Wrapper, Image } from '#/explorer/files/blog/shared';
 import { createFile } from '#/explorer/utils';
 
-import videoFull from '#/explorer/files/blog/assets/full.png';
-import videoFinal from '#/explorer/files/blog/assets/final.png';
-import videoCenter from '#/explorer/files/blog/assets/scaled.png';
-import videoCorner from '#/explorer/files/blog/assets/corner.png';
+import videoFull from '#/explorer/files/blog/assets/animationPosition/full.png';
+import videoFinal from '#/explorer/files/blog/assets/animationPosition/final.png';
+import videoCenter from '#/explorer/files/blog/assets/animationPosition/scaled.png';
+import videoCorner from '#/explorer/files/blog/assets/animationPosition/corner.png';
+import scaleX from '#/explorer/files/blog/assets/animationPosition/scaleX.png';
+import scaleY from '#/explorer/files/blog/assets/animationPosition/scaleY.png';
+import deviceHeightRatio from '#/explorer/files/blog/assets/animationPosition/deviceHeightRatio.png';
+import deviceLeftPosition from '#/explorer/files/blog/assets/animationPosition/deviceLeftPosition.png';
+import deviceLeftPositionR from '#/explorer/files/blog/assets/animationPosition/deviceLeftPositionR.png';
+import dk from '#/explorer/files/blog/assets/animationPosition/dk.png';
+import form from '#/explorer/files/blog/assets/animationPosition/form.png';
+import height from '#/explorer/files/blog/assets/animationPosition/height.png';
+import heightFinal from '#/explorer/files/blog/assets/animationPosition/heightFinal.png';
+import width from '#/explorer/files/blog/assets/animationPosition/width.png';
+import widthFinal from '#/explorer/files/blog/assets/animationPosition/widthFinal.png';
+import maxTopPosition from '#/explorer/files/blog/assets/animationPosition/maxTopPosition.png';
+import maxLeftPosition from '#/explorer/files/blog/assets/animationPosition/maxLeftPosition.png';
+import simp from '#/explorer/files/blog/assets/animationPosition/simp.png';
+import simpk from '#/explorer/files/blog/assets/animationPosition/simpk.png';
+import translateX from '#/explorer/files/blog/assets/animationPosition/translateX.png';
+import translateY from '#/explorer/files/blog/assets/animationPosition/translateY.png';
+import deviceTopPosition from '#/explorer/files/blog/assets/animationPosition/deviceTopPosition.png';
+import deviceTopPositionR from '#/explorer/files/blog/assets/animationPosition/deviceTopPositionR.png';
+import deviceWidthRatio from '#/explorer/files/blog/assets/animationPosition/deviceWidthRatio.png';
 
 const imgStyle = {
   width: 788,
@@ -66,8 +86,8 @@ function AnimationAndPositioning() {
           size&apos;s.
         </p>
         <div>
-          <Katex text="scaleX = k = \frac{548}{1920} = 0.28541666666666665" />
-          <Katex text="scaleY = k = \frac{308}{1080} = 0.2851851851851852" />
+          <Image alt="scaleX" src={scaleX} center />
+          <Image alt="scaleY" src={scaleY} center />
         </div>
         <p>
           Result of both is 0.28 approximately, but we will keep the decimals
@@ -88,8 +108,8 @@ function AnimationAndPositioning() {
           Figma&apos;s. We will take 720p as an example.
         </p>
         <div>
-          <Katex text="deviceWidthRatio = \frac{1280}{1920} = 0.666" />
-          <Katex text="deviceHeightRatio = \frac{720}{1080} = 0.666" />
+          <Image alt="deviceWidthRatio" src={deviceWidthRatio} center />
+          <Image alt="deviceHeightRatio" src={deviceHeightRatio} center />
         </div>
         <p>
           The ratio agains a 720p resolution is 0.666. For TV resolutions, both
@@ -114,8 +134,8 @@ function AnimationAndPositioning() {
           <b>deviceHeightRatio</b> respectively.
         </p>
         <div>
-          <Katex text="deviceLeftPosition = \frac{1244}{k} = 4358.54" />
-          <Katex text="deviceTopPosition = \frac{325}{k} = 1139.61" />
+          <Image alt="deviceLeftPosition" src={deviceLeftPosition} center />
+          <Image alt="deviceTopPosition" src={deviceTopPosition} center />
         </div>
         <p>
           These values will help us determine how much we should move to reach
@@ -130,8 +150,8 @@ function AnimationAndPositioning() {
           <b>deviceWidthRatio</b> and <b>deviceHeightRatio</b>.
         </p>
         <div>
-          <Katex text="deviceLeftPosition = \frac{1244}{k} \cdot r = 2905.693" />
-          <Katex text="deviceTopPosition = \frac{325}{k} \cdot r = 759.740" />
+          <Image alt="deviceLeftPositionR" src={deviceLeftPositionR} center />
+          <Image alt="deviceTopPositionR" src={deviceTopPositionR} center />
         </div>
         <p>
           This would be enough if the player started on the top left corner of
@@ -146,7 +166,7 @@ function AnimationAndPositioning() {
           calculate the dimension of the shrunk player.
         </p>
         <div>
-          <Katex text="d \cdot k" />
+          <Image alt="dk" src={dk} center />
         </div>
         <Image alt="Center player" src={videoCorner} style={imgStyle} />
         <p>
@@ -157,29 +177,29 @@ function AnimationAndPositioning() {
           player&apos;s width
         </p>
         <div>
-          <Katex big text="\frac{d}{2} - \frac{dk}{2}" />
+          <Image alt="form" src={form} center />
         </div>
         <p>A simplification of this formula would be:</p>
         <div>
-          <Katex big text="\frac{d - dk}{2}" />
+          <Image alt="simp" src={simp} center />
         </div>
         <p>
           We then scale the distance, to get the actual distance needed,
           dividing it again to the scaled value (k).
         </p>
         <div>
-          <Katex big text="\frac{\frac{d - dk}{2}}{k}" />
+          <Image alt="simpk" src={simpk} center />
         </div>
         <p>For our width and height, these would be:</p>
         <h3>Width</h3>
         <div>
-          <Katex text="dk = 1280 \cdot 0.28 = 365.333" />
-          <Katex text="\frac{\frac{1280 - 365.333}{2}}{0.28} = \frac{457.333}{0.28} = 1602.333" />
+          <Image alt="width" src={width} center />
+          <Image alt="widthFinal" src={widthFinal} center />
         </div>
         <h3>Height</h3>
         <div>
-          <Katex text="dk = 720 \cdot 0.28 = 205.333" />
-          <Katex text="\frac{\frac{1280 - 205.333}{2}}{0.28} = \frac{257.333}{0.28} = 902.337" />
+          <Image alt="height" src={height} center />
+          <Image alt="heightFinal" src={heightFinal} center />
         </div>
         <p>
           These values go to the other way (top and left), so when we add to our
@@ -187,8 +207,8 @@ function AnimationAndPositioning() {
           these values. We end up with
         </p>
         <div>
-          <Katex text="maxLeftPosition = -1602.333" />
-          <Katex text="maxTopPosition = -902.337" />
+          <Image alt="maxLeftPosition" src={maxLeftPosition} center />
+          <Image alt="maxTopPosition" src={maxTopPosition} center />
         </div>
         <h2>Get the final translate values</h2>
         <p>
@@ -199,8 +219,8 @@ function AnimationAndPositioning() {
           desired position.
         </p>
         <div>
-          <Katex text="translateX = maxLeftPosition + deviceLeftPosition = -1602.333 + 2905.693 = 1303" />
-          <Katex text="translateY = maxTopPosition + deviceTopPosition = -902.337 + 759.740 = -143" />
+          <Image alt="translateX" src={translateX} center />
+          <Image alt="translateY" src={translateY} center />
         </div>
         <h2>Wrap things up</h2>
         We now have the final values needed for the CSS&apos;s transform
