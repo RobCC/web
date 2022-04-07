@@ -11,7 +11,7 @@ function Editor({ file }) {
       {fileContent
         ? fileContent.map((line, i) => (
             <EditorLine
-              key={line}
+              key={line + i}
               lineNumber={i + 1}
               shouldAnimate={i === fileContent.length - 1}
               line={line}
