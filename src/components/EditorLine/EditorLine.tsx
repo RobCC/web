@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -7,9 +6,19 @@ import { hasAnimationFinished, animationFinished } from '#/store/ducks/editor';
 import parser from './parser';
 import styles from './editorLine.scss';
 
-function EditorLine({ lineNumber, shouldAnimate = false, line = '' }) {
-  const typingFinished = useSelector((store) => hasAnimationFinished(store));
+type Props = {
+  lineNumber: number;
+  shouldAnimate: boolean;
+  line: string;
+};
+
+export default function EditorLine({
+  lineNumber,
+  shouldAnimate = false,
+  line = '',
+}: Props) {
   const dispatch = useDispatch();
+  const typingFinished = useSelector(hasAnimationFinished);
   const lineClasses = classNames(styles.content, {
     [styles.comment]: parser.isComment(line),
     [styles.typeAnimated]: shouldAnimate && !typingFinished,
@@ -34,11 +43,3 @@ function EditorLine({ lineNumber, shouldAnimate = false, line = '' }) {
     </div>
   );
 }
-
-EditorLine.propTypes = {
-  shouldAnimate: PropTypes.bool,
-  lineNumber: PropTypes.number,
-  line: PropTypes.string,
-};
-
-export default EditorLine;
