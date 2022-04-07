@@ -1,4 +1,4 @@
-export Title from './Title/Title';
-export Wrapper from './Wrapper/Wrapper';
-export Image from './Image/Image';
-export Katex from './Katex/Katex';
+export { default as Title } from './Title/Title';
+export { default as Wrapper } from './Wrapper/Wrapper';
+export { default as Image } from './Image/Image';
+export { default as Katex } from './Katex/Katex';

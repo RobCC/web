@@ -1,5 +1,5 @@
-export VsCode from '#/svg/VsCode';
-export Typescript from '#/svg/Typescript';
-export Webpack from '#/svg/Webpack';
-export Babel from '#/svg/Babel';
-export Redux from '#/svg/Redux';
+export { default as VsCode } from './VsCode';
+export { default as Typescript } from './Typescript';
+export { default as Webpack } from './Webpack';
+export { default as Babel } from './Babel';
+export { default as Redux } from './Redux';

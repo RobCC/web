@@ -1,9 +1,17 @@
+/* eslint-disable max-len */
 const path = require('path');
 
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react', 'prettier'],
-  extends: ['airbnb', 'prettier'],
+  extends: [
+    'airbnb',
+    'prettier',
+    'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+  ],
+  // plugin:@typescript-eslint/recommended
   env: {
     browser: true,
     jest: true,
@@ -23,6 +31,16 @@ module.exports = {
     'max-len': [
       'error',
       { code: 100, tabWidth: 2, comments: 80, ignoreUrls: true },
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-named-as-default': 0,
