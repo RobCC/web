@@ -4,6 +4,7 @@ import React from 'react';
 import { Title, Wrapper, Image } from '#/explorer/files/blog/shared';
 import { createFile } from '#/explorer/utils';
 
+// Generated with http://www.latex2png.com/ (Resolution: 200)
 import videoFull from '#/explorer/files/blog/assets/animationPosition/full.png';
 import videoFinal from '#/explorer/files/blog/assets/animationPosition/final.png';
 import videoCenter from '#/explorer/files/blog/assets/animationPosition/scaled.png';
