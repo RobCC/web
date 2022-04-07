@@ -7,8 +7,11 @@ import parser from './parser';
 import styles from './editorLine.scss';
 
 type Props = {
+  /** Line number to be rendered */
   lineNumber: number;
+  /** Determines if the line should used the typing animation */
   shouldAnimate: boolean;
+  /** Line text to be rendered */
   line: string;
 };
 
