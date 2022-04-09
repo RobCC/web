@@ -61,6 +61,7 @@ module.exports = {
     'react/require-default-props': 0,
     'react/forbid-prop-types': 0,
     'react/jsx-one-expression-per-line': 0,
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'error',
   },
 };
