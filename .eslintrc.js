@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const path = require('path');
 
 module.exports = {
@@ -11,7 +10,6 @@ module.exports = {
     'plugin:import/warnings',
     'plugin:import/typescript',
   ],
-  // plugin:@typescript-eslint/recommended
   env: {
     browser: true,
     jest: true,
@@ -23,14 +21,23 @@ module.exports = {
           ['#', path.resolve(path.join(__dirname, './src'))],
           ['~', path.resolve(path.join(__dirname, '.'))],
         ],
-        extensions: ['.js'],
+        extensions: ['.js', '.ts', '.tsx'],
       },
     },
   },
   rules: {
+    'comma-dangle': ['error', 'always-multiline'],
+    semi: 2,
     'max-len': [
       'error',
       { code: 100, tabWidth: 2, comments: 80, ignoreUrls: true },
+    ],
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['state'],
+      },
     ],
     'import/extensions': [
       'error',
