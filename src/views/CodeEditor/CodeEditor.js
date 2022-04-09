@@ -5,8 +5,10 @@ import { useSelector } from 'react-redux';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
-import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
-import { getCurrentFile } from '#/store/ducks/file';
+
+// TODO: change later
+import { getIsExplorerOpen } from '#/store/modules/explorer.ts';
+import { getCurrentFile } from '#/store/modules/file.ts';
 import { getFileContent } from '#/explorer';
 
 import styles from './codeEditor.scss';
@@ -25,7 +27,7 @@ function renderContent(fileContent) {
 
 function CodeEditor() {
   const currentFile = useSelector(getCurrentFile);
-  const isExplorerOpen = useSelector(isExplorerOpenFn);
+  const isExplorerOpen = useSelector(getIsExplorerOpen);
   const currentFileContent = getFileContent(currentFile);
 
   return (

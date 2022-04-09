@@ -6,7 +6,9 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
 import FileTab from '#/components/FileTab/FileTab';
-import { getOpenFiles, getCurrentFile } from '#/store/ducks/file';
+
+// TODO: change later
+import { getCurrentFile, getOpenedFiles } from '#/store/modules/file.ts';
 
 import usePrevious from '#/utils/usePrevious';
 
@@ -20,7 +22,7 @@ function getMaxScroll(element) {
 
 function FileTabMenu() {
   const currentTab = useSelector(getCurrentFile);
-  const openFiles = useSelector(getOpenFiles);
+  const openFiles = useSelector(getOpenedFiles);
   const [shouldScroll, setShouldScroll] = useState(false);
   const [scrollLeft, setScrollLeft] = useState(0);
   const menuScrollRef = useRef(null);

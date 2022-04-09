@@ -5,7 +5,8 @@ import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { openChangeFile, getCurrentFile } from '#/store/ducks/file';
+// TODO: change later
+import { getCurrentFile, openChangeFile } from '#/store/modules/file.ts';
 import { getShortName, getFileIcon } from '#/explorer';
 
 import styles from './explorerFile.scss';

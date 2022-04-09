@@ -6,7 +6,9 @@ import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-import { getCurrentFile, changeFile, closeFile } from '#/store/ducks/file';
+// TODO: change later
+import { getCurrentFile, changeFile, closeFile } from '#/store/modules/file.ts';
+
 import { getShortName, getFileIcon } from '#/explorer';
 
 import styles from './fileTab.scss';

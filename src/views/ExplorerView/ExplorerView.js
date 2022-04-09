@@ -5,8 +5,11 @@ import classNames from 'classnames';
 
 import File from '#/components/ExplorerFile/ExplorerFile';
 import Folder from '#/components/ExplorerFolder/ExplorerFolder';
-import { isExplorerOpen as isExplorerOpenFn } from '#/store/ducks/explorer';
-import { openChangeFile } from '#/store/ducks/file';
+
+// TODO: change later
+import { getIsExplorerOpen } from '#/store/modules/explorer.ts';
+import { openChangeFile } from '#/store/modules/file.ts';
+
 import rootFiles, { getFilesFolders } from '#/explorer';
 
 import styles from './explorer.scss';
@@ -14,7 +17,7 @@ import styles from './explorer.scss';
 function ExplorerView() {
   const dispatch = useDispatch();
   const [params] = useSearchParams();
-  const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
+  const isExplorerOpen = useSelector(getIsExplorerOpen);
   const explorerClasses = classNames(styles.explorer, {
     [styles.active]: isExplorerOpen,
   });

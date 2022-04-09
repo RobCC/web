@@ -2,7 +2,10 @@ import { useEffect } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { hasAnimationFinished, animationFinished } from '#/store/ducks/editor';
+import {
+  hasAnimationFinished,
+  setAnimationFinished,
+} from '#/store/modules/editor';
 import parser from './parser';
 import styles from './editorLine.scss';
 
@@ -31,7 +34,7 @@ export default function EditorLine({
   useEffect(
     () => () => {
       if (shouldAnimate && !typingFinished) {
-        dispatch(animationFinished());
+        dispatch(setAnimationFinished());
       }
     },
     [],

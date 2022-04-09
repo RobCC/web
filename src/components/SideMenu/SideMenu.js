@@ -7,17 +7,15 @@ import { faFile } from '@fortawesome/free-regular-svg-icons/faFile';
 
 import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
 
-import {
-  isExplorerOpen as isExplorerOpenFn,
-  toggleExplorer,
-} from '#/store/ducks/explorer';
-import { toggleResume } from '#/store/ducks/resume';
+// TODO: change later
+import { toggleExplorer, getIsExplorerOpen } from '#/store/modules/explorer.ts';
+import { toggleResume } from '#/store/modules/resume.ts';
 
 import styles from './sideMenu.scss';
 
 function SideMenu() {
   const dispatch = useDispatch();
-  const isExplorerOpen = useSelector((state) => isExplorerOpenFn(state));
+  const isExplorerOpen = useSelector(getIsExplorerOpen);
 
   const onResumeClick = useCallback(() => {
     dispatch(toggleResume());

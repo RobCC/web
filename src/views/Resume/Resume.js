@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 
 import Wrapper from '#/components/ResumeStuff/Wrapper/Wrapper';
-import { toggleResume, isResumeOpen as selector } from '#/store/ducks/resume';
+
+// TODO: change later
+import { toggleResume, getIsResumeOpen } from '#/store/modules/resume.ts';
 import MountAnimator from '#/utils/MountAnimator';
 
 import styles from './resume.scss';
@@ -14,7 +16,7 @@ import styles from './resume.scss';
 function Resume() {
   const [onScreen, setOnScreen] = useState(false);
   const reduxDispatch = useDispatch();
-  const isResumeOpen = useSelector((store) => selector(store));
+  const isResumeOpen = useSelector(getIsResumeOpen);
 
   const animationFinishedCb = useCallback((isShown) => {
     setOnScreen(isShown);
