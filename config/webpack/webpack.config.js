@@ -28,7 +28,8 @@ module.exports = () => ({
   context: ROOT_PATH,
   output: {
     path: BUILD_PATH,
-    filename: 'index.js',
+    filename: '[name].js',
+    chunkFilename: '[name].bundle.js',
     publicPath: '',
   },
   resolve: {
@@ -66,6 +67,17 @@ module.exports = () => ({
       },
     ],
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
+    },
+  },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
     new CleanWebpackPlugin(),
@@ -77,6 +89,6 @@ module.exports = () => ({
       favicon: 'public/icons/favicon.ico',
     }),
     new MiniCssExtractPlugin({ filename: 'index.css' }),
-    // new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
   ],
 });
