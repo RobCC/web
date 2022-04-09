@@ -9,7 +9,7 @@ type FileState = {
 }
 
 const initialState: FileState = {
-  currentTab: 'greed.md',
+  currentTab: 'greet.md',
   openedFiles: ['greet.md', 'contact.css', 'Blog/animation_and_positioning.txt'],
 };
 
