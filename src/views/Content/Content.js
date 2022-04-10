@@ -8,7 +8,7 @@ import Editor from '#/components/Editor/Editor';
 import useStore, { getIsExplorerOpen, getCurrentFile } from '#/store';
 import { getFileContent } from '#/explorer';
 
-import styles from './codeEditor.scss';
+import styles from './content.scss';
 
 function renderContent(fileContent) {
   const isEditorContent = fileContent?.[0] === '!editor';
@@ -17,12 +17,12 @@ function renderContent(fileContent) {
     return <Editor file={fileContent} />;
   }
 
-  const Content = fileContent;
+  const FileContent = fileContent;
 
-  return <Content />;
+  return <FileContent />;
 }
 
-function CodeEditor() {
+function Content() {
   const currentFile = useStore(getCurrentFile);
   const isExplorerOpen = useStore(getIsExplorerOpen);
   const currentFileContent = getFileContent(currentFile);
@@ -43,10 +43,10 @@ function CodeEditor() {
   );
 }
 
-CodeEditor.propTypes = {
+Content.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string.isRequired,
   }),
 };
 
-export default CodeEditor;
+export default Content;

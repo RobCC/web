@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { CodeEditor } from '../../views';
+import { Content } from '../../views';
 
 export const PATHS = {
   root: '/',
@@ -11,8 +11,8 @@ export const PATHS = {
 function MenuRoutes() {
   return (
     <Routes>
-      <Route path={PATHS.root} exact element={<CodeEditor />} />
-      <Route path={PATHS.allPaths} element={<CodeEditor />} />
+      <Route path={PATHS.root} exact element={<Content />} />
+      <Route path={PATHS.allPaths} element={<Content />} />
     </Routes>
   );
 }
