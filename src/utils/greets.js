@@ -177,7 +177,7 @@ const getRandomGreet = () => {
   const greetsContent = greetNames.map((k) => greets[k]);
   const randomGreet = getRandomElement(greetsContent);
 
-  return ['!editor', ...randomGreet];
+  return randomGreet;
 };
 
 export default getRandomGreet;
