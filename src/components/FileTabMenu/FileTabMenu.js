@@ -1,14 +1,12 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import classNames from 'classnames';
-import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons/faAngleLeft';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
 import FileTab from '#/components/FileTab/FileTab';
 
-// TODO: change later
-import { getCurrentFile, getOpenedFiles } from '#/store/modules/file.ts';
+import useStore, { getCurrentFile, getOpenedFiles } from '#/store';
 
 import usePrevious from '#/utils/usePrevious';
 
@@ -21,8 +19,8 @@ function getMaxScroll(element) {
 }
 
 function FileTabMenu() {
-  const currentTab = useSelector(getCurrentFile);
-  const openFiles = useSelector(getOpenedFiles);
+  const currentTab = useStore(getCurrentFile);
+  const openFiles = useStore(getOpenedFiles);
   const [shouldScroll, setShouldScroll] = useState(false);
   const [scrollLeft, setScrollLeft] = useState(0);
   const menuScrollRef = useRef(null);

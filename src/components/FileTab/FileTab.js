@@ -1,14 +1,11 @@
 import React, { useState, useCallback } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-// TODO: change later
-import { getCurrentFile, changeFile, closeFile } from '#/store/modules/file.ts';
-
+import useStore, { getCurrentFile, changeFile, closeFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 
 import styles from './fileTab.scss';
@@ -22,8 +19,7 @@ function getTabStyles(isCurrentTab) {
 function FileTab({ name }) {
   const [, setSearchParams] = useSearchParams();
   const [showClose, setShowClose] = useState(false);
-  const dispatch = useDispatch();
-  const currentTab = useSelector(getCurrentFile);
+  const currentTab = useStore(getCurrentFile);
 
   const { icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
@@ -35,14 +31,14 @@ function FileTab({ name }) {
       e.stopPropagation();
 
       if (showClose || name === currentTab) {
-        dispatch(closeFile(name));
+        closeFile(name);
       }
     },
     [showClose, name],
   );
 
   const changeCurrentTab = useCallback(() => {
-    dispatch(changeFile(name));
+    changeFile(name);
     setSearchParams({
       file: name,
     });

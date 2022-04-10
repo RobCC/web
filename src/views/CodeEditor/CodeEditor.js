@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { useSelector } from 'react-redux';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
 
-// TODO: change later
-import { getIsExplorerOpen } from '#/store/modules/explorer.ts';
-import { getCurrentFile } from '#/store/modules/file.ts';
+import useStore, { getIsExplorerOpen, getCurrentFile } from '#/store';
 import { getFileContent } from '#/explorer';
 
 import styles from './codeEditor.scss';
@@ -26,8 +23,8 @@ function renderContent(fileContent) {
 }
 
 function CodeEditor() {
-  const currentFile = useSelector(getCurrentFile);
-  const isExplorerOpen = useSelector(getIsExplorerOpen);
+  const currentFile = useStore(getCurrentFile);
+  const isExplorerOpen = useStore(getIsExplorerOpen);
   const currentFileContent = getFileContent(currentFile);
 
   return (

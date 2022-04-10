@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import classNames from 'classnames';
-import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  hasAnimationFinished,
+import useStore, {
+  getHasAnimationFinished,
   setAnimationFinished,
-} from '#/store/modules/editor';
+} from '#/store';
 import parser from './parser';
 import styles from './editorLine.scss';
 
@@ -23,8 +22,7 @@ export default function EditorLine({
   shouldAnimate = false,
   line = '',
 }: Props) {
-  const dispatch = useDispatch();
-  const typingFinished = useSelector(hasAnimationFinished);
+  const typingFinished = useStore(getHasAnimationFinished);
   const lineClasses = classNames(styles.content, {
     [styles.comment]: parser.isComment(line),
     [styles.typeAnimated]: shouldAnimate && !typingFinished,
@@ -34,7 +32,7 @@ export default function EditorLine({
   useEffect(
     () => () => {
       if (shouldAnimate && !typingFinished) {
-        dispatch(setAnimationFinished());
+        setAnimationFinished();
       }
     },
     [],

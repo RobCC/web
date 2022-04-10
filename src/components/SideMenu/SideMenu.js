@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-regular-svg-icons/faCopy';
@@ -7,22 +6,22 @@ import { faFile } from '@fortawesome/free-regular-svg-icons/faFile';
 
 import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
 
-// TODO: change later
-import { toggleExplorer, getIsExplorerOpen } from '#/store/modules/explorer.ts';
-import { toggleResume } from '#/store/modules/resume.ts';
-
+import useStore, {
+  toggleExplorer,
+  getIsExplorerOpen,
+  toggleResume,
+} from '#/store';
 import styles from './sideMenu.scss';
 
 function SideMenu() {
-  const dispatch = useDispatch();
-  const isExplorerOpen = useSelector(getIsExplorerOpen);
+  const isExplorerOpen = useStore(getIsExplorerOpen);
 
   const onResumeClick = useCallback(() => {
-    dispatch(toggleResume());
+    toggleResume();
   }, []);
 
   const onExplorerClick = useCallback(() => {
-    dispatch(toggleExplorer());
+    toggleExplorer();
   }, []);
 
   return (

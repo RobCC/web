@@ -3,24 +3,21 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSelector, useDispatch } from 'react-redux';
 
-// TODO: change later
-import { getCurrentFile, openChangeFile } from '#/store/modules/file.ts';
+import useStore, { getCurrentFile, openChangeFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 
 import styles from './explorerFile.scss';
 
 function ExplorerFile({ level = 0, name, parent = '' }) {
-  const dispatch = useDispatch();
   const [, setSearchParams] = useSearchParams();
-  const currentTab = useSelector((store) => getCurrentFile(store));
+  const currentTab = useStore(getCurrentFile);
   const { extension, icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = useCallback(() => {
-    dispatch(openChangeFile(fullName));
+    openChangeFile(fullName);
     setSearchParams({
       file: fullName,
     });

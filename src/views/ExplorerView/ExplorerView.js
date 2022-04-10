@@ -1,23 +1,18 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 import File from '#/components/ExplorerFile/ExplorerFile';
 import Folder from '#/components/ExplorerFolder/ExplorerFolder';
 
-// TODO: change later
-import { getIsExplorerOpen } from '#/store/modules/explorer.ts';
-import { openChangeFile } from '#/store/modules/file.ts';
-
+import useStore, { getIsExplorerOpen, openChangeFile } from '#/store';
 import rootFiles, { getFilesFolders } from '#/explorer';
 
 import styles from './explorer.scss';
 
 function ExplorerView() {
-  const dispatch = useDispatch();
   const [params] = useSearchParams();
-  const isExplorerOpen = useSelector(getIsExplorerOpen);
+  const isExplorerOpen = useStore(getIsExplorerOpen);
   const explorerClasses = classNames(styles.explorer, {
     [styles.active]: isExplorerOpen,
   });
@@ -27,9 +22,9 @@ function ExplorerView() {
     const fileParam = params.get('file');
 
     if (fileParam) {
-      dispatch(openChangeFile(fileParam));
+      openChangeFile(fileParam);
     }
-  }, [dispatch, params]);
+  }, [params]);
 
   return (
     <div className={explorerClasses}>

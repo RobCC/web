@@ -1,18 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
+import useStore from "./store";
 
-import editor from './modules/editor';
-import explorer from './modules/explorer';
-import file from './modules/file';
-import resume from './modules/resume';
+export * from './editor';
+export * from './explorer';
+export * from './file';
+export * from './resume';
 
-export const store = configureStore({
-  reducer: {
-    editor,
-    explorer,
-    file,
-    resume,
-  },
-});
-
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch;
+export default useStore;
