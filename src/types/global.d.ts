@@ -1,5 +1,7 @@
+type CSSModule = { [key: string]: string };
+
 declare module '*.scss' {
-  const classes: { [key: string]: string };
+  const classes: CSSModule;
 
   export default classes;
 }
