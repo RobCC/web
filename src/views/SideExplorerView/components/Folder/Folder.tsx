@@ -10,15 +10,24 @@ import File from '../File/File';
 import styles from './folder.scss';
 
 type Props = {
+  /** Depth level on the file system */
   level?: number;
+  /** Folder name */
   name: string;
-  items: Map<string, any>;
+  /** Folder content */
+  content: Map<string, any>;
+  /** Parent folder */
   parent?: string;
 };
 
-export default function Folder({ level = 0, name, items, parent = '' }: Props) {
+export default function Folder({
+  level = 0,
+  name,
+  content,
+  parent = '',
+}: Props) {
   const [isClosed, setIsClosed] = useState(true);
-  const [files, folders] = getFilesFolders(items);
+  const [files, folders] = getFilesFolders(content);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = () => {
@@ -51,7 +60,7 @@ export default function Folder({ level = 0, name, items, parent = '' }: Props) {
           name={folderName}
           parent={fullName}
           level={level + 1}
-          items={items.get(folderName)}
+          content={content.get(folderName)}
         />
       ))}
       {files.map((fileName) => (

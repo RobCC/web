@@ -10,8 +10,11 @@ import { handleOnKeyDownButton } from '#/utils/a11y';
 import styles from './file.scss';
 
 type Props = {
+  /** Depth level on the file system */
   level?: number;
+  /** File name */
   name: string;
+  /** Parent folder */
   parent?: string;
 };
 

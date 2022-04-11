@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 
-import File from './components/File/File';
-import Folder from './components/Folder/Folder';
-
 import useStore, { getIsExplorerOpen } from '#/store';
 import rootFiles, { getFilesFolders } from '#/explorer';
+
+import File from './components/File/File';
+import Folder from './components/Folder/Folder';
 
 import styles from './sideExplorerView.scss';
 
@@ -23,7 +23,7 @@ export default function SideExplorerView() {
         <Folder
           key={folderFullName}
           name={folderFullName}
-          items={rootFiles.get(folderFullName)}
+          content={rootFiles.get(folderFullName)}
         />
       ))}
       {files.map((fileFullName) => (
