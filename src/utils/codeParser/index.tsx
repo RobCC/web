@@ -30,6 +30,22 @@ type ParsingData = {
   index?: number;
 };
 
+export function isComment(text = '') {
+  const commentIdentifiers = ['*', '/*', '*/'];
+  const isString = typeof text === 'string';
+
+  return (
+    isString &&
+    commentIdentifiers.some((identifier) => text.startsWith(identifier))
+  );
+}
+
+export function createCodeText(text) {
+  const trimmedLines = text.split('\n').slice(1, -1);
+
+  return ['!editor', ...trimmedLines];
+}
+
 export function getParsingData(line: string): ParsingData {
   const results = line.match(FULL_REGEX);
 
@@ -75,22 +91,6 @@ function parseLine(line: string, styles: CSSModule) {
       {parseLine(textAfterParse, styles)}
     </>
   );
-}
-
-export function isComment(text = '') {
-  const commentIdentifiers = ['*', '/*', '*/'];
-  const isString = typeof text === 'string';
-
-  return (
-    isString &&
-    commentIdentifiers.some((identifier) => text.startsWith(identifier))
-  );
-}
-
-export function createCodeText(text) {
-  const trimmedLines = text.split('\n').slice(1, -1);
-
-  return ['!editor', ...trimmedLines];
 }
 
 export default parseLine;
