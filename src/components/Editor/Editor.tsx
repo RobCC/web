@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-
 import EditorLine from '#/components/EditorLine/EditorLine';
 
-function Editor({ file }) {
+type Props = {
+  /** File content */
+  file: string[];
+};
+
+export default function Editor({ file }: Props) {
   const [, ...fileContent] = file;
 
   return (
@@ -22,9 +24,3 @@ function Editor({ file }) {
     </div>
   );
 }
-
-Editor.propTypes = {
-  file: PropTypes.arrayOf(PropTypes.string),
-};
-
-export default Editor;
