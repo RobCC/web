@@ -129,18 +129,6 @@ const longTime = [
   '',
 ];
 
-const bonjour = [
-  '/*',
-  '*  ____               _                  ',
-  '* | __ )  ___  _ __  (_) ___  _   _ _ __ ',
-  "* |  _ \\ / _ \\| '_ \\ | |/ _ \\| | | | '__|",
-  '* | |_) | (_) | | | || | (_) | |_| | |   ',
-  '* |____/ \\___/|_| |_|/ |\\___/ \\__,_|_|   ',
-  '*                  |__/                  ',
-  '*/',
-  '',
-];
-
 const wellMet = [
   '/*',
   '* .%%...%%..%%%%%%..%%......%%..............%%...%%..%%%%%%..%%%%%%....%%...',
@@ -153,7 +141,7 @@ const wellMet = [
   '',
 ];
 
-const greets = {
+const GREETS = {
   helloThere,
   saluteYou,
   trustNoOne,
@@ -165,19 +153,15 @@ const greets = {
   buildFailed,
   senate,
   longTime,
-  bonjour,
   wellMet,
 };
 
-const getRandomElement = (items) =>
-  items[Math.floor(Math.random() * items.length)];
-
-const getRandomGreet = () => {
-  const greetNames = Object.keys(greets);
-  const greetsContent = greetNames.map((k) => greets[k]);
-  const randomGreet = getRandomElement(greetsContent);
+function getRandomGreet() {
+  const greetNames = Object.keys(GREETS);
+  const contents: string[][] = greetNames.map((k) => GREETS[k]);
+  const randomGreet = contents[Math.floor(Math.random() * contents.length)];
 
   return randomGreet;
-};
+}
 
 export default getRandomGreet;

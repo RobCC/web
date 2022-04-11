@@ -1,5 +1,5 @@
 import { createCodeText } from '#/utils/codeParser';
-import getRandomGreet from '#/utils/greets';
+import getRandomGreet from '#/utils/getRandomGreet';
 
 const name = 'greet.md';
 const preContent = [
