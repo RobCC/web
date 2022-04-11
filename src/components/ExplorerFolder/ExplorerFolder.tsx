@@ -1,33 +1,42 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
+import { useState, useCallback } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
 import File from '#/components/ExplorerFile/ExplorerFile';
 import { getFilesFolders } from '#/explorer';
+import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './explorerFolder.scss';
 
-function Folder({ level = 0, name, items, parent = '' }) {
+type Props = {
+  level?: number;
+  name: string;
+  items: Map<string, any>;
+  parent?: string;
+};
+
+export default function Folder({ level = 0, name, items, parent = '' }: Props) {
   const [isClosed, setIsClosed] = useState(true);
-  const groupStyles = classNames(styles.group, {
-    [styles.closed]: isClosed,
-  });
-  const [files, groups] = getFilesFolders(items);
+  const [files, folders] = getFilesFolders(items);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
-  const onClick = useCallback(() => {
+  const onClick = () => {
     setIsClosed(!isClosed);
-  }, [isClosed]);
+  };
 
   return (
-    <div className={groupStyles} title={name}>
+    <div
+      className={classNames(styles.group, {
+        [styles.closed]: isClosed,
+      })}
+      title={name}
+    >
       <div
         role="button"
         tabIndex={0}
         onClick={onClick}
-        onKeyDown={onClick}
+        onKeyDown={handleOnKeyDownButton(onClick)}
         className={styles.title}
         style={{
           paddingLeft: 15 + level * 7,
@@ -36,13 +45,13 @@ function Folder({ level = 0, name, items, parent = '' }) {
         <FontAwesomeIcon icon={faAngleRight} className={styles.caret} />
         {name}
       </div>
-      {groups.map((groupName) => (
+      {folders.map((folderName) => (
         <Folder
-          key={`${fullName}/${groupName}`}
-          name={groupName}
+          key={`${fullName}/${folderName}`}
+          name={folderName}
           parent={fullName}
           level={level + 1}
-          items={items.get(groupName)}
+          items={items.get(folderName)}
         />
       ))}
       {files.map((fileName) => (
@@ -56,13 +65,3 @@ function Folder({ level = 0, name, items, parent = '' }) {
     </div>
   );
 }
-
-/* eslint-disable */
-Folder.propTypes = {
-  level: PropTypes.number,
-  items: PropTypes.object,
-  name: PropTypes.string,
-  parent: PropTypes.string,
-};
-
-export default Folder;
