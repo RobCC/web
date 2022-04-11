@@ -1,13 +1,13 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
-import File from '#/components/ExplorerFile/ExplorerFile';
 import { getFilesFolders } from '#/explorer';
 import { handleOnKeyDownButton } from '#/utils/a11y';
+import File from '../File/File';
 
-import styles from './explorerFolder.scss';
+import styles from './folder.scss';
 
 type Props = {
   level?: number;

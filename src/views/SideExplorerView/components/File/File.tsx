@@ -7,7 +7,7 @@ import useStore, { getCurrentFile, openChangeFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
-import styles from './explorerFile.scss';
+import styles from './file.scss';
 
 type Props = {
   level?: number;
@@ -18,7 +18,7 @@ type Props = {
 const INITIAL_PADDING = 15;
 const LEVEL_PADDING_DELTA = 8;
 
-export default function ExplorerFile({ level = 0, name, parent = '' }: Props) {
+export default function File({ level = 0, name, parent = '' }: Props) {
   const [, setSearchParams] = useSearchParams();
   const currentTab = useStore(getCurrentFile);
   const { extension, icon, iconStyles, isStringIcon } = getFileIcon(name);

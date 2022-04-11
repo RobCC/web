@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
-import File from '#/components/ExplorerFile/ExplorerFile';
-import Folder from '#/components/ExplorerFolder/ExplorerFolder';
+import File from './components/File/File';
+import Folder from './components/Folder/Folder';
 
 import useStore, { getIsExplorerOpen } from '#/store';
 import rootFiles, { getFilesFolders } from '#/explorer';
