@@ -1,7 +1,7 @@
-import parseToCodelines from '#/utils/parseToCodelines';
+import { createCodeText } from '#/utils/codeParser';
 
 const name = 'subtest.json';
-const content = parseToCodelines(`
+const content = createCodeText(`
 Test 2
 `);
 

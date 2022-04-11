@@ -2,6 +2,10 @@ import linkParser from './link';
 import colorParser from './color';
 import commentParser from './comment';
 
+export * from './link';
+export * from './color';
+export * from './comment';
+
 const PLACEHOLDERS = {
   link: linkParser.REGEX,
   color: colorParser.REGEX,
@@ -81,6 +85,12 @@ export function isComment(text = '') {
     isString &&
     commentIdentifiers.some((identifier) => text.startsWith(identifier))
   );
+}
+
+export function createCodeText(text) {
+  const trimmedLines = text.split('\n').slice(1, -1);
+
+  return ['!editor', ...trimmedLines];
 }
 
 export default parseLine;

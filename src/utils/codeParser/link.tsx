@@ -4,8 +4,10 @@ import classNames from 'classnames';
 
 const REGEX = /\$\[(?<link>.*?)\]/;
 
-function parse(link, styles: CSSModule) {
-  const [text, url, color = 'blue'] = link.split(',').map((e) => e.trim());
+function parse(linkSnippet, styles: CSSModule) {
+  const [text, url, color = 'blue'] = linkSnippet
+    .split(',')
+    .map((e) => e.trim());
 
   return (
     <a
@@ -20,7 +22,7 @@ function parse(link, styles: CSSModule) {
   );
 }
 
-export function createLink(text = '', url = '', color = '') {
+export function link(text = '', url = '', color = '') {
   return `$[${text}, ${url}, ${color}]`;
 }
 
