@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import EditorLine from '#/components/EditorLine/EditorLine.tsx';
+import EditorLine from '#/components/EditorLine/EditorLine';
 
 function Editor({ file }) {
   const [, ...fileContent] = file;

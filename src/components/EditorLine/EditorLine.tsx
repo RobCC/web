@@ -5,7 +5,7 @@ import useStore, {
   getHasAnimationFinished,
   setAnimationFinished,
 } from '#/store';
-import parser from './parser';
+import parse, { isComment } from '#/utils/codeParser/index';
 import styles from './editorLine.scss';
 
 type Props = {
@@ -24,7 +24,7 @@ export default function EditorLine({
 }: Props) {
   const typingFinished = useStore(getHasAnimationFinished);
   const lineClasses = classNames(styles.content, {
-    [styles.comment]: parser.isComment(line),
+    [styles.comment]: isComment(line),
     [styles.typeAnimated]: shouldAnimate && !typingFinished,
     [styles.caretAnimated]: shouldAnimate && typingFinished,
   });
@@ -42,7 +42,7 @@ export default function EditorLine({
     <div className={styles.line}>
       <span className={styles.lineNumber}>{lineNumber}</span>
       <pre className={lineClasses}>
-        <span className={styles.text}>{parser.parseLine(line)}</span>
+        <span className={styles.text}>{parse(line, styles)}</span>
       </pre>
     </div>
   );
