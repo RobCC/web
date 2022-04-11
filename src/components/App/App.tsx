@@ -3,7 +3,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 
 import SideMenu from '#/components/SideMenu/SideMenu';
 import MenuRoutes from '#/components/Routes/MenuRoutes';
-import { Resume, ExplorerView } from '#/views';
+import { Resume, SideExplorerView } from '#/views';
 
 import styles from './app.scss';
 
@@ -16,7 +16,7 @@ export default function App() {
         <SideMenu />
 
         <div className={styles.content}>
-          <ExplorerView />
+          <SideExplorerView />
           <MenuRoutes />
         </div>
 

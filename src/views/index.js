@@ -1,5 +1,5 @@
 import Content from './Content/Content';
 import Resume from './Resume/Resume';
-import ExplorerView from './ExplorerView/ExplorerView';
+import SideExplorerView from './SideExplorerView/SideExplorerView';
 
-export { Content, ExplorerView, Resume };
+export { Content, SideExplorerView, Resume };
