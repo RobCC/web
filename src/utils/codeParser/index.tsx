@@ -36,7 +36,7 @@ export function isComment(text = '') {
 
   return (
     isString &&
-    commentIdentifiers.some((identifier) => text.startsWith(identifier))
+    commentIdentifiers.some((identifier) => text.trim().startsWith(identifier))
   );
 }
 
