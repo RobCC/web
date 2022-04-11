@@ -1,15 +1,24 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
+import { useCallback } from 'react';
 import classNames from 'classnames';
 import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useStore, { getCurrentFile, openChangeFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
+import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './explorerFile.scss';
 
-function ExplorerFile({ level = 0, name, parent = '' }) {
+type Props = {
+  level?: number;
+  name: string;
+  parent?: string;
+};
+
+const INITIAL_PADDING = 15;
+const LEVEL_PADDING_DELTA = 8;
+
+export default function ExplorerFile({ level = 0, name, parent = '' }: Props) {
   const [, setSearchParams] = useSearchParams();
   const currentTab = useStore(getCurrentFile);
   const { extension, icon, iconStyles, isStringIcon } = getFileIcon(name);
@@ -32,23 +41,22 @@ function ExplorerFile({ level = 0, name, parent = '' }) {
   return (
     <div
       role="button"
-      title={shortName}
+      title={fullName}
       tabIndex={0}
       onClick={onClick}
-      onKeyDown={onClick}
+      onKeyDown={handleOnKeyDownButton(onClick)}
       className={classNames(styles.item, {
         [styles.active]: fullName === currentTab,
       })}
       style={{
-        paddingLeft: 15 + level * 8,
+        paddingLeft: INITIAL_PADDING + level * LEVEL_PADDING_DELTA,
       }}
     >
-      {isStringIcon && (
+      {isStringIcon ? (
         <div className={styles.iconWrapper}>
           <div className={explorerIconClasses}>{icon}</div>
         </div>
-      )}
-      {!isStringIcon && (
+      ) : (
         <div className={styles.iconWrapper}>
           <div className={explorerIconClasses}>
             <FontAwesomeIcon icon={icon} />
@@ -59,11 +67,3 @@ function ExplorerFile({ level = 0, name, parent = '' }) {
     </div>
   );
 }
-
-ExplorerFile.propTypes = {
-  parent: PropTypes.string,
-  level: PropTypes.number,
-  name: PropTypes.string,
-};
-
-export default ExplorerFile;

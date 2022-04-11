@@ -28,10 +28,7 @@ module.exports = {
   rules: {
     'comma-dangle': ['error', 'always-multiline'],
     semi: 2,
-    'max-len': [
-      'error',
-      { code: 100, tabWidth: 2, comments: 80, ignoreUrls: true },
-    ],
+    'max-len': ['error', { code: 100, tabWidth: 2, comments: 100, ignoreUrls: true }],
     'no-param-reassign': [
       'error',
       {
@@ -51,10 +48,7 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-named-as-default': 0,
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-    ],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'react/jsx-uses-react': 0,
     'react/react-in-jsx-scope': 0,
     'react/jsx-props-no-spreading': 0,
