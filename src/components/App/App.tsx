@@ -36,6 +36,7 @@ export default function App() {
           <SideView />
           <Routes>
             <Route path={PATHS.root} element={<Content />} />
+            <Route path="/test" element={<div>Test</div>} />
             <Route path={PATHS.allPaths} element={<Content />} />
           </Routes>
         </div>
