@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useStore, { getCurrentFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 import { handleOnKeyDownButton } from '#/utils/a11y';
+import { getLocation } from '#/utils/getLocation';
 
 import styles from './file.scss';
 
@@ -29,12 +30,9 @@ export default function File({ level = 0, name, parent = '' }: Props) {
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = useCallback(() => {
-    const [hash] = window.location.hash.split('?');
-    const [, location = '/'] = hash.split('#');
-
     // Using this instead of useSearchParams, since that one
     // navigates to root, resetting hash
-    navigate(`${location}?file=${fullName}`);
+    navigate(`${getLocation()}?file=${fullName}`);
   }, [fullName]);
 
   const explorerIconClasses = classNames(iconStyles, {

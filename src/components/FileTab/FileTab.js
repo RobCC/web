@@ -1,12 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
 import useStore, { getCurrentFile, closeFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
+import { getLocation } from '#/utils/getLocation';
 
 import styles from './fileTab.scss';
 
@@ -17,7 +18,7 @@ function getTabStyles(isCurrentTab) {
 }
 
 function FileTab({ name }) {
-  const [, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [showClose, setShowClose] = useState(false);
   const currentTab = useStore(getCurrentFile);
 
@@ -38,9 +39,9 @@ function FileTab({ name }) {
   );
 
   const changeCurrentTab = useCallback(() => {
-    setSearchParams({
-      file: name,
-    });
+    // Using this instead of useSearchParams, since that one
+    // navigates to root, resetting hash
+    navigate(`${getLocation()}?file=${name}`);
   }, [name]);
 
   const tabClasses = getTabStyles(name === currentTab);
