@@ -2,15 +2,14 @@ import rootFiles, { getFilesFolders } from '#/explorer';
 
 import File from './components/File/File';
 import Folder from './components/Folder/Folder';
-import Container from './SideViewContainer';
 
 import styles from './sideExplorerView.scss';
 
-export default function SideView() {
+export default function Explorer() {
   const [files, folders] = getFilesFolders(rootFiles);
 
   return (
-    <Container>
+    <>
       <div className={styles.title}>EXPLORER</div>
       {folders.map((folderFullName) => (
         <Folder
@@ -22,6 +21,6 @@ export default function SideView() {
       {files.map((fileFullName) => (
         <File key={fileFullName} name={fileFullName} />
       ))}
-    </Container>
+    </>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import classNames from 'classnames';
-import { useSearchParams } from 'react-router-dom';
+import { Outlet, useSearchParams } from 'react-router-dom';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
@@ -13,40 +13,47 @@ import styles from './content.scss';
 const DEFAULT_FILE = getCurrentFile(useStore.getState());
 
 function renderContent(fileContent) {
-  const isEditorContent = fileContent?.[0] === '!editor';
+  if (fileContent instanceof Function) {
+    return fileContent();
+  }
 
-  if (isEditorContent) {
+  const [firstLine] = fileContent;
+
+  if (firstLine === '!editor') {
     return <Editor file={fileContent} />;
   }
 
-  const FileContent = fileContent;
-
-  return <FileContent />;
+  return null;
 }
 
 function Content() {
   const [searchParams] = useSearchParams();
   const currentFile = searchParams.get('file') || DEFAULT_FILE;
   const isExplorerOpen = useStore(getIsExplorerOpen);
-  const currentFileContent = getFileContent(currentFile);
+  const fileContent: any = getFileContent(currentFile);
+
+  const sideViewStyles = {
+    [styles.sideViewActive]: isExplorerOpen,
+  };
 
   useEffect(() => {
     openFile(currentFile);
   }, [currentFile]);
 
   return (
-    <div
-      className={classNames(styles.wrapper, {
-        [styles.explorerOpen]: isExplorerOpen,
-      })}
-    >
-      <FileTabMenu />
-      {currentFileContent ? (
-        renderContent(currentFileContent)
-      ) : (
-        <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>
-      )}
-    </div>
+    <>
+      <div className={classNames(styles.sideView, sideViewStyles)}>
+        <Outlet />
+      </div>
+      <div className={classNames(styles.wrapper, sideViewStyles)}>
+        <FileTabMenu />
+        {fileContent ? (
+          renderContent(fileContent)
+        ) : (
+          <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>
+        )}
+      </div>
+    </>
   );
 }
 

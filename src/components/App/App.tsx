@@ -2,7 +2,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { config } from '@fortawesome/fontawesome-svg-core';
 
 import SideMenu from '#/components/SideMenu/SideMenu';
-import SideView from '#/components/SideView/SideView';
+import Explorer from '#/components/Explorer/Explorer';
 import { Content, Resume } from '#/views';
 
 import styles from './app.scss';
@@ -33,8 +33,11 @@ export default function App() {
         <SideMenu />
 
         <div className={styles.content}>
-          <SideView />
           <Routes>
+            <Route path="/" element={<Content />}>
+              <Route index element={<Explorer />} />
+            </Route>
+
             <Route path={PATHS.root} element={<Content />} />
             <Route path={PATHS.allPaths} element={<Content />} />
           </Routes>
