@@ -1,23 +1,16 @@
-import classNames from 'classnames';
-
-import useStore, { getIsExplorerOpen } from '#/store';
 import rootFiles, { getFilesFolders } from '#/explorer';
 
 import File from './components/File/File';
 import Folder from './components/Folder/Folder';
+import Container from './SideViewContainer';
 
 import styles from './sideExplorerView.scss';
 
-export default function SideExplorerView() {
-  const isExplorerOpen = useStore(getIsExplorerOpen);
+export default function SideView() {
   const [files, folders] = getFilesFolders(rootFiles);
 
   return (
-    <div
-      className={classNames(styles.explorer, {
-        [styles.active]: isExplorerOpen,
-      })}
-    >
+    <Container>
       <div className={styles.title}>EXPLORER</div>
       {folders.map((folderFullName) => (
         <Folder
@@ -29,6 +22,6 @@ export default function SideExplorerView() {
       {files.map((fileFullName) => (
         <File key={fileFullName} name={fileFullName} />
       ))}
-    </div>
+    </Container>
   );
 }
