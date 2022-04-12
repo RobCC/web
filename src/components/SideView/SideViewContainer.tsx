@@ -7,6 +7,7 @@ import styles from './sideExplorerView.scss';
 
 export default function SideExplorerView({ children }: PropsWithChildren<{}>) {
   const isExplorerOpen = useStore(getIsExplorerOpen);
+
   return (
     <div
       className={classNames(styles.explorer, {
