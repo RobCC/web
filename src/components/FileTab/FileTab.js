@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-import useStore, { getCurrentFile, changeFile, closeFile } from '#/store';
+import useStore, { getCurrentFile, closeFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 
 import styles from './fileTab.scss';
@@ -38,7 +38,6 @@ function FileTab({ name }) {
   );
 
   const changeCurrentTab = useCallback(() => {
-    changeFile(name);
     setSearchParams({
       file: name,
     });

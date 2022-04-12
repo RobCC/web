@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useSearchParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import useStore, { getCurrentFile, openChangeFile } from '#/store';
+import useStore, { getCurrentFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
@@ -29,7 +29,6 @@ export default function File({ level = 0, name, parent = '' }: Props) {
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = useCallback(() => {
-    openChangeFile(fullName);
     setSearchParams({
       file: fullName,
     });

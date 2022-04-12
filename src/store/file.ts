@@ -5,12 +5,6 @@ export const getCurrentFile = ({ file }: RootState) => file.currentTab;
 
 export const getOpenedFiles = ({ file }: RootState) => file.openedFiles;
 
-export function changeFile(fileName: string) {
-  useStore.setState(produce<RootState>((state) => {
-    state.file.currentTab = fileName;
-  }));
-}
-
 export function closeFile(fileName: string) {
   useStore.setState(produce<RootState>((state) => {
     const indexOfFile = state.file.openedFiles.indexOf(fileName);
@@ -27,7 +21,7 @@ export function closeFile(fileName: string) {
   }));
 }
 
-export function openChangeFile(fileName: string) {
+export function openFile(fileName: string) {
   useStore.setState(produce<RootState>((state) => {
     const isFileAlreadyOpen = state.file.openedFiles.indexOf(fileName) > -1;
 

@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import classNames from 'classnames';
+import { useSearchParams } from 'react-router-dom';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
 
-import useStore, { getIsExplorerOpen, getCurrentFile } from '#/store';
+import useStore, { getIsExplorerOpen, openFile } from '#/store';
 import { getFileContent } from '#/explorer';
 
 import styles from './content.scss';
@@ -23,9 +23,16 @@ function renderContent(fileContent) {
 }
 
 function Content() {
-  const currentFile = useStore(getCurrentFile);
+  const [searchParams] = useSearchParams();
+  const currentFile = searchParams.get('file');
   const isExplorerOpen = useStore(getIsExplorerOpen);
   const currentFileContent = getFileContent(currentFile);
+
+  useEffect(() => {
+    if (currentFile) {
+      openFile(currentFile);
+    }
+  }, [currentFile]);
 
   return (
     <div
@@ -42,11 +49,5 @@ function Content() {
     </div>
   );
 }
-
-Content.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-  }),
-};
 
 export default Content;
