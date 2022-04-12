@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import classNames from 'classnames';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import useStore, { getCurrentFile } from '#/store';
@@ -22,16 +22,19 @@ const INITIAL_PADDING = 15;
 const LEVEL_PADDING_DELTA = 8;
 
 export default function File({ level = 0, name, parent = '' }: Props) {
-  const [, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   const currentTab = useStore(getCurrentFile);
   const { extension, icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = useCallback(() => {
-    setSearchParams({
-      file: fullName,
-    });
+    const [hash] = window.location.hash.split('?');
+    const [, location = '/'] = hash.split('#');
+
+    // Using this instead of useSearchParams, since that one
+    // navigates to root, resetting hash
+    navigate(`${location}?file=${fullName}`);
   }, [fullName]);
 
   const explorerIconClasses = classNames(iconStyles, {
