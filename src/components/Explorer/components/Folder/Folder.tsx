@@ -18,6 +18,8 @@ type Props = {
   content: Map<string, any>;
   /** Parent folder */
   parent?: string;
+  /** Current file */
+  currentFile: string;
 };
 
 export default function Folder({
@@ -25,6 +27,7 @@ export default function Folder({
   name,
   content,
   parent = '',
+  currentFile,
 }: Props) {
   const [isClosed, setIsClosed] = useState(true);
   const [files, folders] = getFilesFolders(content);
@@ -61,11 +64,13 @@ export default function Folder({
           parent={fullName}
           level={level + 1}
           content={content.get(folderName)}
+          currentFile={currentFile}
         />
       ))}
       {files.map((fileName) => (
         <File
           key={`${fullName}/${fileName}`}
+          isActive={currentFile === `${fullName}/${fileName}`}
           name={fileName}
           parent={fullName}
           level={level + 1}

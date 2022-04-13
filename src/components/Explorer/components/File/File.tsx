@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import useStore, { getCurrentFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 import { getLocation } from '#/utils/getLocation';
@@ -17,14 +16,22 @@ type Props = {
   name: string;
   /** Parent folder */
   parent?: string;
+  /** Whether the current opened file is the same as this */
+  isActive?: boolean;
 };
 
 const INITIAL_PADDING = 15;
 const LEVEL_PADDING_DELTA = 8;
 
-export default function File({ level = 0, name, parent = '' }: Props) {
+export default function File({
+  level = 0,
+  name,
+  parent = '',
+  isActive = false,
+}: Props) {
+  // TODO: useNavigate caused re-render. Check back later
+  // https://github.com/remix-run/react-router/issues/7634
   const navigate = useNavigate();
-  const currentTab = useStore(getCurrentFile);
   const { extension, icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
@@ -49,7 +56,7 @@ export default function File({ level = 0, name, parent = '' }: Props) {
       onClick={onClick}
       onKeyDown={handleOnKeyDownButton(onClick)}
       className={classNames(styles.item, {
-        [styles.active]: fullName === currentTab,
+        [styles.active]: isActive,
       })}
       style={{
         paddingLeft: INITIAL_PADDING + level * LEVEL_PADDING_DELTA,
