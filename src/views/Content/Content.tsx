@@ -13,24 +13,20 @@ import styles from './content.scss';
 const DEFAULT_FILE = getCurrentFile(useStore.getState());
 
 function renderContent(fileContent) {
-  if (fileContent instanceof Function) {
-    return fileContent();
-  }
-
-  const [firstLine] = fileContent;
-
-  if (firstLine === '!editor') {
+  if (fileContent instanceof Array) {
     return <Editor file={fileContent} />;
   }
 
-  return null;
+  const FileContent = fileContent;
+
+  return <FileContent />;
 }
 
 function Content() {
   const [searchParams] = useSearchParams();
   const currentFile = searchParams.get('file') || DEFAULT_FILE;
   const isExplorerOpen = useStore(getIsExplorerOpen);
-  const fileContent: any = getFileContent(currentFile);
+  const fileContent = getFileContent(currentFile);
 
   const sideViewStyles = {
     [styles.sideViewActive]: isExplorerOpen,
@@ -41,11 +37,11 @@ function Content() {
   }, [currentFile]);
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={classNames(styles.sideView, sideViewStyles)}>
         <Outlet />
       </div>
-      <div className={classNames(styles.wrapper, sideViewStyles)}>
+      <div className={classNames(styles.content, sideViewStyles)}>
         <FileTabMenu />
         {fileContent ? (
           renderContent(fileContent)
@@ -53,7 +49,7 @@ function Content() {
           <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

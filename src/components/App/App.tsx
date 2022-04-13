@@ -9,40 +9,16 @@ import styles from './app.scss';
 
 config.autoAddCss = false;
 
-const PATHS = {
-  root: '/',
-  allPaths: '*',
-};
-
-/**
- * Idea: Router is around sideView, Content will be present always
- *
- * <Routes>
- *   <Route path="/" SideView>
- *     <Route index component={Explorer} />
- *     <Route path="/something-else" ... />
- *   </Route>
- * </Routes>
- * <Content />
- */
-
 export default function App() {
   return (
     <HashRouter basename="/">
       <div className={styles.root}>
         <SideMenu />
-
-        <div className={styles.content}>
-          <Routes>
-            <Route path="/" element={<Content />}>
-              <Route index element={<Explorer />} />
-            </Route>
-
-            <Route path={PATHS.root} element={<Content />} />
-            <Route path={PATHS.allPaths} element={<Content />} />
-          </Routes>
-        </div>
-
+        <Routes>
+          <Route path="/" element={<Content />}>
+            <Route index element={<Explorer />} />
+          </Route>
+        </Routes>
         <Resume />
       </div>
     </HashRouter>
