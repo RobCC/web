@@ -43,7 +43,8 @@ export function isComment(text = '') {
 export function createCodeText(text) {
   const trimmedLines = text.split('\n').slice(1, -1);
 
-  return ['!editor', ...trimmedLines];
+  // Add a blank line at the end, 'cause that's the way to do it
+  return [...trimmedLines, '\n'];
 }
 
 export function getParsingData(line: string): ParsingData {
