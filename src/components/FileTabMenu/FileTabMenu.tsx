@@ -44,6 +44,10 @@ export default function FileTabMenu() {
     const { scrollWidth, clientWidth } = $wrapper;
 
     toggleScrollbar(scrollWidth > clientWidth);
+
+    if (showScrollbar) {
+      setScrollWidth();
+    }
   }, [openFiles]);
 
   useEffect(() => {
