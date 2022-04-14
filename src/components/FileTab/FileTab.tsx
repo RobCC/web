@@ -1,15 +1,18 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-import useStore, { getCurrentFile, closeFile } from '#/store';
+import useStore, { closeFile, getCurrentFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 import { getLocation } from '#/utils/getLocation';
 
 import styles from './fileTab.scss';
+
+type Props = {
+  name: string;
+};
 
 function getTabStyles(isCurrentTab) {
   return classNames(styles.tab, {
@@ -17,7 +20,7 @@ function getTabStyles(isCurrentTab) {
   });
 }
 
-function FileTab({ name }) {
+export default function FileTab({ name }: Props) {
   const navigate = useNavigate();
   const [showClose, setShowClose] = useState(false);
   const currentTab = useStore(getCurrentFile);
@@ -25,8 +28,8 @@ function FileTab({ name }) {
   const { icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
 
-  const onMouseEnter = useCallback(() => setShowClose(true, []));
-  const onMouseLeave = useCallback(() => setShowClose(false, []));
+  const onMouseEnter = useCallback(() => setShowClose(true), []);
+  const onMouseLeave = useCallback(() => setShowClose(false), []);
   const closeTab = useCallback(
     (e) => {
       e.stopPropagation();
@@ -78,9 +81,3 @@ function FileTab({ name }) {
     </div>
   );
 }
-
-FileTab.propTypes = {
-  name: PropTypes.string,
-};
-
-export default React.memo(FileTab);
