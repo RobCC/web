@@ -44,11 +44,13 @@ export default function FileTabMenu() {
     const { scrollWidth, clientWidth } = $wrapper;
 
     toggleScrollbar(scrollWidth > clientWidth);
+  }, [openFiles]);
 
-    if (scrollRef.current) {
+  useEffect(() => {
+    if (showScrollbar) {
       setScrollWidth();
     }
-  }, [openFiles]);
+  }, [showScrollbar]);
 
   useEffect(() => {
     if (!scrollRef.current) {

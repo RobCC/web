@@ -5,24 +5,24 @@ type EditorState = {
 };
 
 type ExplorerState = {
-  isExplorerOpen: boolean
-}
+  isExplorerOpen: boolean;
+};
 
 type FileState = {
-  currentTab: string
-  openedFiles: string[]
-}
+  currentTab: string;
+  openedFiles: string[];
+};
 
 type ResumeState = {
-  isResumeOpen: boolean
-}
+  isResumeOpen: boolean;
+};
 
 export type RootState = {
-  editor: EditorState
-  explorer: ExplorerState
-  file: FileState
-  resume: ResumeState
-}
+  editor: EditorState;
+  explorer: ExplorerState;
+  file: FileState;
+  resume: ResumeState;
+};
 
 const useStore = create<RootState>(() => ({
   editor: {
@@ -33,13 +33,15 @@ const useStore = create<RootState>(() => ({
   },
   file: {
     currentTab: 'greet.md',
-    openedFiles: ['greet.md', 'contact.css', 'Blog/animation_and_positioning.txt'],
+    openedFiles: [
+      'greet.md',
+      'contact.css',
+      'Blog/animation_and_positioning.txt',
+    ],
   },
   resume: {
     isResumeOpen: false,
   },
 }));
 
-
 export default useStore;
-
