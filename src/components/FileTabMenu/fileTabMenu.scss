@@ -1,0 +1,36 @@
+@use "variables";
+
+.tab-menu {
+  background-color: variables.$file-menu-bg;
+  display: flex;
+  flex: 0 0 variables.$file-tab-height;
+  font-family: sans-serif;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+
+  .scroll {
+    background: #4f504c;
+    bottom: 0;
+    height: 3px;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 500ms;
+    z-index: 1;
+  }
+
+  &:hover .scroll {
+    opacity: 1;
+  }
+
+  &.empty {
+    background-color: variables.$editor-bg;
+  }
+}
+
+.wrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}

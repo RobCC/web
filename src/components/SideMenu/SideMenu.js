@@ -8,13 +8,13 @@ import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
 
 import useStore, {
   toggleExplorer,
-  getIsExplorerOpen,
+  getIsSideViewOpen,
   toggleResume,
 } from '#/store';
 import styles from './sideMenu.scss';
 
 function SideMenu() {
-  const isExplorerOpen = useStore(getIsExplorerOpen);
+  const isSideViewOpen = useStore(getIsSideViewOpen);
 
   const onResumeClick = useCallback(() => {
     toggleResume();
@@ -28,7 +28,7 @@ function SideMenu() {
     <div className={styles.menu}>
       <SideMenuItem
         title="Explorer"
-        selected={isExplorerOpen}
+        selected={isSideViewOpen}
         onClick={onExplorerClick}
         style={{
           position: 'relative',

@@ -5,7 +5,7 @@ import { Outlet, useSearchParams } from 'react-router-dom';
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
 
-import useStore, { getIsExplorerOpen, getCurrentFile, openFile } from '#/store';
+import useStore, { getIsSideViewOpen, getCurrentFile, openFile } from '#/store';
 import { getFileContent } from '#/explorer';
 
 import styles from './content.scss';
@@ -25,11 +25,11 @@ function renderContent(fileContent) {
 function Content() {
   const [searchParams] = useSearchParams();
   const currentFile = searchParams.get('file') || DEFAULT_FILE;
-  const isExplorerOpen = useStore(getIsExplorerOpen);
+  const isSideViewOpen = useStore(getIsSideViewOpen);
   const fileContent = getFileContent(currentFile);
 
   const sideViewStyles = {
-    [styles.sideViewActive]: isExplorerOpen,
+    [styles.sideViewActive]: isSideViewOpen,
   };
 
   useEffect(() => {

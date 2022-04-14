@@ -15,6 +15,7 @@
   margin-right: 1px;
   position: relative;
   text-decoration: none;
+  white-space: nowrap;
 
   &.active {
     background-color: variables.$editor-bg;
