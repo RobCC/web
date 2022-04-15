@@ -23,6 +23,7 @@ export default function FileTabMenu() {
 
   const setScrollLeft = useCallback(() => {
     const $wrapper = wrapperRef.current;
+
     scrollRef.current.style.left = `${
       ($wrapper.scrollLeft * 100) / $wrapper.scrollWidth
     }%`;
@@ -74,7 +75,7 @@ export default function FileTabMenu() {
       {showScrollbar ? <div ref={scrollRef} className={styles.scroll} /> : null}
       <div ref={wrapperRef} className={styles.wrapper} onWheel={onWheel}>
         {openFiles.map((name) => (
-          <FileTab key={name} name={name} />
+          <FileTab key={name} fullName={name} />
         ))}
       </div>
     </div>

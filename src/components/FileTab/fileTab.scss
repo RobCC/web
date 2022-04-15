@@ -1,6 +1,18 @@
 @use "variables";
 @use "utils";
 
+.close {
+  color: white;
+  background: transparent;
+  height: 20px;
+  opacity: 0;
+  position: absolute;
+  right: 3px;
+  top: 10px;
+  transition: opacity 100ms;
+  width: 20px;
+}
+
 .tab {
   align-items: center;
   background-color: #2e2f2a;
@@ -21,11 +33,14 @@
     background-color: variables.$editor-bg;
     border-bottom: 1px solid variables.$editor-bg;
     color: variables.$tab-text-active;
+
+    .close {
+      opacity: 1;
+    }
   }
 
-  &:focus,
-  &:active {
-    border-color: variables.$editor-bg;
+  &:hover .close {
+    opacity: 1;
   }
 }
 
@@ -36,20 +51,4 @@
 .logo-icon {
   position: relative;
   bottom: 6px;
-}
-
-.close {
-  color: white;
-  background: transparent;
-  height: 20px;
-  opacity: 0;
-  position: absolute;
-  right: 3px;
-  top: 10px;
-  transition: opacity 100ms;
-  width: 20px;
-
-  &.show {
-    opacity: 1;
-  }
 }
