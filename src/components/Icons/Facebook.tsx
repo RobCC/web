@@ -1,8 +1,5 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-
 /* eslint-disable max-len */
-function GitHub({ size = '1em', color }) {
+export default function GitHub({ size = '1em', color }: IconProps) {
   return (
     <svg
       baseProfile="tiny"
@@ -15,10 +12,3 @@ function GitHub({ size = '1em', color }) {
     </svg>
   );
 }
-
-GitHub.propTypes = {
-  size: PropTypes.number,
-  color: PropTypes.string,
-};
-
-export default GitHub;

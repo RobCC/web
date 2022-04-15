@@ -74,8 +74,8 @@ export default function FileTabMenu() {
     >
       {showScrollbar ? <div ref={scrollRef} className={styles.scroll} /> : null}
       <div ref={wrapperRef} className={styles.wrapper} onWheel={onWheel}>
-        {openFiles.map((name) => (
-          <FileTab key={name} fullName={name} />
+        {openFiles.map((fullName) => (
+          <FileTab key={fullName} fullName={fullName} />
         ))}
       </div>
     </div>

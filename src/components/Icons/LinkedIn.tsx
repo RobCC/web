@@ -1,8 +1,5 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-
 /* eslint-disable max-len */
-function LinkedIn({ size = '1em', color }) {
+export default function LinkedIn({ size = '1em', color }: IconProps) {
   return (
     <svg
       baseProfile="tiny"
@@ -16,10 +13,3 @@ function LinkedIn({ size = '1em', color }) {
     </svg>
   );
 }
-
-LinkedIn.propTypes = {
-  size: PropTypes.number,
-  color: PropTypes.string,
-};
-
-export default LinkedIn;
