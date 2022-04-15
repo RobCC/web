@@ -1,4 +1,5 @@
 import create from 'zustand';
+import getFileParam from '#/utils/getFileParam';
 
 type EditorState = {
   hasAnimationFinished: boolean;
@@ -32,7 +33,7 @@ const useStore = create<RootState>(() => ({
     isExplorerOpen: false,
   },
   file: {
-    currentTab: 'greet.md',
+    currentTab: getFileParam() || 'greet.md',
     openedFiles: [
       'greet.md',
       'contact.css',

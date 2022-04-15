@@ -1,16 +1,21 @@
-import { useEffect } from 'react';
 import classNames from 'classnames';
-import { Outlet, useSearchParams } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
 
 import useStore, { getIsSideViewOpen, getCurrentFile, openFile } from '#/store';
 import { getFileContent } from '#/explorer';
+import history from '#/utils/history';
+import getFileParam from '#/utils/getFileParam';
 
 import styles from './content.scss';
 
-const DEFAULT_FILE = getCurrentFile(useStore.getState());
+history.listen((update) => {
+  const file = getFileParam(update.location);
+
+  openFile(file);
+});
 
 function renderContent(fileContent) {
   if (fileContent instanceof Array) {
@@ -23,18 +28,13 @@ function renderContent(fileContent) {
 }
 
 function Content() {
-  const [searchParams] = useSearchParams();
-  const currentFile = searchParams.get('file') || DEFAULT_FILE;
+  const currentFile = useStore(getCurrentFile);
   const isSideViewOpen = useStore(getIsSideViewOpen);
   const fileContent = getFileContent(currentFile);
 
   const sideViewStyles = {
     [styles.sideViewActive]: isSideViewOpen,
   };
-
-  useEffect(() => {
-    openFile(currentFile);
-  }, [currentFile]);
 
   return (
     <div className={styles.container}>

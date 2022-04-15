@@ -1,11 +1,10 @@
 import { useCallback } from 'react';
 import classNames from 'classnames';
-import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { openFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
 import { handleOnKeyDownButton } from '#/utils/a11y';
-import { getLocation } from '#/utils/getLocation';
 
 import styles from './file.scss';
 
@@ -29,17 +28,12 @@ export default function File({
   parent = '',
   isActive = false,
 }: Props) {
-  // TODO: useNavigate caused re-render. Check back later
-  // https://github.com/remix-run/react-router/issues/7634
-  const navigate = useNavigate();
   const { extension, icon, iconStyles, isStringIcon } = getFileIcon(name);
   const shortName = getShortName(name);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = useCallback(() => {
-    // Using this instead of useSearchParams, since that one
-    // navigates to root, resetting hash
-    navigate(`${getLocation()}?file=${fullName}`);
+    openFile(fullName);
   }, [fullName]);
 
   const explorerIconClasses = classNames(iconStyles, {

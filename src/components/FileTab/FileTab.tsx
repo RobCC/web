@@ -1,12 +1,10 @@
 import { useState, useCallback } from 'react';
 import classNames from 'classnames';
-import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
-import useStore, { closeFile, getCurrentFile } from '#/store';
+import useStore, { closeFile, openFile, getCurrentFile } from '#/store';
 import { getShortName, getFileIcon } from '#/explorer';
-import { getLocation } from '#/utils/getLocation';
 
 import styles from './fileTab.scss';
 
@@ -21,7 +19,6 @@ function getTabStyles(isCurrentTab) {
 }
 
 export default function FileTab({ name }: Props) {
-  const navigate = useNavigate();
   const [showClose, setShowClose] = useState(false);
   const currentTab = useStore(getCurrentFile);
 
@@ -31,7 +28,7 @@ export default function FileTab({ name }: Props) {
   const onMouseEnter = useCallback(() => setShowClose(true), []);
   const onMouseLeave = useCallback(() => setShowClose(false), []);
   const closeTab = useCallback(
-    (e) => {
+    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       e.stopPropagation();
 
       if (showClose || name === currentTab) {
@@ -44,7 +41,8 @@ export default function FileTab({ name }: Props) {
   const changeCurrentTab = useCallback(() => {
     // Using this instead of useSearchParams, since that one
     // navigates to root, resetting hash
-    navigate(`${getLocation()}?file=${name}`);
+    // navigate(`${getLocation()}?file=${name}`);
+    openFile(name);
   }, [name]);
 
   const tabClasses = getTabStyles(name === currentTab);
