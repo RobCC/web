@@ -1,11 +1,10 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-regular-svg-icons/faCopy';
 import { faFile } from '@fortawesome/free-regular-svg-icons/faFile';
 
 import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
-
 import useStore, {
   toggleExplorer,
   getIsSideViewOpen,
@@ -13,7 +12,7 @@ import useStore, {
 } from '#/store';
 import styles from './sideMenu.scss';
 
-function SideMenu() {
+export default function SideMenu() {
   const isSideViewOpen = useStore(getIsSideViewOpen);
 
   const onResumeClick = useCallback(() => {
@@ -33,6 +32,7 @@ function SideMenu() {
         style={{
           position: 'relative',
           left: '-2px',
+          borderLeftWidth: '4px',
         }}
       >
         <FontAwesomeIcon icon={faCopy} />
@@ -43,5 +43,3 @@ function SideMenu() {
     </div>
   );
 }
-
-export default React.memo(SideMenu);

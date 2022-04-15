@@ -9,6 +9,16 @@
   margin: 0 auto;
 }
 
+.title {
+  align-items: center;
+  bottom: 2px;
+  display: flex;
+  font-size: 9px;
+  justify-content: center;
+  position: absolute;
+  opacity: 0;
+}
+
 .item {
   align-items: center;
   box-sizing: border-box;
@@ -30,6 +40,10 @@
     width: 24px;
   }
 
+  .title {
+    animation: menuTitleFadeOutKF 100ms forwards;
+  }
+
   &.active {
     border-left: 3px solid white;
 
@@ -42,23 +56,9 @@
     .icon {
       color: white;
     }
+
+    .title {
+      animation: menuTitleFadeInKF 100ms forwards;
+    }
   }
-}
-
-.title {
-  align-items: center;
-  bottom: 2px;
-  display: flex;
-  font-size: 9px;
-  justify-content: center;
-  position: absolute;
-  opacity: 0;
-}
-
-.title-fade-in {
-  animation: menuTitleFadeInKF 100ms forwards;
-}
-
-.title-fade-out {
-  animation: menuTitleFadeOutKF 100ms forwards;
 }
