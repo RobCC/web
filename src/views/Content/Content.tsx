@@ -5,8 +5,8 @@ import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
 
 import useStore, { getIsSideViewOpen, getCurrentFile, openFile } from '#/store';
-import { getFileContent } from '#/explorer';
 import history from '#/utils/history';
+import { getFileContent } from '#/utils/files';
 import getFileParam from '#/utils/getFileParam';
 
 import styles from './content.scss';
@@ -17,7 +17,7 @@ history.listen((update) => {
   openFile(file);
 });
 
-function renderContent(fileContent) {
+function renderContent(fileContent: AppFileContent) {
   if (fileContent instanceof Array) {
     return <Editor file={fileContent} />;
   }

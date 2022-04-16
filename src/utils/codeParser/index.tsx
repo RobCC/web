@@ -40,7 +40,7 @@ export function isComment(text = '') {
   );
 }
 
-export function createCodeText(text) {
+export function createCodeText(text): EditorFile {
   const trimmedLines = text.split('\n').slice(1, -1);
 
   // Add a blank line at the end, 'cause that's the way to do it

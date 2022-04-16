@@ -1,0 +1,9 @@
+import { createFile } from '#/utils/explorer';
+
+const name = 'sub3Test.json';
+
+function Content() {
+  return <div>Not on editor</div>;
+}
+
+export default createFile(name, Content);

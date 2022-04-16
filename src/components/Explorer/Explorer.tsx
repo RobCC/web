@@ -1,4 +1,5 @@
-import rootFiles, { getFilesFolders } from '#/explorer';
+import rootFiles from '#/files';
+import { getFolderContent } from '#/utils/files';
 
 import useStore, { getCurrentFile } from '#/store';
 import File from './components/File/File';
@@ -8,7 +9,7 @@ import styles from './sideExplorerView.scss';
 
 export default function Explorer() {
   const currentFile = useStore(getCurrentFile);
-  const [files, folders] = getFilesFolders(rootFiles);
+  const [files, folders] = getFolderContent(rootFiles);
 
   return (
     <>
@@ -17,7 +18,7 @@ export default function Explorer() {
         <Folder
           key={folderFullName}
           name={folderFullName}
-          content={rootFiles.get(folderFullName)}
+          content={rootFiles.get(folderFullName) as AppFolderContent}
           currentFile={currentFile}
         />
       ))}

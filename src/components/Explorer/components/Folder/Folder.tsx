@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
-import { getFilesFolders } from '#/explorer';
+import { getFolderContent } from '#/utils/files';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 import File from '../File/File';
 
@@ -15,7 +15,7 @@ type Props = {
   /** Folder name */
   name: string;
   /** Folder content */
-  content: Map<string, any>;
+  content: AppFolderContent;
   /** Parent folder */
   parent?: string;
   /** Current file */
@@ -30,7 +30,7 @@ export default function Folder({
   currentFile,
 }: Props) {
   const [isClosed, setIsClosed] = useState(true);
-  const [files, folders] = getFilesFolders(content);
+  const [files, folders] = getFolderContent(content);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
   const onClick = () => {
@@ -63,7 +63,7 @@ export default function Folder({
           name={folderName}
           parent={fullName}
           level={level + 1}
-          content={content.get(folderName)}
+          content={content.get(folderName) as AppFolderContent}
           currentFile={currentFile}
         />
       ))}

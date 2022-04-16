@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
 import useStore, { closeFile, openFile, getCurrentFile } from '#/store';
-import { getShortName, getFileIcon } from '#/explorer';
+import { getFileMetadata, getShortName, isIconString } from '#/utils/files';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './fileTab.scss';
@@ -15,7 +15,8 @@ type Props = {
 
 export default function FileTab({ fullName }: Props) {
   const currentTab = useStore(getCurrentFile);
-  const { icon, iconStyles, isStringIcon } = getFileIcon(fullName);
+  const { icon, iconStyles } = getFileMetadata(fullName);
+  const isSring = isIconString(icon);
   const shortName = getShortName(fullName);
 
   const closeTab = useCallback(
@@ -32,8 +33,8 @@ export default function FileTab({ fullName }: Props) {
   }, [fullName]);
 
   const tabIconStyles = classNames(iconStyles, {
-    [styles.icon]: isStringIcon,
-    [styles.logoIcon]: !isStringIcon,
+    [styles.icon]: isSring,
+    [styles.logoIcon]: !isSring,
   });
 
   return (
@@ -47,7 +48,7 @@ export default function FileTab({ fullName }: Props) {
       onClick={changeCurrentTab}
       onKeyDown={handleOnKeyDownButton(changeCurrentTab)}
     >
-      {isStringIcon ? (
+      {isSring ? (
         <div className={tabIconStyles}>{icon}</div>
       ) : (
         <div className={tabIconStyles}>

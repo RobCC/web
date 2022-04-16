@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { openFile } from '#/store';
-import { getShortName, getFileIcon } from '#/explorer';
+import { getFileMetadata, getShortName, isIconString } from '#/utils/files';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './file.scss';
@@ -28,7 +28,8 @@ export default function File({
   parent = '',
   isActive = false,
 }: Props) {
-  const { extension, icon, iconStyles, isStringIcon } = getFileIcon(name);
+  const { extension, icon, iconStyles } = getFileMetadata(name);
+  const isString = isIconString(icon);
   const shortName = getShortName(name);
   const fullName = `${parent}${parent ? '/' : ''}${name}`;
 
@@ -37,8 +38,8 @@ export default function File({
   }, [fullName]);
 
   const explorerIconClasses = classNames(iconStyles, {
-    [styles.icon]: isStringIcon,
-    [styles.logoIcon]: !isStringIcon,
+    [styles.icon]: isString,
+    [styles.logoIcon]: !isString,
     [styles.json]: extension === 'json',
   });
 
@@ -56,7 +57,7 @@ export default function File({
         paddingLeft: INITIAL_PADDING + level * LEVEL_PADDING_DELTA,
       }}
     >
-      {isStringIcon ? (
+      {isString ? (
         <div className={styles.iconWrapper}>
           <div className={explorerIconClasses}>{icon}</div>
         </div>
