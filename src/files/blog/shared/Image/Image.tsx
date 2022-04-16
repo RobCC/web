@@ -1,5 +1,3 @@
-import classNames from 'classnames';
-
 import styles from './image.scss';
 
 type Props = {
@@ -7,21 +5,12 @@ type Props = {
   src: string;
   scale?: string;
   style?: React.CSSProperties;
-  center?: boolean;
 };
 
-export default function Image({
-  alt,
-  src,
-  scale = '1x',
-  style = {},
-  center = false,
-}: Props) {
+export default function Image({ alt, src, scale = '1x', style = {} }: Props) {
   return (
     <img
-      className={classNames(styles.image, {
-        [styles.center]: center,
-      })}
+      className={styles.image}
       alt={alt}
       srcSet={`${src} ${scale}`}
       style={style}
