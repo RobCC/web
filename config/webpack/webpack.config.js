@@ -30,6 +30,7 @@ module.exports = () => ({
     path: BUILD_PATH,
     filename: '[name].js',
     chunkFilename: '[name].bundle.js',
+    assetModuleFilename: 'images/[hash][ext][query]',
     publicPath: '',
   },
   resolve: {
@@ -65,11 +66,20 @@ module.exports = () => ({
         test: /\.(woff|woff2|tff|otf|eot)$/,
         type: 'asset/resource',
       },
+      {
+        test: /\.(txt|md)/,
+        type: 'asset/source',
+      },
     ],
   },
   optimization: {
     splitChunks: {
       cacheGroups: {
+        react: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'react',
+          chunks: 'all',
+        },
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
