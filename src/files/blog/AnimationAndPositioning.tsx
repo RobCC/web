@@ -48,28 +48,32 @@ function AnimationAndPositioning() {
         end, to recommend you more content within the app.
       </p>
       <Image alt="Fullscreen player" src={videoFull} style={imgStyle} />
-      On TV streaming apps, the player is usually fullscreen by default. When
-      credits start rolling, an animation occurs. The player shrinks and moves
-      to the right of the screen, revealing some carousels with episodes,
-      metadata on the next episode to play, a countdown perhaps. You get the
-      idea.
-      <Image alt="Final" src={videoFinal} style={imgStyle} />
-      The main focus on this blog will the the transition on the player. Both on
-      scaling, and positioning.
       <p>
-        There are 2 things to consider:
-        <ol>
-          <li>
-            <b>Pixel perfect with designs: </b>
-            This means to follow the exact position and scaling of the player as
-            specified on the designs.
-          </li>
-          <li>
-            <b>Resolution compatibility: </b>
-            Position and scale should be the same on all TV resolutions.
-          </li>
-        </ol>
+        On TV streaming apps, the player is usually fullscreen by default. When
+        credits start rolling, an animation occurs. The player shrinks and moves
+        to the right of the screen, revealing some carousels with episodes,
+        metadata on the next episode to play, a countdown perhaps. You get the
+        idea.
       </p>
+      <Image
+        alt="Final"
+        src={videoFinal}
+        style={imgStyle}
+        footer="The main focus on this blog will the the transition on the player. Both on
+      scaling, and positioning."
+      />
+      <p>There are 2 things to consider:</p>
+      <ol>
+        <li>
+          <b>Pixel perfect with designs: </b>
+          This means to follow the exact position and scaling of the player as
+          specified on the designs.
+        </li>
+        <li>
+          <b>Resolution compatibility: </b>
+          Position and scale should be the same on all TV resolutions.
+        </li>
+      </ol>
       The real UI was made on on Figma, with the following values:
       <ul>
         <li>
