@@ -5,12 +5,16 @@ type Props = {
   src: string;
   scale?: string;
   footer?: string;
+  width?: number;
+  height?: number;
   style?: React.CSSProperties;
 };
 
 export default function Image({
   alt,
   src,
+  width,
+  height,
   scale = '1x',
   footer = '',
   style = {},
@@ -22,6 +26,8 @@ export default function Image({
         alt={alt}
         srcSet={`${src} ${scale}`}
         style={style}
+        width={width}
+        height={height}
       />
       {footer ? <span className={styles.footer}>{footer}</span> : null}
     </>
