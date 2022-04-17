@@ -1,25 +1,3 @@
 .root {
   display: flex;
 }
-
-.content {
-  display: flex;
-  flex-grow: 1;
-  position: relative;
-}
-
-button {
-  border: 0;
-}
-
-button,
-div[role=button] {
-  font-family: inherit;
-  cursor: pointer;
-  outline: none;
-
-  &:focus,
-  &:active {
-    outline: none;
-  }
-}

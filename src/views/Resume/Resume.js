@@ -1,27 +1,24 @@
 import React, { useState, useCallback } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-// import lottie from 'lottie-web';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 
-import Wrapper from 'Components/ResumeStuff/Wrapper/Wrapper';
-import { toggleResume, isResumeOpen as selector } from '#/store/ducks/resume';
+import Wrapper from '#/components/ResumeStuff/Wrapper/Wrapper';
+
+import useStore, { toggleResume, getIsResumeOpen } from '#/store';
 import MountAnimator from '#/utils/MountAnimator';
 
 import styles from './resume.scss';
 
 function Resume() {
   const [onScreen, setOnScreen] = useState(false);
-  const reduxDispatch = useDispatch();
-  const isResumeOpen = useSelector((store) => selector(store));
+  const isResumeOpen = useStore(getIsResumeOpen);
 
   const animationFinishedCb = useCallback((isShown) => {
     setOnScreen(isShown);
   }, []);
 
   const hideResume = useCallback(() => {
-    reduxDispatch(toggleResume());
+    toggleResume();
   }, []);
 
   return (
