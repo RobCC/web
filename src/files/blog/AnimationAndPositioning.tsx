@@ -41,6 +41,7 @@ function AnimationAndPositioning() {
   return (
     <Wrapper>
       <h1>Animation &amp; Positioning</h1>
+      <h4>Jan 14, 2022</h4>
       <p>
         This was something interesting I worked in a while back, so I though I
         could share it. Working on an &quot;On Next&quot; functionality, usually

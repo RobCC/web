@@ -14,6 +14,7 @@ function CleaningUp() {
   return (
     <Wrapper>
       <h1>Cleaning Up the Website</h1>
+      <h4>Apr 17, 2022</h4>
       <p>
         I like this website. I made it in 2018, back then it was a fun
         challenge. I had a clear vision, the features that I wanted it to have.
@@ -175,6 +176,7 @@ function CleaningUp() {
         height={imgSize.height}
         footer="132.86KB from react. 105.24KB from vendors, and 60.04KB from the main bundle"
       />
+      <p>I have more changes in mind, but mostly from my own code.</p>
     </Wrapper>
   );
 }
