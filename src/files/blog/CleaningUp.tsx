@@ -1,4 +1,6 @@
 import initialBundle from '~/public/images/blog/bundle_og.png';
+import bundleUpdate from '~/public/images/blog/bundle_update.png';
+import bundleEnd from '~/public/images/blog/bundle_end.png';
 
 import { createFile } from '#/utils/explorer';
 import { Wrapper, Gist, Image } from '#/files/blog/shared';
@@ -11,7 +13,7 @@ const imgSize = {
 function CleaningUp() {
   return (
     <Wrapper>
-      <h1>Cleaning Up</h1>
+      <h1>Cleaning Up the Website</h1>
       <p>
         I like this website. I made it in 2018, back then it was a fun
         challenge. I had a clear vision, the features that I wanted it to have.
@@ -88,6 +90,90 @@ function CleaningUp() {
       <Gist
         gist="RobCC/0ec2b10448bf966bf6ce142badd3246d"
         file="icons-treeshake.ts"
+      />
+      <p>
+        Another lib that was taking a lot of space was{' '}
+        <a href="https://www.npmjs.com/package/react-markdown">
+          react-markdown
+        </a>
+        . This one is used to read markdown and return HTML. Here, is used to
+        read the <b>README.md</b> of the personal projects I&apos;ve worked on.
+        After looking for other alternatives, I found{' '}
+        <a href="https://www.npmjs.com/package/marked">marked</a> to be the best
+        solution for my needs (thanks for Adam Leggett for his useful and
+        complete{' '}
+        <a href="https://stackoverflow.com/a/40066280/2756370">SO answer!</a>).
+        Even if <b>react-markdown</b> (100.22KB parsed size) is React focused,{' '}
+        <b>marked</b> (35.1KB parsed size) was a 3rd of the former&apos;s size,
+        and the difference in both&apos;s implementation wasn&apos;t that big
+      </p>
+      <Gist
+        gist="RobCC/0ec2b10448bf966bf6ce142badd3246d"
+        file="react-markdown.ts"
+      />
+      <Gist gist="RobCC/0ec2b10448bf966bf6ce142badd3246d" file="marked.ts" />
+      <p>
+        These were the most noticeable libraries. In addition, I&apos;ve
+        configured webpack to bundle all <b>node_modules</b> and <b>react</b> in
+        different chunks. And with just those changes, we ended up with a total
+        of 325.8 KB, half of the original size.
+      </p>
+      <Image
+        alt="bundle update"
+        src={bundleUpdate}
+        width={imgSize.width}
+        height={imgSize.height}
+        footer="A total of 246.12KB parsed size. Big difference."
+      />
+      <h2>State Management</h2>
+      <p>
+        I opted for Redux since it was growing in popularity and I decided to
+        used it so I can learn about it. Afterwards, I updated the code using{' '}
+        <a href="https://www.npmjs.com/package/@reduxjs/toolkit">
+          Redux Toolkit
+        </a>
+        . Lot of boilerplate code removed. Given the very simple scope on this
+        site, redux was kind of overkill, and it was noticeable on the bundle
+        size as well. I went through some other alternatives that looked
+        interesting: Recoil, MobX, XState. This of course included React&apos;s
+        own Context. Focusing on lightweight, I was stuck between 2:{' '}
+        <a href="https://www.npmjs.com/package/jotai">jotai</a> and{' '}
+        <a href="https://www.npmjs.com/package/zustand">zustand</a>.
+      </p>
+      <p>
+        Jotai has Recoil&apos;s mentality around atoms, kind of like its
+        lightweight version. Same relationship between Zustand and Redux. Since
+        Redux was already being used, I thought making the jump to Zustand would
+        be easier, less refactoring and changes overall.
+      </p>
+      <p>
+        I added <a href="https://www.npmjs.com/package/immer">immer</a> to the
+        formula. Changes were smooth, and even simpler than Redux&apos;s. I
+        managed to reduce the vendors file by 15KB, very little difference. But
+        even with less or slightly more, it was just for the sake of trying the
+        new options out there.
+      </p>
+      <h2>Adding Typescript</h2>
+      <p>
+        I wanted to add typescript to keep everything together and clear when I
+        come back periodically to make some changes. This required a fresh
+        install, creating a <b>tsconfig.json</b> (allowJs: true as a temporary
+        solution while I refactor all JS files into TS/TSX).
+      </p>
+      <p>
+        Changed `webpack.config` file to bundle everything with `ts-loader`,
+        added{' '}
+        <a href="https://www.npmjs.com/package/fork-ts-checker-webpack-plugin">
+          fork-ts-checker-webpack-plugin
+        </a>{' '}
+        to run type checker on a different proccess.
+      </p>
+      <Image
+        alt="bundle end"
+        src={bundleEnd}
+        width={imgSize.width}
+        height={imgSize.height}
+        footer="132.86KB from react. 105.24KB from vendors, and 60.04KB from the main bundle"
       />
     </Wrapper>
   );
