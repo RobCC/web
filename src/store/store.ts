@@ -33,12 +33,8 @@ const useStore = create<RootState>(() => ({
     isExplorerOpen: false,
   },
   file: {
-    currentTab: getFileParam() || 'greet.md',
-    openedFiles: [
-      'greet.md',
-      'contact.css',
-      'Blog/animation_and_positioning.txt',
-    ],
+    currentTab: getFileParam() || 'README.md',
+    openedFiles: ['README.md', 'contact.css', 'Blog/cleaning_up.txt'],
   },
   resume: {
     isResumeOpen: false,
