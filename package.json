@@ -3,6 +3,16 @@
   "version": "0.0.0",
   "description": "A web playground",
   "main": "index.tsx",
+  "author": "robcc",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobCC/web-playground.git"
+  },
+  "bugs": {
+    "url": "https://github.com/RobCC/web-playground/issues"
+  },
+  "homepage": "https://github.com/RobCC/web-playground#readme",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --config config/webpack/webpack.config.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.config.js",
@@ -15,24 +25,22 @@
     "lint": "npm run eslint && npm run stylelint",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RobCC/web-playground.git"
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "classnames": "^2.3.1",
+    "core-js": "^3.20.2",
+    "immer": "^9.0.12",
+    "marked": "^4.0.12",
+    "prop-types": "^15.7.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.2.2",
+    "zustand": "^3.7.2"
   },
-  "author": "robcc",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RobCC/web-playground/issues"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/fileMock.js",
-      "\\.(css|less|scss)$": "identity-obj-proxy",
-      "^~/(.*)": "<rootDir>/$1",
-      "^#/(.*)": "<rootDir>/src/$1"
-    }
-  },
-  "homepage": "https://github.com/RobCC/web-playground#readme",
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/plugin-proposal-export-default-from": "^7.16.7",
@@ -62,7 +70,6 @@
     "gh-pages": "^2.1.1",
     "html-webpack-plugin": "^5.5.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^27.5.1",
     "mini-css-extract-plugin": "^2.6.0",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.6.2",
@@ -81,21 +88,5 @@
     "webpack-bundle-analyzer": "^4.5.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.8.1"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-regular-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
-    "@fortawesome/react-fontawesome": "^0.1.18",
-    "classnames": "^2.3.1",
-    "core-js": "^3.20.2",
-    "immer": "^9.0.12",
-    "marked": "^4.0.12",
-    "prop-types": "^15.7.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "^6.2.2",
-    "zustand": "^3.7.2"
   }
 }
