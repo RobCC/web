@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const StyleLintFormatter = require('stylelint-formatter-pretty');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const { NODE_ENV } = process.env;
 const { DEV, ROOT_PATH, SRC_PATH, BUILD_PATH } = require('./constants');
@@ -68,6 +68,9 @@ module.exports = () => ({
       },
     ],
   },
+  performance: {
+    maxEntrypointSize: 500000,
+  },
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -95,6 +98,6 @@ module.exports = () => ({
       favicon: 'public/icons/favicon.ico',
     }),
     new MiniCssExtractPlugin({ filename: 'index.css' }),
-    // new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
+    new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
   ],
 });
