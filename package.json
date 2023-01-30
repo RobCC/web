@@ -22,8 +22,7 @@
     "es:fix": "eslint 'src/**/*.js' --fix",
     "prettier": "prettier --write ./**/*.js",
     "style:fix": "stylelint 'src/**/*.scss' --fix",
-    "lint": "npm run eslint && npm run stylelint",
-    "test": "jest"
+    "lint": "npm run eslint && npm run stylelint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
