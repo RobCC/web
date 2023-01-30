@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const StyleLintFormatter = require('stylelint-formatter-pretty');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const { NODE_ENV } = process.env;
 const { DEV, ROOT_PATH, SRC_PATH, BUILD_PATH } = require('./constants');
@@ -18,11 +18,7 @@ module.exports = () => ({
     hot: true,
   },
   mode: NODE_ENV,
-  entry: [
-    // 'core-js/stable',
-    // 'regenerator-runtime/runtime',
-    `${SRC_PATH}/index.tsx`,
-  ],
+  entry: [`${SRC_PATH}/index.tsx`],
   stats: 'errors-warnings',
   devtool: NODE_ENV === DEV ? 'source-map' : false,
   context: ROOT_PATH,
