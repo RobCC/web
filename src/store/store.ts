@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import getFileParam from '#/utils/getFileParam';
 
 type EditorState = {
