@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import getFileParam from '#/utils/getFileParam';
 
 type EditorState = {
   hasAnimationFinished: boolean;
@@ -25,6 +24,12 @@ export type RootState = {
   resume: ResumeState;
 };
 
+function getFileFromUrl() {
+  const [, file = ''] = window.location.hash.split('file=');
+
+  return decodeURIComponent(file);
+}
+
 const useStore = create<RootState>(() => ({
   editor: {
     hasAnimationFinished: false,
@@ -33,7 +38,7 @@ const useStore = create<RootState>(() => ({
     isExplorerOpen: false,
   },
   file: {
-    currentTab: getFileParam() || 'README.md',
+    currentTab: getFileFromUrl() || 'README.md',
     openedFiles: ['README.md', 'contact.css', 'Blog/cleaning_up.txt'],
   },
   resume: {
