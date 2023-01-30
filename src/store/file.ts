@@ -15,9 +15,13 @@ export function closeFile(fileName: string) {
 
     state.file.openedFiles.splice(indexOfFile, 1);
 
-    const { openedFiles } = state.file;
+    // if the tab we're closing is the current, move to the last tab (if any)
+    if (fileName === state.file.currentTab) {
+      const { openedFiles } = state.file;
+      const previousTab = openedFiles[openedFiles.length - 1];
 
-    state.file.currentTab = openedFiles[openedFiles.length - 1] || '';
+      state.file.currentTab = previousTab ?? '';
+    }
   }));
 }
 

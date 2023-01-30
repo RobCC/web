@@ -55,7 +55,7 @@ module.exports = () => ({
         use: setStyleLoaders(NODE_ENV),
       },
       {
-        test: /\.(png|pje?g|gif|svg)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource',
       },
       {

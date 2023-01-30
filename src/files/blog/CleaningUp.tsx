@@ -1,6 +1,6 @@
-import initialBundle from '~/public/images/blog/bundle_og.png';
-import bundleUpdate from '~/public/images/blog/bundle_update.png';
-import bundleEnd from '~/public/images/blog/bundle_end.png';
+import initialBundle from '~/public/images/blog/bundle_og.jpg';
+import bundleUpdate from '~/public/images/blog/bundle_update.jpg';
+import bundleEnd from '~/public/images/blog/bundle_end.jpg';
 
 import { createFile } from '#/utils/explorer';
 import { Wrapper, Gist, Image } from '#/files/blog/shared';
