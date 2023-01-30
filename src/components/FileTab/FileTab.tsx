@@ -57,7 +57,12 @@ export default function FileTab({ fullName }: Props) {
       )}
       {shortName}
 
-      <button type="button" className={styles.close} onClick={closeTab}>
+      <button
+        type="button"
+        className={styles.close}
+        onClick={closeTab}
+        aria-label="Close"
+      >
         <FontAwesomeIcon icon={faTimes} />
       </button>
     </div>
