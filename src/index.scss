@@ -1,29 +1,35 @@
 @use "variables";
 
-body {
-  background: variables.$editor-bg;
-  color: white;
-  font-family: Fira Code, monospace;
-  margin: 0;
-}
+:global {
+  body {
+    background: variables.$editor-bg;
+    color: white;
+    font-family: Fira Code, monospace;
+    margin: 0;
+  }
 
-a {
-  color: variables.$url;
-  text-decoration: none;
-}
+  #root {
+    display: flex;
+  }
 
-button {
-  border: 0;
-}
+  a {
+    color: variables.$url;
+    text-decoration: none;
+  }
 
-button,
-div[role="button"] {
-  cursor: pointer;
-  font-family: inherit;
-  outline: none;
+  button {
+    border: 0;
+  }
 
-  &:focus,
-  &:active {
+  button,
+  div[role="button"] {
+    cursor: pointer;
+    font-family: inherit;
     outline: none;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
   }
 }
