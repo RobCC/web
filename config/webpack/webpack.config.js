@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const StyleLintFormatter = require('stylelint-formatter-pretty');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const Critters = require('critters-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const { NODE_ENV } = process.env;
@@ -98,6 +99,7 @@ module.exports = () => ({
       favicon: 'public/icons/favicon.ico',
     }),
     new MiniCssExtractPlugin({ filename: 'index.css' }),
+    new Critters(),
     new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
   ],
 });

@@ -52,6 +52,7 @@
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.2",
     "clean-webpack-plugin": "^4.0.0",
+    "critters-webpack-plugin": "^3.0.2",
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.3",
     "cssnano": "^5.1.14",
