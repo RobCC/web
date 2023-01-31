@@ -18,11 +18,7 @@ module.exports = () => ({
     hot: true,
   },
   mode: NODE_ENV,
-  entry: [
-    // 'core-js/stable',
-    // 'regenerator-runtime/runtime',
-    `${SRC_PATH}/index.tsx`,
-  ],
+  entry: [`${SRC_PATH}/index.tsx`],
   stats: 'errors-warnings',
   devtool: NODE_ENV === DEV ? 'source-map' : false,
   context: ROOT_PATH,
@@ -59,7 +55,7 @@ module.exports = () => ({
         use: setStyleLoaders(NODE_ENV),
       },
       {
-        test: /\.(png|pje?g|gif|svg)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource',
       },
       {
@@ -71,6 +67,9 @@ module.exports = () => ({
         type: 'asset/source',
       },
     ],
+  },
+  performance: {
+    maxEntrypointSize: 500000,
   },
   optimization: {
     splitChunks: {
@@ -99,6 +98,6 @@ module.exports = () => ({
       favicon: 'public/icons/favicon.ico',
     }),
     new MiniCssExtractPlugin({ filename: 'index.css' }),
-    // new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
+    new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
   ],
 });

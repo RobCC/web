@@ -12,6 +12,12 @@ declare module '*.png' {
   export = value;
 }
 
+declare module '*.jpg' {
+  const value: any;
+
+  export = value;
+}
+
 type IconProps = {
   size?: string;
   color: string;

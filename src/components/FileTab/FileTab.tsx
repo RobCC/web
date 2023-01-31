@@ -16,7 +16,7 @@ type Props = {
 export default function FileTab({ fullName }: Props) {
   const currentTab = useStore(getCurrentFile);
   const { icon, iconStyles } = getFileMetadata(fullName);
-  const isSring = isIconString(icon);
+  const isString = isIconString(icon);
   const shortName = getShortName(fullName);
 
   const closeTab = useCallback(
@@ -33,8 +33,8 @@ export default function FileTab({ fullName }: Props) {
   }, [fullName]);
 
   const tabIconStyles = classNames(iconStyles, {
-    [styles.icon]: isSring,
-    [styles.logoIcon]: !isSring,
+    [styles.icon]: isString,
+    [styles.logoIcon]: !isString,
   });
 
   return (
@@ -48,7 +48,7 @@ export default function FileTab({ fullName }: Props) {
       onClick={changeCurrentTab}
       onKeyDown={handleOnKeyDownButton(changeCurrentTab)}
     >
-      {isSring ? (
+      {isString ? (
         <div className={tabIconStyles}>{icon}</div>
       ) : (
         <div className={tabIconStyles}>
@@ -57,7 +57,12 @@ export default function FileTab({ fullName }: Props) {
       )}
       {shortName}
 
-      <button type="button" className={styles.close} onClick={closeTab}>
+      <button
+        type="button"
+        className={styles.close}
+        onClick={closeTab}
+        aria-label="Close"
+      >
         <FontAwesomeIcon icon={faTimes} />
       </button>
     </div>

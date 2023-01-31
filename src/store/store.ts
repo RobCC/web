@@ -1,5 +1,5 @@
-import create from 'zustand';
-import getFileParam from '#/utils/getFileParam';
+import { create } from 'zustand';
+import { immer } from 'zustand/middleware/immer';
 
 type EditorState = {
   hasAnimationFinished: boolean;
@@ -25,20 +25,28 @@ export type RootState = {
   resume: ResumeState;
 };
 
-const useStore = create<RootState>(() => ({
-  editor: {
-    hasAnimationFinished: false,
-  },
-  explorer: {
-    isExplorerOpen: false,
-  },
-  file: {
-    currentTab: getFileParam() || 'README.md',
-    openedFiles: ['README.md', 'contact.css', 'Blog/cleaning_up.txt'],
-  },
-  resume: {
-    isResumeOpen: false,
-  },
-}));
+function getFileFromUrl() {
+  const [, file = ''] = window.location.hash.split('file=');
+
+  return decodeURIComponent(file);
+}
+
+const useStore = create(
+  immer<RootState>(() => ({
+    editor: {
+      hasAnimationFinished: false,
+    },
+    explorer: {
+      isExplorerOpen: false,
+    },
+    file: {
+      currentTab: getFileFromUrl() || 'README.md',
+      openedFiles: ['README.md', 'contact.css', 'Blog/cleaning_up.txt'],
+    },
+    resume: {
+      isResumeOpen: false,
+    },
+  })),
+);
 
 export default useStore;

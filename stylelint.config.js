@@ -12,6 +12,12 @@ module.exports = {
         ignoreFunctions: ['utils.vw', 'math.div', '-'],
       },
     ],
+    'selector-pseudo-class-no-unknown': [
+      true,
+      {
+        ignorePseudoClasses: ['global'],
+      },
+    ],
     'number-max-precision': null,
     'max-nesting-depth': 3,
     'number-leading-zero': null,

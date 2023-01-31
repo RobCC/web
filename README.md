@@ -2,6 +2,6 @@
 
 Visit it [here](http://www.jrobcc.com).
 
-# Explorer
+# Deploy
 
-The structure on the explorer is handled by `src/explorer/files`. Notice both have the same file structure.
+- From `master` branch, run `npm run deploy`
