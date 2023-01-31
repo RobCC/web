@@ -3,7 +3,7 @@
 
 .menu {
   display: flex;
-  background-color: #272822;
+  background-color: variables.$side-menu-bg;
   flex-direction: column;
   height: 100vh;
   flex: 0 0 variables.$menu-size;
