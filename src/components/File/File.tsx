@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { openFile } from '#/store';
-import { getFileMetadata, getShortName, isIconString } from '#/utils/files';
+import { getFileMetadata, isIconString } from '#/utils/files';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './file.scss';
@@ -11,8 +11,7 @@ import styles from './file.scss';
 type Props = {
   /** Depth level on the file system */
   level?: number;
-  /** File name */
-  name: string;
+  data: AppFile2;
   /** Parent folder */
   parent?: string;
   /** Whether the current opened file is the same as this */
@@ -24,14 +23,13 @@ const LEVEL_PADDING_DELTA = 8;
 
 export default function File({
   level = 0,
-  name,
+  data,
   parent = '',
   isActive = false,
 }: Props) {
-  const { extension, icon, iconStyles } = getFileMetadata(name);
+  const { extension, icon, iconStyles } = getFileMetadata(data.name);
   const isString = isIconString(icon);
-  const shortName = getShortName(name);
-  const fullName = `${parent}${parent ? '/' : ''}${name}`;
+  const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
 
   const onClick = useCallback(() => {
     openFile(fullName);
@@ -68,7 +66,7 @@ export default function File({
           </div>
         </div>
       )}
-      {shortName}
+      {data.name}
     </div>
   );
 }

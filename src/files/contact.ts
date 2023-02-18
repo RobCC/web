@@ -1,5 +1,5 @@
 import { createCodeText } from '#/utils/codeParser';
-import { createFile } from '#/utils/explorer';
+import { fileUtils } from '#/utils/directory';
 
 const name = 'contact.css';
 const content = createCodeText(`
@@ -20,4 +20,4 @@ $(.email, green) $({, yellow)
 $(}, yellow)
 `);
 
-export default createFile(name, content);
+export default fileUtils.create(name, content);

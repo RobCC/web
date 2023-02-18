@@ -25,6 +25,8 @@ type IconProps = {
 
 type EditorFile = string[];
 
+
+// old types
 type AppFileContent = EditorFile | React.FC<unknown>;
 
 type AppFile = [string, AppFileContent];
@@ -32,3 +34,19 @@ type AppFile = [string, AppFileContent];
 type AppFolder = [string, Map<string, AppFileContent | AppFolder[1]>];
 
 type AppFolderContent = AppFolder[1];
+
+// new types
+type FileContent = EditorFile | React.FC<unknown>;
+
+type AppFile2 = {
+  readonly type: 'file';
+  readonly name: string;
+  readonly content: FileContent;
+};
+
+type Folder = {
+  readonly type: 'folder';
+  readonly name: string;
+  readonly content?: Array<AppFile2 | Folder>;
+  readonly get(name: string): AppFile2 | Folder;
+}

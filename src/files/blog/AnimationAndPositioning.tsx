@@ -25,8 +25,8 @@ import deviceTopPosition from '~/public/images/blog/deviceTopPosition.png';
 import deviceTopPositionR from '~/public/images/blog/deviceTopPositionR.png';
 import deviceWidthRatio from '~/public/images/blog/deviceWidthRatio.png';
 
-import { createFile } from '#/utils/explorer';
-import { Wrapper, Image } from '#/files/blog/shared';
+import { Wrapper, Image } from '#/components/Blog';
+import { fileUtils } from '#/utils/directory';
 
 const imgStyle = {
   width: 788,
@@ -260,7 +260,7 @@ function AnimationAndPositioning() {
   );
 }
 
-export default createFile(
+export default fileUtils.create(
   'animation_and_positioning.txt',
   AnimationAndPositioning,
 );

@@ -6,7 +6,7 @@ import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
 
 import useStore, { getIsSideViewOpen, getCurrentFile, openFile } from '#/store';
-import { getFileContent } from '#/utils/files';
+import { getFileContentFromFullName } from '#/utils/files';
 
 import styles from './content.scss';
 
@@ -24,7 +24,7 @@ function Content() {
   const currentFile = useStore(getCurrentFile);
   const isSideViewOpen = useStore(getIsSideViewOpen);
   const [params] = useSearchParams();
-  const fileContent = getFileContent(currentFile);
+  const fileContent = getFileContentFromFullName(currentFile);
   const urlFile = params.get('file');
 
   useEffect(() => {

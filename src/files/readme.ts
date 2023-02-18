@@ -1,6 +1,8 @@
 import { createCodeText } from '#/utils/codeParser';
 import getRandomGreet from '#/utils/getRandomGreet';
-import { createFile } from '#/utils/explorer';
+import { fileUtils } from '#/utils/directory';
+
+export const name = 'README.md';
 
 const content = createCodeText(`
 ${getRandomGreet()}
@@ -11,4 +13,4 @@ Currently working at $[Accedo,https://www.accedo.tv/]. // As a web developer
 Newer blog $[entry,#/?file=Blog/cleaning_up.txt]! No CodePen, but fancy gists included ( ˘ ³˘)ノ
 `);
 
-export default createFile('README.md', content);
+export default fileUtils.create('README.md', content);

@@ -23,10 +23,12 @@ function getFileExtension(name: string) {
   return extension;
 }
 
+// TODO: remove
 function checkIsFolder(content: AppFileContent | AppFolder) {
   return content instanceof Map;
 }
 
+// TODO: remove
 export function getShortName(fullName: string) {
   const lastSlashIndex = fullName.lastIndexOf('/');
   const isRoot = lastSlashIndex === -1;
@@ -54,23 +56,26 @@ export function getFileMetadata(name: string) {
   };
 }
 
-export function getFileContent(fullName: string) {
+
+export function getFileContentFromFullName(fullName: string) {
   const paths = fullName.split('/');
-  let content: AppFolderContent | AppFileContent = rootFiles;
+  // eslint-disable-next-line prefer-destructuring
+  let fileFolder: AppFile2 | Folder = rootFiles;
 
   for (let i = 0; i < paths.length; i += 1) {
     const path = paths[i];
 
-    content = content.get(path);
+    fileFolder = fileFolder.get(path);
 
-    if (Array.isArray(content) || typeof content === 'function') {
-      return content;
+    if (fileFolder.type === 'file') {
+      return fileFolder.content;
     }
   }
 
   return null;
 }
 
+// TODO: remove
 export function getFolderContent(items: AppFolder[1]) {
   const names = [...items.keys()];
 
@@ -91,6 +96,6 @@ export function getFolderContent(items: AppFolder[1]) {
 export default {
   getShortName,
   getFileMetadata,
-  getFileContent,
+  getFileContentFromFullName,
   getFolderContent,
 };

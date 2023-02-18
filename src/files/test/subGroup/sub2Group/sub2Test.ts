@@ -1,9 +1,10 @@
+import { fileUtils } from '#/utils/directory';
 import { createCodeText } from '#/utils/codeParser';
-import { createFile } from '#/utils/explorer';
 
 const name = 'sub2Test.json';
 const content = createCodeText(`
-sub2Test :)
+Test 2
 `);
 
-export default createFile(name, content);
+
+export default fileUtils.create(name, content);

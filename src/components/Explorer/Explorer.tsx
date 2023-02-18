@@ -1,32 +1,27 @@
-import rootFiles from '#/files';
-import { getFolderContent } from '#/utils/files';
+import newRoot from '#/files';
+import { folderUtils } from '#/utils/directory';
 
 import useStore, { getCurrentFile } from '#/store';
-import File from './components/File/File';
-import Folder from './components/Folder/Folder';
+import File from '#/components/File/File';
+import Folder from '#/components/Folder/Folder';
 
 import styles from './sideExplorerView.scss';
 
 export default function Explorer() {
   const currentFile = useStore(getCurrentFile);
-  const [files, folders] = getFolderContent(rootFiles);
+  const [files, folders] = folderUtils.filterFileFolder(newRoot);
 
   return (
     <>
       <div className={styles.title}>EXPLORER</div>
-      {folders.map((folderFullName) => (
-        <Folder
-          key={folderFullName}
-          name={folderFullName}
-          content={rootFiles.get(folderFullName) as AppFolderContent}
-          currentFile={currentFile}
-        />
+      {folders.map((f) => (
+        <Folder key={f.name} data={f} currentFile={currentFile} />
       ))}
-      {files.map((fileFullName) => (
+      {files.map((file) => (
         <File
-          key={fileFullName}
-          name={fileFullName}
-          isActive={currentFile === fileFullName}
+          key={file.name}
+          data={file}
+          isActive={currentFile === file.name}
         />
       ))}
     </>

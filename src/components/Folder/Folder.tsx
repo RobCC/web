@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
-import { getFolderContent } from '#/utils/files';
+import File from '#/components/File/File';
+import { folderUtils } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
-import File from '../File/File';
 
 import styles from './folder.scss';
 
@@ -13,9 +13,7 @@ type Props = {
   /** Depth level on the file system */
   level?: number;
   /** Folder name */
-  name: string;
-  /** Folder content */
-  content: AppFolderContent;
+  data: Folder;
   /** Parent folder */
   parent?: string;
   /** Current file */
@@ -24,14 +22,13 @@ type Props = {
 
 export default function Folder({
   level = 0,
-  name,
-  content,
+  data,
   parent = '',
   currentFile,
 }: Props) {
   const [isClosed, setIsClosed] = useState(true);
-  const [files, folders] = getFolderContent(content);
-  const fullName = `${parent}${parent ? '/' : ''}${name}`;
+  const [files, folders] = folderUtils.filterFileFolder(data);
+  const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
 
   const onClick = () => {
     setIsClosed(!isClosed);
@@ -42,7 +39,7 @@ export default function Folder({
       className={classNames(styles.group, {
         [styles.closed]: isClosed,
       })}
-      title={name}
+      title={data.name}
     >
       <div
         role="button"
@@ -55,23 +52,22 @@ export default function Folder({
         }}
       >
         <FontAwesomeIcon icon={faAngleRight} className={styles.caret} />
-        {name}
+        {data.name}
       </div>
-      {folders.map((folderName) => (
+      {folders.map((f) => (
         <Folder
-          key={`${fullName}/${folderName}`}
-          name={folderName}
+          key={`${fullName}/${f.name}`}
+          data={f}
           parent={fullName}
           level={level + 1}
-          content={content.get(folderName) as AppFolderContent}
           currentFile={currentFile}
         />
       ))}
-      {files.map((fileName) => (
+      {files.map((file) => (
         <File
-          key={`${fullName}/${fileName}`}
-          isActive={currentFile === `${fullName}/${fileName}`}
-          name={fileName}
+          key={`${fullName}/${file.name}`}
+          isActive={currentFile === `${fullName}/${file.name}`}
+          data={file}
           parent={fullName}
           level={level + 1}
         />
