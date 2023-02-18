@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { openFile } from '#/store';
-import { getFileMetadata, isIconString } from '#/utils/files';
+import { fileUtils } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './file.scss';
@@ -27,8 +27,8 @@ export default function File({
   parent = '',
   isActive = false,
 }: Props) {
-  const { extension, icon, iconStyles } = getFileMetadata(data.name);
-  const isString = isIconString(icon);
+  const { extension, icon, iconStyles } = fileUtils.getMetadata(data.name);
+  const isString = fileUtils.isIconString(icon);
   const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
 
   const onClick = useCallback(() => {

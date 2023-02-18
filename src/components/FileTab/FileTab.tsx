@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
 
 import useStore, { closeFile, openFile, getCurrentFile } from '#/store';
-import { getFileMetadata, isIconString } from '#/utils/files';
+import { fileUtils } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './fileTab.scss';
@@ -26,8 +26,8 @@ export function getShortName(fullName: string) {
 
 export default function FileTab({ fullName }: Props) {
   const currentTab = useStore(getCurrentFile);
-  const { icon, iconStyles } = getFileMetadata(fullName);
-  const isString = isIconString(icon);
+  const { icon, iconStyles } = fileUtils.getMetadata(fullName);
+  const isString = fileUtils.isIconString(icon);
   const shortName = getShortName(fullName);
 
   const closeTab = useCallback(
