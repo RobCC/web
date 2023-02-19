@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import classNames from 'classnames';
-import type { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { file } from '#/store';
@@ -20,10 +19,10 @@ type Props = {
 const INITIAL_PADDING = 15;
 const LEVEL_PADDING_DELTA = 8;
 
-const { useFileStore, openFile, getCurrentFileFullName } = file;
+const { useFileStore, openFile, getCurrentFullName } = file;
 
 export default function File({ level = 0, data, parent = '' }: Props) {
-  const currentFileName = useFileStore(getCurrentFileFullName);
+  const currentFileName = useFileStore(getCurrentFullName);
   const { extension, icon, iconStyles, isIconString } = data.metadata;
   const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
 
@@ -51,14 +50,14 @@ export default function File({ level = 0, data, parent = '' }: Props) {
         paddingLeft: INITIAL_PADDING + level * LEVEL_PADDING_DELTA,
       }}
     >
-      {isIconString ? (
+      {typeof icon === 'string' ? (
         <div className={styles.iconWrapper}>
-          <div className={explorerIconClasses}>{icon as string}</div>
+          <div className={explorerIconClasses}>{icon}</div>
         </div>
       ) : (
         <div className={styles.iconWrapper}>
           <div className={explorerIconClasses}>
-            <FontAwesomeIcon icon={icon as IconProp} />
+            <FontAwesomeIcon icon={icon} />
           </div>
         </div>
       )}

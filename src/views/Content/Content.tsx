@@ -27,6 +27,7 @@ function Content() {
   const urlFile = params.get('file');
 
   useEffect(() => {
+    // TODO: On file click, update url and let this url open the file?
     if (urlFile) {
       openFile(urlFile);
     }

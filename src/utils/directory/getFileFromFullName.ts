@@ -6,7 +6,6 @@ export default function getFileFromFullName(fullName: string, folder: Folder) {
     return null;
   }
 
-
   const paths = fullName.split('/');
   let fileFolder: File | Folder = folder;
 

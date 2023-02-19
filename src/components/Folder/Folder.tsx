@@ -10,11 +10,11 @@ import { handleOnKeyDownButton } from '#/utils/a11y';
 import styles from './folder.scss';
 
 type Props = {
-  /** Depth level on the file system */
+  /** Depth level on the file system. */
   level?: number;
-  /** Folder name */
+  /** Folder data. */
   data: folderUtils.Folder;
-  /** Parent folder */
+  /** Parent folder. */
   parent?: string;
 };
 
@@ -47,15 +47,15 @@ export default function Folder({ level = 0, data, parent = '' }: Props) {
         <FontAwesomeIcon icon={faAngleRight} className={styles.caret} />
         {data.name}
       </div>
-      {folders.map((f) => (
+      {folders.map(folder => (
         <Folder
-          key={`${fullName}/${f.name}`}
-          data={f}
+          key={`${fullName}/${folder.name}`}
+          data={folder}
           parent={fullName}
           level={level + 1}
         />
       ))}
-      {files.map((file) => (
+      {files.map(file => (
         <File
           key={`${fullName}/${file.name}`}
           data={file}

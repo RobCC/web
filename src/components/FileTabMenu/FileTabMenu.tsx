@@ -7,11 +7,11 @@ import { file, explorer } from '#/store';
 import styles from './fileTabMenu.scss';
 
 const { useExplorerStore, getIsSideBarOpen } = explorer;
-const { useFileStore, getOpenedFileNames } = file;
+const { useFileStore, getActiveFiles } = file;
 
 export default function FileTabMenu() {
   const [showScrollbar, toggleScrollbar] = useState(false);
-  const openFileNames = useFileStore(getOpenedFileNames);
+  const openFileNames = useFileStore(getActiveFiles);
   const isSideBarOpen = useExplorerStore(getIsSideBarOpen);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);

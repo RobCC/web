@@ -29,10 +29,6 @@ module.exports = {
     'arrow-parens': [1, 'as-needed'],
     'comma-dangle': ['error', 'always-multiline'],
     semi: 2,
-    'max-len': [
-      'error',
-      { code: 100, tabWidth: 2, comments: 100, ignoreUrls: true },
-    ],
     'no-param-reassign': [
       'error',
       {

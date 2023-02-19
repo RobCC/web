@@ -89,8 +89,8 @@ module.exports = () => ({
     },
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
     new CleanWebpackPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
     new StyleLintPlugin({
       formatter: StyleLintFormatter,
     }),

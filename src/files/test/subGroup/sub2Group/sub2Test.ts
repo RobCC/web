@@ -6,5 +6,4 @@ const content = createCodeText(`
 Test 2
 `);
 
-
 export default fileUtils.create(name, content);

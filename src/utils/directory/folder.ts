@@ -29,16 +29,12 @@ function filterFileFolder(content: Array<File | Folder>) {
  * Instead of filtering them in the go
  */
 export function create(name: string, content?: (File | Folder)[]): Folder {
-  const filteredContent = filterFileFolder(content);
-
   return {
     type: 'folder',
     name,
-    content: filteredContent,
+    content: filterFileFolder(content),
     get(contentName: string) {
-      const allContent = Object.values(
-        this.content as Folder['content'],
-      ).flat();
+      const allContent = Object.values(this.content).flat();
 
       return allContent.find(f => f.name === contentName);
     },
