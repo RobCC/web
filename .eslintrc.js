@@ -26,6 +26,7 @@ module.exports = {
     },
   },
   rules: {
+    'arrow-parens': [1, 'as-needed'],
     'comma-dangle': ['error', 'always-multiline'],
     semi: 2,
     'max-len': [
@@ -51,6 +52,11 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/no-named-as-default': 0,
+    'padding-line-between-statements': [
+      1,
+      { blankLine: 'always', prev: '*', next: 'return' },
+    ],
+    'prettier/prettier': 'error',
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },

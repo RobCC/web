@@ -1,9 +1,18 @@
-import useStore, { RootState } from './store';
+import { createStore } from './store';
 
-export const getHasAnimationFinished = ({ editor }: RootState) => editor.hasAnimationFinished;
+export type State = {
+  hasAnimationFinished: boolean;
+};
+
+export const useEditorStore = createStore({
+  hasAnimationFinished: false,
+});
 
 export function setAnimationFinished() {
-  useStore.setState(state => {
-    state.editor.hasAnimationFinished = true;
+  useEditorStore.setState(state => {
+    state.hasAnimationFinished = true;
   });
 }
+
+export const getHasAnimationFinished = ({ hasAnimationFinished }: State) =>
+  hasAnimationFinished;

@@ -4,16 +4,18 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 
 import Wrapper from '#/components/ResumeStuff/Wrapper/Wrapper';
 
-import useStore, { toggleResume, getIsResumeOpen } from '#/store';
+import { resume } from '#/store';
 import MountAnimator from '#/utils/MountAnimator';
 
 import styles from './resume.scss';
 
+const { useResumeStore, toggleResume, getIsResumeOpen } = resume;
+
 function Resume() {
   const [onScreen, setOnScreen] = useState(false);
-  const isResumeOpen = useStore(getIsResumeOpen);
+  const isResumeOpen = useResumeStore(getIsResumeOpen);
 
-  const animationFinishedCb = useCallback((isShown) => {
+  const animationFinishedCb = useCallback(isShown => {
     setOnScreen(isShown);
   }, []);
 

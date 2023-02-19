@@ -1,8 +1,4 @@
-import useStore from "./store";
-
-export * from './editor';
-export * from './explorer';
-export * from './file';
-export * from './resume';
-
-export default useStore;
+export * as editor from './editor';
+export * as explorer from './explorer';
+export * as file from './file';
+export * as resume from './resume';

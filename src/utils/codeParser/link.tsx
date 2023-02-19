@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const REGEX = /\$\[(?<link>.*?)\]/;
 
-function parse(linkSnippet, styles: CSSModule) {
+function parse(linkSnippet: string, styles: CSSModule) {
   const [text, url, color = 'blue'] = linkSnippet
     .split(',')
     .map((e) => e.trim());

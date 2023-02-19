@@ -2,14 +2,17 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 
 import FileTab from '#/components/FileTab/FileTab';
-import useStore, { getOpenedFiles, getIsSideViewOpen } from '#/store';
+import { file, explorer } from '#/store';
 
 import styles from './fileTabMenu.scss';
 
+const { useExplorerStore, getIsSideBarOpen } = explorer;
+const { useFileStore, getOpenedFileNames } = file;
+
 export default function FileTabMenu() {
   const [showScrollbar, toggleScrollbar] = useState(false);
-  const openFiles = useStore(getOpenedFiles);
-  const isSideViewOpen = useStore(getIsSideViewOpen);
+  const openFileNames = useFileStore(getOpenedFileNames);
+  const isSideBarOpen = useExplorerStore(getIsSideBarOpen);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -49,7 +52,7 @@ export default function FileTabMenu() {
     if (showScrollbar) {
       setScrollWidth();
     }
-  }, [openFiles]);
+  }, [openFileNames]);
 
   useEffect(() => {
     if (showScrollbar) {
@@ -64,17 +67,17 @@ export default function FileTabMenu() {
 
     setScrollWidth();
     setScrollLeft();
-  }, [isSideViewOpen]);
+  }, [isSideBarOpen]);
 
   return (
     <div
       className={classNames(styles.tabMenu, {
-        [styles.empty]: !openFiles.length,
+        [styles.empty]: !openFileNames.length,
       })}
     >
       {showScrollbar ? <div ref={scrollRef} className={styles.scroll} /> : null}
       <div ref={wrapperRef} className={styles.wrapper} onWheel={onWheel}>
-        {openFiles.map((fullName) => (
+        {openFileNames.map(fullName => (
           <FileTab key={fullName} fullName={fullName} />
         ))}
       </div>

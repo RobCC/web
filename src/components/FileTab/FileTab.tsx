@@ -2,9 +2,9 @@ import { useCallback } from 'react';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import useStore, { closeFile, openFile, getCurrentFile } from '#/store';
-import { fileUtils } from '#/utils/directory';
+import { file } from '#/store';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './fileTab.scss';
@@ -12,6 +12,8 @@ import styles from './fileTab.scss';
 type Props = {
   fullName: string;
 };
+
+const { useFileStore, getCurrentFile, openFile, closeFile } = file;
 
 export function getShortName(fullName: string) {
   const lastSlashIndex = fullName.lastIndexOf('/');
@@ -25,9 +27,8 @@ export function getShortName(fullName: string) {
 }
 
 export default function FileTab({ fullName }: Props) {
-  const currentTab = useStore(getCurrentFile);
-  const { icon, iconStyles } = fileUtils.getMetadata(fullName);
-  const isString = fileUtils.isIconString(icon);
+  const currentFile = useFileStore(getCurrentFile);
+  const { icon, iconStyles, isIconString } = currentFile.metadata;
   const shortName = getShortName(fullName);
 
   const closeTab = useCallback(
@@ -44,8 +45,8 @@ export default function FileTab({ fullName }: Props) {
   }, [fullName]);
 
   const tabIconStyles = classNames(iconStyles, {
-    [styles.icon]: isString,
-    [styles.logoIcon]: !isString,
+    [styles.icon]: isIconString,
+    [styles.logoIcon]: !isIconString,
   });
 
   return (
@@ -54,16 +55,16 @@ export default function FileTab({ fullName }: Props) {
       title={shortName}
       tabIndex={0}
       className={classNames(styles.tab, {
-        [styles.active]: fullName === currentTab,
+        [styles.active]: fullName === currentFile.fullName,
       })}
       onClick={changeCurrentTab}
       onKeyDown={handleOnKeyDownButton(changeCurrentTab)}
     >
-      {isString ? (
-        <div className={tabIconStyles}>{icon}</div>
+      {isIconString ? (
+        <div className={tabIconStyles}>{icon as string}</div>
       ) : (
         <div className={tabIconStyles}>
-          <FontAwesomeIcon icon={icon} />
+          <FontAwesomeIcon icon={icon as IconProp} />
         </div>
       )}
       {shortName}

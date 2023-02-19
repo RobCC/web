@@ -8,13 +8,14 @@
       "#/*": ["./src/*"],
       "~/*": ["./*"]
     },
-    "moduleResolution": "Node",
+    "moduleResolution": "nodenext",
     "jsx": "react-jsx",
+    "declaration": true,
     "allowJs": true,
-    "declaration": false,
     "sourceMap": true,
     "removeComments": true,
-    "skipLibCheck": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
     "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "./build/**/*"]

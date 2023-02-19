@@ -1,24 +1,50 @@
-export function create(name: string, content?: Folder['content']): Folder {
+import type { File } from './file';
+
+export type Folder = {
+  readonly type: 'folder';
+  readonly name: string;
+  readonly content: {
+    files: File[];
+    folders: Folder[];
+  };
+  get(name: string): File | Folder;
+};
+
+function filterFileFolder(content: Array<File | Folder>) {
+  return content.reduce<Folder['content']>(
+    ({ files, folders }, fileOrFolder) => {
+      const isFolder = fileOrFolder.type === 'folder';
+
+      return {
+        files: [...files, ...(!isFolder ? [fileOrFolder] : [])],
+        folders: [...folders, ...(isFolder ? [fileOrFolder] : [])],
+      };
+    },
+    { files: [], folders: [] },
+  );
+}
+
+/**
+ * NOTE: Refactor to accept array of files and folders separately?
+ * Instead of filtering them in the go
+ */
+export function create(name: string, content?: (File | Folder)[]): Folder {
+  const filteredContent = filterFileFolder(content);
+
   return {
     type: 'folder',
     name,
-    content,
+    content: filteredContent,
     get(contentName: string) {
-      return content.find(f => f.name === contentName);
+      const allContent = Object.values(
+        this.content as Folder['content'],
+      ).flat();
+
+      return allContent.find(f => f.name === contentName);
     },
   };
 }
 
-export function filterFileFolder(folder: Folder) {
-  return folder.content.reduce<[AppFile2[], Folder[]]>(
-    ([files, folders], fileOrFolder) => {
-      const isFolder = fileOrFolder.type === 'folder';
-
-      return [
-        [...files, ...(!isFolder ? [fileOrFolder] : [])],
-        [...folders, ...(isFolder ? [fileOrFolder] : [])],
-      ];
-    },
-    [[], []],
-  );
-}
+export default {
+  create,
+};

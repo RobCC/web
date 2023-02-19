@@ -4,15 +4,19 @@ import classNames from 'classnames';
 import { FILE_EXTENSION_REGEX, FILE_ICONS } from '#/utils/constants';
 import styles from '#/styles/icons.scss';
 
-export function create(name: string, content: FileContent): AppFile2 {
-  return {
-    type: 'file',
-    name,
-    content,
+export type File = {
+  readonly type: 'file';
+  readonly name: string;
+  readonly content: Code | React.FC<unknown>;
+  readonly metadata: {
+    extension: Extension;
+    icon: string | IconDefinition;
+    iconStyles: string;
+    isIconString: boolean;
   };
-}
+};
 
-function getIconClassnames(extension, isStringIcon) {
+function getIconClassnames(extension: string, isStringIcon: boolean) {
   return classNames({
     [styles.icon]: isStringIcon,
     [styles.logoIcon]: !isStringIcon,
@@ -25,24 +29,36 @@ function getIconClassnames(extension, isStringIcon) {
 }
 
 function getExtension(name: string) {
-  const [, extension] = name.match(FILE_EXTENSION_REGEX) || [];
+  const [, extension] = name.match(FILE_EXTENSION_REGEX);
 
-  return extension;
+  return extension as Extension;
 }
 
-export function isIconString(icon: string | IconDefinition): icon is string {
-  return typeof (icon as string) === 'string';
+function getIsIconString(icon: string | IconDefinition): icon is string {
+  return typeof icon === 'string';
 }
 
-export function getMetadata(name: string) {
+function getMetadata(name: string) {
   const extension = getExtension(name);
   const icon: string | IconDefinition = FILE_ICONS[extension] || '';
-  const iconStyles = getIconClassnames(extension, isIconString(icon));
+  const isIconString = getIsIconString(icon);
+  const iconStyles = getIconClassnames(extension, isIconString);
 
   return {
     extension,
     icon,
     iconStyles,
+    isIconString,
   };
 }
 
+export function create(name: string, content: File['content']): File {
+  const metadata = getMetadata(name);
+
+  return {
+    type: 'file',
+    name,
+    content,
+    metadata,
+  };
+}

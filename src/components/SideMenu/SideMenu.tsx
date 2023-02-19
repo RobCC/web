@@ -5,30 +5,29 @@ import { faCopy } from '@fortawesome/free-regular-svg-icons/faCopy';
 import { faFile } from '@fortawesome/free-regular-svg-icons/faFile';
 
 import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
-import useStore, {
-  toggleExplorer,
-  getIsSideViewOpen,
-  toggleResume,
-} from '#/store';
+import { resume, explorer } from '#/store';
 import styles from './sideMenu.scss';
 
+const { useExplorerStore, getIsSideBarOpen, toggleSideBar } = explorer;
+const { toggleResume } = resume;
+
 export default function SideMenu() {
-  const isSideViewOpen = useStore(getIsSideViewOpen);
+  const isSideBarOpen = useExplorerStore(getIsSideBarOpen);
 
   const onResumeClick = useCallback(() => {
     toggleResume();
   }, []);
 
-  const onExplorerClick = useCallback(() => {
-    toggleExplorer();
+  const onMenuItemClick = useCallback(() => {
+    toggleSideBar();
   }, []);
 
   return (
     <div className={styles.menu}>
       <SideMenuItem
         title="Explorer"
-        selected={isSideViewOpen}
-        onClick={onExplorerClick}
+        selected={isSideBarOpen} // TODO: check if both opened and selected item matches title
+        onClick={onMenuItemClick}
         style={{
           position: 'relative',
           left: '-2px',

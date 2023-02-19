@@ -1,37 +1,72 @@
-import useStore, { RootState } from './store';
+import { getFileFromFullName, fileUtils } from '#/utils/directory';
+import rootFiles from '#/files';
+import { createStore } from './store';
 
-export const getCurrentFile = ({ file }: RootState) => file.currentTab;
+export type State = {
+  currentFile: fileUtils.File | null;
+  currentFileFullName: string;
+  openedFileFullNames: string[];
+};
 
-export const getOpenedFiles = ({ file }: RootState) => file.openedFiles;
+function getInitialFile() {
+  const [, encodedFile = ''] = window.location.hash.split('file=');
+  const file = decodeURIComponent(encodedFile);
 
-export function closeFile(fileName: string) {
-  useStore.setState(state => {
-    const indexOfFile = state.file.openedFiles.indexOf(fileName);
+  return file || 'README.md';
+}
+
+export const useFileStore = createStore({
+  currentFile: getFileFromFullName(getInitialFile(), rootFiles),
+  currentFileFullName: getInitialFile(),
+  openedFileFullNames: ['README.md', 'contact.css', 'Blog/cleaning_up.txt'],
+});
+
+export function openFile(fileFullName: string) {
+  useFileStore.setState(state => {
+    const isFileAlreadyOpen =
+      state.openedFileFullNames.indexOf(fileFullName) > -1;
+
+    state.currentFile = getFileFromFullName(fileFullName, rootFiles);
+    state.currentFileFullName = fileFullName;
+
+    if (!isFileAlreadyOpen) {
+      state.openedFileFullNames.push(fileFullName);
+    }
+  });
+}
+
+export function closeFile(fileFullName: string) {
+  useFileStore.setState(state => {
+    const indexOfFile = state.openedFileFullNames.indexOf(fileFullName);
 
     if (indexOfFile === -1) {
       return;
     }
 
-    state.file.openedFiles.splice(indexOfFile, 1);
+    state.openedFileFullNames.splice(indexOfFile, 1);
 
     // if the tab we're closing is the current, move to the last tab (if any)
-    if (fileName === state.file.currentTab) {
-      const { openedFiles } = state.file;
-      const previousTab = openedFiles[openedFiles.length - 1];
+    if (fileFullName === state.currentFile.name) {
+      const { openedFileFullNames } = state;
+      const previousTab =
+        openedFileFullNames[openedFileFullNames.length - 1] ?? '';
 
-      state.file.currentTab = previousTab ?? '';
+      state.currentFile = getFileFromFullName(previousTab, rootFiles);
+      state.currentFileFullName = previousTab;
     }
   });
 }
 
-export function openFile(fileName: string) {
-  useStore.setState(state => {
-    const isFileAlreadyOpen = state.file.openedFiles.indexOf(fileName) > -1;
+export const getCurrentFile = ({
+  currentFile,
+  currentFileFullName,
+}: State) => ({
+  ...currentFile,
+  fullName: currentFileFullName,
+});
 
-    state.file.currentTab = fileName;
+export const getCurrentFileFullName = ({ currentFileFullName }: State) =>
+  currentFileFullName;
 
-    if (!isFileAlreadyOpen) {
-      state.file.openedFiles.push(fileName);
-    }
-  });
-}
+export const getOpenedFileNames = ({ openedFileFullNames }: State) =>
+  openedFileFullNames;

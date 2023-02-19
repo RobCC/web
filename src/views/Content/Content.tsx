@@ -4,27 +4,26 @@ import { Outlet, useSearchParams } from 'react-router-dom';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
-
-import useStore, { getIsSideViewOpen, getCurrentFile, openFile } from '#/store';
-import { getFileContentFromFullName } from '#/utils/files';
+import { file, explorer } from '#/store';
+import { fileUtils } from '#/utils/directory';
 
 import styles from './content.scss';
 
-function renderContent(fileContent: AppFileContent) {
-  if (fileContent instanceof Array) {
-    return <Editor file={fileContent} />;
-  }
+const { useExplorerStore, getIsSideBarOpen } = explorer;
+const { useFileStore, getCurrentFile, openFile } = file;
 
-  const FileContent = fileContent;
+function renderContent(FileContent: fileUtils.File['content']) {
+  if (FileContent instanceof Array) {
+    return <Editor file={FileContent} />;
+  }
 
   return <FileContent />;
 }
 
 function Content() {
-  const currentFile = useStore(getCurrentFile);
-  const isSideViewOpen = useStore(getIsSideViewOpen);
+  const currentFile = useFileStore(getCurrentFile);
+  const isSideBarOpen = useExplorerStore(getIsSideBarOpen);
   const [params] = useSearchParams();
-  const fileContent = getFileContentFromFullName(currentFile);
   const urlFile = params.get('file');
 
   useEffect(() => {
@@ -33,19 +32,19 @@ function Content() {
     }
   }, [urlFile]);
 
-  const sideViewStyles = {
-    [styles.sideViewActive]: isSideViewOpen,
-  };
-
   return (
-    <div className={styles.container}>
-      <div className={classNames(styles.sideView, sideViewStyles)}>
+    <div
+      className={classNames(styles.container, {
+        [styles.sideBarOpened]: isSideBarOpen,
+      })}
+    >
+      <div className={classNames(styles.sideBar)}>
         <Outlet />
       </div>
-      <div className={classNames(styles.content, sideViewStyles)}>
+      <div className={classNames(styles.content)}>
         <FileTabMenu />
-        {fileContent ? (
-          renderContent(fileContent)
+        {currentFile ? (
+          renderContent(currentFile.content)
         ) : (
           <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>
         )}

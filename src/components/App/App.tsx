@@ -3,7 +3,7 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 
 import SideMenu from '#/components/SideMenu/SideMenu';
 import Explorer from '#/components/Explorer/Explorer';
-import { Content, Resume } from '#/views';
+import { Content, Resume } from '#/views/index';
 
 config.autoAddCss = false;
 

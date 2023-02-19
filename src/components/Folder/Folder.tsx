@@ -13,21 +13,14 @@ type Props = {
   /** Depth level on the file system */
   level?: number;
   /** Folder name */
-  data: Folder;
+  data: folderUtils.Folder;
   /** Parent folder */
   parent?: string;
-  /** Current file */
-  currentFile: string;
 };
 
-export default function Folder({
-  level = 0,
-  data,
-  parent = '',
-  currentFile,
-}: Props) {
+export default function Folder({ level = 0, data, parent = '' }: Props) {
   const [isClosed, setIsClosed] = useState(true);
-  const [files, folders] = folderUtils.filterFileFolder(data);
+  const { files, folders } = data.content;
   const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
 
   const onClick = () => {
@@ -60,13 +53,11 @@ export default function Folder({
           data={f}
           parent={fullName}
           level={level + 1}
-          currentFile={currentFile}
         />
       ))}
       {files.map((file) => (
         <File
           key={`${fullName}/${file.name}`}
-          isActive={currentFile === `${fullName}/${file.name}`}
           data={file}
           parent={fullName}
           level={level + 1}

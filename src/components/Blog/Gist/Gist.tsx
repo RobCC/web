@@ -21,7 +21,7 @@ function addStylesheet(href: string) {
   document.head.appendChild(link);
 }
 
-function composeUrl(gist, file, gistCallback) {
+function composeUrl(gist: string, file: string, gistCallback: string) {
   let url = `https://gist.github.com/${gist}.json?callback=${gistCallback}`;
 
   if (file) {
@@ -39,7 +39,7 @@ export default function Gist({ gist, file }: Props) {
   useEffect(() => {
     const gistCallback = Gist.nextGistCallback();
 
-    window[gistCallback] = (res: any) => {
+    (window as any)[gistCallback] = (res: any) => {
       toggleLoading(false);
       setSrc(res.div);
       addStylesheet(res.stylesheet);

@@ -1,6 +1,6 @@
 const REGEX = /\/\/(?<comment>.*?)+/;
 
-function parse(text, styles: CSSModule) {
+function parse(text: string, styles: CSSModule) {
   return <span className={styles.comment}>{text}</span>;
 }
 

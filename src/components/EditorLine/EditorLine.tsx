@@ -1,10 +1,7 @@
 import { useEffect } from 'react';
 import classNames from 'classnames';
 
-import useStore, {
-  getHasAnimationFinished,
-  setAnimationFinished,
-} from '#/store';
+import { editor } from '#/store';
 import parse, { isComment } from '#/utils/codeParser/index';
 import styles from './editorLine.scss';
 
@@ -17,12 +14,15 @@ type Props = {
   line: string;
 };
 
+const { useEditorStore, getHasAnimationFinished, setAnimationFinished } =
+  editor;
+
 export default function EditorLine({
   lineNumber,
   shouldAnimate = false,
   line = '',
 }: Props) {
-  const typingFinished = useStore(getHasAnimationFinished);
+  const typingFinished = useEditorStore(getHasAnimationFinished);
   const lineClasses = classNames(styles.content, {
     [styles.comment]: isComment(line),
     [styles.typeAnimated]: shouldAnimate && !typingFinished,

@@ -14,7 +14,7 @@ const PLACEHOLDERS = {
 
 const FULL_REGEX = new RegExp(
   [...Object.keys(PLACEHOLDERS)]
-    .map((key) => {
+    .map((key: keyof typeof PLACEHOLDERS) => {
       const regex = PLACEHOLDERS[key];
 
       return regex.source;
@@ -40,7 +40,7 @@ export function isComment(text = '') {
   );
 }
 
-export function createCodeText(text): EditorFile {
+export function createCodeText(text: string): string[] {
   const trimmedLines = text.split('\n').slice(1, -1);
 
   // Add a blank line at the end, 'cause that's the way to do it
@@ -64,7 +64,7 @@ export function getParsingData(line: string): ParsingData {
   };
 }
 
-function parseLine(line: string, styles: CSSModule) {
+function parseLine(line: string, styles: CSSModule): string | JSX.Element {
   const { index, subString, link, color, comment } = getParsingData(line);
 
   if (index === undefined) {
