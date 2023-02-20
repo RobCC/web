@@ -1,5 +1,7 @@
+import type { SVGProps } from 'react';
+
 /** Name: vscode-icons:file-type-js. */
-export default function IconJs(props: React.SVGProps<SVGSVGElement>) {
+export default function IconJs(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" {...props}>
       <path

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import classNames from 'classnames';
 
 import File from '#/components/File/File';
-import { RadixIconsCaretRight } from '#/components/Icones';
+import { FolderIcon } from '#/components/Icones';
 import { folderUtils } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
@@ -44,7 +44,7 @@ export default function Folder({ level = 0, data, parent = '' }: Props) {
         }}
       >
         <div className={styles.caret}>
-          <RadixIconsCaretRight />
+          <FolderIcon />
         </div>
         {data.name}
       </div>

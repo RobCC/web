@@ -11,21 +11,27 @@
   }
 
   &.md {
-    stroke: variables.$color-md;
+    fill: variables.$color-md;
+    width: 14px;
+    height: 14px;
+    top: 0;
   }
 
   &.css {
-    fill: #519bba;
+    fill: variables.$color-css;
     top: 0;
   }
 
   &.txt {
     height: 15px;
     width: 15px;
-    stroke: #ddd;
+    stroke: variables.$color-txt;
   }
 
   &.json {
     top: 0;
+    stroke: variables.$color-json;
+    width: 18px;
+    height: 18px;
   }
 }

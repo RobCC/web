@@ -1,16 +1,12 @@
-/** Name: tabler:info-circle. */
-export default function IconMd(props: React.SVGProps<SVGSVGElement>) {
+import type { SVGProps } from 'react';
+
+/** Name: octicon:info-16. */
+export function IconMd(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
-      <g
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      >
-        <path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0m9-4h.01" />
-        <path d="M11 12h1v4h1" />
-      </g>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" {...props}>
+      <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13a6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2a1 1 0 0 1 0 2Z" />
     </svg>
   );
 }
+
+export default IconMd;
