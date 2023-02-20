@@ -4,7 +4,9 @@
 
 .icon {
   min-width: 25px;
+  /* #c5c5c5 */
   color: #7b7a75;
+  fill: #7b7a75;
   transition: color 200ms;
   margin: 0 auto;
 }
@@ -36,8 +38,8 @@
   user-select: none;
 
   svg {
-    height: 24px;
-    width: 24px;
+    height: 30px;
+    width: 30px;
   }
 
   .title {

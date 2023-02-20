@@ -75,8 +75,7 @@ function CleaningUp() {
         way better than having the whole library, bundle size at least.
       </p>
       <p>
-        Another lib taking a lot of space, <b>@fortawesome</b>. Given the whole
-        idea of this site, this one is kinda necessary. But, one thing that I
+        Another lib taking a lot of space, <b>@fortawesome</b>. One thing that I
         was not aware years ago when I added it was tree shaking. That means,
         having an import like the following:
       </p>

@@ -1,10 +1,11 @@
 import { useCallback } from 'react';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { file } from '#/store';
+import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
+import { FILE_ICONS } from '#/utils/constants';
 import { fileUtils } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
+import { file } from '#/store';
 
 import styles from './file.scss';
 
@@ -23,18 +24,13 @@ const { useFileStore, openFile, getCurrentFullName } = file;
 
 export default function File({ level = 0, data, parent = '' }: Props) {
   const currentFileName = useFileStore(getCurrentFullName);
-  const { extension, icon, iconStyles, isIconString } = data.metadata;
+  const { extension } = data.metadata;
   const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
+  const Icon = FILE_ICONS[extension];
 
   const onClick = useCallback(() => {
     openFile(fullName);
   }, [fullName]);
-
-  const explorerIconClasses = classNames(iconStyles, {
-    [styles.icon]: isIconString,
-    [styles.logoIcon]: !isIconString,
-    [styles.json]: extension === 'json',
-  });
 
   return (
     <div
@@ -50,18 +46,12 @@ export default function File({ level = 0, data, parent = '' }: Props) {
         paddingLeft: INITIAL_PADDING + level * LEVEL_PADDING_DELTA,
       }}
     >
-      {typeof icon === 'string' ? (
-        <div className={styles.iconWrapper}>
-          <div className={explorerIconClasses}>{icon}</div>
-        </div>
-      ) : (
-        <div className={styles.iconWrapper}>
-          <div className={explorerIconClasses}>
-            <FontAwesomeIcon icon={icon} />
-          </div>
-        </div>
-      )}
-      {data.name}
+      <ExtensionIcon
+        extension={extension}
+        className={styles.iconWrapper}
+        Icon={Icon}
+      />
+      <span>{data.name}</span>
     </div>
   );
 }

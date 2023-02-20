@@ -10,10 +10,10 @@ export default function Explorer() {
   return (
     <>
       <div className={styles.title}>EXPLORER</div>
-      {folders.map((folder) => (
+      {folders.map(folder => (
         <Folder key={folder.name} data={folder} />
       ))}
-      {files.map((file) => (
+      {files.map(file => (
         <File key={file.name} data={file} />
       ))}
     </>

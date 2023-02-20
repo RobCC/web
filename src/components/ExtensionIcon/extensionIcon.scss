@@ -1,0 +1,31 @@
+@use "variables";
+
+.icon {
+  position: relative;
+  margin-right: 4px;
+  width: 17px;
+  height: 17px;
+
+  &.js {
+    top: 0;
+  }
+
+  &.md {
+    stroke: variables.$color-md;
+  }
+
+  &.css {
+    fill: #519bba;
+    top: 0;
+  }
+
+  &.txt {
+    height: 15px;
+    width: 15px;
+    stroke: #ddd;
+  }
+
+  &.json {
+    top: 0;
+  }
+}

@@ -1,11 +1,13 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import { file } from '#/store';
+import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
+import { IconCloseTab } from '#/components/Icones';
+import { getFileFromFullName } from '#/utils/directory';
+import { FILE_ICONS } from '#/utils/constants';
 import { handleOnKeyDownButton } from '#/utils/a11y';
+import * as store from '#/store';
+import rootFiles from '#/files';
 
 import styles from './fileTab.scss';
 
@@ -13,7 +15,7 @@ type Props = {
   fullName: string;
 };
 
-const { useFileStore, getCurrentFile, openFile, closeFile } = file;
+const { useFileStore, getCurrentFullName, openFile, closeFile } = store.file;
 
 export function getShortName(fullName: string) {
   const lastSlashIndex = fullName.lastIndexOf('/');
@@ -27,9 +29,14 @@ export function getShortName(fullName: string) {
 }
 
 export default function FileTab({ fullName }: Props) {
-  const currentFile = useFileStore(getCurrentFile);
-  const { icon, iconStyles, isIconString } = currentFile.metadata;
+  const currentFileFullName = useFileStore(getCurrentFullName);
+  const file = useMemo(
+    () => getFileFromFullName(fullName, rootFiles),
+    [fullName],
+  );
+  const { extension } = file.metadata;
   const shortName = getShortName(fullName);
+  const Icon = FILE_ICONS[extension];
 
   const closeTab = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -44,30 +51,19 @@ export default function FileTab({ fullName }: Props) {
     openFile(fullName);
   }, [fullName]);
 
-  const tabIconStyles = classNames(iconStyles, {
-    [styles.icon]: isIconString,
-    [styles.logoIcon]: !isIconString,
-  });
-
   return (
     <div
       role="button"
       title={shortName}
       tabIndex={0}
       className={classNames(styles.tab, {
-        [styles.active]: fullName === currentFile.fullName,
+        [styles.active]: fullName === currentFileFullName,
       })}
       onClick={changeCurrentTab}
       onKeyDown={handleOnKeyDownButton(changeCurrentTab)}
     >
-      {isIconString ? (
-        <div className={tabIconStyles}>{icon as string}</div>
-      ) : (
-        <div className={tabIconStyles}>
-          <FontAwesomeIcon icon={icon as IconProp} />
-        </div>
-      )}
-      {shortName}
+      <ExtensionIcon extension={extension} Icon={Icon} />
+      <span>{shortName}</span>
 
       <button
         type="button"
@@ -75,7 +71,7 @@ export default function FileTab({ fullName }: Props) {
         onClick={closeTab}
         aria-label="Close"
       >
-        <FontAwesomeIcon icon={faTimes} />
+        <IconCloseTab />
       </button>
     </div>
   );

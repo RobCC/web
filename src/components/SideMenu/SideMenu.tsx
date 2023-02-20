@@ -1,10 +1,7 @@
 import { useCallback } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy } from '@fortawesome/free-regular-svg-icons/faCopy';
-import { faFile } from '@fortawesome/free-regular-svg-icons/faFile';
-
 import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
+import { IconResume, IconExplorer } from '#/components/Icones';
 import { resume, explorer } from '#/store';
 import styles from './sideMenu.scss';
 
@@ -34,10 +31,10 @@ export default function SideMenu() {
           borderLeftWidth: '4px',
         }}
       >
-        <FontAwesomeIcon icon={faCopy} />
+        <IconExplorer />
       </SideMenuItem>
       <SideMenuItem title="Resume" selected={false} onClick={onResumeClick}>
-        <FontAwesomeIcon icon={faFile} />
+        <IconResume />
       </SideMenuItem>
     </div>
   );

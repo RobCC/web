@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
 import File from '#/components/File/File';
+import { RadixIconsCaretRight } from '#/components/Icones';
 import { folderUtils } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
@@ -44,7 +43,9 @@ export default function Folder({ level = 0, data, parent = '' }: Props) {
           paddingLeft: 15 + level * 7,
         }}
       >
-        <FontAwesomeIcon icon={faAngleRight} className={styles.caret} />
+        <div className={styles.caret}>
+          <RadixIconsCaretRight />
+        </div>
         {data.name}
       </div>
       {folders.map(folder => (

@@ -6,6 +6,7 @@
   background: transparent;
   height: 20px;
   opacity: 0;
+  padding: 0;
   position: absolute;
   right: 3px;
   top: 10px;
@@ -13,8 +14,9 @@
   width: 20px;
 
   svg {
-    height: 12px;
-    width: 8px;
+    height: 14px;
+    width: 14px;
+    stroke: #e6e6e6;
   }
 }
 
@@ -47,13 +49,4 @@
   &:hover .close {
     opacity: 1;
   }
-}
-
-.icon {
-  position: relative;
-}
-
-.logo-icon {
-  position: relative;
-  bottom: 6px;
 }
