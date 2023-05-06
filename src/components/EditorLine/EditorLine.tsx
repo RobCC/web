@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import classNames from 'classnames';
 
 import { editor } from '#/store';
-import parse, { isComment } from '#/utils/codeParser/index';
+import parse, { isComment } from '#/utils/codeParser';
 import styles from './editorLine.scss';
 
 type Props = {

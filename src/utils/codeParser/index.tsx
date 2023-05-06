@@ -2,14 +2,14 @@ import linkParser from './link';
 import colorParser from './color';
 import commentParser from './comment';
 
-export * from './link';
-export * from './color';
-export * from './comment';
+export { default as linkParser } from './link';
+export { default as colorParser } from './color';
+export { default as commentParser } from './comment';
 
 const PLACEHOLDERS = {
-  link: linkParser.REGEX,
-  color: colorParser.REGEX,
-  comment: commentParser.REGEX,
+  link: linkParser.regex,
+  color: colorParser.regex,
+  comment: commentParser.regex,
 };
 
 const FULL_REGEX = new RegExp(
@@ -36,18 +36,19 @@ export function isComment(text = '') {
 
   return (
     isString &&
-    commentIdentifiers.some((identifier) => text.trim().startsWith(identifier))
+    commentIdentifiers.some(identifier => text.trim().startsWith(identifier))
   );
 }
 
-export function createCodeText(text: string): string[] {
+export function toCodeLines(text: string): string[] {
+  // removes first line, which will be blank
   const trimmedLines = text.split('\n').slice(1, -1);
 
   // Add a blank line at the end, 'cause that's the way to do it
   return [...trimmedLines, '\n'];
 }
 
-export function getParsingData(line: string): ParsingData {
+function getParsingData(line: string): ParsingData {
   const results = line.match(FULL_REGEX);
 
   if (!results) {
@@ -76,13 +77,13 @@ function parseLine(line: string, styles: CSSModule): string | JSX.Element {
   let parsedElement;
 
   if (color) {
-    parsedElement = colorParser.parse(color, styles);
+    parsedElement = colorParser.toDOM(color, styles);
   } else if (link) {
-    parsedElement = linkParser.parse(link, styles);
+    parsedElement = linkParser.toDOM(link, styles);
   } else if (comment) {
     // Pass subString instead of comment, since we want
     // to stylize the '//' as well
-    parsedElement = commentParser.parse(subString, styles);
+    parsedElement = commentParser.toDOM(subString, styles);
   }
 
   return (

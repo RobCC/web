@@ -73,7 +73,6 @@ const buildFailed = `
  */
 `;
 
-
 const senate = `
 /**
  *   _____                       _   _                                  _
@@ -171,7 +170,7 @@ function getRandomGreet() {
   const contents = greetNames.map(k => GREETS[k]);
   const randomGreet = contents[Math.floor(Math.random() * contents.length)];
 
-  return randomGreet;
+  return randomGreet.split('\n').slice(1, -1).join('\n');
 }
 
 export default getRandomGreet;

@@ -18,7 +18,7 @@
     "build": "cross-env NODE_ENV=production webpack --config config/webpack/webpack.config.js",
     "deploy": "npm run build && echo www.jrobcc.com > ./build/CNAME && gh-pages -d build",
     "stylelint": "stylelint 'src/**/*.scss' --config stylelint.config.js; exit 0",
-    "eslint": "eslint *.js",
+    "eslint": "eslint 'src/**/*.ts'",
     "es:fix": "eslint 'src/**/*.js' --fix",
     "prettier": "prettier --write ./**/*.js",
     "style:fix": "stylelint 'src/**/*.scss' --fix",
@@ -36,7 +36,6 @@
     "prop-types": "^15.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.7.1",
     "react-router-dom": "^6.8.0",
     "zustand": "^4.3.2"
   },

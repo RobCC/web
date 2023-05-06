@@ -1,4 +1,7 @@
-const fetchReadme = (projectName: string, userName = 'RobCC'): Promise<string> => {
+const fetchReadme = (
+  projectName: string,
+  userName = 'RobCC',
+): Promise<string> => {
   const readmeUrl = `https://raw.githubusercontent.com/${userName}/${projectName}/master/README.md`;
 
   return fetch(readmeUrl)

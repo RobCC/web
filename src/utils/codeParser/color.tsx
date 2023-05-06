@@ -1,20 +1,16 @@
 import classNames from 'classnames';
 
-const REGEX = /\$\((?<color>.*?)\)/;
+const color = {
+  regex: /\$\((?<color>.*?)\)/,
+  toDOM(snippet, theme) {
+    const [text, textColor] = snippet.split(',').map(e => e.trim());
+    const classes = classNames(theme.color, theme[textColor]);
 
-function parse(snippet: string, styles: CSSModule) {
-  const [text, textColor] = snippet.split(',').map((e) => e.trim());
+    return <span className={classes}>{text}</span>;
+  },
+  parse(text: string, textColor: string) {
+    return `$(${text}, ${textColor})`;
+  },
+} satisfies ParserModule;
 
-  const classes = classNames(styles.color, styles[textColor]);
-
-  return <span className={classes}>{text}</span>;
-}
-
-export function color(text: string, textColor: string) {
-  return `$(${text}, ${textColor})`;
-}
-
-export default {
-  REGEX,
-  parse,
-};
+export default color;

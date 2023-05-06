@@ -1,8 +1,8 @@
-import { createCodeText } from '#/utils/codeParser';
+import { toCodeLines } from '#/utils/codeParser';
 import { fileUtils } from '#/utils/directory';
 
 const name = 'contact.css';
-const content = createCodeText(`
+const content = toCodeLines(`
 $(.linked-in, green) $({, yellow)
   $(url, blue): $["https://www.linkedin.com/in/jrobcc", https://www.linkedin.com/in/jrobcc, string]
 $(}, yellow)

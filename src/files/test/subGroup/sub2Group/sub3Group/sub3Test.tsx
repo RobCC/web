@@ -1,8 +1,8 @@
 import { fileUtils } from '#/utils/directory';
-import { createCodeText } from '#/utils/codeParser';
+import { toCodeLines } from '#/utils/codeParser';
 
 const name = 'sub3Test.json';
-const content = createCodeText(`
+const content = toCodeLines(`
 Test 3
 `);
 
