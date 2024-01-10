@@ -1,10 +1,10 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
-const StyleLintFormatter = require('stylelint-formatter-pretty');
+// const StyleLintPlugin = require('stylelint-webpack-plugin');
+// const StyleLintFormatter = require('stylelint-formatter-pretty');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const Critters = require('critters-webpack-plugin');
+// const Critters = require('critters-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const { NODE_ENV } = process.env;
@@ -91,15 +91,15 @@ module.exports = () => ({
   plugins: [
     new CleanWebpackPlugin(),
     new ForkTsCheckerWebpackPlugin(),
-    new StyleLintPlugin({
-      formatter: StyleLintFormatter,
-    }),
+    // new StyleLintPlugin({
+    //   formatter: StyleLintFormatter,
+    // }),
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       favicon: 'public/icons/favicon.ico',
     }),
     new MiniCssExtractPlugin({ filename: 'index.css' }),
-    new Critters(),
+    // new Critters(),
     new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
   ],
 });
