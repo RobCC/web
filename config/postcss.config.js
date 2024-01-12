@@ -1,6 +1,6 @@
 const Autoprefixer = require('autoprefixer');
 const CssNano = require('cssnano');
-const Stylelint = require('stylelint');
+const Stylelint = require('stylelint').default;
 
 const { PROD } = require('./webpack/constants');
 

@@ -1,9 +1,7 @@
 $editor-bg: #161718;
-
 $url: #3889ff;
-
 $white: #e6e6e6;
-$editor-line-highlight: #ffffff22;
+$editor-line-highlight: #fff2;
 $editor-line-hover: #3e3e32;
 $editor-comment: #928f7e;
 $editor-line-number: #8f8f89;
@@ -13,11 +11,10 @@ $file-menu-bg: #1a1b18;
 $explorer-bg: #1a1a1a;
 $explorer-item-hover: #3e3d32;
 $explorer-item-active: #414339;
-
 $file-color-css: #519bba;
 $file-color-js: #cbcb41;
 $tab-text: #e2e2e2;
-$tab-text-active: #ffffff;
+$tab-text-active: #fff;
 
 /* Monokai */
 $monokai-green: #a6e22e;
@@ -25,7 +22,6 @@ $monokai-blue: #54d4ee;
 $monokai-red: #d61b4a;
 $monokai-yellow: #ecc420;
 $monokai-string: #e0d36f;
-
 $color-md: #519aba;
 $color-npm: #cb0303;
 $color-facebook: #4267b2;
@@ -43,19 +39,16 @@ $color-react: #5ed4f4;
 $color-bg-sass: #c06090;
 $color-bg-webpack: #2b3a42;
 $color-bg-redux: #764abc;
-$color-babel: #000000;
-$color-rollup: #ffffff;
-$color-css: hsl(198 43% 52%);
+$color-babel: #000;
+$color-rollup: #fff;
+$color-css: hsl(198deg 43% 52%);
 $color-git: #e94f32;
-$color-txt: hsl(0 0% 87%);
-$color-json: hsl(54 79% 47%);
-
+$color-txt: hsl(0deg 0% 87%);
+$color-json: hsl(54deg 79% 47%);
 $color-arenso: #006ac6;
 $color-tcs: #3b86c7;
 $color-accedo: #00a2e8;
-
 $menu-size: 50px;
 $file-tab-height: 36px;
 $explorer-item-height: 26px;
-
 $explorer-view: 250px;

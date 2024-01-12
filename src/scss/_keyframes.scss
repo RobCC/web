@@ -133,16 +133,18 @@
   from {
     width: 0;
   }
+
   to {
     width: 100%;
   }
 }
 
 @keyframes caret {
-  from,
-  to {
+  0%,
+  100% {
     border-color: transparent;
   }
+
   50% {
     border-color: variables.$editor-caret-cursor;
   }
