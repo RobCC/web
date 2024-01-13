@@ -5,26 +5,23 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const StyleLintFormatter = require('stylelint-formatter-pretty');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 // const Critters = require('critters-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const { NODE_ENV } = process.env;
-const { DEV, ROOT_PATH, SRC_PATH, BUILD_PATH } = require('./constants');
-const setStyleLoaders = require('./style-loaders');
-const alias = require('./alias');
+const { IS_PROD, PATHS } = require('./constants');
+const styleLoaders = require('./style-loaders');
 
-module.exports = () => ({
+module.exports = {
   devServer: {
     port: 1234,
     open: false,
     hot: true,
   },
-  mode: NODE_ENV,
-  entry: [`${SRC_PATH}/index.tsx`],
-  stats: 'errors-warnings',
-  devtool: NODE_ENV === DEV ? 'source-map' : false,
-  context: ROOT_PATH,
+  mode: IS_PROD ? 'production' : 'development',
+  entry: [`${PATHS.src}/index.tsx`],
+  devtool: IS_PROD ? false : 'source-map',
+  context: PATHS.root,
   output: {
-    path: BUILD_PATH,
+    path: PATHS.build,
     filename: '[name].js',
     chunkFilename: '[name].bundle.js',
     assetModuleFilename: 'images/[hash][ext][query]',
@@ -32,28 +29,31 @@ module.exports = () => ({
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
-    alias,
+    alias: {
+      '~': PATHS.root,
+      '#': PATHS.src,
+    },
   },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: 'ts-loader',
-          options: {
-            transpileOnly: true,
+        exclude: /node_modules/,
+        use: [
+          // { loader: 'babel-loader' },
+          {
+            loader: 'ts-loader',
           },
-        },
+        ],
       },
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
+        exclude: /node_modules/,
         use: [{ loader: 'babel-loader' }],
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: setStyleLoaders(NODE_ENV),
+        use: styleLoaders,
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,
@@ -69,9 +69,9 @@ module.exports = () => ({
       },
     ],
   },
-  performance: {
-    maxEntrypointSize: 500000,
-  },
+  // performance: {
+  //   maxEntrypointSize: 500000,
+  // },
   optimization: {
     splitChunks: {
       cacheGroups: {
@@ -100,6 +100,12 @@ module.exports = () => ({
     }),
     new MiniCssExtractPlugin({ filename: 'index.css' }),
     // new Critters(),
-    new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
+    // new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
   ],
-});
+  watchOptions: {
+    // for some systems, watching many files can result in a lot of CPU or memory usage
+    // https://webpack.js.org/configuration/watch/#watchoptionsignored
+    // don't use this pattern, if you have a monorepo with linked packages
+    ignored: /node_modules/,
+  },
+};
