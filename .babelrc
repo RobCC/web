@@ -4,12 +4,9 @@
     [
       "@babel/preset-react",
       {
-        "runtime": "automatic"
-      }
-    ]
+        "runtime": "automatic",
+      },
+    ],
   ],
-  "plugins": [
-    "@babel/plugin-proposal-export-namespace-from",
-    "@babel/plugin-proposal-export-default-from"
-  ]
+  "plugins": ["@babel/plugin-proposal-export-default-from"],
 }

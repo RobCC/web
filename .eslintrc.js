@@ -5,11 +5,16 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   extends: [
     'airbnb',
-    'prettier',
+    // 'airbnb/hooks',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
+    'plugin:prettier/recommended',
   ],
+  root: true,
   env: {
     browser: true,
     jest: true,
@@ -70,7 +75,15 @@ module.exports = {
     {
       files: ['*.ts', '*.tsx'],
       rules: {
-        'no-undef': 'off',
+        'no-undef': 0,
+        'react/prop-types': 0,
+        'react/require-default-props': 0,
+      },
+    },
+    {
+      files: ['*.js', '*.cjs'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 0,
       },
     },
   ],
