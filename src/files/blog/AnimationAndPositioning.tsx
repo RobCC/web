@@ -1,9 +1,9 @@
 /* eslint-disable max-len */
 // Generated with http://www.latex2png.com/ (Resolution: 200)
-import videoFull from '~/public/images/blog/full.png';
-import videoFinal from '~/public/images/blog/final.png';
-import videoCenter from '~/public/images/blog/scaled.png';
-import videoCorner from '~/public/images/blog/corner.png';
+import videoFull from '~/public/images/blog/full.jpg';
+import videoFinal from '~/public/images/blog/final.jpg';
+import videoCenter from '~/public/images/blog/scaled.jpg';
+import videoCorner from '~/public/images/blog/corner.jpg';
 import scaleX from '~/public/images/blog/scaleX.png';
 import scaleY from '~/public/images/blog/scaleY.png';
 import deviceHeightRatio from '~/public/images/blog/deviceHeightRatio.png';
