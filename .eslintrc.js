@@ -1,10 +1,11 @@
-const path = require('path');
+const { PATHS } = require('./webpack/constants');
 
 module.exports = {
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint', 'react', 'prettier'],
   extends: [
     'airbnb',
+    'airbnb-typescript',
     // 'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
@@ -19,21 +20,23 @@ module.exports = {
     browser: true,
     jest: true,
   },
+  parserOptions: {
+    project: './tsconfig.json',
+  },
   settings: {
     'import/resolver': {
       alias: {
         map: [
-          ['#', path.resolve(path.join(__dirname, './src'))],
-          ['~', path.resolve(path.join(__dirname, '.'))],
+          ['~', PATHS.root],
+          ['#', PATHS.src],
         ],
         extensions: ['.js', '.ts', '.tsx'],
       },
     },
   },
+  ignorePatterns: ['build', 'webpack', '.eslintrc.js'],
   rules: {
-    'arrow-parens': [1, 'as-needed'],
-    'comma-dangle': ['error', 'always-multiline'],
-    semi: 2,
+    'prettier/prettier': 'error',
     'no-param-reassign': [
       'error',
       {
@@ -41,42 +44,12 @@ module.exports = {
         ignorePropertyModificationsFor: ['state'],
       },
     ],
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-    'import/no-named-as-default': 0,
-    'padding-line-between-statements': [
-      1,
-      { blankLine: 'always', prev: '*', next: 'return' },
-    ],
-    'prettier/prettier': 'error',
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-    ],
-    'react/jsx-uses-react': 0,
-    'react/react-in-jsx-scope': 0,
     'react/jsx-props-no-spreading': 0,
-    'react/require-default-props': 0,
-    'react/forbid-prop-types': 0,
-    'react/jsx-one-expression-per-line': 0,
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': 1,
   },
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
       rules: {
-        'no-undef': 0,
-        'react/prop-types': 0,
         'react/require-default-props': 0,
       },
     },
