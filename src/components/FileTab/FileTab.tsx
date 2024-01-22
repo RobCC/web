@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { IconCloseTab } from '#/components/Icones';
-import { getFileFromFullName } from '#/utils/directory';
+import { getFile } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 import { FILE_ICONS } from '#/utils/constants';
 import * as store from '#/store';
@@ -32,10 +32,7 @@ export function getShortName(fullName: string) {
 export default function FileTab({ fullName }: Props) {
   const navigate = useNavigate();
   const currentFileFullName = useFileStore(getCurrentFullName);
-  const file = useMemo(
-    () => getFileFromFullName(fullName, rootFiles),
-    [fullName],
-  );
+  const file = useMemo(() => getFile(fullName, rootFiles), [fullName]);
   const { extension } = file.metadata;
   const shortName = getShortName(fullName);
   const Icon = FILE_ICONS[extension];

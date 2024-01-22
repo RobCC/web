@@ -1,4 +1,4 @@
-import { getFileFromFullName, fileUtils } from '#/utils/directory';
+import { getFile, fileUtils } from '#/utils/directory';
 import root from '#/files';
 import { createStore } from './store';
 
@@ -22,7 +22,7 @@ export const useFileStore = createStore<State>({
 
 export function openFile(fullName: string) {
   useFileStore.setState(state => {
-    const file = getFileFromFullName(fullName, root);
+    const file = getFile(fullName, root);
 
     if (!file) {
       console.error(`File ${fullName} not found`);
@@ -56,7 +56,7 @@ export function closeFile(fullName: string) {
       const { activeFiles } = state;
       const previousTab = activeFiles[activeFiles.length - 1] ?? '';
 
-      state.current.file = getFileFromFullName(previousTab, root);
+      state.current.file = getFile(previousTab, root);
       state.current.fullName = previousTab;
     }
   });
