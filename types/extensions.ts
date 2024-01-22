@@ -1,5 +1,7 @@
+type CSSModule = Record<string, string>;
+
 declare module '*.scss' {
-  const classes: Record<string, string>;
+  const classes: CSSModule;
 
   export default classes;
 }

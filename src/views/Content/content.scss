@@ -1,16 +1,9 @@
-@use "variables";
+@use "styles" as *;
 
-.side-bar {
-  background-color: variables.$explorer-bg;
-  display: inline-block;
-  font-size: 14px;
-  font-family: sans-serif;
-  transform: scaleX(0);
-  overflow: hidden;
-  transform-origin: left;
-  height: 100%;
-  white-space: nowrap;
-  width: variables.$explorer-view;
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
 }
 
 .content {
@@ -19,25 +12,8 @@
   position: absolute;
   right: 0;
   top: 0;
-  left: 0;
   height: 100%;
-  transform: translateX(0);
-}
-
-.container {
-  display: flex;
-  flex-grow: 1;
-  position: relative;
-
-  &.side-bar-opened {
-    .side-bar {
-      transform: scaleX(1);
-    }
-
-    .content {
-      left: variables.$explorer-view;
-    }
-  }
+  left: 0;
 }
 
 .placeholder {

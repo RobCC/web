@@ -1,12 +1,15 @@
 import type { File } from './file';
 import type { Folder } from './folder';
 
-export default function getFileFromFullName(fullName: string, folder: Folder) {
-  if (!fullName) {
+export default function getFileFromFullName(
+  fileFullPath: string,
+  folder: Folder,
+) {
+  if (!fileFullPath) {
     return null;
   }
 
-  const paths = fullName.split('/');
+  const paths = fileFullPath.split('/');
   let fileFolder: File | Folder = folder;
 
   for (let i = 0; i < paths.length; i += 1) {
@@ -14,7 +17,7 @@ export default function getFileFromFullName(fullName: string, folder: Folder) {
 
     fileFolder = fileFolder.get(path);
 
-    if (fileFolder.type === 'file') {
+    if (fileFolder?.type === 'file') {
       return fileFolder;
     }
   }

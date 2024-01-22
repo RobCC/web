@@ -3,12 +3,12 @@ import { useCallback } from 'react';
 import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
 import { IconResume, IconExplorer } from '#/components/Icones';
 import { resume, explorer } from '#/store';
-import styles from './sideMenu.scss';
+import styles from './activityBar.scss';
 
 const { useExplorerStore, getIsSideBarOpen, toggleSideBar } = explorer;
 const { toggleResume } = resume;
 
-export default function SideMenu() {
+export default function ActivityBar() {
   const isSideBarOpen = useExplorerStore(getIsSideBarOpen);
 
   const onResumeClick = useCallback(() => {

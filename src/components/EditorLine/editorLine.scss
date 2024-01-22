@@ -1,5 +1,4 @@
-@use "variables";
-@use "keyframes";
+@use "styles/variables";
 
 @mixin caret-border {
   border-right: 2px solid variables.$editor-caret-cursor;

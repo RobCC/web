@@ -36,6 +36,7 @@ module.exports = {
   },
   ignorePatterns: ['build', 'webpack', '.eslintrc.js'],
   rules: {
+    'no-console': ['error', { allow: ['error'] }],
     'prettier/prettier': 'error',
     'no-param-reassign': [
       'error',

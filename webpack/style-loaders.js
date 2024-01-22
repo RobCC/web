@@ -43,10 +43,10 @@ const loaders = [
   {
     loader: 'sass-loader',
     options: {
-      sassOptions: {
-        includePaths: [`${PATHS.src}/scss`],
-      },
       implementation: Sass,
+      sassOptions: {
+        includePaths: [PATHS.src],
+      },
     },
   },
 ];

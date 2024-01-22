@@ -1,5 +1,6 @@
 import { createStore } from './store';
 
+// TODO: rename to sideBar
 export type State = {
   isSideBarOpen: boolean;
 };

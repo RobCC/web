@@ -1,19 +1,16 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
-import SideMenu from '#/components/SideMenu/SideMenu';
-import Explorer from '#/components/Explorer/Explorer';
-import { Content } from '#/views/index';
+import ActivityBar from '#/components/ActivityBar/ActivityBar';
+import SideBar from '#/components/SideBar/SideBar';
+
+import styles from './app.scss';
 
 export default function App() {
   return (
-    <HashRouter basename="/">
-      <SideMenu />
-      <Routes>
-        <Route path="/" element={<Content />}>
-          <Route index element={<Explorer />} />
-        </Route>
-      </Routes>
-      {/* <Resume /> */}
-    </HashRouter>
+    <div className={styles.container}>
+      <ActivityBar />
+      <SideBar />
+      <Outlet />
+    </div>
   );
 }

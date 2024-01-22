@@ -31,6 +31,7 @@ function composeUrl(gist: string, file: string, gistCallback: string) {
   return url;
 }
 
+// TODO: try https://www.npmjs.com/package/react-gist
 // From: https://gist.github.com/aVolpe/b364a8fcd10f1ba833d97e9ab278f42c
 export default function Gist({ gist, file }: Props) {
   const [src, setSrc] = useState('');
@@ -39,6 +40,7 @@ export default function Gist({ gist, file }: Props) {
   useEffect(() => {
     const gistCallback = Gist.nextGistCallback();
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any)[gistCallback] = (res: any) => {
       toggleLoading(false);
       setSrc(res.div);

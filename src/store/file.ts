@@ -1,5 +1,5 @@
 import { getFileFromFullName, fileUtils } from '#/utils/directory';
-import rootFiles from '#/files';
+import root from '#/files';
 import { createStore } from './store';
 
 export type State = {
@@ -12,24 +12,25 @@ export type State = {
   activeFiles: string[];
 };
 
-function getInitialFile() {
-  const [, encodedFile = ''] = window.location.hash.split('file=');
-  const file = decodeURIComponent(encodedFile);
-
-  return file || 'README.md';
-}
-
 export const useFileStore = createStore<State>({
   current: {
-    file: getFileFromFullName(getInitialFile(), rootFiles),
-    fullName: getInitialFile(),
+    file: null,
+    fullName: '',
   },
   activeFiles: ['README.md', 'contact.css', 'Blog/cleaning_up.txt'],
 });
 
 export function openFile(fullName: string) {
   useFileStore.setState(state => {
-    state.current.file = getFileFromFullName(fullName, rootFiles);
+    const file = getFileFromFullName(fullName, root);
+
+    if (!file) {
+      console.error(`File ${fullName} not found`);
+
+      return;
+    }
+
+    state.current.file = file;
     state.current.fullName = fullName;
 
     const isFileAlreadyOpen = state.activeFiles.indexOf(fullName) > -1;
@@ -55,7 +56,7 @@ export function closeFile(fullName: string) {
       const { activeFiles } = state;
       const previousTab = activeFiles[activeFiles.length - 1] ?? '';
 
-      state.current.file = getFileFromFullName(previousTab, rootFiles);
+      state.current.file = getFileFromFullName(previousTab, root);
       state.current.fullName = previousTab;
     }
   });

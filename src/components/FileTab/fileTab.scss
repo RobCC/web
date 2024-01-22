@@ -1,5 +1,4 @@
-@use "variables";
-@use "utils";
+@use "styles/variables";
 
 .close {
   color: white;
@@ -26,6 +25,7 @@
   border-bottom: 1px solid #2e2f2a;
   box-sizing: border-box;
   color: variables.$tab-text;
+  cursor: pointer;
   display: inline-flex;
   font-size: 14px;
   padding: 10px 15px;

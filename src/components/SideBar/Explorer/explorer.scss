@@ -1,4 +1,4 @@
-@use "variables";
+@use "styles/variables";
 
 .explorer {
   background-color: variables.$explorer-bg;
@@ -10,7 +10,7 @@
   transform-origin: left;
   height: 100%;
   white-space: nowrap;
-  width: variables.$explorer-view;
+  width: variables.$side-bar-width;
 
   &.active {
     transform: scaleX(1);

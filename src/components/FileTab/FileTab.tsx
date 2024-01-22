@@ -1,11 +1,12 @@
 import { useCallback, useMemo } from 'react';
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { IconCloseTab } from '#/components/Icones';
 import { getFileFromFullName } from '#/utils/directory';
-import { FILE_ICONS } from '#/utils/constants';
 import { handleOnKeyDownButton } from '#/utils/a11y';
+import { FILE_ICONS } from '#/utils/constants';
 import * as store from '#/store';
 import rootFiles from '#/files';
 
@@ -15,7 +16,7 @@ type Props = {
   fullName: string;
 };
 
-const { useFileStore, getCurrentFullName, openFile, closeFile } = store.file;
+const { useFileStore, getCurrentFullName, closeFile } = store.file;
 
 export function getShortName(fullName: string) {
   const lastSlashIndex = fullName.lastIndexOf('/');
@@ -29,6 +30,7 @@ export function getShortName(fullName: string) {
 }
 
 export default function FileTab({ fullName }: Props) {
+  const navigate = useNavigate();
   const currentFileFullName = useFileStore(getCurrentFullName);
   const file = useMemo(
     () => getFileFromFullName(fullName, rootFiles),
@@ -37,6 +39,10 @@ export default function FileTab({ fullName }: Props) {
   const { extension } = file.metadata;
   const shortName = getShortName(fullName);
   const Icon = FILE_ICONS[extension];
+
+  const changeTab = useCallback(() => {
+    navigate(`/${encodeURIComponent(fullName)}`);
+  }, []);
 
   const closeTab = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -47,20 +53,16 @@ export default function FileTab({ fullName }: Props) {
     [fullName],
   );
 
-  const changeCurrentTab = useCallback(() => {
-    openFile(fullName);
-  }, [fullName]);
-
   return (
     <div
-      role="button"
+      role="tab"
       title={shortName}
       tabIndex={0}
       className={classNames(styles.tab, {
         [styles.active]: fullName === currentFileFullName,
       })}
-      onClick={changeCurrentTab}
-      onKeyDown={handleOnKeyDownButton(changeCurrentTab)}
+      onClick={changeTab}
+      onKeyDown={handleOnKeyDownButton(changeTab)}
     >
       <ExtensionIcon extension={extension} Icon={Icon} />
       <span>{shortName}</span>

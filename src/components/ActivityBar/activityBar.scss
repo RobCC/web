@@ -1,10 +1,10 @@
-@use "utils";
-@use "variables";
+@use "styles/variables";
 
 .menu {
   display: flex;
   background-color: variables.$side-menu-bg;
   flex-direction: column;
   height: 100vh;
-  flex: 0 0 variables.$menu-size;
+  flex: 0 0 variables.$activity-bar-width;
+  z-index: 1;
 }

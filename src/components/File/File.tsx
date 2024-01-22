@@ -1,10 +1,9 @@
-import { useCallback } from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { FILE_ICONS } from '#/utils/constants';
 import { fileUtils } from '#/utils/directory';
-import { handleOnKeyDownButton } from '#/utils/a11y';
 import { file } from '#/store';
 
 import styles from './file.scss';
@@ -20,7 +19,7 @@ type Props = {
 const INITIAL_PADDING = 15;
 const LEVEL_PADDING_DELTA = 8;
 
-const { useFileStore, openFile, getCurrentFullName } = file;
+const { useFileStore, getCurrentFullName } = file;
 
 export default function File({ level = 0, data, parent = '' }: Props) {
   const currentFileName = useFileStore(getCurrentFullName);
@@ -28,17 +27,9 @@ export default function File({ level = 0, data, parent = '' }: Props) {
   const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
   const Icon = FILE_ICONS[extension];
 
-  const onClick = useCallback(() => {
-    openFile(fullName);
-  }, [fullName]);
-
   return (
-    <div
-      role="button"
-      tabIndex={0}
-      title={fullName}
-      onClick={onClick}
-      onKeyDown={handleOnKeyDownButton(onClick)}
+    <Link
+      to={`/${encodeURIComponent(fullName)}`}
       className={classNames(styles.item, {
         [styles.active]: fullName === currentFileName,
       })}
@@ -52,6 +43,6 @@ export default function File({ level = 0, data, parent = '' }: Props) {
         Icon={Icon}
       />
       <span>{data.name}</span>
-    </div>
+    </Link>
   );
 }
