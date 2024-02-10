@@ -25,7 +25,7 @@ import deviceTopPosition from '~/public/images/blog/deviceTopPosition.png';
 import deviceTopPositionR from '~/public/images/blog/deviceTopPositionR.png';
 import deviceWidthRatio from '~/public/images/blog/deviceWidthRatio.png';
 
-import { Wrapper, Image } from '#/components/Blog';
+import { Wrapper, Image } from '#/components/blog';
 import { fileUtils } from '#/utils/directory';
 
 const imgStyle = {

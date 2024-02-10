@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import { Wrapper } from '#/components/Blog';
+import { Wrapper } from '#/components/blog';
 import { fileUtils } from '#/utils/directory';
 
 function AnimationAndPositioning() {
