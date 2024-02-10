@@ -1,5 +1,7 @@
 import { createStore } from './store';
 
+// TODO: delete?
+
 export type State = {
   isResumeOpen: boolean;
 };

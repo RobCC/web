@@ -1,10 +1,40 @@
-@use "styles/variables";
+@use "styles" as *;
 
-.menu {
+.bar {
   display: flex;
-  background-color: variables.$side-menu-bg;
+  background-color: $side-menu-bg;
   flex-direction: column;
   height: 100vh;
-  flex: 0 0 variables.$activity-bar-width;
+  flex: 0 0 $activity-bar-width;
   z-index: 1;
+}
+
+.item {
+  align-items: center;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  position: relative;
+
+  svg {
+    height: 24px;
+    width: 24px;
+    fill: #d7dae0;
+  }
+
+  &.active {
+    border-left: 2px solid white;
+
+    svg {
+      fill: white;
+    }
+  }
+
+  &:hover {
+    svg {
+      fill: white;
+    }
+  }
 }

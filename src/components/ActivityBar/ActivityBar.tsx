@@ -1,41 +1,17 @@
-import { useCallback } from 'react';
+import { IconExplorer } from '#/components/Icones';
+import { explorer } from '#/store';
 
-import SideMenuItem from '#/components/SideMenuItem/SideMenuItem';
-import { IconResume, IconExplorer } from '#/components/Icones';
-import { resume, explorer } from '#/store';
+import Item from './ActivityBarItem';
 import styles from './activityBar.scss';
 
-const { useExplorerStore, getIsSideBarOpen, toggleSideBar } = explorer;
-const { toggleResume } = resume;
+const { toggleSideBar } = explorer;
 
 export default function ActivityBar() {
-  const isSideBarOpen = useExplorerStore(getIsSideBarOpen);
-
-  const onResumeClick = useCallback(() => {
-    toggleResume();
-  }, []);
-
-  const onMenuItemClick = useCallback(() => {
-    toggleSideBar();
-  }, []);
-
   return (
-    <div className={styles.menu}>
-      <SideMenuItem
-        title="Explorer"
-        selected={isSideBarOpen} // TODO: check if both opened and selected item matches title
-        onClick={onMenuItemClick}
-        style={{
-          position: 'relative',
-          left: '-2px',
-          borderLeftWidth: '4px',
-        }}
-      >
+    <div className={styles.bar}>
+      <Item label="Explorer" onClick={toggleSideBar} isActive>
         <IconExplorer />
-      </SideMenuItem>
-      <SideMenuItem title="Resume" selected={false} onClick={onResumeClick}>
-        <IconResume />
-      </SideMenuItem>
+      </Item>
     </div>
   );
 }
