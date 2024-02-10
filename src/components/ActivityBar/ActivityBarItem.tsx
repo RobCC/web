@@ -16,17 +16,15 @@ export default function Item({
   children,
 }: PropsWithChildren<ItemProps>) {
   return (
-    <div className={styles.bar}>
-      <button
-        type="button"
-        aria-label={label}
-        className={classNames(styles.item, {
-          [styles.active]: isActive,
-        })}
-        onClick={onClick}
-      >
-        {children}
-      </button>
-    </div>
+    <button
+      type="button"
+      aria-label={label}
+      className={classNames(styles.item, {
+        [styles.active]: isActive,
+      })}
+      onClick={onClick}
+    >
+      {children}
+    </button>
   );
 }
