@@ -2,6 +2,8 @@ import { getFile, fileUtils } from '#/utils/directory';
 import root from '#/files';
 import { createStore } from './store';
 
+// TODO: rename module: fileSystem
+
 export type State = {
   /** Current file and its fullname. */
   current: {

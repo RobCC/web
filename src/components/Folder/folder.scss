@@ -13,6 +13,7 @@
   height: auto;
   overflow: hidden;
   position: relative;
+  width: 100%;
 
   &.closed {
     height: variables.$explorer-item-height;

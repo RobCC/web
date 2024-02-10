@@ -1,9 +1,9 @@
+import { useCallback } from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
-import { FILE_ICONS } from '#/utils/constants';
-import { fileUtils } from '#/utils/directory';
+import { fileUtils, getFullPathname } from '#/utils/directory';
 import { file } from '#/store';
 
 import styles from './file.scss';
@@ -19,30 +19,38 @@ type Props = {
 const INITIAL_PADDING = 15;
 const LEVEL_PADDING_DELTA = 8;
 
-const { useFileStore, getCurrentFullName } = file;
+const { openFile, useFileStore, getCurrentFullName } = file;
 
 export default function File({ level = 0, data, parent = '' }: Props) {
+  const navigate = useNavigate();
   const currentFileName = useFileStore(getCurrentFullName);
   const { extension } = data.metadata;
-  const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
-  const Icon = FILE_ICONS[extension];
+  const fullPathname = getFullPathname(data.name, parent);
+
+  const handleClick = useCallback(() => {
+    const [, currentFileParam] = window.location.hash.split('#/');
+
+    // no need to navigate, but still need to open file
+    if (fullPathname === currentFileParam) {
+      openFile(fullPathname);
+    } else {
+      navigate(`/${encodeURIComponent(fullPathname)}`);
+    }
+  }, [fullPathname]);
 
   return (
-    <Link
-      to={`/${encodeURIComponent(fullName)}`}
+    <button
+      type="button"
+      onClick={handleClick}
       className={classNames(styles.item, {
-        [styles.active]: fullName === currentFileName,
+        [styles.active]: fullPathname === currentFileName,
       })}
       style={{
         paddingLeft: INITIAL_PADDING + level * LEVEL_PADDING_DELTA,
       }}
     >
-      <ExtensionIcon
-        extension={extension}
-        className={styles.iconWrapper}
-        Icon={Icon}
-      />
-      <span>{data.name}</span>
-    </Link>
+      <ExtensionIcon extension={extension} className={styles.iconWrapper} />
+      {data.name}
+    </button>
   );
 }

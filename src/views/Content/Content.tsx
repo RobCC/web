@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import classNames from 'classnames';
 import { useParams } from 'react-router-dom';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
@@ -30,8 +29,8 @@ function Content() {
   }, [fileFullPath]);
 
   return (
-    <div className={classNames(styles.wrapper)}>
-      <div id="content" className={classNames(styles.content)}>
+    <div className={styles.wrapper}>
+      <div id="content" className={styles.content}>
         <FileTabMenu />
         {currentFile ? (
           renderContent(currentFile.content)

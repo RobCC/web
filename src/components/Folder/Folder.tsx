@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import File from '#/components/File/File';
 import { FolderIcon } from '#/components/Icones';
-import { folderUtils } from '#/utils/directory';
+import { folderUtils, getFullPathname } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
 import styles from './folder.scss';
@@ -20,7 +20,7 @@ type Props = {
 export default function Folder({ level = 0, data, parent = '' }: Props) {
   const [isClosed, setIsClosed] = useState(true);
   const { files, folders } = data.content;
-  const fullName = `${parent}${parent ? '/' : ''}${data.name}`;
+  const fullName = getFullPathname(data.name, parent);
 
   const onClick = () => {
     setIsClosed(!isClosed);

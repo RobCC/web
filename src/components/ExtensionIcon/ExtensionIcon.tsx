@@ -1,23 +1,20 @@
 import classNames from 'classnames';
 
+import { FILE_ICONS } from '#/utils/constants';
+
 import styles from './extensionIcon.scss';
 
 type Props = {
-  Icon: React.FC;
   extension: Extension;
   className?: string;
-  props?: React.SVGProps<SVGSVGElement>;
 };
 
-export default function ExtensionIcon({
-  Icon,
-  extension,
-  className = '',
-  props = {},
-}: Props) {
+export default function ExtensionIcon({ extension, className = '' }: Props) {
+  const Icon = FILE_ICONS[extension];
+
   return (
     <div className={classNames(styles.icon, styles[extension], className)}>
-      <Icon {...props} />
+      <Icon />
     </div>
   );
 }

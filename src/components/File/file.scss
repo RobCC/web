@@ -11,6 +11,7 @@
   user-select: none;
   display: flex;
   align-items: center;
+  width: 100%;
 
   &:hover {
     background-color: variables.$explorer-item-hover;

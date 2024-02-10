@@ -28,4 +28,12 @@ export function getFile(fullName: string, folder: Folder) {
   return null;
 }
 
+export function getFullPathname(name: string, parent = '') {
+  if (!parent) {
+    return name;
+  }
+
+  return `${parent}/${name}`;
+}
+
 export default { getFile };
