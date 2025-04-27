@@ -2,7 +2,7 @@ import { IconExplorer } from '#/components/Icones';
 import { explorer } from '#/store';
 
 import ActivityBarItem from './ActivityBarItem';
-import styles from './activityBar.scss';
+import styles from './activityBar.module.scss';
 
 const { toggleSideBar } = explorer;
 

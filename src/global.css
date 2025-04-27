@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Fira Code";
+  /* https://github.com/beichensky/Font/tree/master/FiraCode/woff2 */
+  src:
+    url("./assets/fonts/FiraCode/FiraCode-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Fira Code Bold";
+  src:
+    url("./assets/fonts/FiraCode/FiraCode-Bold.woff2") format("woff2");
+}
+
+body {
+  background: #161718;
+  color: #e6e6e6;
+  font-family: "Fira Code", monospace;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+}
+
+a {
+  color: #3889ff;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  background: inherit;
+}
+
+button,
+div[role="button"] {
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}

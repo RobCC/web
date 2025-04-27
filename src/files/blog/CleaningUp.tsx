@@ -1,6 +1,6 @@
-import initialBundle from '~/public/images/blog/bundle_og.jpg';
-import bundleUpdate from '~/public/images/blog/bundle_update.jpg';
-import bundleEnd from '~/public/images/blog/bundle_end.jpg';
+import initialBundle from '#/assets/blog/bundle_og.jpg';
+import bundleUpdate from '#/assets/blog/bundle_update.jpg';
+import bundleEnd from '#/assets/blog/bundle_end.jpg';
 
 import { Wrapper, Gist, Image } from '#/components/blog';
 import { fileUtils } from '#/utils/directory';

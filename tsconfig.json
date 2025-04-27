@@ -1,25 +1,6 @@
 {
-  "include": ["src/**/*", "types/*"],
-  "compilerOptions": {
-    "lib": ["ESNext", "dom"],
-    "target": "esnext",
-    "outDir": "build",
-    "baseUrl": "./",
-    "paths": {
-      "#/*": ["./src/*"],
-      "~/*": ["./*"]
-    },
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "jsx": "react-jsx",
-    "declaration": true,
-    "allowJs": true,
-    "sourceMap": true,
-    "removeComments": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "typeRoots": ["./node_modules/@types", "./types/*.d.ts"],
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": ["node_modules", "./build/**/*"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+  ]
 }

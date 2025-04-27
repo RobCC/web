@@ -1,29 +1,29 @@
-/* eslint-disable max-len */
+
 // Generated with http://www.latex2png.com/ (Resolution: 200)
-import videoFull from '~/public/images/blog/full.jpg';
-import videoFinal from '~/public/images/blog/final.jpg';
-import videoCenter from '~/public/images/blog/scaled.jpg';
-import videoCorner from '~/public/images/blog/corner.jpg';
-import scaleX from '~/public/images/blog/scaleX.png';
-import scaleY from '~/public/images/blog/scaleY.png';
-import deviceHeightRatio from '~/public/images/blog/deviceHeightRatio.png';
-import deviceLeftPosition from '~/public/images/blog/deviceLeftPosition.png';
-import deviceLeftPositionR from '~/public/images/blog/deviceLeftPositionR.png';
-import dk from '~/public/images/blog/dk.png';
-import form from '~/public/images/blog/form.png';
-import height from '~/public/images/blog/height.png';
-import heightFinal from '~/public/images/blog/heightFinal.png';
-import width from '~/public/images/blog/width.png';
-import widthFinal from '~/public/images/blog/widthFinal.png';
-import maxTopPosition from '~/public/images/blog/maxTopPosition.png';
-import maxLeftPosition from '~/public/images/blog/maxLeftPosition.png';
-import simp from '~/public/images/blog/simp.png';
-import simpk from '~/public/images/blog/simpk.png';
-import translateX from '~/public/images/blog/translateX.png';
-import translateY from '~/public/images/blog/translateY.png';
-import deviceTopPosition from '~/public/images/blog/deviceTopPosition.png';
-import deviceTopPositionR from '~/public/images/blog/deviceTopPositionR.png';
-import deviceWidthRatio from '~/public/images/blog/deviceWidthRatio.png';
+import videoFull from '#/assets/blog/full.jpg';
+import videoFinal from '#/assets/blog/final.jpg';
+import videoCenter from '#/assets/blog/scaled.jpg';
+import videoCorner from '#/assets/blog/corner.jpg';
+import scaleX from '#/assets/blog/scaleX.png';
+import scaleY from '#/assets/blog/scaleY.png';
+import deviceHeightRatio from '#/assets/blog/deviceHeightRatio.png';
+import deviceLeftPosition from '#/assets/blog/deviceLeftPosition.png';
+import deviceLeftPositionR from '#/assets/blog/deviceLeftPositionR.png';
+import dk from '#/assets/blog/dk.png';
+import form from '#/assets/blog/form.png';
+import height from '#/assets/blog/height.png';
+import heightFinal from '#/assets/blog/heightFinal.png';
+import width from '#/assets/blog/width.png';
+import widthFinal from '#/assets/blog/widthFinal.png';
+import maxTopPosition from '#/assets/blog/maxTopPosition.png';
+import maxLeftPosition from '#/assets/blog/maxLeftPosition.png';
+import simp from '#/assets/blog/simp.png';
+import simpk from '#/assets/blog/simpk.png';
+import translateX from '#/assets/blog/translateX.png';
+import translateY from '#/assets/blog/translateY.png';
+import deviceTopPosition from '#/assets/blog/deviceTopPosition.png';
+import deviceTopPositionR from '#/assets/blog/deviceTopPositionR.png';
+import deviceWidthRatio from '#/assets/blog/deviceWidthRatio.png';
 
 import { Wrapper, Image } from '#/components/blog';
 import { fileUtils } from '#/utils/directory';

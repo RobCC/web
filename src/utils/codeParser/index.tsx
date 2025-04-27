@@ -1,3 +1,5 @@
+import { type JSX } from 'react';
+
 import linkParser from './link';
 import colorParser from './color';
 import commentParser from './comment';
@@ -13,8 +15,8 @@ const PLACEHOLDERS = {
 };
 
 const FULL_REGEX = new RegExp(
-  [...Object.keys(PLACEHOLDERS)]
-    .map((key: keyof typeof PLACEHOLDERS) => {
+  [...Object.keys(PLACEHOLDERS) as Array<keyof typeof PLACEHOLDERS>]
+    .map((key) => {
       const regex = PLACEHOLDERS[key];
 
       return regex.source;
@@ -65,7 +67,7 @@ function getParsingData(line: string): ParsingData {
   };
 }
 
-function parseLine(line: string, styles: CSSModule): string | JSX.Element {
+function parseLine(line: string, styles: Record<string, string>): string | JSX.Element {
   const { index, subString, link, color, comment } = getParsingData(line);
 
   if (index === undefined) {
@@ -73,7 +75,7 @@ function parseLine(line: string, styles: CSSModule): string | JSX.Element {
   }
 
   const textBeforeParse = line.slice(0, index);
-  const textAfterParse = line.slice(index + subString.length, line.length);
+  const textAfterParse = line.slice(index + subString!.length, line.length);
   let parsedElement;
 
   if (color) {
@@ -83,7 +85,7 @@ function parseLine(line: string, styles: CSSModule): string | JSX.Element {
   } else if (comment) {
     // Pass subString instead of comment, since we want
     // to stylize the '//' as well
-    parsedElement = commentParser.toDOM(subString, styles);
+    parsedElement = commentParser.toDOM(subString!, styles);
   }
 
   return (

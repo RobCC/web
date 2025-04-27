@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { marked } from 'marked';
 
-import styles from './projectReadme.scss';
+import styles from './projectReadme.module.scss';
 
 type Props = {
   name: string;
@@ -13,7 +13,7 @@ function getReadmeUrl(projectName: string, userName: string) {
 }
 
 function ProjectReadme({ name, user = 'RobCC' }: Props) {
-  const div = useRef(null);
+  const div = useRef<HTMLDivElement>(null);
   const url = getReadmeUrl(name, user);
 
   useEffect(() => {
@@ -26,10 +26,12 @@ function ProjectReadme({ name, user = 'RobCC' }: Props) {
 
       const text = await response.text();
 
-      div.current.innerHTML = marked.parse(text);
+      if (div.current) {
+        div.current.innerHTML = await marked.parse(text);
+      }
     }
 
-    fetchReadme();
+    void fetchReadme();
   }, [url]);
 
   return <div className={styles.wrapper} ref={div} />;

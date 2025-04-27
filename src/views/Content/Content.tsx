@@ -6,7 +6,7 @@ import Editor from '#/components/Editor/Editor';
 import { file } from '#/store';
 import { fileUtils } from '#/utils/directory';
 
-import styles from './content.scss';
+import styles from './content.module.scss';
 
 const { useFileStore, getCurrentFile, openFile } = file;
 

@@ -32,11 +32,16 @@ export function create(name: string, content?: (File | Folder)[]): Folder {
   return {
     type: 'folder',
     name,
-    content: filterFileFolder(content),
-    get(contentName: string) {
+    content: filterFileFolder(content!),
+    get(contentName: string): File | Folder {
       const allContent = Object.values(this.content).flat();
+      const found = allContent.find(f => f.name === contentName);
 
-      return allContent.find(f => f.name === contentName);
+      if (!found) {
+        throw new Error(`Content with name "${contentName}" not found.`);
+      }
+
+      return found;
     },
   };
 }

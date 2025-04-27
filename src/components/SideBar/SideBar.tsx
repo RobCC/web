@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import { explorer } from '#/store';
 
-import styles from './sideBar.scss';
+import styles from './sideBar.module.scss';
 import Explorer from './Explorer/Explorer';
 
 const { useExplorerStore, getIsSideBarOpen } = explorer;

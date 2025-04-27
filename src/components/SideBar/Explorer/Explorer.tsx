@@ -2,7 +2,7 @@ import allFiles from '#/files';
 import File from '#/components/File/File';
 import Folder from '#/components/Folder/Folder';
 
-import styles from './explorer.scss';
+import styles from './explorer.module.scss';
 
 export default function Explorer() {
   const { files, folders } = allFiles.content;

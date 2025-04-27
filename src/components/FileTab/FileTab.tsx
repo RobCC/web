@@ -9,7 +9,7 @@ import { handleOnKeyDownButton } from '#/utils/a11y';
 import * as store from '#/store';
 import rootFiles from '#/files';
 
-import styles from './fileTab.scss';
+import styles from './fileTab.module.scss';
 
 type Props = {
   fullName: string;
@@ -32,7 +32,7 @@ export default function FileTab({ fullName }: Props) {
   const navigate = useNavigate();
   const currentFileFullName = useFileStore(getCurrentFullName);
   const file = useMemo(() => getFile(fullName, rootFiles), [fullName]);
-  const { extension } = file.metadata;
+  const { extension } = file!.metadata;
   const shortName = getShortName(fullName);
 
   const changeTab = useCallback(() => {

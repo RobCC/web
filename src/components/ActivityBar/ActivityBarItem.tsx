@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import classNames from 'classnames';
 
-import styles from './activityBar.scss';
+import styles from './activityBar.module.scss';
 
 type ItemProps = {
   label: string;

@@ -1,11 +1,11 @@
-@use "styles" as *;
+@use "../../styles/_variables";
 
 .bar {
   display: flex;
-  background-color: $side-menu-bg;
+  background-color: variables.$side-menu-bg;
   flex-direction: column;
   height: 100vh;
-  flex: 0 0 $activity-bar-width;
+  flex: 0 0 variables.$activity-bar-width;
   z-index: 1;
 }
 

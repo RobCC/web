@@ -1,4 +1,4 @@
-import styles from './image.scss';
+import styles from './image.module.scss';
 
 type Props = {
   alt: string;

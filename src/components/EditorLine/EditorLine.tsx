@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { editor } from '#/store';
 import parse, { isComment } from '#/utils/codeParser';
-import styles from './editorLine.scss';
+import styles from './editorLine.module.scss';
 
 type Props = {
   /** Line number to be rendered */

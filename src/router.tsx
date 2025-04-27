@@ -8,7 +8,8 @@ import {
 import App from '#/components/App/App';
 import { Content } from '#/views';
 
-export default createHashRouter([
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const router: any = createHashRouter([
   {
     path: '/',
     element: <App />,
@@ -20,3 +21,5 @@ export default createHashRouter([
     ),
   },
 ]);
+
+export default router;

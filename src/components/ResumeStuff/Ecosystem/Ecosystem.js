@@ -11,7 +11,7 @@ import { faGitAlt } from '@fortawesome/free-brands-svg-icons/faGitAlt';
 
 import { VsCode, Typescript, Webpack, Babel, Redux } from '#/svg';
 import MountAnimator from '#/utils/MountAnimator';
-import rollup from '~/public/images/rollup.png';
+import rollup from '#/assets/rollup.png';
 import Section from '../Section/Section';
 import styles from './ecosystem.scss';
 import data from './data';

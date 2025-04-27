@@ -11,7 +11,7 @@ export type File = {
 const FILE_EXTENSION_REGEX = /\.([0-9a-z]+)$/;
 
 function getExtension(name: string) {
-  const [, extension] = name.match(FILE_EXTENSION_REGEX);
+  const [, extension] = name.match(FILE_EXTENSION_REGEX) ?? [];
 
   return extension as Extension;
 }

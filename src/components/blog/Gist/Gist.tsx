@@ -40,10 +40,12 @@ export default function Gist({ gist, file }: Props) {
   useEffect(() => {
     const gistCallback = Gist.nextGistCallback();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
     (window as any)[gistCallback] = (res: any) => {
       toggleLoading(false);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       setSrc(res.div);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       addStylesheet(res.stylesheet);
     };
 
@@ -51,7 +53,7 @@ export default function Gist({ gist, file }: Props) {
     const script = document.createElement('script');
 
     script.type = 'text/javascript';
-    script.src = composeUrl(gist, file, gistCallback);
+    script.src = composeUrl(gist, file!, gistCallback);
 
     document.head.appendChild(script);
   }, [gist, file]);
@@ -60,7 +62,7 @@ export default function Gist({ gist, file }: Props) {
     return <div>Loading...</div>;
   }
 
-  // eslint-disable-next-line react/no-danger
+
   return <div dangerouslySetInnerHTML={{ __html: src }} />;
 }
 
