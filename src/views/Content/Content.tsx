@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useShallow } from 'zustand/shallow';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import Editor from '#/components/Editor/Editor';
@@ -19,7 +20,7 @@ function renderContent(FileContent: fileUtils.File['content']) {
 }
 
 function Content() {
-  const currentFile = useFileStore(getCurrentFile);
+  const currentFile = useFileStore(useShallow(getCurrentFile));
   const { fileFullPath } = useParams();
 
   useEffect(() => {
