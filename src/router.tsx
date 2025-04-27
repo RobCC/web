@@ -8,8 +8,7 @@ import {
 import App from '#/components/App/App';
 import { Content } from '#/views';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const router: any = createHashRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <App />,

@@ -1,0 +1,58 @@
+:root {
+  --color-editor-bg: #161718;
+  --color-url: #3889ff;
+  --color-white: #e6e6e6;
+  --color-editor-line-highlight: #fff2;
+  --color-editor-line-hover: #3e3e32;
+  --color-editor-comment: #928f7e;
+  --color-editor-line-number: #8f8f89;
+  --color-editor-caret-cursor: #f5f5f5;
+  --color-side-menu-bg: #21221d;
+  --color-file-menu-bg: #1a1b18;
+  --color-explorer-bg: #1a1a1a;
+  --color-explorer-item-hover: #3e3d32;
+  --color-explorer-item-active: #414339;
+  --color-file-color-css: #519bba;
+  --color-file-color-js: #cbcb41;
+  --color-tab-text: #e2e2e2;
+  --color-tab-text-active: #fff;
+
+  /* Monokai */
+  --monokai-green: #a6e22e;
+  --monokai-blue: #54d4ee;
+  --monokai-red: #d61b4a;
+  --monokai-yellow: #ecc420;
+  --monokai-string: #e0d36f;
+  --color-md: #519aba;
+  --color-npm: #cb0303;
+  --color-facebook: #4267b2;
+  --color-linkedin: #0074b2;
+  --color-steam: #145e8f;
+  --color-bg-vscode: #2c2c32;
+  --color-bg-ts: white;
+  --color-ts: #007acc;
+  --color-bg-js: #323230;
+  --color-js: #f0d91d;
+  --color-bg-nodejs: #3e3f35;
+  --color-nodejs: #659b60;
+  --color-bg-react: #222;
+  --color-react: #5ed4f4;
+  --color-bg-sass: #c06090;
+  --color-bg-webpack: #2b3a42;
+  --color-bg-redux: #764abc;
+  --color-babel: #000;
+  --color-rollup: #fff;
+  --color-css: hsl(198deg 43% 52%);
+  --color-git: #e94f32;
+  --color-txt: hsl(0deg 0% 87%);
+  --color-json: hsl(54deg 79% 47%);
+  --color-arenso: #006ac6;
+  --color-tcs: #3b86c7;
+  --color-accedo: #00a2e8;
+
+  /* Sizes */
+  --activity-bar-width: 50px;
+  --file-tab-height: 36px;
+  --explorer-item-height: 26px;
+  --side-bar-width: 250px;
+}
