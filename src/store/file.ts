@@ -26,8 +26,6 @@ export function openFile(fullName: string) {
   useFileStore.setState(state => {
     const file = getFile(fullName, root);
 
-    console.log('open File');
-
     if (!file) {
       console.error(`File ${fullName} not found`);
 

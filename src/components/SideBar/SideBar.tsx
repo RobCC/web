@@ -2,11 +2,14 @@ import classNames from 'classnames';
 
 import { explorer } from '#/store';
 
-import styles from './sideBar.module.scss';
+import styles from './sideBar.module.css';
 import Explorer from './Explorer/Explorer';
 
 const { useExplorerStore, getIsSideBarOpen } = explorer;
 
+/**
+ * Collapsable side bar.
+ */
 export default function SideBar() {
   return (
     <div

@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-import ActivityBar from '#/components/ActivityBar/ActivityBar';
-import SideBar from '#/components/SideBar/SideBar';
+import { ActivityBar, SideBar } from '#/components';
 
 export default function App() {
   return (

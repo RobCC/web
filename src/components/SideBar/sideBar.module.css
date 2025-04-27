@@ -1,0 +1,14 @@
+.wrapper {
+  background-color: var(--color-explorer-bg);
+  display: inline-block;
+  flex: 0;
+  font-family: sans-serif;
+  font-size: 14px;
+  height: 100vh;
+  overflow: hidden;
+  white-space: nowrap;
+
+  &.open {
+    flex: 0 0 250px;
+  }
+}

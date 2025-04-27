@@ -111,6 +111,9 @@ importers:
       stylelint-formatter-pretty:
         specifier: ^4.0.1
         version: 4.0.1(stylelint@16.19.1(typescript@5.8.3))
+      stylelint-order:
+        specifier: ^7.0.0
+        version: 7.0.0(stylelint@16.19.1(typescript@5.8.3))
       stylelint-prettier:
         specifier: ^5.0.3
         version: 5.0.3(prettier@3.5.3)(stylelint@16.19.1(typescript@5.8.3))
@@ -1953,6 +1956,11 @@ packages:
     resolution: {integrity: sha512-8sLjZwK0R+JlxlYcTuVnyT2v+htpdrjDOKuMcOVdYjt52Lh8hWRYpxBPoKx/Zg+bcjc3wx6fmQevMmUztS/ccA==}
     engines: {node: '>=4'}
 
+  postcss-sorting@9.1.0:
+    resolution: {integrity: sha512-Mn8KJ45HNNG6JBpBizXcyf6LqY/qyqetGcou/nprDnFwBFBLGj0j/sNKV2lj2KMOVOwdXu14aEzqJv8CIV6e8g==}
+    peerDependencies:
+      postcss: ^8.4.20
+
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
 
@@ -2241,6 +2249,12 @@ packages:
     engines: {node: '>=18.12.0'}
     peerDependencies:
       stylelint: '>=16.0.0'
+
+  stylelint-order@7.0.0:
+    resolution: {integrity: sha512-rSWxx0KscYfxU02wEskKXES9lkRzuuONMMNkZ7SUc6uiF3tDKm7e+sE0Ax/SBlG4TUf1sp1R6f3/SlsPGmzthg==}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      stylelint: ^16.18.0
 
   stylelint-prettier@5.0.3:
     resolution: {integrity: sha512-B6V0oa35ekRrKZlf+6+jA+i50C4GXJ7X1PPmoCqSUoXN6BrNF6NhqqhanvkLjqw2qgvrS0wjdpeC+Tn06KN3jw==}
@@ -4260,6 +4274,10 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
+  postcss-sorting@9.1.0(postcss@8.5.3):
+    dependencies:
+      postcss: 8.5.3
+
   postcss-value-parser@4.2.0: {}
 
   postcss@8.5.3:
@@ -4608,6 +4626,12 @@ snapshots:
       string-width: 7.2.0
       stylelint: 16.19.1(typescript@5.8.3)
       supports-hyperlinks: 3.2.0
+
+  stylelint-order@7.0.0(stylelint@16.19.1(typescript@5.8.3)):
+    dependencies:
+      postcss: 8.5.3
+      postcss-sorting: 9.1.0(postcss@8.5.3)
+      stylelint: 16.19.1(typescript@5.8.3)
 
   stylelint-prettier@5.0.3(prettier@3.5.3)(stylelint@16.19.1(typescript@5.8.3)):
     dependencies:

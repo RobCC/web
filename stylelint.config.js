@@ -1,5 +1,6 @@
 export default {
   extends: ['stylelint-config-standard-scss', 'stylelint-prettier/recommended'],
+  plugins: ['stylelint-order'],
   overrides: [
     {
       files: ['**/*.scss'],
@@ -12,6 +13,9 @@ export default {
           },
         ],
       },
+    },
+    {
+      files: ['**/*.css'],
     },
   ],
 };

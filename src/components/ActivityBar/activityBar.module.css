@@ -1,40 +1,30 @@
-@use "../../styles/_variables";
-
 .bar {
+  background-color: var(--color-side-menu-bg);
   display: flex;
-  background-color: variables.$side-menu-bg;
+  flex: 0 0 var(--activity-bar-width);
   flex-direction: column;
   height: 100vh;
-  flex: 0 0 variables.$activity-bar-width;
   z-index: 1;
 }
 
 .item {
+  --color-icon: #d7dae0;
+
   align-items: center;
-  cursor: pointer;
   border-left: 2px solid transparent;
+  color: var(--color-icon);
+  cursor: pointer;
   display: flex;
   height: 60px;
   justify-content: center;
   position: relative;
 
-  svg {
-    height: 24px;
-    width: 24px;
-    fill: #d7dae0;
-  }
-
   &.active {
     border-left: 2px solid white;
-
-    svg {
-      fill: white;
-    }
   }
 
+  &.active,
   &:hover {
-    svg {
-      fill: white;
-    }
+    --color-icon: white;
   }
 }

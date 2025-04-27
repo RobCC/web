@@ -6,6 +6,6 @@ Visit it [here](http://www.jrobcc.com).
 
 - From `master` branch, run `npm run deploy`
 
-# TODO
+# Resources
 
-- Delete unused stuff
+- [Visual Studio Code Icons](https://www.figma.com/community/file/768673354734944365/visual-studio-code-icons)
