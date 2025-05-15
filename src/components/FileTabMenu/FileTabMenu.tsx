@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import FileTab from '#/components/FileTab/FileTab';
 import { file, explorer } from '#/store';
 
-import styles from './fileTabMenu.module.scss';
+import styles from './fileTabMenu.module.css';
 
 const { useExplorerStore, getIsSideBarOpen } = explorer;
 const { useFileStore, getActiveFiles } = file;
@@ -34,7 +34,6 @@ export default function FileTabMenu() {
 
   const onWheel = useCallback((e: React.WheelEvent<HTMLDivElement>) => {
     const $wrapper = e.currentTarget;
-
 
     $wrapper.scrollLeft += e.deltaY;
 

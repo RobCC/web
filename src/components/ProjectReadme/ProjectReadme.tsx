@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { marked } from 'marked';
 
-import styles from './projectReadme.module.scss';
+import styles from './projectReadme.module.css';
 
 type Props = {
   name: string;

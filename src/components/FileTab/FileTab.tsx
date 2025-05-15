@@ -9,7 +9,7 @@ import { handleOnKeyDownButton } from '#/utils/a11y';
 import * as store from '#/store';
 import rootFiles from '#/files';
 
-import styles from './fileTab.module.scss';
+import styles from './fileTab.module.css';
 
 type Props = {
   fullName: string;

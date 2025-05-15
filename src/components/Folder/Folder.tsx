@@ -6,7 +6,7 @@ import { FolderIcon } from '#/components/Icones';
 import { folderUtils, getFullPathname } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
 
-import styles from './folder.module.scss';
+import styles from './folder.module.css';
 
 type Props = {
   /** Depth level on the file system. */

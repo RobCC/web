@@ -1,9 +1,7 @@
-@use "../../styles/_variables";
-
 .tab-menu {
-  background-color: variables.$file-menu-bg;
+  background-color: var(--color-file-menu-bg);
   display: flex;
-  flex: 0 0 variables.$file-tab-height;
+  flex: 0 0 var(--file-tab-height);
   font-family: sans-serif;
   max-width: 100%;
   overflow: hidden;
@@ -25,7 +23,7 @@
   }
 
   &.empty {
-    background-color: variables.$editor-bg;
+    background-color: var(--color-editor-bg);
   }
 }
 

@@ -1,5 +1,3 @@
-@use "../../styles/_variables";
-
 .caret {
   height: 20px;
   position: relative;
@@ -16,7 +14,7 @@
   width: 100%;
 
   &.closed {
-    height: variables.$explorer-item-height;
+    height: var(--explorer-item-height);
 
     .caret {
       transform: rotate(0);
@@ -27,22 +25,22 @@
     align-items: center;
     box-sizing: border-box;
     display: flex;
-    height: variables.$explorer-item-height;
+    height: var(--explorer-item-height);
     user-select: none;
     padding: 5px 15px;
 
     /* TODO: Nested separator logic: Show on explorer hover. When not, only show on active tab group */
     &::before {
       width: 1px;
-      height: calc(100% - #{variables.$explorer-item-height});
+      height: calc(100% - var(--explorer-item-height));
       background: #585858;
       position: absolute;
-      top: variables.$explorer-item-height;
+      top: var(--explorer-item-height);
       z-index: 1;
     }
 
     &:hover {
-      background-color: variables.$explorer-item-hover;
+      background-color: var(--color-explorer-item-hover);
     }
   }
 }
