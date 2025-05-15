@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useShallow } from 'zustand/shallow';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
-import Editor from '#/components/Editor/Editor';
+import { Editor } from '#/components';
 import { file } from '#/store';
 import { fileUtils } from '#/utils/directory';
 
