@@ -1,10 +1,8 @@
-@use "../../styles/_variables";
-
 .item {
   /* TODO: Being ovewritten */
   box-sizing: border-box;
-  color: variables.$tab-text;
-  height: variables.$explorer-item-height;
+  color: var(--color-tab-text);
+  height: var(--explorer-item-height);
   overflow: hidden;
   padding: 5px 15px;
   text-overflow: ellipsis;
@@ -14,11 +12,11 @@
   width: 100%;
 
   &:hover {
-    background-color: variables.$explorer-item-hover;
+    background-color: var(--color-explorer-item-hover);
   }
 
   &.active {
-    background-color: variables.$explorer-item-active;
+    background-color: var(--color-explorer-item-active);
     color: white;
   }
 }

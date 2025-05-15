@@ -6,7 +6,7 @@ import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { fileUtils, getFullPathname } from '#/utils/directory';
 import { file } from '#/store';
 
-import styles from './file.module.scss';
+import styles from './file.module.css';
 
 type Props = {
   /** Depth level on the file system */

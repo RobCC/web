@@ -1,4 +1,4 @@
-import styles from './wrapper.module.scss';
+import styles from './wrapper.module.css';
 
 export default function Wrapper({
   children,

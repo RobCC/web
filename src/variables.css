@@ -1,7 +1,7 @@
 :root {
-  --color-editor-bg: #161718;
   --color-url: #3889ff;
   --color-white: #e6e6e6;
+  --color-editor-bg: #161718;
   --color-editor-line-highlight: #fff2;
   --color-editor-line-hover: #3e3e32;
   --color-editor-comment: #928f7e;
@@ -23,6 +23,8 @@
   --monokai-red: #d61b4a;
   --monokai-yellow: #ecc420;
   --monokai-string: #e0d36f;
+
+  /* Techs */
   --color-md: #519aba;
   --color-npm: #cb0303;
   --color-facebook: #4267b2;

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 
 import { FILE_ICONS } from '#/utils/constants';
 
-import styles from './extensionIcon.module.scss';
+import styles from './extensionIcon.module.css';
 
 type Props = {
   extension: Extension;

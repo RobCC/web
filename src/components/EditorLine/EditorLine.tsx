@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 import { editor } from '#/store';
 import parse, { isComment } from '#/utils/codeParser';
-import styles from './editorLine.module.scss';
+import styles from './editorLine.module.css';
 
 type Props = {
   /** Line number to be rendered */
@@ -14,15 +14,14 @@ type Props = {
   line: string;
 };
 
-const { useEditorStore, getHasAnimationFinished, setAnimationFinished } =
-  editor;
+const { useEditorStore, setAnimationFinished } = editor;
 
 export default function EditorLine({
   lineNumber,
   shouldAnimate = false,
   line = '',
 }: Props) {
-  const typingFinished = useEditorStore(getHasAnimationFinished);
+  const typingFinished = useEditorStore.getState().hasAnimationFinished;
   const lineClasses = classNames(styles.content, {
     [styles.comment]: isComment(line),
     [styles.typeAnimated]: shouldAnimate && !typingFinished,
@@ -31,6 +30,8 @@ export default function EditorLine({
 
   useEffect(
     () => () => {
+      // set to true when unmounting
+      // this way the animation won't be triggered again
       if (shouldAnimate && !typingFinished) {
         setAnimationFinished();
       }

@@ -3,6 +3,7 @@ type Props = {
 };
 
 /** https://www.figma.com/community/file/768673354734944365 */
+// https://github.com/microsoft/vscode-codicons
 export default function IconExplorer({ className = '' }: Props) {
   return (
     <svg

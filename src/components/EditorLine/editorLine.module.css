@@ -1,0 +1,150 @@
+.line {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  height: 21px;
+  line-height: 21px;
+
+  ::selection {
+    background: var(--color-editor-line-highlight);
+  }
+
+  &:hover {
+    background-color: var(--color-editor-line-hover);
+
+    .number {
+      background-color: var(--color-editor-bg);
+    }
+  }
+}
+
+.line-number {
+  box-sizing: border-box;
+  color: var(--color-editor-line-number);
+  display: inline-block;
+  padding-right: 13px;
+  text-align: right;
+  user-select: none;
+  width: 55px;
+}
+
+.content {
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  width: 97%;
+
+  &.type-animated,
+  &.caret-animated {
+    width: auto;
+
+    .text {
+      border-right: 2px solid var(--color-editor-caret-cursor);
+      display: inline-block;
+      overflow: hidden;
+      padding-right: 3px;
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  &.type-animated {
+    .text {
+      animation:
+        typing 3500ms steps(40, end),
+        caret 1500ms infinite;
+    }
+  }
+
+  &.caret-animated {
+    .text {
+      animation: caret 1500ms infinite;
+    }
+  }
+}
+
+.editor-link {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: 'Fira Code Bold', 'Fira Code', monospace;
+  padding: 0 2px;
+  position: relative;
+  text-decoration: none;
+  transition: border 250ms;
+  top: 0;
+
+  &:hover {
+    border: 1px solid;
+  }
+}
+
+.comment {
+  color: var(--color-editor-comment);
+}
+
+.important {
+  color: var(--monokai-red);
+}
+
+.color {
+  &.red {
+    color: var(--monokai-red);
+
+    &:hover {
+      border-color: var(--monokai-red);
+    }
+  }
+
+  &.green {
+    color: var(--monokai-green);
+
+    &:hover {
+      border-color: var(--monokai-green);
+    }
+  }
+
+  &.blue {
+    color: var(--monokai-blue);
+
+    &:hover {
+      border-color: var(--monokai-blue);
+    }
+  }
+
+  &.yellow {
+    color: var(--monokai-yellow);
+
+    &:hover {
+      border-color: var(--monokai-yellow);
+    }
+  }
+
+  &.string {
+    color: var(--monokai-string);
+
+    &:hover {
+      border-color: var(--monokai-string);
+    }
+  }
+}
+
+/* typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: var(--color-editor-caret-cursor);
+  }
+}

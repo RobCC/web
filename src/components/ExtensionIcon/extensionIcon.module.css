@@ -1,5 +1,3 @@
-@use "../../styles/_variables";
-
 .icon {
   position: relative;
   margin-right: 4px;
@@ -11,26 +9,26 @@
   }
 
   &.md {
-    fill: variables.$color-md;
+    fill: var(--color-md);
     width: 14px;
     height: 14px;
     top: 0;
   }
 
   &.css {
-    fill: variables.$color-css;
+    fill: var(--color-css);
     top: 0;
   }
 
   &.txt {
     height: 15px;
     width: 15px;
-    stroke: variables.$color-txt;
+    stroke: var(--color-txt);
   }
 
   &.json {
     top: 0;
-    stroke: variables.$color-json;
+    stroke: var(--color-json);
     width: 18px;
     height: 18px;
   }
