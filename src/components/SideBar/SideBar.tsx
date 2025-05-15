@@ -8,7 +8,7 @@ import Explorer from './Explorer/Explorer';
 const { useExplorerStore, getIsSideBarOpen } = explorer;
 
 /**
- * Collapsable side bar.
+ * Collapsable side bar with files & folders
  */
 export default function SideBar() {
   return (
