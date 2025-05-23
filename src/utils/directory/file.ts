@@ -2,9 +2,14 @@ export type File = {
   readonly type: 'file';
   readonly name: string;
   readonly content: Code | React.FC<unknown>;
+  readonly visible: boolean;
   readonly metadata: {
     extension: Extension;
   };
+};
+
+type FileOptions = {
+  visible?: boolean;
 };
 
 /** Matches extension for file names. */
@@ -18,16 +23,22 @@ function getExtension(name: string) {
 
 function getMetadata(name: string) {
   return {
-    extension: getExtension(name),
+    extension: getExtension(name) ?? '',
   };
 }
 
-export function create(name: string, content: File['content']): File {
+export function create(
+  name: string,
+  content: File['content'],
+  options?: FileOptions,
+): File {
+  const { visible = true } = options ?? {};
   const metadata = getMetadata(name);
 
   return {
     type: 'file',
     name,
+    visible,
     content,
     metadata,
   };

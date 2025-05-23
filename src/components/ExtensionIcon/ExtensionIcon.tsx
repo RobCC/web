@@ -6,11 +6,16 @@ import styles from './extensionIcon.module.css';
 
 type Props = {
   extension: Extension;
+  shortName: string;
   className?: string;
 };
 
-export default function ExtensionIcon({ extension, className = '' }: Props) {
-  const Icon = FILE_ICONS[extension];
+export default function ExtensionIcon({
+  extension,
+  shortName,
+  className = '',
+}: Props) {
+  const Icon = FILE_ICONS[extension || shortName];
 
   return (
     <div className={classNames(styles.icon, styles[extension], className)}>

@@ -4,8 +4,9 @@ import projects from './projects';
 import blog from './blog';
 import test from './test';
 import readme from './readme';
-import resume from './resume';
+// import resume from './resume';
 import contact from './contact';
+import Settings from './Settings';
 
 export default folderUtils.create('', [
   contact,
@@ -13,5 +14,5 @@ export default folderUtils.create('', [
   test,
   blog,
   projects,
-  resume,
+  Settings,
 ]);

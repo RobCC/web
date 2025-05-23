@@ -1,7 +1,9 @@
-import type { PropsWithChildren } from 'react';
+import { useState, type PropsWithChildren } from 'react';
+import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
-import { IconExplorer } from '#/components/Icones';
+import { IconExplorer, IconSettings } from '#/components/Icones';
 import { explorer } from '#/store';
+import { file } from '#/store';
 
 import styles from './activityBar.module.css';
 
@@ -10,6 +12,8 @@ type ActBarItemProps = {
   isActive?: boolean;
   onClick: () => void;
 };
+
+const { openFile } = file;
 
 function ActBarItem({
   label,
@@ -30,17 +34,55 @@ function ActBarItem({
   );
 }
 
+function SettingsItem() {
+  const navigate = useNavigate();
+  const fileName = 'Settings';
+
+  const handleClick = () => {
+    const [, currentFileParam] = window.location.hash.split('#/');
+
+    if (fileName === decodeURIComponent(currentFileParam)) {
+      openFile(fileName);
+    } else {
+      navigate(`/${encodeURIComponent(fileName)}`);
+    }
+  };
+
+  return (
+    <ActBarItem label={options.SETTINGS} onClick={handleClick}>
+      <IconSettings />
+    </ActBarItem>
+  );
+}
+
+const options = {
+  EXPLORER: 'Explorer',
+  SETTINGS: 'Settings',
+};
+
 /**
  * The left-most bar in the application, which contains icons for different views.
  *
  * TODO: Tooltip á la VSCode
  */
 export default function ActivityBar() {
+  const [currentOption, setCurrentOption] = useState(options.EXPLORER);
+
   return (
     <div className={styles.bar}>
-      <ActBarItem label="Explorer" onClick={explorer.toggleSideBar} isActive>
+      <ActBarItem
+        label={options.EXPLORER}
+        onClick={() => {
+          explorer.toggleSideBar();
+          setCurrentOption(options.EXPLORER);
+        }}
+        isActive={currentOption === options.EXPLORER}
+      >
         <IconExplorer />
       </ActBarItem>
+      <div className={styles.bottom}>
+        <SettingsItem />
+      </div>
     </div>
   );
 }

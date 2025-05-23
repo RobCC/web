@@ -49,7 +49,11 @@ export default function File({ level = 0, data, parent = '' }: Props) {
         paddingLeft: INITIAL_PADDING + level * LEVEL_PADDING_DELTA,
       }}
     >
-      <ExtensionIcon extension={extension} className={styles.iconWrapper} />
+      <ExtensionIcon
+        extension={extension}
+        className={styles.iconWrapper}
+        shortName={data.name}
+      />
       {data.name}
     </button>
   );

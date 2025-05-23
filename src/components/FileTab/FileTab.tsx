@@ -66,7 +66,7 @@ export default function FileTab({ fullName }: Props) {
         }
       }}
     >
-      <ExtensionIcon extension={extension} />
+      {<ExtensionIcon extension={extension} shortName={shortName} />}
       <span>{shortName}</span>
 
       <button

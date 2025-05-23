@@ -13,9 +13,11 @@ export default function Explorer() {
       {folders.map(folder => (
         <Folder key={folder.name} data={folder} />
       ))}
-      {files.map(file => (
-        <File key={file.name} data={file} />
-      ))}
+      {files
+        .filter(file => file.visible)
+        .map(file => (
+          <File key={file.name} data={file} />
+        ))}
     </>
   );
 }
