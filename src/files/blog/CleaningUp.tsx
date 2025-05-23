@@ -2,7 +2,7 @@ import initialBundle from '#/assets/blog/bundle_og.jpg';
 import bundleUpdate from '#/assets/blog/bundle_update.jpg';
 import bundleEnd from '#/assets/blog/bundle_end.jpg';
 
-import { Wrapper, Gist, Image } from '#/components/blog';
+import { Wrapper, Title, Gist, Image } from '#/components/blog';
 import { fileUtils } from '#/utils/directory';
 
 const imgSize = {
@@ -13,7 +13,7 @@ const imgSize = {
 function CleaningUp() {
   return (
     <Wrapper>
-      <h1>Cleaning Up the Website</h1>
+      <Title>Cleaning Up the Website</Title>
       <h4>Apr 17, 2022</h4>
       <p>
         I like this website. I made it in 2018, back then it was a fun

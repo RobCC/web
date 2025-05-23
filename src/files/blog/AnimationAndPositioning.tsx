@@ -24,7 +24,7 @@ import deviceTopPosition from '#/assets/blog/deviceTopPosition.png';
 import deviceTopPositionR from '#/assets/blog/deviceTopPositionR.png';
 import deviceWidthRatio from '#/assets/blog/deviceWidthRatio.png';
 
-import { Wrapper, Image } from '#/components/blog';
+import { Wrapper, Title, Image } from '#/components/blog';
 import { fileUtils } from '#/utils/directory';
 
 const imgStyle = {
@@ -39,7 +39,7 @@ const IFRAME_PROPS = {
 function AnimationAndPositioning() {
   return (
     <Wrapper>
-      <h1>Animation &amp; Positioning</h1>
+      <Title>Animation &amp; Positioning</Title>
       <h4>Jan 14, 2022</h4>
       <p>
         This was something interesting I worked in a while back, so I though I

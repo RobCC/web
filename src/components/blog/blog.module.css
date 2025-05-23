@@ -5,6 +5,7 @@
   font-family: 'Segoe UI', sans-serif;
   font-weight: 200;
   font-size: 1.25rem;
+  animation: fade 500ms ease-in-out forwards;
 
   a {
     color: #5fd1ff;
@@ -16,10 +17,6 @@
     font-weight: 700;
     margin: 50px 0 0;
     text-align: center;
-    background: linear-gradient(to right, #5396d6, #b370d4 90%);
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
   }
 
   h4 {
@@ -30,5 +27,21 @@
 
   p {
     line-height: 2;
+  }
+}
+
+.title {
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
