@@ -10,6 +10,7 @@ export type Folder = {
   get(name: string): File | Folder;
 };
 
+/** Organizes folder's content into files/folders */
 function filterFileFolder(content: Array<File | Folder>) {
   return content.reduce<Folder['content']>(
     ({ files, folders }, fileOrFolder) => {
@@ -28,11 +29,11 @@ function filterFileFolder(content: Array<File | Folder>) {
  * NOTE: Refactor to accept array of files and folders separately?
  * Instead of filtering them in the go
  */
-export function create(name: string, content?: (File | Folder)[]): Folder {
+export function create(name: string, content: (File | Folder)[]): Folder {
   return {
     type: 'folder',
     name,
-    content: filterFileFolder(content!),
+    content: filterFileFolder(content),
     get(contentName: string): File | Folder {
       const allContent = Object.values(this.content).flat();
       const found = allContent.find(f => f.name === contentName);

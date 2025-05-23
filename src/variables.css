@@ -16,6 +16,8 @@
   --color-file-color-js: #cbcb41;
   --color-tab-text: #e2e2e2;
   --color-tab-text-active: #fff;
+  --color-tab-background: #2e2f2a;
+  --color-tab-background-hover: #2e2f2a;
 
   /* Monokai */
   --monokai-green: #a6e22e;

@@ -31,7 +31,7 @@ export default function File({ level = 0, data, parent = '' }: Props) {
     const [, currentFileParam] = window.location.hash.split('#/');
 
     // no need to navigate, but still need to open file
-    if (fullPathname === currentFileParam) {
+    if (fullPathname === decodeURIComponent(currentFileParam)) {
       openFile(fullPathname);
     } else {
       navigate(`/${encodeURIComponent(fullPathname)}`);

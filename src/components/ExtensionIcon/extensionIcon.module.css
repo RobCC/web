@@ -1,33 +1,35 @@
 .icon {
+  display: grid;
   position: relative;
   margin-right: 4px;
   width: 17px;
   height: 17px;
 
   &.js {
-    top: 0;
+    top: 1px;
   }
 
   &.md {
     fill: var(--color-md);
     width: 14px;
     height: 14px;
-    top: 0;
+    top: 1px;
   }
 
   &.css {
     fill: var(--color-css);
-    top: 0;
+    top: 1px;
   }
 
   &.txt {
     height: 15px;
     width: 15px;
     stroke: var(--color-txt);
+    top: 1px;
   }
 
   &.json {
-    top: 0;
+    top: 1px;
     stroke: var(--color-json);
     width: 18px;
     height: 18px;

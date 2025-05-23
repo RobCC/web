@@ -15,6 +15,7 @@ type Props = {
   fullName: string;
 };
 
+const MIDDLE_MOUSE_BUTTON = 1;
 const { useFileStore, getCurrentFullName, closeFile } = store.file;
 
 export function getShortName(fullName: string) {
@@ -35,9 +36,9 @@ export default function FileTab({ fullName }: Props) {
   const { extension } = file!.metadata;
   const shortName = getShortName(fullName);
 
-  const changeTab = useCallback(() => {
+  const handleClick = useCallback(() => {
     navigate(`/${encodeURIComponent(fullName)}`);
-  }, []);
+  }, [fullName]);
 
   const closeTab = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -56,8 +57,14 @@ export default function FileTab({ fullName }: Props) {
       className={classNames(styles.tab, {
         [styles.active]: fullName === currentFileFullName,
       })}
-      onClick={changeTab}
-      onKeyDown={handleOnKeyDownButton(changeTab)}
+      onClick={handleClick}
+      onKeyDown={handleOnKeyDownButton(handleClick)}
+      onAuxClick={e => {
+        if (e.button === MIDDLE_MOUSE_BUTTON) {
+          e.preventDefault();
+          closeFile(fullName);
+        }
+      }}
     >
       <ExtensionIcon extension={extension} />
       <span>{shortName}</span>

@@ -1,4 +1,3 @@
-
 // Generated with http://www.latex2png.com/ (Resolution: 200)
 import videoFull from '#/assets/blog/full.jpg';
 import videoFinal from '#/assets/blog/final.jpg';

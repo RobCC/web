@@ -17,10 +17,8 @@ function getExtension(name: string) {
 }
 
 function getMetadata(name: string) {
-  const extension = getExtension(name);
-
   return {
-    extension,
+    extension: getExtension(name),
   };
 }
 
