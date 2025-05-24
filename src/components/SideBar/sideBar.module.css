@@ -2,7 +2,7 @@
   background-color: var(--color-explorer-bg);
   display: inline-block;
   flex: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: var(--font-family-text);
   font-size: 14px;
   height: 100vh;
   overflow: hidden;

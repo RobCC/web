@@ -60,6 +60,7 @@ export default function FileTab({ fullName }: Props) {
       onClick={handleClick}
       onKeyDown={handleOnKeyDownButton(handleClick)}
       onAuxClick={e => {
+        // TODO: closing tab changes file, but not the url
         if (e.button === MIDDLE_MOUSE_BUTTON) {
           e.preventDefault();
           closeFile(fullName);

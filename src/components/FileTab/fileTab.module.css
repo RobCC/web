@@ -45,10 +45,12 @@
   }
 
   &:hover {
-    background-color: var(--color-tab-background-hover);
-
     .close {
       opacity: 1;
     }
+  }
+
+  &:hover:not(.active) {
+    background-color: var(--color-tab-background-hover);
   }
 }

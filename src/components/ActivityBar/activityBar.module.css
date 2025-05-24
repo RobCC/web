@@ -9,7 +9,7 @@
 }
 
 .item {
-  --color-icon: #d7dae0;
+  --color-icon: hsl(300deg 1.94% 69.61%);
 
   align-items: center;
   border-left: 2px solid transparent;
@@ -21,12 +21,12 @@
   position: relative;
 
   &.active {
-    border-left: 2px solid white;
+    border-left: 2px solid hsl(0deg 0% 84.31%);
   }
 
   &.active,
   &:hover {
-    --color-icon: white;
+    --color-icon: hsl(0deg 0% 84.31%);
   }
 }
 

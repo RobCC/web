@@ -12,7 +12,7 @@ declare global {
 
   type ParserModule = {
     regex: RegExp;
-    toDOM(snippet: string, theme: CSSModule): JSX.Element;
-    parse(...args: unknown[]): string;
+    toDOM(snippet: string, theme: Record<string, string>): JSX.Element;
+    parse(...args: string[]): string;
   };
 }

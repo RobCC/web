@@ -6,7 +6,7 @@ import test from './test';
 import readme from './readme';
 // import resume from './resume';
 import contact from './contact';
-import Settings from './Settings';
+import Settings from './_Settings/Settings';
 
 export default folderUtils.create('', [
   contact,

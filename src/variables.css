@@ -18,6 +18,14 @@
   --color-tab-text-active: #fff;
   --color-tab-background: #2e2f2a;
   --color-tab-background-hover: #2e2f2a;
+  --font-family-segoe: 'Segoe UI', sans-serif;
+  --font-family-fira: 'Fira Code', monospace;
+  --font-family-fira-bold: 'Fira Code Bold', 'Fira Code', monospace;
+
+  /* Theme variables */
+  --font-family-text: var(--font-family-segoe);
+  --font-family-code: var(--font-family-fira);
+  --font-family-code-bold: var(--font-family-fira-bold);
 
   /* Monokai */
   --monokai-green: #a6e22e;

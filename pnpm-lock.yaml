@@ -26,6 +26,9 @@ importers:
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
+      hotkeys-js:
+        specifier: ^3.13.10
+        version: 3.13.10
       immer:
         specifier: ^10.1.1
         version: 10.1.1
@@ -1511,6 +1514,9 @@ packages:
 
   hookified@1.8.2:
     resolution: {integrity: sha512-5nZbBNP44sFCDjSoB//0N7m508APCgbQ4mGGo1KJGBYyCKNHfry1Pvd0JVHZIxjdnqn8nFRBAN/eFB6Rk/4w5w==}
+
+  hotkeys-js@3.13.10:
+    resolution: {integrity: sha512-O3ktQfRV5eMDCIxj60enw5FBLQfTiRnX6evXn3UFeWylIcHAXwRkRTeiGX8dg3MKaM7y3SNj6PmcCxrwuoIBtA==}
 
   html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
@@ -3860,6 +3866,8 @@ snapshots:
       function-bind: 1.1.2
 
   hookified@1.8.2: {}
+
+  hotkeys-js@3.13.10: {}
 
   html-tags@3.3.1: {}
 

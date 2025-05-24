@@ -2,7 +2,7 @@
   line-height: 2;
   overflow: hidden auto;
   padding: 0 18% 100px;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: var(--font-family-text);
   font-weight: 200;
   font-size: 1.25rem;
 

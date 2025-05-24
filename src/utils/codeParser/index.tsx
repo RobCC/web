@@ -15,8 +15,8 @@ const PLACEHOLDERS = {
 };
 
 const FULL_REGEX = new RegExp(
-  [...Object.keys(PLACEHOLDERS) as Array<keyof typeof PLACEHOLDERS>]
-    .map((key) => {
+  [...(Object.keys(PLACEHOLDERS) as Array<keyof typeof PLACEHOLDERS>)]
+    .map(key => {
       const regex = PLACEHOLDERS[key];
 
       return regex.source;
@@ -33,21 +33,28 @@ type ParsingData = {
 };
 
 export function isComment(text = '') {
-  const commentIdentifiers = ['*', '/*', '*/'];
-  const isString = typeof text === 'string';
+  if (typeof text !== 'string') {
+    return false;
+  }
 
-  return (
-    isString &&
-    commentIdentifiers.some(identifier => text.trim().startsWith(identifier))
+  return ['*', '/*', '*/'].some(identifier =>
+    text.trim().startsWith(identifier),
   );
 }
 
-export function toCodeLines(text: string): string[] {
-  // removes first line, which will be blank
-  const trimmedLines = text.split('\n').slice(1, -1);
+export function toCodeLines(text: string) {
+  let trimmedLines = text.split('\n');
+
+  if (trimmedLines[0] === '') {
+    trimmedLines = trimmedLines.slice(1);
+  }
 
   // Add a blank line at the end, 'cause that's the way to do it
-  return [...trimmedLines, '\n'];
+  if (trimmedLines[trimmedLines.length - 1] !== '') {
+    trimmedLines.push('\n');
+  }
+
+  return trimmedLines;
 }
 
 function getParsingData(line: string): ParsingData {
@@ -67,7 +74,10 @@ function getParsingData(line: string): ParsingData {
   };
 }
 
-function parseLine(line: string, styles: Record<string, string>): string | JSX.Element {
+export function parseLine(
+  line: string,
+  styles: Record<string, string>,
+): string | JSX.Element {
   const { index, subString, link, color, comment } = getParsingData(line);
 
   if (index === undefined) {

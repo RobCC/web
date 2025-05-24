@@ -18,7 +18,7 @@
 body {
   background: #161718;
   color: #e6e6e6;
-  font-family: 'Fira Code', monospace;
+  font-family: var(--font-family-code);
   margin: 0;
 }
 

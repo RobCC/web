@@ -1,7 +1,8 @@
-import { useState, type PropsWithChildren } from 'react';
+import { useState, useEffect, type PropsWithChildren } from 'react';
 import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
-import { IconExplorer, IconSettings } from '#/components/Icones';
+import hotkeys from 'hotkeys-js';
+import { IconExplorer, IconSettings, IconUser } from '#/components/Icones';
 import { explorer } from '#/store';
 import { file } from '#/store';
 
@@ -48,6 +49,10 @@ function SettingsItem() {
     }
   };
 
+  useEffect(() => {
+    hotkeys('ctrl+,, cmd+,', handleClick);
+  }, []);
+
   return (
     <ActBarItem label={options.SETTINGS} onClick={handleClick}>
       <IconSettings />
@@ -64,9 +69,14 @@ const options = {
  * The left-most bar in the application, which contains icons for different views.
  *
  * TODO: Tooltip á la VSCode
+ * TODO: brighten on hover
  */
 export default function ActivityBar() {
   const [currentOption, setCurrentOption] = useState(options.EXPLORER);
+
+  useEffect(() => {
+    hotkeys('ctrl+b,cmd+b', explorer.toggleSideBar);
+  }, []);
 
   return (
     <div className={styles.bar}>
@@ -81,6 +91,15 @@ export default function ActivityBar() {
         <IconExplorer />
       </ActBarItem>
       <div className={styles.bottom}>
+        <ActBarItem
+          label={options.EXPLORER}
+          onClick={() => {
+            explorer.toggleSideBar();
+            setCurrentOption(options.EXPLORER);
+          }}
+        >
+          <IconUser />
+        </ActBarItem>
         <SettingsItem />
       </div>
     </div>

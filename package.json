@@ -33,6 +33,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "classnames": "^2.5.1",
+    "hotkeys-js": "^3.13.10",
     "immer": "^10.1.1",
     "marked": "^15.0.11",
     "prop-types": "^15.8.1",

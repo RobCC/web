@@ -13,3 +13,4 @@ export { default as IconText } from './IconText';
 export { default as IconJs } from './IconJs';
 export { default as IconCss } from './IconCss';
 export { default as IconJson } from './IconJson';
+export { default as IconUser } from './IconUser';
