@@ -21,10 +21,6 @@
   &:hover .scroll {
     opacity: 1;
   }
-
-  &.empty {
-    background-color: var(--color-editor-bg);
-  }
 }
 
 .wrapper {

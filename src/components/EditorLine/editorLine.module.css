@@ -6,15 +6,11 @@
   line-height: 21px;
 
   ::selection {
-    background: var(--color-editor-line-highlight);
+    background-color: var(--color-editor-line-highlight);
   }
 
   &:hover {
     background-color: var(--color-editor-line-hover);
-
-    .number {
-      background-color: var(--color-editor-bg);
-    }
   }
 }
 
@@ -82,47 +78,47 @@
 }
 
 .important {
-  color: var(--monokai-red);
+  color: var(--color-red);
 }
 
 .color {
   &.red {
-    color: var(--monokai-red);
+    color: var(--color-red);
 
     &:hover {
-      border-color: var(--monokai-red);
+      border-color: var(--color-red);
     }
   }
 
   &.green {
-    color: var(--monokai-green);
+    color: var(--color-green);
 
     &:hover {
-      border-color: var(--monokai-green);
+      border-color: var(--color-green);
     }
   }
 
   &.blue {
-    color: var(--monokai-blue);
+    color: var(--color-blue);
 
     &:hover {
-      border-color: var(--monokai-blue);
+      border-color: var(--color-blue);
     }
   }
 
   &.yellow {
-    color: var(--monokai-yellow);
+    color: var(--color-yellow);
 
     &:hover {
-      border-color: var(--monokai-yellow);
+      border-color: var(--color-yellow);
     }
   }
 
   &.string {
-    color: var(--monokai-string);
+    color: var(--color-string);
 
     &:hover {
-      border-color: var(--monokai-string);
+      border-color: var(--color-string);
     }
   }
 }

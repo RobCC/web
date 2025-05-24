@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { toCodeLines, colorParser, linkParser } from '#/utils/codeParser';
 import getRandomGreet from '#/utils/getRandomGreet';
 import { fileUtils } from '#/utils/directory';

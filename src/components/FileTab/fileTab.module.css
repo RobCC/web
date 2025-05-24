@@ -35,8 +35,8 @@
   white-space: nowrap;
 
   &.active {
-    background-color: var(--color-editor-bg);
-    border-bottom: 1px solid var(--color-editor-bg);
+    background-color: var(--color-tab-active);
+    border-bottom: 1px solid var(--color-tab-active);
     color: var(--color-tab-text-active);
 
     .close {

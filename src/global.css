@@ -16,7 +16,7 @@
 }
 
 body {
-  background: #161718;
+  background: var(--color-editor-body);
   color: #e6e6e6;
   font-family: var(--font-family-code);
   margin: 0;
