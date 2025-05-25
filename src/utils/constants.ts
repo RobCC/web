@@ -1,12 +1,25 @@
-import { faInfo } from '@fortawesome/free-solid-svg-icons/faInfo';
-import { faAlignLeft } from '@fortawesome/free-solid-svg-icons/faAlignLeft';
+import {
+  IconMd,
+  IconText,
+  IconJs,
+  IconCss,
+  IconJson,
+  IconSettingsTab,
+  IconUser,
+} from '#/components/Icones';
 
-export const EXTENSION_REGEX = /\.([0-9a-z]+)$/;
+/** Returns the file icon given its extension. */
+export const FILE_ICONS = {
+  js: IconJs,
+  css: IconCss,
+  json: IconJson,
+  md: IconMd,
+  txt: IconText,
+  // Some icons are determined by the file name (eg. Settings)
+  resume: IconUser,
+  settings: IconSettingsTab,
+} as const;
 
-export const ICONS = {
-  js: 'JS',
-  css: '#',
-  json: '{}',
-  md: faInfo,
-  txt: faAlignLeft,
+export default {
+  FILE_ICONS,
 };

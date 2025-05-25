@@ -1,0 +1,36 @@
+.wrapper {
+  line-height: 2;
+  overflow: hidden auto;
+  padding: 0 18% 100px;
+  font-family: var(--font-family-text);
+  font-weight: 200;
+  font-size: 1.25rem;
+
+  a {
+    color: #5fd1ff;
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 50px 0 0;
+    text-align: center;
+  }
+
+  h4 {
+    color: #c1bfbe;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  p {
+    line-height: 2;
+  }
+}
+
+.title {
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}

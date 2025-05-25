@@ -1,0 +1,27 @@
+.item {
+  /* TODO: Being ovewritten */
+  box-sizing: border-box;
+  color: var(--color-tab-text);
+  height: var(--explorer-item-height);
+  overflow: hidden;
+  padding: 5px 15px;
+  text-overflow: ellipsis;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &:hover {
+    background-color: var(--color-explorer-item-hover);
+  }
+
+  &.active {
+    background-color: var(--color-explorer-item-active);
+    color: white;
+  }
+}
+
+.icon-wrapper {
+  position: relative;
+  top: -1px;
+}

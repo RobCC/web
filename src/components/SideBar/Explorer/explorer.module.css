@@ -1,0 +1,7 @@
+.title {
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  height: var(--file-tab-height);
+  padding-left: 15px;
+}

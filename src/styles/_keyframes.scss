@@ -1,0 +1,126 @@
+@use "variables";
+
+/* Slide in right */
+@keyframes slideInRightKF {
+  from {
+    left: -100%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+@keyframes slideOutRightKF {
+  from {
+    left: 0;
+  }
+
+  to {
+    left: -100%;
+  }
+}
+
+/* Fade in left */
+@keyframes fadeInLeftKF {
+  from {
+    right: 50px;
+    opacity: 0;
+  }
+
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutLeftKF {
+  from {
+    right: 0;
+    opacity: 1;
+  }
+
+  to {
+    right: 50px;
+    opacity: 0;
+  }
+}
+
+/* Fade in right */
+@keyframes fadeInRightKF {
+  from {
+    left: 50px;
+    opacity: 0;
+  }
+
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutRightKF {
+  from {
+    left: 0;
+    opacity: 1;
+  }
+
+  to {
+    left: 50px;
+    opacity: 0;
+  }
+}
+
+/* Fade in down */
+@keyframes fadeInDownKF {
+  from {
+    top: -50px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutDownKF {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+
+  to {
+    top: -50px;
+    opacity: 0;
+  }
+}
+
+/* Orbit spin */
+@keyframes spinFK {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: variables.$editor-caret-cursor;
+  }
+}

@@ -1,0 +1,147 @@
+.line {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  height: 21px;
+  line-height: 21px;
+
+  ::selection {
+    background-color: var(--color-editor-line-highlight);
+  }
+
+  &:hover {
+    background-color: var(--color-editor-line-hover);
+  }
+}
+
+.line-number {
+  box-sizing: border-box;
+  color: var(--color-editor-line-number);
+  display: inline-block;
+  padding-right: 13px;
+  text-align: right;
+  user-select: none;
+  width: 55px;
+}
+
+.content {
+  font-family: var(--font-family-code);
+  margin: 0;
+  width: 97%;
+
+  &.type-animated,
+  &.caret-animated {
+    width: auto;
+
+    .text {
+      border-right: 2px solid var(--color-editor-caret-cursor);
+      display: inline-block;
+      overflow: hidden;
+      padding-right: 3px;
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  &.type-animated {
+    .text {
+      animation:
+        typing 3500ms steps(40, end),
+        caret 1500ms infinite;
+    }
+  }
+
+  &.caret-animated {
+    .text {
+      animation: caret 1500ms infinite;
+    }
+  }
+}
+
+.editor-link {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-family: var(--font-family-code);
+  font-weight: bold;
+  padding: 0 2px;
+  position: relative;
+  text-decoration: none;
+  transition: border 250ms;
+  top: 0;
+
+  &:hover {
+    border: 1px solid;
+  }
+}
+
+.comment {
+  color: var(--color-editor-comment);
+}
+
+.important {
+  color: var(--color-red);
+}
+
+.color {
+  &.red {
+    color: var(--color-red);
+
+    &:hover {
+      border-color: var(--color-red);
+    }
+  }
+
+  &.green {
+    color: var(--color-green);
+
+    &:hover {
+      border-color: var(--color-green);
+    }
+  }
+
+  &.blue {
+    color: var(--color-blue);
+
+    &:hover {
+      border-color: var(--color-blue);
+    }
+  }
+
+  &.yellow {
+    color: var(--color-yellow);
+
+    &:hover {
+      border-color: var(--color-yellow);
+    }
+  }
+
+  &.string {
+    color: var(--color-string);
+
+    &:hover {
+      border-color: var(--color-string);
+    }
+  }
+}
+
+/* typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes caret {
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: var(--color-editor-caret-cursor);
+  }
+}

@@ -1,9 +1,9 @@
-import initialBundle from '~/public/images/blog/bundle_og.jpg';
-import bundleUpdate from '~/public/images/blog/bundle_update.jpg';
-import bundleEnd from '~/public/images/blog/bundle_end.jpg';
+import initialBundle from '#/assets/blog/bundle_og.jpg';
+import bundleUpdate from '#/assets/blog/bundle_update.jpg';
+import bundleEnd from '#/assets/blog/bundle_end.jpg';
 
-import { createFile } from '#/utils/explorer';
-import { Wrapper, Gist, Image } from '#/files/blog/shared';
+import { Wrapper, Title, Gist, Image } from '#/components/blog';
+import { fileUtils } from '#/utils/directory';
 
 const imgSize = {
   width: 932,
@@ -13,7 +13,7 @@ const imgSize = {
 function CleaningUp() {
   return (
     <Wrapper>
-      <h1>Cleaning Up the Website</h1>
+      <Title>Cleaning Up the Website</Title>
       <h4>Apr 17, 2022</h4>
       <p>
         I like this website. I made it in 2018, back then it was a fun
@@ -75,8 +75,7 @@ function CleaningUp() {
         way better than having the whole library, bundle size at least.
       </p>
       <p>
-        Another lib taking a lot of space, <b>@fortawesome</b>. Given the whole
-        idea of this site, this one is kinda necessary. But, one thing that I
+        Another lib taking a lot of space, <b>@fortawesome</b>. One thing that I
         was not aware years ago when I added it was tree shaking. That means,
         having an import like the following:
       </p>
@@ -181,4 +180,4 @@ function CleaningUp() {
   );
 }
 
-export default createFile('cleaning_up.txt', CleaningUp);
+export default fileUtils.create('cleaning_up.txt', CleaningUp);

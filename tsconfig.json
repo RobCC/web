@@ -1,21 +1,6 @@
 {
-  "compilerOptions": {
-    "lib": ["ESNext", "dom"],
-    "target": "esnext",
-    "outDir": "build",
-    "baseUrl": "./",
-    "paths": {
-      "#/*": ["./src/*"],
-      "~/*": ["./*"]
-    },
-    "moduleResolution": "Node",
-    "jsx": "react-jsx",
-    "allowJs": true,
-    "declaration": false,
-    "sourceMap": true,
-    "removeComments": true,
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": ["node_modules", "./build/**/*"]
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+  ]
 }

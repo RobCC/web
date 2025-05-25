@@ -1,51 +1,42 @@
 import { useEffect } from 'react';
-import classNames from 'classnames';
-import { Outlet, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useShallow } from 'zustand/shallow';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
-import Editor from '#/components/Editor/Editor';
+import { Editor } from '#/components';
+import { file } from '#/store';
+import { fileUtils } from '#/utils/directory';
 
-import useStore, { getIsSideViewOpen, getCurrentFile, openFile } from '#/store';
-import { getFileContent } from '#/utils/files';
+import styles from './content.module.css';
 
-import styles from './content.scss';
+const { useFileStore, getCurrentFile, openFile } = file;
 
-function renderContent(fileContent: AppFileContent) {
-  if (fileContent instanceof Array) {
-    return <Editor file={fileContent} />;
+// TODO: close tabs by wheel button click
+
+function renderContent(FileContent: fileUtils.File['content']) {
+  if (FileContent instanceof Array) {
+    return <Editor file={FileContent} />;
   }
-
-  const FileContent = fileContent;
 
   return <FileContent />;
 }
 
 function Content() {
-  const currentFile = useStore(getCurrentFile);
-  const isSideViewOpen = useStore(getIsSideViewOpen);
-  const [params] = useSearchParams();
-  const fileContent = getFileContent(currentFile);
-  const urlFile = params.get('file');
+  const currentFile = useFileStore(useShallow(getCurrentFile));
+  const { fileFullPath } = useParams();
 
   useEffect(() => {
-    if (urlFile) {
-      openFile(urlFile);
+    if (fileFullPath) {
+      openFile(fileFullPath);
     }
-  }, [urlFile]);
-
-  const sideViewStyles = {
-    [styles.sideViewActive]: isSideViewOpen,
-  };
+  }, [fileFullPath]);
 
   return (
-    <div className={styles.container}>
-      <div className={classNames(styles.sideView, sideViewStyles)}>
-        <Outlet />
-      </div>
-      <div className={classNames(styles.content, sideViewStyles)}>
+    <div className={styles.wrapper}>
+      <div id="content" className={styles.content}>
         <FileTabMenu />
-        {fileContent ? (
-          renderContent(fileContent)
+        {currentFile ? (
+          renderContent(currentFile.content)
         ) : (
           <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>
         )}

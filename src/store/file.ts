@@ -1,37 +1,80 @@
-import useStore, { RootState } from './store';
+import { getFile, fileUtils } from '#/utils/directory';
+import root from '#/files';
+import { createStore } from './store';
 
-export const getCurrentFile = ({ file }: RootState) => file.currentTab;
+// TODO: rename module: fileSystem
 
-export const getOpenedFiles = ({ file }: RootState) => file.openedFiles;
+export type State = {
+  /** Current file and its fullname. */
+  current: {
+    file: fileUtils.File | null;
+    fullName: string;
+  };
+  /** List of active file's fullnames. */
+  activeFiles: string[];
+};
 
-export function closeFile(fileName: string) {
-  useStore.setState(state => {
-    const indexOfFile = state.file.openedFiles.indexOf(fileName);
+export const useFileStore = createStore<State>({
+  current: {
+    file: null,
+    fullName: '',
+  },
+  activeFiles: ['README.md', 'contact.css', 'Blog/cleaning_up.txt'],
+});
+
+export function openFile(fullName: string) {
+  useFileStore.setState(state => {
+    const file = getFile(fullName, root);
+
+    if (!file) {
+      console.error(`File ${fullName} not found`);
+
+      return;
+    }
+
+    state.current.file = file;
+    state.current.fullName = fullName;
+
+    const isFileAlreadyOpen = state.activeFiles.indexOf(fullName) > -1;
+
+    if (!isFileAlreadyOpen) {
+      state.activeFiles.push(fullName);
+    }
+  });
+}
+
+export function closeFile(fullName: string) {
+  useFileStore.setState(state => {
+    const indexOfFile = state.activeFiles.indexOf(fullName);
 
     if (indexOfFile === -1) {
       return;
     }
 
-    state.file.openedFiles.splice(indexOfFile, 1);
+    state.activeFiles.splice(indexOfFile, 1);
 
     // if the tab we're closing is the current, move to the last tab (if any)
-    if (fileName === state.file.currentTab) {
-      const { openedFiles } = state.file;
-      const previousTab = openedFiles[openedFiles.length - 1];
+    if (fullName === state.current.fullName) {
+      const { activeFiles } = state;
+      const previousTab = activeFiles[activeFiles.length - 1] ?? '';
 
-      state.file.currentTab = previousTab ?? '';
+      state.current.file = getFile(previousTab, root);
+      state.current.fullName = previousTab;
     }
   });
 }
 
-export function openFile(fileName: string) {
-  useStore.setState(state => {
-    const isFileAlreadyOpen = state.file.openedFiles.indexOf(fileName) > -1;
+export const getCurrentFile = ({ current }: State) => {
+  if (!current.file) {
+    return null;
+  }
 
-    state.file.currentTab = fileName;
+  return {
+    ...current.file,
+    fullName: current.fullName,
+  };
+};
 
-    if (!isFileAlreadyOpen) {
-      state.file.openedFiles.push(fileName);
-    }
-  });
-}
+export const getCurrentFullName = ({ current }: State) => current.fullName;
+
+export const getActiveFiles = ({ activeFiles }: State) => activeFiles;

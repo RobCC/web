@@ -1,0 +1,46 @@
+.caret {
+  height: 20px;
+  position: relative;
+  right: 2px;
+  transform: rotate(90deg);
+  width: 20px;
+  fill: #e6e6e6;
+}
+
+.group {
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &.closed {
+    height: var(--explorer-item-height);
+
+    .caret {
+      transform: rotate(0);
+    }
+  }
+
+  .title {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: var(--explorer-item-height);
+    user-select: none;
+    padding: 5px 15px;
+
+    /* TODO: Nested separator logic: Show on explorer hover. When not, only show on active tab group */
+    &::before {
+      width: 1px;
+      height: calc(100% - var(--explorer-item-height));
+      background: #585858;
+      position: absolute;
+      top: var(--explorer-item-height);
+      z-index: 1;
+    }
+
+    &:hover {
+      background-color: var(--color-explorer-item-hover);
+    }
+  }
+}

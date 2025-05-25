@@ -1,9 +1,9 @@
-import { createFolderAndContent } from '#/utils/explorer';
+import { folderUtils } from '#/utils/directory';
+
 import AnimationAndPositioning from './AnimationAndPositioning';
 import CleaningUp from './CleaningUp';
 
-export default createFolderAndContent(
-  'Blog',
+export default folderUtils.create('Blog', [
   AnimationAndPositioning,
   CleaningUp,
-);
+]);

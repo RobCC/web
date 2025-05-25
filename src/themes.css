@@ -1,0 +1,61 @@
+[data-theme='monokai'] {
+  --color-editor-body: var(--monokai-color-editor-body);
+  --color-editor-line-highlight: var(--monokai-color-editor-line-highlight);
+  --color-editor-line-hover: var(--monokai-color-editor-line-hover);
+  --color-editor-comment: var(--monokai-color-editor-comment);
+  --color-editor-line-number: var(--monokai-color-editor-line-number);
+  --color-editor-caret-cursor: var(--monokai-color-editor-caret-cursor);
+  --color-side-menu-bg: var(--monokai-color-side-menu-bg);
+  --color-file-menu-bg: var(--monokai-color-file-menu-bg);
+  --color-explorer-border: var(--monokai-color-explorer-border);
+  --color-explorer-bg: var(--monokai-color-explorer-bg);
+  --color-explorer-item-hover: var(--monokai-color-explorer-item-hover);
+  --color-explorer-item-active: var(--monokai-color-explorer-item-active);
+  --color-tab-active: var(--monokai-color-tab-active);
+  --color-tab-text: var(--monokai-color-tab-text);
+  --color-tab-text-active: var(--monokai-color-tab-text-active);
+  --color-tab-background: var(--monokai-color-tab-background);
+  --color-tab-background-hover: var(--monokai-color-tab-background-hover);
+  --color-green: var(--monokai-green);
+  --color-blue: var(--monokai-blue);
+  --color-red: var(--monokai-red);
+  --color-yellow: var(--monokai-yellow);
+  --color-string: var(--monokai-string);
+}
+
+[data-theme='onedark'] {
+  --color-editor-body: var(--onedark-color-editor-body);
+  --color-editor-line-highlight: var(--onedark-color-editor-line-highlight);
+  --color-editor-line-hover: var(--onedark-color-editor-line-hover);
+  --color-editor-comment: var(--onedark-color-editor-comment);
+  --color-editor-line-number: var(--onedark-color-editor-line-number);
+  --color-editor-caret-cursor: var(--onedark-color-editor-caret-cursor);
+  --color-side-menu-bg: var(--onedark-color-side-menu-bg);
+  --color-file-menu-bg: var(--onedark-color-file-menu-bg);
+  --color-explorer-border: var(--onedark-color-explorer-border);
+  --color-explorer-bg: var(--onedark-color-explorer-bg);
+  --color-explorer-item-hover: var(--onedark-color-explorer-item-hover);
+  --color-explorer-item-active: var(--onedark-color-explorer-item-active);
+  --color-tab-active: var(--onedark-color-tab-active);
+  --color-tab-text: var(--onedark-color-tab-text);
+  --color-tab-text-active: var(--onedark-color-tab-text-active);
+  --color-tab-background: var(--onedark-color-tab-background);
+  --color-tab-background-hover: var(--onedark-color-tab-background-hover);
+  --color-green: var(--onedark-green);
+  --color-blue: var(--onedark-blue);
+  --color-red: var(--onedark-red);
+  --color-yellow: var(--onedark-yellow);
+  --color-string: var(--onedark-string);
+}
+
+[data-font='fira'] {
+  --font-family-code: var(--font-family-fira);
+}
+
+[data-font='cascadia'] {
+  --font-family-code: var(--font-family-cascadia);
+}
+
+[data-font='commit'] {
+  --font-family-code: var(--font-family-commit);
+}

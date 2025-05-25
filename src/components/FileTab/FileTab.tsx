@@ -1,23 +1,44 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import classNames from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons/faTimes';
+import { useNavigate } from 'react-router-dom';
 
-import useStore, { closeFile, openFile, getCurrentFile } from '#/store';
-import { getFileMetadata, getShortName, isIconString } from '#/utils/files';
+import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
+import { IconCloseTab } from '#/components/Icones';
+import { getFile } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
+import * as store from '#/store';
+import rootFiles from '#/files';
 
-import styles from './fileTab.scss';
+import styles from './fileTab.module.css';
 
 type Props = {
   fullName: string;
 };
 
+const MIDDLE_MOUSE_BUTTON = 1;
+const { useFileStore, getCurrentFullName, closeFile } = store.file;
+
+export function getShortName(fullName: string) {
+  const lastSlashIndex = fullName.lastIndexOf('/');
+  const isRoot = lastSlashIndex === -1;
+
+  if (isRoot) {
+    return fullName;
+  }
+
+  return fullName.slice(lastSlashIndex + 1);
+}
+
 export default function FileTab({ fullName }: Props) {
-  const currentTab = useStore(getCurrentFile);
-  const { icon, iconStyles } = getFileMetadata(fullName);
-  const isString = isIconString(icon);
+  const navigate = useNavigate();
+  const currentFileFullName = useFileStore(getCurrentFullName);
+  const file = useMemo(() => getFile(fullName, rootFiles), [fullName]);
+  const { extension } = file!.metadata;
   const shortName = getShortName(fullName);
+
+  const handleClick = useCallback(() => {
+    navigate(`/${encodeURIComponent(fullName)}`);
+  }, [fullName]);
 
   const closeTab = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -28,34 +49,26 @@ export default function FileTab({ fullName }: Props) {
     [fullName],
   );
 
-  const changeCurrentTab = useCallback(() => {
-    openFile(fullName);
-  }, [fullName]);
-
-  const tabIconStyles = classNames(iconStyles, {
-    [styles.icon]: isString,
-    [styles.logoIcon]: !isString,
-  });
-
   return (
     <div
-      role="button"
+      role="tab"
       title={shortName}
       tabIndex={0}
       className={classNames(styles.tab, {
-        [styles.active]: fullName === currentTab,
+        [styles.active]: fullName === currentFileFullName,
       })}
-      onClick={changeCurrentTab}
-      onKeyDown={handleOnKeyDownButton(changeCurrentTab)}
+      onClick={handleClick}
+      onKeyDown={handleOnKeyDownButton(handleClick)}
+      onAuxClick={e => {
+        // TODO: closing tab changes file, but not the url
+        if (e.button === MIDDLE_MOUSE_BUTTON) {
+          e.preventDefault();
+          closeFile(fullName);
+        }
+      }}
     >
-      {isString ? (
-        <div className={tabIconStyles}>{icon}</div>
-      ) : (
-        <div className={tabIconStyles}>
-          <FontAwesomeIcon icon={icon} />
-        </div>
-      )}
-      {shortName}
+      {<ExtensionIcon extension={extension} shortName={shortName} />}
+      <span>{shortName}</span>
 
       <button
         type="button"
@@ -63,7 +76,7 @@ export default function FileTab({ fullName }: Props) {
         onClick={closeTab}
         aria-label="Close"
       >
-        <FontAwesomeIcon icon={faTimes} />
+        <IconCloseTab />
       </button>
     </div>
   );

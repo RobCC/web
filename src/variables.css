@@ -1,0 +1,114 @@
+:root {
+  --color-editor-body: #161718;
+  --color-editor-line-highlight: #fff2;
+  --color-editor-line-hover: #3e3e32;
+  --color-editor-comment: #928f7e;
+  --color-editor-line-number: #8f8f89;
+  --color-editor-caret-cursor: #f5f5f5;
+  --color-side-menu-bg: #21221d;
+  --color-file-menu-bg: #1a1b18;
+  --color-explorer-bg: #1a1a1a;
+  --color-explorer-border: #2b2a25;
+  --color-explorer-item-hover: #3e3d32;
+  --color-explorer-item-active: #414339;
+  --color-tab-active: #161718;
+  --color-tab-text: #e2e2e2;
+  --color-tab-text-active: #fff;
+  --color-tab-background: #2e2f2a;
+  --color-tab-background-hover: #2e2f2a;
+  --color-green: #a6e22e;
+  --color-blue: #54d4ee;
+  --color-red: #d61b4a;
+  --color-yellow: #ecc420;
+  --color-string: #e0d36f;
+  --font-family-segoe: 'Segoe UI', sans-serif;
+  --font-family-fira: 'Fira Code', monospace;
+  --font-family-cascadia: 'Cascadia Mono', monospace;
+  --font-family-commit: 'Commit Mono', monospace;
+
+  /* Theme variables */
+  --font-family-text: var(--font-family-segoe);
+  --font-family-code: var(--font-family-fira);
+
+  /* Monokai */
+  --monokai-color-editor-body: #1a1a1a;
+  --monokai-color-editor-line-highlight: #fff2;
+  --monokai-color-editor-line-hover: #3e3e32;
+  --monokai-color-editor-comment: #928f7e;
+  --monokai-color-editor-line-number: #8f8f89;
+  --monokai-color-editor-caret-cursor: #f5f5f5;
+  --monokai-color-side-menu-bg: #21221d;
+  --monokai-color-file-menu-bg: #1a1b18;
+  --monokai-color-explorer-border: #2b2a25;
+  --monokai-color-explorer-bg: #1a1a1a;
+  --monokai-color-explorer-item-hover: #3e3d32;
+  --monokai-color-explorer-item-active: #414339;
+  --monokai-color-tab-active: #1a1a1a;
+  --monokai-color-tab-text: #e2e2e2;
+  --monokai-color-tab-text-active: #fff;
+  --monokai-color-tab-background: #2e2f2a;
+  --monokai-color-tab-background-hover: #2e2f2a;
+  --monokai-green: #a6e22e;
+  --monokai-blue: #54d4ee;
+  --monokai-red: #d61b4a;
+  --monokai-yellow: #ecc420;
+  --monokai-string: #e0d36f;
+
+  /* One Dark Pro */
+  --onedark-color-editor-body: #15181c;
+  --onedark-color-editor-line-highlight: #343c4a;
+  --onedark-color-editor-line-hover: #2c313c;
+  --onedark-color-editor-comment: #787c87;
+  --onedark-color-editor-line-number: #444f5e;
+  --onedark-color-editor-caret-cursor: #528bff;
+  --onedark-color-side-menu-bg: #282c34;
+  --onedark-color-file-menu-bg: #21252b;
+  --onedark-color-explorer-border: #25272b;
+  --onedark-color-explorer-bg: #15181c;
+  --onedark-color-explorer-item-hover: #2c313a;
+  --onedark-color-explorer-item-active: #323842;
+  --onedark-color-tab-active: #282c34;
+  --onedark-color-tab-text: hsl(0deg 0% 86% / 90%);
+  --onedark-color-tab-text-active: hsl(0deg 0% 86% / 100%);
+  --onedark-color-tab-background: #21252b;
+  --onedark-color-tab-background-hover: #323842;
+  --onedark-green: #4dc599;
+  --onedark-blue: #468ffc;
+  --onedark-red: #98363b;
+  --onedark-yellow: #cb9a62;
+  --onedark-string: #8fbb71;
+
+  /* Techs */
+  --color-md: #519aba;
+  --color-npm: #cb0303;
+  --color-facebook: #4267b2;
+  --color-linkedin: #0074b2;
+  --color-steam: #145e8f;
+  --color-bg-vscode: #2c2c32;
+  --color-bg-ts: white;
+  --color-ts: #007acc;
+  --color-bg-js: #323230;
+  --color-js: #f0d91d;
+  --color-bg-nodejs: #3e3f35;
+  --color-nodejs: #659b60;
+  --color-bg-react: #222;
+  --color-react: #5ed4f4;
+  --color-bg-sass: #c06090;
+  --color-bg-webpack: #2b3a42;
+  --color-bg-redux: #764abc;
+  --color-babel: #000;
+  --color-rollup: #fff;
+  --color-css: hsl(198deg 43% 52%);
+  --color-git: #e94f32;
+  --color-txt: hsl(0deg 0% 87%);
+  --color-json: hsl(54deg 79% 47%);
+  --color-arenso: #006ac6;
+  --color-tcs: #3b86c7;
+  --color-accedo: #00a2e8;
+
+  /* Sizes */
+  --activity-bar-width: 50px;
+  --file-tab-height: 36px;
+  --explorer-item-height: 26px;
+  --side-bar-width: 250px;
+}

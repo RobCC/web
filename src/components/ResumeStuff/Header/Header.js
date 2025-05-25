@@ -10,7 +10,7 @@ import { faNpm } from '@fortawesome/free-brands-svg-icons/faNpm';
 import { faEnvelope } from '@fortawesome/free-regular-svg-icons/faEnvelope';
 
 import TabLink from '#/components/TabLink/TabLink';
-import me from '~/public/images/me.png';
+import me from '#/assets/me.png';
 import Photo from '../Photo/Photo';
 
 import styles from './header.scss';

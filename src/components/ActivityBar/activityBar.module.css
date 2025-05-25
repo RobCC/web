@@ -1,0 +1,36 @@
+.bar {
+  background-color: var(--color-side-menu-bg);
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 var(--activity-bar-width);
+  flex-direction: column;
+  height: 100vh;
+  z-index: 1;
+}
+
+.item {
+  --color-icon: hsl(300deg 1.94% 69.61%);
+
+  align-items: center;
+  border-left: 2px solid transparent;
+  color: var(--color-icon);
+  cursor: pointer;
+  display: flex;
+  height: 60px;
+  justify-content: center;
+  position: relative;
+
+  &.active {
+    border-left: 2px solid hsl(0deg 0% 84.31%);
+  }
+
+  &.active,
+  &:hover {
+    --color-icon: hsl(0deg 0% 84.31%);
+  }
+}
+
+.bottom {
+  display: grid;
+  margin-top: auto;
+}

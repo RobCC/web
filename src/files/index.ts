@@ -1,10 +1,19 @@
-import { createExplorerRoot } from '#/utils/explorer';
+import { folderUtils } from '#/utils/directory';
 
-import greet from './greet';
-import contact from './contact';
 import projects from './projects';
 import blog from './blog';
+import test from './test';
+import readme from './readme';
+import contact from './contact';
+import Settings from './_Settings/Settings';
+import Resume from './_Resume/Resume';
 
-export const rootFiles = createExplorerRoot(contact, greet, blog, projects);
-
-export default rootFiles;
+export default folderUtils.create('', [
+  contact,
+  readme,
+  test,
+  blog,
+  projects,
+  Settings,
+  Resume,
+]);

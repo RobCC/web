@@ -1,9 +1,9 @@
-import { createFolderAndContent } from '#/utils/explorer';
-import jiraGitHooks from './jira-git-hooks';
-import createReactPackageLib from './create-react-package-lib';
+import { folderUtils } from '#/utils/directory';
 
-export default createFolderAndContent(
-  'Projects',
-  jiraGitHooks,
-  createReactPackageLib,
-);
+import CreateReactPackage from './create-react-package-lib';
+import JiraGitHooks from './jira-git-hooks';
+
+export default folderUtils.create('Projects', [
+  CreateReactPackage,
+  JiraGitHooks,
+]);

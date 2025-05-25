@@ -1,0 +1,56 @@
+.close {
+  color: white;
+  background: transparent;
+  height: 20px;
+  opacity: 0;
+  padding: 0;
+  position: absolute;
+  right: 3px;
+  top: 10px;
+  transition: opacity 100ms;
+  width: 20px;
+
+  svg {
+    height: 14px;
+    width: 14px;
+    stroke: #e6e6e6;
+  }
+}
+
+.tab {
+  align-items: center;
+  background-color: var(--color-tab-background);
+  border-bottom: 1px solid var(--color-tab-background);
+  box-sizing: border-box;
+  color: var(--color-tab-text);
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 14px;
+  padding: 10px 15px;
+  padding-right: 30px;
+  height: var(--file-tab-height);
+  margin-right: 1px;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &.active {
+    background-color: var(--color-tab-active);
+    border-bottom: 1px solid var(--color-tab-active);
+    color: var(--color-tab-text-active);
+
+    .close {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    .close {
+      opacity: 1;
+    }
+  }
+
+  &:hover:not(.active) {
+    background-color: var(--color-tab-background-hover);
+  }
+}

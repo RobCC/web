@@ -1,14 +1,11 @@
-const REGEX = /\/\/(?<comment>.*?)+/;
+const comment = {
+  regex: /\/\/(?<comment>.*?)+/,
+  toDOM(snippet, theme) {
+    return <span className={theme.comment}>{snippet}</span>;
+  },
+  parse(text: string) {
+    return `// ${text}`;
+  },
+} satisfies ParserModule;
 
-function parse(text, styles: CSSModule) {
-  return <span className={styles.comment}>{text}</span>;
-}
-
-export function createComment(text = '') {
-  return `// ${text}`;
-}
-
-export default {
-  REGEX,
-  parse,
-};
+export default comment;

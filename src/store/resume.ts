@@ -1,9 +1,19 @@
-import useStore, { RootState } from './store';
+import { createStore } from './store';
 
-export const getIsResumeOpen = ({ resume }: RootState) => resume.isResumeOpen;
+// TODO: delete?
+
+export type State = {
+  isResumeOpen: boolean;
+};
+
+export const useResumeStore = createStore({
+  isResumeOpen: false,
+});
 
 export function toggleResume() {
-  useStore.setState(state => {
-    state.resume.isResumeOpen = !state.resume.isResumeOpen;
+  useResumeStore.setState(state => {
+    state.isResumeOpen = !state.isResumeOpen;
   });
 }
+
+export const getIsResumeOpen = ({ isResumeOpen }: State) => isResumeOpen;

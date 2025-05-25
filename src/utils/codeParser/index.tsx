@@ -1,20 +1,22 @@
+import { type JSX } from 'react';
+
 import linkParser from './link';
 import colorParser from './color';
 import commentParser from './comment';
 
-export * from './link';
-export * from './color';
-export * from './comment';
+export { default as linkParser } from './link';
+export { default as colorParser } from './color';
+export { default as commentParser } from './comment';
 
 const PLACEHOLDERS = {
-  link: linkParser.REGEX,
-  color: colorParser.REGEX,
-  comment: commentParser.REGEX,
+  link: linkParser.regex,
+  color: colorParser.regex,
+  comment: commentParser.regex,
 };
 
 const FULL_REGEX = new RegExp(
-  [...Object.keys(PLACEHOLDERS)]
-    .map((key) => {
+  [...(Object.keys(PLACEHOLDERS) as Array<keyof typeof PLACEHOLDERS>)]
+    .map(key => {
       const regex = PLACEHOLDERS[key];
 
       return regex.source;
@@ -31,23 +33,31 @@ type ParsingData = {
 };
 
 export function isComment(text = '') {
-  const commentIdentifiers = ['*', '/*', '*/'];
-  const isString = typeof text === 'string';
+  if (typeof text !== 'string') {
+    return false;
+  }
 
-  return (
-    isString &&
-    commentIdentifiers.some((identifier) => text.trim().startsWith(identifier))
+  return ['*', '/*', '*/'].some(identifier =>
+    text.trim().startsWith(identifier),
   );
 }
 
-export function createCodeText(text): EditorFile {
-  const trimmedLines = text.split('\n').slice(1, -1);
+export function toCodeLines(text: string) {
+  let trimmedLines = text.split('\n');
+
+  if (trimmedLines[0] === '') {
+    trimmedLines = trimmedLines.slice(1);
+  }
 
   // Add a blank line at the end, 'cause that's the way to do it
-  return [...trimmedLines, '\n'];
+  if (trimmedLines[trimmedLines.length - 1] !== '') {
+    trimmedLines.push('\n');
+  }
+
+  return trimmedLines;
 }
 
-export function getParsingData(line: string): ParsingData {
+function getParsingData(line: string): ParsingData {
   const results = line.match(FULL_REGEX);
 
   if (!results) {
@@ -64,7 +74,10 @@ export function getParsingData(line: string): ParsingData {
   };
 }
 
-function parseLine(line: string, styles: CSSModule) {
+export function parseLine(
+  line: string,
+  styles: Record<string, string>,
+): string | JSX.Element {
   const { index, subString, link, color, comment } = getParsingData(line);
 
   if (index === undefined) {
@@ -72,17 +85,17 @@ function parseLine(line: string, styles: CSSModule) {
   }
 
   const textBeforeParse = line.slice(0, index);
-  const textAfterParse = line.slice(index + subString.length, line.length);
+  const textAfterParse = line.slice(index + subString!.length, line.length);
   let parsedElement;
 
   if (color) {
-    parsedElement = colorParser.parse(color, styles);
+    parsedElement = colorParser.toDOM(color, styles);
   } else if (link) {
-    parsedElement = linkParser.parse(link, styles);
+    parsedElement = linkParser.toDOM(link, styles);
   } else if (comment) {
     // Pass subString instead of comment, since we want
     // to stylize the '//' as well
-    parsedElement = commentParser.parse(subString, styles);
+    parsedElement = commentParser.toDOM(subString!, styles);
   }
 
   return (

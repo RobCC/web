@@ -1,0 +1,41 @@
+.icon {
+  display: grid;
+  position: relative;
+  margin-right: 4px;
+  width: 17px;
+  height: 17px;
+  top: 1px;
+
+  &.js {
+    top: 1px;
+  }
+
+  &.md {
+    fill: var(--color-md);
+    width: 14px;
+    height: 14px;
+  }
+
+  &.css {
+    fill: var(--color-css);
+  }
+
+  &.txt {
+    height: 15px;
+    width: 15px;
+    stroke: var(--color-txt);
+  }
+
+  &.json {
+    stroke: var(--color-json);
+    width: 18px;
+    height: 18px;
+  }
+
+  &.resume {
+    svg {
+      width: 17px;
+      height: 17px;
+    }
+  }
+}

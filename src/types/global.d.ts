@@ -1,34 +1,18 @@
-type CSSModule = { [key: string]: string };
+export {};
 
-declare module '*.scss' {
-  const classes: CSSModule;
+declare global {
+  type IconProps = {
+    size?: string;
+    color: string;
+  };
 
-  export default classes;
+  type Code = string[];
+
+  type Extension = 'js' | 'css' | 'json' | 'md' | 'txt';
+
+  type ParserModule = {
+    regex: RegExp;
+    toDOM(snippet: string, theme: Record<string, string>): JSX.Element;
+    parse(...args: string[]): string;
+  };
 }
-
-declare module '*.png' {
-  const value: any;
-
-  export = value;
-}
-
-declare module '*.jpg' {
-  const value: any;
-
-  export = value;
-}
-
-type IconProps = {
-  size?: string;
-  color: string;
-};
-
-type EditorFile = string[];
-
-type AppFileContent = EditorFile | React.FC<unknown>;
-
-type AppFile = [string, AppFileContent];
-
-type AppFolder = [string, Map<string, AppFileContent | AppFolder[1]>];
-
-type AppFolderContent = AppFolder[1];

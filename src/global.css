@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 400;
+
+  /* https://github.com/beichensky/Font/tree/master/FiraCode/woff2 */
+  src: url('./assets/fonts/FiraCode/FiraCode-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/FiraCode/FiraCode-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Cascadia Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/CascadiaMono/CaskaydiaMono-Regular.ttf')
+    format('ttf');
+}
+
+@font-face {
+  font-family: 'Cascadia Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/CascadiaMono/CaskaydiaMono-Bols.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Commit Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/CommitMono/CommitMono-350-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Commit Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/CommitMono/CommitMono-700-Regular.otf') format('otf');
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  font-style: normal;
+  src: url('./assets/fonts/SegoeUI/segoeui.ttf') format('ttf');
+}
+
+body {
+  background: var(--color-editor-body);
+  color: #e6e6e6;
+  font-family: var(--font-family-code);
+  margin: 0;
+}
+
+#root {
+  display: flex;
+}
+
+a {
+  color: #3889ff;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  background: inherit;
+}
+
+button,
+div[role='button'] {
+  cursor: pointer;
+  font-family: inherit;
+  outline: none;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}

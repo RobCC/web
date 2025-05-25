@@ -1,6 +1,7 @@
-module.exports = {
+export default {
   singleQuote: true,
   trailingComma: 'all',
+  arrowParens: 'avoid',
   overrides: [
     {
       files: '*.scss',

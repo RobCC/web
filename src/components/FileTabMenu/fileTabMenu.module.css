@@ -1,0 +1,30 @@
+.tab-menu {
+  background-color: var(--color-file-menu-bg);
+  display: flex;
+  flex: 0 0 var(--file-tab-height);
+  font-family: var(--font-family-text);
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+
+  .scroll {
+    background: #4f504c;
+    bottom: 0;
+    height: 3px;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 500ms;
+    z-index: 1;
+  }
+
+  &:hover .scroll {
+    opacity: 1;
+  }
+}
+
+.wrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}

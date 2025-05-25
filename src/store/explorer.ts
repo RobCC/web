@@ -1,11 +1,18 @@
-import useStore, { RootState } from './store';
+import { createStore } from './store';
 
-export const getIsSideViewOpen = ({ explorer }: RootState) =>
-  explorer.isExplorerOpen;
+// TODO: rename to sideBar
+export type State = {
+  isSideBarOpen: boolean;
+};
 
-export function toggleExplorer() {
-  useStore.setState(state => {
-    state.explorer.isExplorerOpen = !state.explorer.isExplorerOpen;
-  },
-  );
+export const useExplorerStore = createStore({
+  isSideBarOpen: false,
+});
+
+export function toggleSideBar() {
+  useExplorerStore.setState(state => {
+    state.isSideBarOpen = !state.isSideBarOpen;
+  });
 }
+
+export const getIsSideBarOpen = ({ isSideBarOpen }: State) => isSideBarOpen;
