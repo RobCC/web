@@ -54,15 +54,35 @@ function SettingsItem() {
   }, []);
 
   return (
-    <ActBarItem label={options.SETTINGS} onClick={handleClick}>
+    <ActBarItem label={fileName} onClick={handleClick}>
       <IconSettings />
+    </ActBarItem>
+  );
+}
+
+function ResumeItem() {
+  const navigate = useNavigate();
+  const fileName = 'Resume';
+
+  const handleClick = () => {
+    const [, currentFileParam] = window.location.hash.split('#/');
+
+    if (fileName === decodeURIComponent(currentFileParam)) {
+      openFile(fileName);
+    } else {
+      navigate(`/${encodeURIComponent(fileName)}`);
+    }
+  };
+
+  return (
+    <ActBarItem label={fileName} onClick={handleClick}>
+      <IconUser />
     </ActBarItem>
   );
 }
 
 const options = {
   EXPLORER: 'Explorer',
-  SETTINGS: 'Settings',
 };
 
 /**
@@ -91,15 +111,7 @@ export default function ActivityBar() {
         <IconExplorer />
       </ActBarItem>
       <div className={styles.bottom}>
-        <ActBarItem
-          label={options.EXPLORER}
-          onClick={() => {
-            explorer.toggleSideBar();
-            setCurrentOption(options.EXPLORER);
-          }}
-        >
-          <IconUser />
-        </ActBarItem>
+        <ResumeItem />
         <SettingsItem />
       </div>
     </div>

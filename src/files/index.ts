@@ -4,9 +4,9 @@ import projects from './projects';
 import blog from './blog';
 import test from './test';
 import readme from './readme';
-// import resume from './resume';
 import contact from './contact';
 import Settings from './_Settings/Settings';
+import Resume from './_Resume/Resume';
 
 export default folderUtils.create('', [
   contact,
@@ -15,4 +15,5 @@ export default folderUtils.create('', [
   blog,
   projects,
   Settings,
+  Resume,
 ]);

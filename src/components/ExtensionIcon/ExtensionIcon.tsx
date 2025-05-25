@@ -15,10 +15,11 @@ export default function ExtensionIcon({
   shortName,
   className = '',
 }: Props) {
-  const Icon = FILE_ICONS[extension || shortName];
+  const identifier = (extension || shortName).toLocaleLowerCase();
+  const Icon = FILE_ICONS[identifier as keyof typeof FILE_ICONS];
 
   return (
-    <div className={classNames(styles.icon, styles[extension], className)}>
+    <div className={classNames(styles.icon, styles[identifier], className)}>
       <Icon />
     </div>
   );

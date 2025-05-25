@@ -55,13 +55,13 @@ function Settings() {
         title="Color Theme"
         description="Specifies the color theme used."
       >
-        <select className={styles.select} onChange={handleThemeChange}>
+        <select
+          className={styles.select}
+          onChange={handleThemeChange}
+          defaultValue={themeController.get()}
+        >
           {Object.entries(themeController.options).map(([key, value]) => (
-            <option
-              key={key}
-              value={key}
-              selected={key === themeController.get()}
-            >
+            <option key={key} value={key}>
               {value}
             </option>
           ))}
@@ -71,13 +71,13 @@ function Settings() {
         title="Font Family"
         description="Controlls the font famiy."
       >
-        <select className={styles.select} onChange={handleFontChange}>
+        <select
+          className={styles.select}
+          onChange={handleFontChange}
+          defaultValue={fontController.get()}
+        >
           {Object.entries(fontController.options).map(([key, value]) => (
-            <option
-              key={key}
-              value={key}
-              selected={key === fontController.get()}
-            >
+            <option key={key} value={key}>
               {value}
             </option>
           ))}

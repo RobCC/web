@@ -5,6 +5,7 @@ import {
   IconCss,
   IconJson,
   IconSettingsTab,
+  IconUser,
 } from '#/components/Icones';
 
 /** Returns the file icon given its extension. */
@@ -15,7 +16,8 @@ export const FILE_ICONS = {
   md: IconMd,
   txt: IconText,
   // Some icons are determined by the file name (eg. Settings)
-  Settings: IconSettingsTab,
+  resume: IconUser,
+  settings: IconSettingsTab,
 } as const;
 
 export default {

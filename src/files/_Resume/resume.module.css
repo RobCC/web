@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--color-side-menu-bg),
+    var(--color-side-menu-bg) 100px,
+    var(--color-editor-body) 100px,
+    var(--color-editor-body) 200px
+  );
+}
+
+.wip {
+  animation: wip 1s ease-in-out infinite;
+}
+
+@keyframes wip {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
