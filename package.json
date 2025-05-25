@@ -19,9 +19,7 @@
     "start": "pnpm dev",
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "serve": "npx http-server ./dist",
     "preview": "vite preview",
-    "deploy": "npm run build && echo www.jrobcc.com > ./dist/CNAME && gh-pages -d dist",
     "stylelint": "stylelint 'src/**/*.scss'",
     "eslint": "eslint src --ext .ts,.tsx",
     "lint": "pnpm eslint && pnpm stylelint"
