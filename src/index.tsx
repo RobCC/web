@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+// import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ import './themes.css';
 import './global.css';
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  // <StrictMode>
+  <RouterProvider router={router} />,
+  // </StrictMode>,
 );

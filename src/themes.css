@@ -7,6 +7,7 @@
   --color-editor-caret-cursor: var(--monokai-color-editor-caret-cursor);
   --color-side-menu-bg: var(--monokai-color-side-menu-bg);
   --color-file-menu-bg: var(--monokai-color-file-menu-bg);
+  --color-explorer-border: var(--monokai-color-explorer-border);
   --color-explorer-bg: var(--monokai-color-explorer-bg);
   --color-explorer-item-hover: var(--monokai-color-explorer-item-hover);
   --color-explorer-item-active: var(--monokai-color-explorer-item-active);
@@ -31,6 +32,7 @@
   --color-editor-caret-cursor: var(--onedark-color-editor-caret-cursor);
   --color-side-menu-bg: var(--onedark-color-side-menu-bg);
   --color-file-menu-bg: var(--onedark-color-file-menu-bg);
+  --color-explorer-border: var(--onedark-color-explorer-border);
   --color-explorer-bg: var(--onedark-color-explorer-bg);
   --color-explorer-item-hover: var(--onedark-color-explorer-item-hover);
   --color-explorer-item-active: var(--onedark-color-explorer-item-active);
@@ -44,4 +46,16 @@
   --color-red: var(--onedark-red);
   --color-yellow: var(--onedark-yellow);
   --color-string: var(--onedark-string);
+}
+
+[data-font='fira'] {
+  --font-family-code: var(--font-family-fira);
+}
+
+[data-font='cascadia'] {
+  --font-family-code: var(--font-family-cascadia);
+}
+
+[data-font='commit'] {
+  --font-family-code: var(--font-family-commit);
 }

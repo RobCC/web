@@ -2,11 +2,15 @@ import { Outlet } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import { ActivityBar, SideBar } from '#/components';
-import theme from '#/utils/theme';
+import {
+  themeController,
+  fontController,
+} from '#/utils/settingsOptionController';
 
 export default function App() {
   useEffect(() => {
-    theme.init();
+    themeController.init();
+    fontController.init();
   }, []);
 
   return (

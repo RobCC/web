@@ -8,6 +8,7 @@
   --color-side-menu-bg: #21221d;
   --color-file-menu-bg: #1a1b18;
   --color-explorer-bg: #1a1a1a;
+  --color-explorer-border: #2b2a25;
   --color-explorer-item-hover: #3e3d32;
   --color-explorer-item-active: #414339;
   --color-tab-active: #161718;
@@ -22,12 +23,12 @@
   --color-string: #e0d36f;
   --font-family-segoe: 'Segoe UI', sans-serif;
   --font-family-fira: 'Fira Code', monospace;
-  --font-family-fira-bold: 'Fira Code Bold', 'Fira Code', monospace;
+  --font-family-cascadia: 'Cascadia Mono', monospace;
+  --font-family-commit: 'Commit Mono', monospace;
 
   /* Theme variables */
   --font-family-text: var(--font-family-segoe);
   --font-family-code: var(--font-family-fira);
-  --font-family-code-bold: var(--font-family-fira-bold);
 
   /* Monokai */
   --monokai-color-editor-body: #1a1a1a;
@@ -38,6 +39,7 @@
   --monokai-color-editor-caret-cursor: #f5f5f5;
   --monokai-color-side-menu-bg: #21221d;
   --monokai-color-file-menu-bg: #1a1b18;
+  --monokai-color-explorer-border: #2b2a25;
   --monokai-color-explorer-bg: #1a1a1a;
   --monokai-color-explorer-item-hover: #3e3d32;
   --monokai-color-explorer-item-active: #414339;
@@ -61,6 +63,7 @@
   --onedark-color-editor-caret-cursor: #528bff;
   --onedark-color-side-menu-bg: #282c34;
   --onedark-color-file-menu-bg: #21252b;
+  --onedark-color-explorer-border: #25272b;
   --onedark-color-explorer-bg: #15181c;
   --onedark-color-explorer-item-hover: #2c313a;
   --onedark-color-explorer-item-active: #323842;

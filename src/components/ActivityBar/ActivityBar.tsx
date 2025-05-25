@@ -75,7 +75,7 @@ export default function ActivityBar() {
   const [currentOption, setCurrentOption] = useState(options.EXPLORER);
 
   useEffect(() => {
-    hotkeys('ctrl+b,cmd+b', explorer.toggleSideBar);
+    hotkeys('ctrl+b,cmd+b', () => explorer.toggleSideBar());
   }, []);
 
   return (

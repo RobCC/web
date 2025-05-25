@@ -14,7 +14,7 @@ export default function SettingsSection({
   return (
     <div className={styles.section}>
       <span className={styles.title}>
-        <span className={styles.workbench}>Workbench:</span> {title}
+        <span className={styles.workbench}>Website:</span> {title}
       </span>
       <span className={styles.description}>{description}</span>
       {children}

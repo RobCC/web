@@ -61,7 +61,8 @@
 .editor-link {
   border: 1px solid transparent;
   border-radius: 4px;
-  font-family: var(--font-family-code-bold);
+  font-family: var(--font-family-code);
+  font-weight: bold;
   padding: 0 2px;
   position: relative;
   text-decoration: none;

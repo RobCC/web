@@ -1,5 +1,8 @@
 import { fileUtils } from '#/utils/directory';
-import theme from '#/utils/theme';
+import {
+  themeController,
+  fontController,
+} from '#/utils/settingsOptionController';
 
 import SettingsSection from './SettingsSection';
 import styles from './settings.module.css';
@@ -12,40 +15,69 @@ const isAppearanceTransition =
   document.startViewTransition &&
   !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+function handleTransition(transitionCb: () => void) {
+  if (!isAppearanceTransition) {
+    transitionCb();
+    return;
+  }
+
+  const transition = document.startViewTransition(transitionCb);
+
+  void transition.ready.then(() => {
+    document.documentElement.animate(
+      {},
+      {
+        duration: 400,
+        easing: 'ease-in',
+      },
+    );
+  });
+}
+
 function Settings() {
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newTheme = e.target.value as keyof typeof theme.THEMES;
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    handleTransition(() =>
+      themeController.set(
+        e.target.value as keyof typeof themeController.options,
+      ),
+    );
+  };
 
-    if (!isAppearanceTransition) {
-      theme.set(newTheme);
-      return;
-    }
-
-    const transition = document.startViewTransition(() => {
-      theme.set(newTheme);
-    });
-
-    void transition.ready.then(() => {
-      document.documentElement.animate(
-        {},
-        {
-          duration: 400,
-          easing: 'ease-in',
-          pseudoElement: '::view-transition-new(root)',
-        },
-      );
-    });
+  const handleFontChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    handleTransition(() =>
+      fontController.set(e.target.value as keyof typeof fontController.options),
+    );
   };
 
   return (
     <div className={styles.container}>
       <SettingsSection
         title="Color Theme"
-        description="Specifies the color theme used in the workbench."
+        description="Specifies the color theme used."
       >
-        <select className={styles.select} onChange={handleChange}>
-          {Object.entries(theme.THEMES).map(([key, value]) => (
-            <option key={key} value={key} selected={key === theme.get()}>
+        <select className={styles.select} onChange={handleThemeChange}>
+          {Object.entries(themeController.options).map(([key, value]) => (
+            <option
+              key={key}
+              value={key}
+              selected={key === themeController.get()}
+            >
+              {value}
+            </option>
+          ))}
+        </select>
+      </SettingsSection>
+      <SettingsSection
+        title="Font Family"
+        description="Controlls the font famiy."
+      >
+        <select className={styles.select} onChange={handleFontChange}>
+          {Object.entries(fontController.options).map(([key, value]) => (
+            <option
+              key={key}
+              value={key}
+              selected={key === fontController.get()}
+            >
               {value}
             </option>
           ))}
