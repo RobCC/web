@@ -1,7 +1,7 @@
 .wrapper {
   background-color: var(--color-explorer-bg);
   border-right: 1px solid var(--color-explorer-border);
-  display: inline-block;
+  display: none;
   flex: 0;
   font-family: var(--font-family-text);
   font-size: 14px;
@@ -11,5 +11,6 @@
 
   &.open {
     flex: 0 0 250px;
+    display: inline-block;
   }
 }

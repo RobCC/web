@@ -7,8 +7,6 @@ import {
 import SettingsSection from './SettingsSection';
 import styles from './settings.module.css';
 
-// TODO: add Dark Modern (default theme)
-
 const isAppearanceTransition =
   typeof document !== 'undefined' &&
   // @ts-expect-error: Transition API

@@ -29,7 +29,6 @@
     user-select: none;
     padding: 5px 15px;
 
-    /* TODO: Nested separator logic: Show on explorer hover. When not, only show on active tab group */
     &::before {
       width: 1px;
       height: calc(100% - var(--explorer-item-height));

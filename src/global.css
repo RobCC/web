@@ -18,29 +18,46 @@
   font-family: 'Cascadia Mono';
   font-style: normal;
   font-weight: 400;
-  src: url('./assets/fonts/CascadiaMono/CaskaydiaMono-Regular.ttf')
-    format('ttf');
+  src: url('./assets/fonts/CascadiaMono/CaskaydiaMono-Regular.woff2')
+    format('woff2');
 }
 
 @font-face {
   font-family: 'Cascadia Mono';
   font-style: normal;
   font-weight: 700;
-  src: url('./assets/fonts/CascadiaMono/CaskaydiaMono-Bols.ttf') format('ttf');
+  src: url('./assets/fonts/CascadiaMono/CaskaydiaMono-Bols.woff2')
+    format('woff2');
 }
 
 @font-face {
   font-family: 'Commit Mono';
   font-style: normal;
   font-weight: 400;
-  src: url('./assets/fonts/CommitMono/CommitMono-350-Regular.otf') format('otf');
+  src: url('./assets/fonts/CommitMono/CommitMono-350-Regular.woff2')
+    format('woff2');
 }
 
 @font-face {
   font-family: 'Commit Mono';
   font-style: normal;
   font-weight: 700;
-  src: url('./assets/fonts/CommitMono/CommitMono-700-Regular.otf') format('otf');
+  src: url('./assets/fonts/CommitMono/CommitMono-700-Regular.woff2')
+    format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/IBMPlex/IBMPlexMono-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/IBMPlex/IBMPlexMono-Bold.woff2') format('woff2');
 }
 
 @font-face {

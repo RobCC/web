@@ -50,7 +50,10 @@ function SettingsItem() {
   };
 
   useEffect(() => {
-    hotkeys('ctrl+,, cmd+,', handleClick);
+    hotkeys('ctrl+,, cmd+,', e => {
+      e.preventDefault();
+      handleClick();
+    });
   }, []);
 
   return (
@@ -87,15 +90,15 @@ const options = {
 
 /**
  * The left-most bar in the application, which contains icons for different views.
- *
- * TODO: Tooltip á la VSCode
- * TODO: brighten on hover
  */
 export default function ActivityBar() {
   const [currentOption, setCurrentOption] = useState(options.EXPLORER);
 
   useEffect(() => {
-    hotkeys('ctrl+b,cmd+b', () => explorer.toggleSideBar());
+    hotkeys('ctrl+b,cmd+b', e => {
+      e.preventDefault();
+      explorer.toggleSideBar();
+    });
   }, []);
 
   return (

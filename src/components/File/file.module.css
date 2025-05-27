@@ -1,5 +1,4 @@
 .item {
-  /* TODO: Being ovewritten */
   box-sizing: border-box;
   color: var(--color-tab-text);
   height: var(--explorer-item-height);

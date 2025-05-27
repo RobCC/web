@@ -1,9 +1,9 @@
 .line {
   align-items: center;
   display: flex;
-  font-size: 14px;
-  height: 21px;
-  line-height: 21px;
+  font-size: 18px;
+  height: 23px;
+  line-height: 23px;
 
   ::selection {
     background-color: var(--color-editor-line-highlight);
@@ -68,10 +68,6 @@
   text-decoration: none;
   transition: border 250ms;
   top: 0;
-
-  &:hover {
-    border: 1px solid;
-  }
 }
 
 .comment {

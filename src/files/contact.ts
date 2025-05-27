@@ -4,9 +4,6 @@ import { fileUtils } from '#/utils/directory';
 // import content from './contact.txt?raw';
 
 // TODO: add link to resume
-// TODO: fix having to add empty line at beginning of txt file
-// TODO: refactor codeparser: add fns to set folows instead of having to add them as $({, yellow)})
-// $(CHAR, COLOR)
 
 const name = 'contact.css';
 

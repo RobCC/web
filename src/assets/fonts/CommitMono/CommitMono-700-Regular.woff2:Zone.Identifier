@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/98001f4d-b507-4e58-9e7c-bd468d35049b/CommitMono-700-Regular.woff2?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20250527%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20250527T051520Z&X-Amz-Expires=86400&X-Amz-Signature=3bc27366dc4d8242fbc3db6054725b80472195a481e856d1cf62b8b5e77cacb4&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22CommitMono-700-Regular.woff2%22&response-content-type=font%2Fwoff2&x-id=GetObject

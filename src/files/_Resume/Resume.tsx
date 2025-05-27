@@ -2,6 +2,8 @@ import { fileUtils } from '#/utils/directory';
 
 import styles from './resume.module.css';
 
+// TODO: add changelog.md file
+
 function Resume() {
   return (
     <div className={styles.container}>

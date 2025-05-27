@@ -52,21 +52,23 @@ class SettingsOptionController<T extends Record<string, string>> {
 
 export const themeController = new SettingsOptionController({
   storageKey: '_jrobcc_theme',
-  defaultValue: 'monokai',
+  defaultValue: 'onedark',
   dataName: 'theme',
   options: {
     monokai: 'Monokai',
     onedark: 'One Dark Pro',
+    darkmodern: 'Dark Modern',
   } as const,
 });
 
 export const fontController = new SettingsOptionController({
   storageKey: '_jrobcc_font',
-  defaultValue: 'fira',
+  defaultValue: 'commit',
   dataName: 'font',
   options: {
     fira: 'Fira Code',
     cascadia: 'Cascadia Mono',
     commit: 'Commit Mono',
+    ibmPlex: 'IBM Plex Mono',
   } as const,
 });

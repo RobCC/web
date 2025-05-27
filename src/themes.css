@@ -48,6 +48,31 @@
   --color-string: var(--onedark-string);
 }
 
+[data-theme='darkmodern'] {
+  --color-editor-body: var(--darkmodern-color-editor-body);
+  --color-editor-line-highlight: var(--darkmodern-color-editor-line-highlight);
+  --color-editor-line-hover: var(--darkmodern-color-editor-line-hover);
+  --color-editor-comment: var(--darkmodern-color-editor-comment);
+  --color-editor-line-number: var(--darkmodern-color-editor-line-number);
+  --color-editor-caret-cursor: var(--darkmodern-color-editor-caret-cursor);
+  --color-side-menu-bg: var(--darkmodern-color-side-menu-bg);
+  --color-file-menu-bg: var(--darkmodern-color-file-menu-bg);
+  --color-explorer-border: var(--darkmodern-color-explorer-border);
+  --color-explorer-bg: var(--darkmodern-color-explorer-bg);
+  --color-explorer-item-hover: var(--darkmodern-color-explorer-item-hover);
+  --color-explorer-item-active: var(--darkmodern-color-explorer-item-active);
+  --color-tab-active: var(--darkmodern-color-tab-active);
+  --color-tab-text: var(--darkmodern-color-tab-text);
+  --color-tab-text-active: var(--darkmodern-color-tab-text-active);
+  --color-tab-background: var(--darkmodern-color-tab-background);
+  --color-tab-background-hover: var(--darkmodern-color-tab-background-hover);
+  --color-green: var(--darkmodern-green);
+  --color-blue: var(--darkmodern-blue);
+  --color-red: var(--darkmodern-red);
+  --color-yellow: var(--darkmodern-yellow);
+  --color-string: var(--darkmodern-string);
+}
+
 [data-font='fira'] {
   --font-family-code: var(--font-family-fira);
 }
@@ -58,4 +83,8 @@
 
 [data-font='commit'] {
   --font-family-code: var(--font-family-commit);
+}
+
+[data-font='ibmPlex'] {
+  --font-family-code: var(--font-family-ibm);
 }

@@ -25,6 +25,7 @@
   --font-family-fira: 'Fira Code', monospace;
   --font-family-cascadia: 'Cascadia Mono', monospace;
   --font-family-commit: 'Commit Mono', monospace;
+  --font-family-ibm: 'IBM Plex Mono', monospace;
 
   /* Theme variables */
   --font-family-text: var(--font-family-segoe);
@@ -77,6 +78,30 @@
   --onedark-red: #98363b;
   --onedark-yellow: #cb9a62;
   --onedark-string: #8fbb71;
+
+  /* Dark Modern */
+  --darkmodern-color-editor-body: #1f1f1f;
+  --darkmodern-color-editor-line-highlight: #3a3d41;
+  --darkmodern-color-editor-line-hover: #282828;
+  --darkmodern-color-editor-comment: #787c87;
+  --darkmodern-color-editor-line-number: #c1ccc1;
+  --darkmodern-color-editor-caret-cursor: #aeafad;
+  --darkmodern-color-side-menu-bg: #181818;
+  --darkmodern-color-file-menu-bg: #181818;
+  --darkmodern-color-explorer-border: #2b2b2b;
+  --darkmodern-color-explorer-bg: #181818;
+  --darkmodern-color-explorer-item-hover: #37373d;
+  --darkmodern-color-explorer-item-active: #04395e;
+  --darkmodern-color-tab-active: #1f1f1f;
+  --darkmodern-color-tab-text: #9d9d9d;
+  --darkmodern-color-tab-text-active: #fff;
+  --darkmodern-color-tab-background: #181818;
+  --darkmodern-color-tab-background-hover: #1f1f1f;
+  --darkmodern-green: #58e488;
+  --darkmodern-blue: #acabff;
+  --darkmodern-red: #ca4343;
+  --darkmodern-yellow: #ffb516;
+  --darkmodern-string: #ce9178;
 
   /* Techs */
   --color-md: #519aba;

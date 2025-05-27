@@ -11,8 +11,6 @@ import styles from './content.module.css';
 
 const { useFileStore, getCurrentFile, openFile } = file;
 
-// TODO: close tabs by wheel button click
-
 function renderContent(FileContent: fileUtils.File['content']) {
   if (FileContent instanceof Array) {
     return <Editor file={FileContent} />;
