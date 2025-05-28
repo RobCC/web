@@ -34,12 +34,13 @@
     width: auto;
 
     .text {
+      align-items: center;
       border-right: 2px solid var(--color-editor-caret-cursor);
-      display: inline-block;
       overflow: hidden;
+      display: inline-flex;
       padding-right: 3px;
       position: relative;
-      top: 3px;
+      top: 1px;
     }
   }
 

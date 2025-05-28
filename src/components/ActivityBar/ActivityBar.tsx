@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import classNames from 'classnames';
 import hotkeys from 'hotkeys-js';
 import { IconExplorer, IconSettings, IconUser } from '#/components/Icones';
-import { explorer } from '#/store';
+import { sideBar } from '#/store';
 import { file } from '#/store';
 
 import styles from './activityBar.module.css';
@@ -97,7 +97,7 @@ export default function ActivityBar() {
   useEffect(() => {
     hotkeys('ctrl+b,cmd+b', e => {
       e.preventDefault();
-      explorer.toggleSideBar();
+      sideBar.toggle();
     });
   }, []);
 
@@ -106,7 +106,7 @@ export default function ActivityBar() {
       <ActBarItem
         label={options.EXPLORER}
         onClick={() => {
-          explorer.toggleSideBar();
+          sideBar.toggle();
           setCurrentOption(options.EXPLORER);
         }}
         isActive={currentOption === options.EXPLORER}

@@ -31,7 +31,6 @@ function composeUrl(gist: string, file: string, gistCallback: string) {
   return url;
 }
 
-// TODO: try https://www.npmjs.com/package/react-gist
 // From: https://gist.github.com/aVolpe/b364a8fcd10f1ba833d97e9ab278f42c
 export default function Gist({ gist, file }: Props) {
   const [src, setSrc] = useState('');
@@ -61,7 +60,6 @@ export default function Gist({ gist, file }: Props) {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
 
   return <div dangerouslySetInnerHTML={{ __html: src }} />;
 }

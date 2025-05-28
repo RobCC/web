@@ -2,17 +2,17 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 
 import FileTab from '#/components/FileTab/FileTab';
-import { file, explorer } from '#/store';
+import { file, sideBar } from '#/store';
 
 import styles from './fileTabMenu.module.css';
 
-const { useExplorerStore, getIsSideBarOpen } = explorer;
+const { useExplorerStore, isOpen } = sideBar;
 const { useFileStore, getActiveFiles } = file;
 
 export default function FileTabMenu() {
   const [showScrollbar, toggleScrollbar] = useState(false);
   const openFileNames = useFileStore(getActiveFiles);
-  const isSideBarOpen = useExplorerStore(getIsSideBarOpen);
+  const isSideBarOpen = useExplorerStore(isOpen);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 

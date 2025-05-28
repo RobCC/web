@@ -1,11 +1,11 @@
 import classNames from 'classnames';
 
-import { explorer } from '#/store';
+import { sideBar } from '#/store';
 
 import styles from './sideBar.module.css';
 import Explorer from './Explorer/Explorer';
 
-const { useExplorerStore, getIsSideBarOpen } = explorer;
+const { useExplorerStore, isOpen } = sideBar;
 
 /**
  * Collapsable side bar with files & folders
@@ -15,7 +15,7 @@ export default function SideBar() {
     <div
       id="side-bar"
       className={classNames(styles.wrapper, {
-        [styles.open]: useExplorerStore(getIsSideBarOpen),
+        [styles.open]: useExplorerStore(isOpen),
       })}
     >
       <Explorer />

@@ -4,7 +4,7 @@ export type State = {
   hasAnimationFinished: boolean;
 };
 
-export const useEditorStore = createStore({
+export const useEditorStore = createStore<State>({
   hasAnimationFinished: false,
 });
 

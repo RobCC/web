@@ -3,8 +3,6 @@ import { fileUtils } from '#/utils/directory';
 
 // import content from './contact.txt?raw';
 
-// TODO: add link to resume
-
 const name = 'contact.css';
 
 const content = toCodeLines(`
@@ -14,10 +12,6 @@ $(}, yellow)
 
 $(.github, green) $({, yellow)
   $(url, blue): $["https://github.com/RobCC", https://github.com/RobCC, string]
-$(}, yellow)
-
-$(.facebook, green) $({, yellow)
-  $(url, blue): $["https://www.facebook.com/jrobcc", https://www.facebook.com/jrobcc, string]
 $(}, yellow)
 
 $(.email, green) $({, yellow)
