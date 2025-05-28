@@ -21,7 +21,7 @@ type Props = {
 
 const MIDDLE_MOUSE_BUTTON = 1;
 
-export function getShortName(fullName: string) {
+function getShortName(fullName: string) {
   const lastSlashIndex = fullName.lastIndexOf('/');
   const isRoot = lastSlashIndex === -1;
 

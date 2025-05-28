@@ -1,6 +1,6 @@
 import { createStore } from './store';
 
-export type State = {
+type State = {
   hasAnimationFinished: boolean;
 };
 
@@ -13,6 +13,3 @@ export function setAnimationFinished() {
     state.hasAnimationFinished = true;
   });
 }
-
-export const getHasAnimationFinished = ({ hasAnimationFinished }: State) =>
-  hasAnimationFinished;

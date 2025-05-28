@@ -2,7 +2,7 @@ import { getFile, fileUtils } from '#/utils/directory';
 import root from '#/files';
 import { createStore } from './store';
 
-export type State = {
+type State = {
   /** Current file and its fullname. */
   current: {
     file: fileUtils.File | null;

@@ -2,8 +2,6 @@ import { toCodeLines, colorParser, linkParser } from '#/utils/codeParser';
 import getRandomGreet from '#/utils/getRandomGreet';
 import { fileUtils } from '#/utils/directory';
 
-export const name = 'README.md';
-
 const content = toCodeLines(`
 ${getRandomGreet()}
 Hi! My name's Roberto. I'm a ${colorParser.parse('web', 'green')} developer, living in Guadalajara, México.

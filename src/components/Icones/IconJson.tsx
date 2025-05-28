@@ -1,7 +1,7 @@
 import type { SVGProps } from 'react';
 
 /** Name: majesticons:curly-braces. */
-export function IconJson(props: SVGProps<SVGSVGElement>) {
+function IconJson(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

@@ -1,6 +1,6 @@
 import { createStore } from './store';
 
-export type State = {
+type State = {
   isOpen: boolean;
 };
 
