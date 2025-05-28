@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import hotkeys from 'hotkeys-js';
 import { IconExplorer, IconSettings, IconUser } from '#/components/Icones';
 import { sideBar } from '#/store';
-import { file } from '#/store';
+import { fileSystem } from '#/store';
 
 import styles from './activityBar.module.css';
 
@@ -14,7 +14,7 @@ type ActBarItemProps = {
   onClick: () => void;
 };
 
-const { openFile } = file;
+const { openFile } = fileSystem;
 
 function ActBarItem({
   label,

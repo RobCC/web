@@ -22,7 +22,8 @@
     "preview": "vite preview",
     "stylelint": "stylelint 'src/**/*.scss'",
     "eslint": "eslint src --ext .ts,.tsx",
-    "lint": "pnpm eslint && pnpm stylelint"
+    "lint": "pnpm eslint && pnpm stylelint",
+    "tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",

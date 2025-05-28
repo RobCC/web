@@ -2,8 +2,6 @@ import { getFile, fileUtils } from '#/utils/directory';
 import root from '#/files';
 import { createStore } from './store';
 
-// TODO: rename module: fileSystem
-
 export type State = {
   /** Current file and its fullname. */
   current: {
@@ -53,13 +51,17 @@ export function closeFile(fullName: string) {
 
     state.activeFiles.splice(indexOfFile, 1);
 
-    // if the tab we're closing is the current, move to the last tab (if any)
+    // if the tab we're closing is the current, move to the previous tab (if any)
     if (fullName === state.current.fullName) {
       const { activeFiles } = state;
       const previousTab = activeFiles[activeFiles.length - 1] ?? '';
 
-      state.current.file = getFile(previousTab, root);
-      state.current.fullName = previousTab;
+      if (previousTab) {
+        location.hash = `#/${encodeURIComponent(previousTab)}`;
+      } else {
+        state.current.file = getFile(previousTab, root);
+        state.current.fullName = previousTab;
+      }
     }
   });
 }

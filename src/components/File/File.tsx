@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { fileUtils, getFullPathname } from '#/utils/directory';
-import { file } from '#/store';
+import { fileSystem } from '#/store';
 
 import styles from './file.module.css';
 
@@ -19,7 +19,7 @@ type Props = {
 const INITIAL_PADDING = 15;
 const LEVEL_PADDING_DELTA = 8;
 
-const { openFile, useFileStore, getCurrentFullName } = file;
+const { openFile, useFileStore, getCurrentFullName } = fileSystem;
 
 export default function File({ level = 0, data, parent = '' }: Props) {
   const navigate = useNavigate();

@@ -2,12 +2,12 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import classNames from 'classnames';
 
 import FileTab from '#/components/FileTab/FileTab';
-import { file, sideBar } from '#/store';
+import { fileSystem, sideBar } from '#/store';
 
 import styles from './fileTabMenu.module.css';
 
 const { useExplorerStore, isOpen } = sideBar;
-const { useFileStore, getActiveFiles } = file;
+const { useFileStore, getActiveFiles } = fileSystem;
 
 export default function FileTabMenu() {
   const [showScrollbar, toggleScrollbar] = useState(false);

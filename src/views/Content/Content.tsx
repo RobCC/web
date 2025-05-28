@@ -4,12 +4,12 @@ import { useShallow } from 'zustand/shallow';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
 import { Editor } from '#/components';
-import { file } from '#/store';
+import { fileSystem } from '#/store';
 import { fileUtils } from '#/utils/directory';
 
 import styles from './content.module.css';
 
-const { useFileStore, getCurrentFile, openFile } = file;
+const { useFileStore, getCurrentFile, openFile } = fileSystem;
 
 function renderContent(FileContent: fileUtils.File['content']) {
   if (FileContent instanceof Array) {

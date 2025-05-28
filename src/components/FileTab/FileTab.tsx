@@ -6,7 +6,11 @@ import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { IconCloseTab } from '#/components/Icones';
 import { getFile } from '#/utils/directory';
 import { handleOnKeyDownButton } from '#/utils/a11y';
-import * as store from '#/store';
+import {
+  useFileStore,
+  getCurrentFullName,
+  closeFile,
+} from '~/src/store/fileSystem';
 import rootFiles from '#/files';
 
 import styles from './fileTab.module.css';
@@ -16,7 +20,6 @@ type Props = {
 };
 
 const MIDDLE_MOUSE_BUTTON = 1;
-const { useFileStore, getCurrentFullName, closeFile } = store.file;
 
 export function getShortName(fullName: string) {
   const lastSlashIndex = fullName.lastIndexOf('/');
@@ -60,7 +63,6 @@ export default function FileTab({ fullName }: Props) {
       onClick={handleClick}
       onKeyDown={handleOnKeyDownButton(handleClick)}
       onAuxClick={e => {
-        // TODO: closing tab changes file, but not the url
         if (e.button === MIDDLE_MOUSE_BUTTON) {
           e.preventDefault();
           closeFile(fullName);

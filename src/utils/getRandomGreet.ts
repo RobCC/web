@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const helloThere = `
 /**
  *  _    _      _ _         _   _
