@@ -50,8 +50,8 @@ function SettingsItem() {
   };
 
   useEffect(() => {
-    hotkeys('ctrl+,, cmd+,', e => {
-      e.preventDefault();
+    hotkeys('ctrl+,, cmd+,', event => {
+      event.preventDefault();
       handleClick();
     });
   }, []);

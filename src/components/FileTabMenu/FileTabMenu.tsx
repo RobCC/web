@@ -27,9 +27,7 @@ export default function FileTabMenu() {
   const setScrollLeft = useCallback(() => {
     const $wrapper = wrapperRef.current;
 
-    scrollRef.current!.style.left = `${
-      ($wrapper!.scrollLeft * 100) / $wrapper!.scrollWidth
-    }%`;
+    scrollRef.current!.style.left = `${($wrapper!.scrollLeft * 100) / $wrapper!.scrollWidth}%`;
   }, []);
 
   const onWheel = useCallback((e: React.WheelEvent<HTMLDivElement>) => {
