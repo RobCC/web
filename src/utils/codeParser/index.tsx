@@ -15,7 +15,7 @@ const PLACEHOLDERS = {
 };
 
 const FULL_REGEX = new RegExp(
-  [...(Object.keys(PLACEHOLDERS) as Array<keyof typeof PLACEHOLDERS>)]
+  (Object.keys(PLACEHOLDERS) as Array<keyof typeof PLACEHOLDERS>)
     .map(key => {
       const regex = PLACEHOLDERS[key];
 

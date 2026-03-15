@@ -1,14 +1,22 @@
 .wrapper {
+  background-color: var(--blog-background-color-black);
   line-height: 1.5;
   overflow: hidden auto;
   padding: 0 18% 100px;
-  font-family: var(--font-family-text);
+  font-family: var(--blog-font-family-heading);
+  color: var(--blog-foreground-color-white);
   font-weight: 200;
   font-size: 1.25rem;
 
   a {
     color: #5fd1ff;
     text-decoration: underline;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--blog-heading-font-family);
   }
 
   h1 {
@@ -27,6 +35,25 @@
     border-radius: 4px;
     padding: 10px;
   }
+
+  figcaption {
+    color: #c1bfbe;
+    display: block;
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  [data-blog-theme='runner'] & {
+    h1,
+    h2,
+    h3 {
+      text-transform: uppercase;
+    }
+
+    a {
+      color: var(--color-runner-syac);
+    }
+  }
 }
 
 .date {
@@ -36,40 +63,9 @@
 }
 
 .title {
-  background-clip: text;
-  color: transparent;
-
-  &.gradient1 {
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(
-      to right,
-      hsl(209, 62%, 58%),
-      hsl(280, 54%, 64%)
-    );
-  }
-
-  &.gradient2 {
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(
-      to right,
-      hsl(197, 57%, 39%),
-      hsl(54, 81%, 63%)
-    );
-    -webkit-background-clip: text !important;
-  }
-
-  &.gradient3 {
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(
-      to right,
-      hsl(5, 63.4%, 46.08%),
-      hsl(282, 43.57%, 47.25%)
-    );
-  }
-
-  &.gradient4 {
+  [data-blog-theme='vscode'] & {
+    background-clip: text;
+    color: transparent;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent;
     background: linear-gradient(
@@ -79,23 +75,58 @@
     );
   }
 
-  &.gradient5 {
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(
-      to right,
-      hsl(303, 95.2%, 24.3%),
-      hsl(185, 84.8%, 41.2%)
-    );
-  }
+  [data-blog-theme='runner'] & {
+    background-color: var(--color-runner-primary);
+    color: var(--theme-runner-foreground-color-black);
+    border-radius: 4px;
+    position: relative;
 
-  &.gradient6 {
-    -webkit-background-clip: text !important;
-    -webkit-text-fill-color: transparent;
-    background: linear-gradient(
-      to right,
-      hsl(189, 86.93%, 70%),
-      hsl(34, 100%, 79.02%)
-    );
+    --corner-cross-size: 20px;
+
+    span {
+      position: absolute;
+      height: var(--corner-cross-size);
+      width: var(--corner-cross-size);
+
+      &::before {
+        content: '';
+        width: 1px;
+        height: var(--corner-cross-size);
+        background: var(--theme-runner-foreground-color-black);
+        display: block;
+        left: calc(var(--corner-cross-size) / 2);
+        position: relative;
+      }
+
+      &::after {
+        content: '';
+        width: var(--corner-cross-size);
+        height: 1px;
+        background: var(--theme-runner-foreground-color-black);
+        display: block;
+        bottom: calc(var(--corner-cross-size) / 2);
+        position: relative;
+      }
+    }
+
+    span:nth-child(1) {
+      left: 0;
+      top: 0;
+    }
+
+    span:nth-child(2) {
+      left: 0;
+      bottom: 0;
+    }
+
+    span:nth-child(3) {
+      right: 0;
+      top: 0;
+    }
+
+    span:nth-child(4) {
+      right: 0;
+      bottom: 0;
+    }
   }
 }

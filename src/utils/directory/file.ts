@@ -9,6 +9,7 @@ export type File = {
 };
 
 type FileOptions = {
+  /** When false, the file will not be displayed in the File Explorer */
   visible?: boolean;
 };
 

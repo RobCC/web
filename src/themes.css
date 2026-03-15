@@ -1,4 +1,4 @@
-[data-theme='monokai'] {
+[data-editor-theme='monokai'] {
   --color-editor-body: var(--monokai-color-editor-body);
   --color-editor-line-highlight: var(--monokai-color-editor-line-highlight);
   --color-editor-line-hover: var(--monokai-color-editor-line-hover);
@@ -23,7 +23,7 @@
   --color-string: var(--monokai-string);
 }
 
-[data-theme='onedark'] {
+[data-editor-theme='onedark'] {
   --color-editor-body: var(--onedark-color-editor-body);
   --color-editor-line-highlight: var(--onedark-color-editor-line-highlight);
   --color-editor-line-hover: var(--onedark-color-editor-line-hover);
@@ -48,7 +48,7 @@
   --color-string: var(--onedark-string);
 }
 
-[data-theme='darkmodern'] {
+[data-editor-theme='darkmodern'] {
   --color-editor-body: var(--darkmodern-color-editor-body);
   --color-editor-line-highlight: var(--darkmodern-color-editor-line-highlight);
   --color-editor-line-hover: var(--darkmodern-color-editor-line-hover);
@@ -87,4 +87,24 @@
 
 [data-font='ibmPlex'] {
   --font-family-code: var(--font-family-ibm);
+}
+
+[data-font='ibmPlex'] {
+  --font-family-code: var(--font-family-ibm);
+}
+
+[data-blog-theme='vscode'] {
+  --blog-font-family-heading: var(--theme-default-font-family);
+  --blog-heading-font-family: var(--theme-default-font-family-heading);
+  --blog-background-color-black: var(--theme-default-background-color-black);
+  --blog-foreground-color-white: var(--theme-default-foreground-color-white);
+  --blog-foreground-color-black: var(--theme-default-foreground-color-black);
+}
+
+[data-blog-theme='runner'] {
+  --blog-font-family-heading: var(--theme-runner-font-family);
+  --blog-heading-font-family: var(--theme-runner-font-family-heading);
+  --blog-background-color-black: var(--theme-runner-background-color-black-bg);
+  --blog-foreground-color-white: var(--theme-runner-foreground-color-white);
+  --blog-foreground-color-black: var(--theme-runner-foreground-color-black);
 }

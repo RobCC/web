@@ -1,4 +1,5 @@
 :root {
+  --color-fg-default: #e6e6e6;
   --color-editor-body: #161718;
   --color-editor-line-highlight: #fff2;
   --color-editor-line-hover: #3e3e32;
@@ -21,15 +22,15 @@
   --color-red: #d61b4a;
   --color-yellow: #ecc420;
   --color-string: #e0d36f;
+
+  /* Fonts */
   --font-family-segoe: 'Segoe UI', sans-serif;
   --font-family-fira: 'Fira Code', monospace;
   --font-family-cascadia: 'Cascadia Mono', monospace;
   --font-family-commit: 'Commit Mono', monospace;
   --font-family-ibm: 'IBM Plex Mono', monospace;
-
-  /* Theme variables */
-  --font-family-text: var(--font-family-segoe);
-  --font-family-code: var(--font-family-fira);
+  --font-family-cormo: 'Cormorant Garamond', sans-serif;
+  --font-family-space: 'Space Mono', sans-serif;
 
   /* Monokai */
   --monokai-color-editor-body: #1a1a1a;
@@ -130,6 +131,41 @@
   --color-arenso: #006ac6;
   --color-tcs: #3b86c7;
   --color-accedo: #00a2e8;
+
+  /* Other themes */
+  --color-runner-bg: hsl(210, 11%, 7%);
+  --color-runner-bg-dark: hsl(120, 100%, 1%);
+  --color-runner-bg-light: hsl(220, 10%, 12%);
+  --color-runner-white: hsl(0, 0%, 90%);
+  --color-runner-primary: hsl(76, 97%, 46%);
+  --color-runner-syac: hsl(136, 98%, 40%);
+  --color-runner-nc: hsl(336, 79%, 55%);
+  --color-runner-mida: hsl(280, 67%, 68%);
+  --color-runner-arachne: hsl(360, 92%, 48%);
+  --color-runner-traxus: hsl(28, 92%, 47%);
+
+  /* Theme variables */
+  --font-family-text: var(--font-family-segoe);
+  --font-family-code: var(--font-family-fira);
+
+  /* Blog Themes */
+  --theme-default-font-family: var(--font-family-segoe);
+  --theme-default-font-family-heading: var(--font-family-segoe);
+  --theme-default-background-color-black: var(--color-editor-body);
+  --theme-default-foreground-color-white: var(--color-fg-default);
+  --theme-default-foreground-color-black: #1a1a1a;
+
+  --theme-runner-font-family: var(--font-family-space);
+  --theme-runner-font-family-heading: var(--font-family-cormo);
+  --theme-runner-background-color-black-bg: var(--color-runner-bg);
+  --theme-runner-foreground-color-white: var(--color-runner-white);
+  --theme-runner-foreground-color-black: hsl(210, 11%, 7%);
+
+  --blog-background-color-black: var(--theme-default-background-color-black);
+  --blog-font-family-heading: var(--theme-default-font-family);
+  --blog-heading-font-family: var(--theme-default-font-family-heading);
+  --blog-foreground-color-white: var(--theme-default-foreground-color-white);
+  --blog-foreground-color-black: var(--theme-default-foreground-color-black);
 
   /* Sizes */
   --activity-bar-width: 50px;
