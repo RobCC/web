@@ -27,17 +27,17 @@ export function openFile(fullName: string) {
     if (!file) {
       console.error(`File ${fullName} not found`);
 
-      return;
+      return state;
     }
-
-    state.current.file = file;
-    state.current.fullName = fullName;
 
     const isFileAlreadyOpen = state.activeFiles.indexOf(fullName) > -1;
 
-    if (!isFileAlreadyOpen) {
-      state.activeFiles.push(fullName);
-    }
+    return {
+      current: { file, fullName },
+      activeFiles: isFileAlreadyOpen
+        ? state.activeFiles
+        : [...state.activeFiles, fullName],
+    };
   });
 }
 
@@ -46,23 +46,27 @@ export function closeFile(fullName: string) {
     const indexOfFile = state.activeFiles.indexOf(fullName);
 
     if (indexOfFile === -1) {
-      return;
+      return state;
     }
 
-    state.activeFiles.splice(indexOfFile, 1);
+    const activeFiles = state.activeFiles.filter(f => f !== fullName);
 
     // if the tab we're closing is the current, move to the previous tab (if any)
     if (fullName === state.current.fullName) {
-      const { activeFiles } = state;
       const previousTab = activeFiles[activeFiles.length - 1] ?? '';
 
       if (previousTab) {
         location.hash = `#/${encodeURIComponent(previousTab)}`;
-      } else {
-        state.current.file = getFile(previousTab, root);
-        state.current.fullName = previousTab;
+        return { activeFiles };
       }
+
+      return {
+        activeFiles,
+        current: { file: getFile(previousTab, root), fullName: previousTab },
+      };
     }
+
+    return { activeFiles };
   });
 }
 

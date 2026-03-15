@@ -9,7 +9,5 @@ export const useEditorStore = createStore<State>({
 });
 
 export function setAnimationFinished() {
-  useEditorStore.setState(state => {
-    state.hasAnimationFinished = true;
-  });
+  useEditorStore.setState({ hasAnimationFinished: true });
 }

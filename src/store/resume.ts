@@ -11,9 +11,7 @@ export const useResumeStore = createStore({
 });
 
 export function toggleResume() {
-  useResumeStore.setState(state => {
-    state.isResumeOpen = !state.isResumeOpen;
-  });
+  useResumeStore.setState(state => ({ isResumeOpen: !state.isResumeOpen }));
 }
 
 export const getIsResumeOpen = ({ isResumeOpen }: State) => isResumeOpen;

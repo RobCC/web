@@ -9,9 +9,7 @@ export const useExplorerStore = createStore<State>({
 });
 
 export function toggle() {
-  useExplorerStore.setState(state => {
-    state.isOpen = !state.isOpen;
-  });
+  useExplorerStore.setState(state => ({ isOpen: !state.isOpen }));
 }
 
 export const isOpen = ({ isOpen: isSideBarOpen }: State) => isSideBarOpen;
