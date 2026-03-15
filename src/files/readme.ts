@@ -8,7 +8,7 @@ Hi! My name's Roberto. I'm a ${colorParser.parse('web', 'green')} developer, liv
 Currently working at ${linkParser.parse('Accedo', 'https://www.accedo.tv/', 'blue')}. // As a web developer
 
 // Check out the latest blog. CodePen included!
-Newer blog ${linkParser.parse('entry', `#/${encodeURIComponent('Blog/cleaning_up.txt')}`, 'blue')}! No CodePen, but fancy gists included ( ˘ ³˘)ノ
+Newer blog ${linkParser.parse('entry', `#/${encodeURIComponent('Blog/cleaning_up.txt')}`, 'blue')} ( ˘ ³˘)ノ
 `);
 
 export default fileUtils.create('README.md', content);

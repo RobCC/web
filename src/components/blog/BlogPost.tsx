@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { marked } from 'marked';
 
-import { Wrapper, Title } from '#/components/blog';
+import { Title } from '#/components/blog';
+import styles from './blog.module.css';
 
 type Props = {
   file: string;
@@ -50,10 +51,10 @@ export default function BlogPost({ file }: Props) {
   }, [content]);
 
   return (
-    <Wrapper>
+    <article className={styles.wrapper}>
       <Title>{title}</Title>
-      <h4>{date}</h4>
+      <div className={styles.date}>{date}</div>
       <div ref={ref} />
-    </Wrapper>
+    </article>
   );
 }

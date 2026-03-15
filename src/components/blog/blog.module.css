@@ -1,5 +1,5 @@
 .wrapper {
-  line-height: 2;
+  line-height: 1.5;
   overflow: hidden auto;
   padding: 0 18% 100px;
   font-family: var(--font-family-text);
@@ -18,19 +18,84 @@
     text-align: center;
   }
 
-  h4 {
-    color: #c1bfbe;
-    margin-top: 0;
-    text-align: center;
-  }
-
   p {
     line-height: 2;
   }
+
+  pre {
+    background: #1e2228;
+    border-radius: 4px;
+    padding: 10px;
+  }
+}
+
+.date {
+  color: #c1bfbe;
+  margin-top: 0;
+  text-align: center;
 }
 
 .title {
-  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+
+  &.gradient1 {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+      to right,
+      hsl(209, 62%, 58%),
+      hsl(280, 54%, 64%)
+    );
+  }
+
+  &.gradient2 {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+      to right,
+      hsl(197, 57%, 39%),
+      hsl(54, 81%, 63%)
+    );
+    -webkit-background-clip: text !important;
+  }
+
+  &.gradient3 {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+      to right,
+      hsl(5, 63.4%, 46.08%),
+      hsl(282, 43.57%, 47.25%)
+    );
+  }
+
+  &.gradient4 {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+      to right,
+      hsl(210, 29.03%, 24.31%),
+      hsl(204, 69.87%, 53.14%)
+    );
+  }
+
+  &.gradient5 {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+      to right,
+      hsl(303, 95.2%, 24.3%),
+      hsl(185, 84.8%, 41.2%)
+    );
+  }
+
+  &.gradient6 {
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(
+      to right,
+      hsl(189, 86.93%, 70%),
+      hsl(34, 100%, 79.02%)
+    );
+  }
 }

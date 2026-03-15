@@ -5,7 +5,9 @@ date: Jan 14, 2022
 
 This was something interesting I worked in a while back, so I though I could share it. Working on an "On Next" functionality, usually seen on streaming applications when a movie or an episode is about to end, to recommend you more content within the app.
 
-<img alt="Fullscreen player" src="/images/blog/aap-full.jpg" width="788" height="442" />
+<figure>
+  <img alt="Fullscreen player" src="/images/blog/aap-full.jpg" width="788" height="442" />
+</figure>
 
 On TV streaming apps, the player is usually fullscreen by default. When credits start rolling, an animation occurs. The player shrinks and moves to the right of the screen, revealing some carousels with episodes, metadata on the next episode to play, a countdown perhaps. You get the idea.
 
@@ -46,7 +48,9 @@ The ratio agains a 720p resolution is 0.666. For TV resolutions, both sould usua
 
 ## Know where to move, and how much
 
+<figure>
 <img alt="Center player" src="/images/blog/aap-scaled.jpg" width="788" height="442" />
+</figure>
 
 Following with the designs, the player should be positioned somewhere on the middle right side of the screen. A top position of 325px and a left position of 1244px, to be precise. Another thing to consider is the initial position of the player once it is scale down. Since initially the player covers the entire screen, applying a transition to `scaleX` and `scaleY` will bring the player down to the center of the screen.
 
@@ -68,7 +72,9 @@ To get these, we need to consider our current screen's dimensions (d), and multi
 
 ![dk](/images/blog/aap-dk.png)
 
+<figure>
 <img alt="Center player" src="/images/blog/aap-corner.jpg" width="788" height="442" />
+</figure>
 
 Since when scaling down the player goes to the center, we need to get the remaining distance from the top of the video to the top of the screen (to emulate a `top: 0` positioning). This can be calculated by taking half the screen's width, and rest half our shrunk player's width
 
