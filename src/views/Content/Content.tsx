@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'wouter';
 import { useShallow } from 'zustand/shallow';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';
@@ -25,7 +25,7 @@ function Content() {
 
   useEffect(() => {
     if (fileFullPath) {
-      openFile(fileFullPath);
+      openFile(decodeURIComponent(fileFullPath));
     }
   }, [fileFullPath]);
 

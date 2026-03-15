@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import clsx from 'clsx';
-import { useNavigate } from 'react-router';
+import { useLocation } from 'wouter';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { IconCloseTab } from '#/components/Icones';
@@ -33,14 +33,14 @@ function getShortName(fullName: string) {
 }
 
 export default function FileTab({ fullName }: Props) {
-  const navigate = useNavigate();
+  const [, navigate] = useLocation();
   const currentFileFullName = useFileStore(getCurrentFullName);
   const file = useMemo(() => getFile(fullName, rootFiles), [fullName]);
   const { extension } = file!.metadata;
   const shortName = getShortName(fullName);
 
   const handleClick = useCallback(() => {
-    void navigate(`/${encodeURIComponent(fullName)}`);
+    navigate(`/${encodeURIComponent(fullName)}`);
   }, [fullName]);
 
   const closeTab = useCallback(

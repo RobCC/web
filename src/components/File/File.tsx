@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import clsx from 'clsx';
-import { useNavigate } from 'react-router';
+import { useLocation } from 'wouter';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { fileUtils, getFullPathname } from '#/utils/directory';
@@ -22,7 +22,7 @@ const LEVEL_PADDING_DELTA = 8;
 const { openFile, useFileStore, getCurrentFullName } = fileSystem;
 
 export default function File({ level = 0, data, parent = '' }: Props) {
-  const navigate = useNavigate();
+  const [, navigate] = useLocation();
   const currentFileName = useFileStore(getCurrentFullName);
   const { extension } = data.metadata;
   const fullPathname = getFullPathname(data.name, parent);
@@ -34,7 +34,7 @@ export default function File({ level = 0, data, parent = '' }: Props) {
     if (fullPathname === decodeURIComponent(currentFileParam)) {
       openFile(fullPathname);
     } else {
-      void navigate(`/${encodeURIComponent(fullPathname)}`);
+      navigate(`/${encodeURIComponent(fullPathname)}`);
     }
   }, [fullPathname]);
 

@@ -1,5 +1,5 @@
 import { useState, useEffect, type PropsWithChildren } from 'react';
-import { useNavigate } from 'react-router';
+import { useLocation } from 'wouter';
 import clsx from 'clsx';
 import { tinykeys } from 'tinykeys';
 import { IconExplorer, IconSettings, IconUser } from '#/components/Icones';
@@ -36,7 +36,7 @@ function ActBarItem({
 }
 
 function SettingsItem() {
-  const navigate = useNavigate();
+  const [, navigate] = useLocation();
   const fileName = 'Settings';
 
   const handleClick = () => {
@@ -45,7 +45,7 @@ function SettingsItem() {
     if (fileName === decodeURIComponent(currentFileParam)) {
       openFile(fileName);
     } else {
-      void navigate(`/${encodeURIComponent(fileName)}`);
+      navigate(`/${encodeURIComponent(fileName)}`);
     }
   };
 
@@ -72,7 +72,7 @@ function SettingsItem() {
 }
 
 function ResumeItem() {
-  const navigate = useNavigate();
+  const [, navigate] = useLocation();
   const fileName = 'Resume';
 
   const handleClick = () => {
@@ -81,7 +81,7 @@ function ResumeItem() {
     if (fileName === decodeURIComponent(currentFileParam)) {
       openFile(fileName);
     } else {
-      void navigate(`/${encodeURIComponent(fileName)}`);
+      navigate(`/${encodeURIComponent(fileName)}`);
     }
   };
 

@@ -1,5 +1,4 @@
-import { Outlet } from 'react-router';
-import { useEffect } from 'react';
+import { useEffect, type PropsWithChildren } from 'react';
 
 import { ActivityBar, SideBar } from '#/components';
 import {
@@ -7,7 +6,7 @@ import {
   fontController,
 } from '#/utils/settingsOptionController';
 
-export default function App() {
+export default function App({ children }: PropsWithChildren) {
   useEffect(() => {
     themeController.init();
     fontController.init();
@@ -17,7 +16,7 @@ export default function App() {
     <>
       <ActivityBar />
       <SideBar />
-      <Outlet />
+      {children}
     </>
   );
 }
