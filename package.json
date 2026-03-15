@@ -1,9 +1,7 @@
 {
-  "name": "web-playground",
-  "version": "0.0.0",
-  "description": "A web playground",
-  "homepage": "https://github.com/RobCC/web-playground#readme",
-  "license": "ISC",
+  "name": "website",
+  "description": "Personal website",
+  "homepage": "https://github.com/RobCC/web",
   "author": "robcc",
   "type": "module",
   "scripts": {
