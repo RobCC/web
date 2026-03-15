@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router';
 import { useShallow } from 'zustand/shallow';
 
 import FileTabMenu from '#/components/FileTabMenu/FileTabMenu';

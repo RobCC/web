@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import classNames from 'classnames';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { IconCloseTab } from '#/components/Icones';
@@ -40,7 +40,7 @@ export default function FileTab({ fullName }: Props) {
   const shortName = getShortName(fullName);
 
   const handleClick = useCallback(() => {
-    navigate(`/${encodeURIComponent(fullName)}`);
+    void navigate(`/${encodeURIComponent(fullName)}`);
   }, [fullName]);
 
   const closeTab = useCallback(

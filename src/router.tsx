@@ -3,7 +3,7 @@ import {
   Navigate,
   createHashRouter,
   createRoutesFromElements,
-} from 'react-router-dom';
+} from 'react-router';
 
 import App from '#/components/App/App';
 import { Content } from '#/views';

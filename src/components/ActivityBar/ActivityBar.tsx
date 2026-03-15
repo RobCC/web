@@ -1,5 +1,5 @@
 import { useState, useEffect, type PropsWithChildren } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import classNames from 'classnames';
 import hotkeys from 'hotkeys-js';
 import { IconExplorer, IconSettings, IconUser } from '#/components/Icones';
@@ -45,7 +45,7 @@ function SettingsItem() {
     if (fileName === decodeURIComponent(currentFileParam)) {
       openFile(fileName);
     } else {
-      navigate(`/${encodeURIComponent(fileName)}`);
+      void navigate(`/${encodeURIComponent(fileName)}`);
     }
   };
 
@@ -73,7 +73,7 @@ function ResumeItem() {
     if (fileName === decodeURIComponent(currentFileParam)) {
       openFile(fileName);
     } else {
-      navigate(`/${encodeURIComponent(fileName)}`);
+      void navigate(`/${encodeURIComponent(fileName)}`);
     }
   };
 

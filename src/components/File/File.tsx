@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import classNames from 'classnames';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
 import { fileUtils, getFullPathname } from '#/utils/directory';
@@ -34,7 +34,7 @@ export default function File({ level = 0, data, parent = '' }: Props) {
     if (fullPathname === decodeURIComponent(currentFileParam)) {
       openFile(fullPathname);
     } else {
-      navigate(`/${encodeURIComponent(fullPathname)}`);
+      void navigate(`/${encodeURIComponent(fullPathname)}`);
     }
   }, [fullPathname]);
 
