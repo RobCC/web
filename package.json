@@ -3,23 +3,14 @@
   "version": "0.0.0",
   "description": "A web playground",
   "homepage": "https://github.com/RobCC/web-playground#readme",
-  "bugs": {
-    "url": "https://github.com/RobCC/web-playground/issues"
-  },
   "license": "ISC",
   "author": "robcc",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RobCC/web-playground.git"
-  },
   "type": "module",
-  "main": "index.tsx",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "start": "pnpm dev",
     "dev": "vp dev",
     "build": "tsc -b && vp build",
-    "preview": "vp preview",
     "pub": "pnpm build && echo www.jrobcc.com > ./dist/CNAME && gh-pages -d dist",
     "lint": "vp lint src",
     "tsc": "tsc --noEmit",
