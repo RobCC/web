@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { editor } from '#/store';
 import parse, { isComment } from '#/utils/codeParser';
@@ -22,7 +22,7 @@ export default function EditorLine({
   line = '',
 }: Props) {
   const typingFinished = useEditorStore.getState().hasAnimationFinished;
-  const lineClasses = classNames(styles.content, {
+  const lineClasses = clsx(styles.content, {
     [styles.comment]: isComment(line),
     [styles.typeAnimated]: shouldAnimate && !typingFinished,
     [styles.caretAnimated]: shouldAnimate && typingFinished,

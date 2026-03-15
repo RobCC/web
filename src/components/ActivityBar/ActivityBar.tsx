@@ -1,6 +1,6 @@
 import { useState, useEffect, type PropsWithChildren } from 'react';
 import { useNavigate } from 'react-router';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import hotkeys from 'hotkeys-js';
 import { IconExplorer, IconSettings, IconUser } from '#/components/Icones';
 import { sideBar } from '#/store';
@@ -25,7 +25,7 @@ function ActBarItem({
   return (
     <button
       aria-label={label}
-      className={classNames(styles.item, {
+      className={clsx(styles.item, {
         [styles.active]: isActive,
       })}
       onClick={onClick}

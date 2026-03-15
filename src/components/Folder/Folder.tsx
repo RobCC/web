@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import File from '#/components/File/File';
 import { FolderIcon } from '#/components/Icones';
@@ -28,7 +28,7 @@ export default function Folder({ level = 0, data, parent = '' }: Props) {
 
   return (
     <div
-      className={classNames(styles.group, {
+      className={clsx(styles.group, {
         [styles.closed]: isClosed,
       })}
       title={data.name}

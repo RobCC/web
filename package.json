@@ -26,7 +26,7 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "hotkeys-js": "^4.0.2",
     "immer": "^11.1.4",
     "marked": "^17.0.4",

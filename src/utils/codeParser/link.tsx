@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 // Example: $["https://github.com/RobCC", https://github.com/RobCC, red]
 
@@ -9,7 +9,7 @@ const link = {
 
     return (
       <a
-        className={classNames(theme.editorLink, theme.color, theme[color])}
+        className={clsx(theme.editorLink, theme.color, theme[color])}
         title={text}
         href={url}
         target={url[0] === '#' ? '' : '_blank'}

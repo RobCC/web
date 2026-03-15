@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { sideBar } from '#/store';
 
@@ -14,7 +14,7 @@ export default function SideBar() {
   return (
     <div
       id="side-bar"
-      className={classNames(styles.wrapper, {
+      className={clsx(styles.wrapper, {
         [styles.open]: useExplorerStore(isOpen),
       })}
     >

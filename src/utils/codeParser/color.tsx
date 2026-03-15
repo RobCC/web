@@ -1,10 +1,10 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 const color = {
   regex: /\$\((?<color>.*?)\)/,
   toDOM(snippet, theme) {
     const [text, textColor] = snippet.split(',').map(e => e.trim());
-    const classes = classNames(theme.color, theme[textColor]);
+    const classes = clsx(theme.color, theme[textColor]);
 
     return <span className={classes}>{text}</span>;
   },

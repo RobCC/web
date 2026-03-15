@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import FileTab from '#/components/FileTab/FileTab';
 import { fileSystem, sideBar } from '#/store';
@@ -68,7 +68,7 @@ export default function FileTabMenu() {
 
   return (
     <div
-      className={classNames(styles.tabMenu, {
+      className={clsx(styles.tabMenu, {
         [styles.empty]: !openFileNames.length,
       })}
     >

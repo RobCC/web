@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import { FILE_ICONS } from '#/utils/constants';
 
@@ -19,7 +19,7 @@ export default function ExtensionIcon({
   const Icon = FILE_ICONS[identifier as keyof typeof FILE_ICONS];
 
   return (
-    <div className={classNames(styles.icon, styles[identifier], className)}>
+    <div className={clsx(styles.icon, styles[identifier], className)}>
       <Icon />
     </div>
   );

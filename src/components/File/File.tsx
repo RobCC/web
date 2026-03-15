@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { useNavigate } from 'react-router';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
@@ -42,7 +42,7 @@ export default function File({ level = 0, data, parent = '' }: Props) {
     <button
       type="button"
       onClick={handleClick}
-      className={classNames(styles.item, {
+      className={clsx(styles.item, {
         [styles.active]: fullPathname === currentFileName,
       })}
       style={{

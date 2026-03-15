@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import classNames from 'classnames';
+import clsx from 'clsx';
 import { useNavigate } from 'react-router';
 
 import ExtensionIcon from '#/components/ExtensionIcon/ExtensionIcon';
@@ -57,7 +57,7 @@ export default function FileTab({ fullName }: Props) {
       role="tab"
       title={shortName}
       tabIndex={0}
-      className={classNames(styles.tab, {
+      className={clsx(styles.tab, {
         [styles.active]: fullName === currentFileFullName,
       })}
       onClick={handleClick}
