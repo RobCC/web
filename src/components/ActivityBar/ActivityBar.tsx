@@ -1,7 +1,7 @@
 import { useState, useEffect, type PropsWithChildren } from 'react';
 import { useNavigate } from 'react-router';
 import clsx from 'clsx';
-import hotkeys from 'hotkeys-js';
+import { tinykeys } from 'tinykeys';
 import { IconExplorer, IconSettings, IconUser } from '#/components/Icones';
 import { sideBar } from '#/store';
 import { fileSystem } from '#/store';
@@ -50,10 +50,18 @@ function SettingsItem() {
   };
 
   useEffect(() => {
-    hotkeys('ctrl+,, cmd+,', event => {
-      event.preventDefault();
-      handleClick();
+    const unsubscribe = tinykeys(window, {
+      'Control+,': () => {
+        handleClick();
+      },
+      'Command+,': () => {
+        handleClick();
+      },
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (
@@ -95,10 +103,18 @@ export default function ActivityBar() {
   const [currentOption, setCurrentOption] = useState(options.EXPLORER);
 
   useEffect(() => {
-    hotkeys('ctrl+b,cmd+b', e => {
-      e.preventDefault();
-      sideBar.toggle();
+    const unsubscribe = tinykeys(window, {
+      'Control+B': () => {
+        sideBar.toggle();
+      },
+      'Command+B': () => {
+        sideBar.toggle();
+      },
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (

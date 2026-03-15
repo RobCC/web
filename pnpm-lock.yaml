@@ -15,9 +15,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      hotkeys-js:
-        specifier: ^4.0.2
-        version: 4.0.2
       immer:
         specifier: ^11.1.4
         version: 11.1.4
@@ -33,6 +30,9 @@ importers:
       react-router:
         specifier: ^7.13.1
         version: 7.13.1(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      tinykeys:
+        specifier: ^3.0.0
+        version: 3.0.0
       zustand:
         specifier: ^5.0.11
         version: 5.0.11(@types/react@19.1.5)(immer@11.1.4)(react@19.1.0)(use-sync-external-store@1.2.0(react@19.1.0))
@@ -732,9 +732,6 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  hotkeys-js@4.0.2:
-    resolution: {integrity: sha512-fJNEO88zWwoXEGJuvjSbunKSexaT1VbC1S9wIzMA2BfOZ5KPiQj2wTqxDeXd110/4akiAuQIsE3TSbNvGgCyQg==}
-
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
@@ -1028,6 +1025,9 @@ packages:
   tinyglobby@0.2.15:
     resolution: {integrity: sha512-j2Zq4NyQYG5XMST4cbs02Ak8iJUdxRM0XI5QyxXuZOzKOINmWurp3smXu3y5wDcJrptwpSjgXHzIQxR0omXljQ==}
     engines: {node: '>=12.0.0'}
+
+  tinykeys@3.0.0:
+    resolution: {integrity: sha512-nazawuGv5zx6MuDfDY0rmfXjuOGhD5XU2z0GLURQ1nzl0RUe9OuCJq+0u8xxJZINHe+mr7nw8PWYYZ9WhMFujw==}
 
   tinypool@2.1.0:
     resolution: {integrity: sha512-Pugqs6M0m7Lv1I7FtxN4aoyToKg1C4tu+/381vH35y8oENM/Ai7f7C4StcoK4/+BSw9ebcS8jRiVrORFKCALLw==}
@@ -1522,8 +1522,6 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  hotkeys-js@4.0.2: {}
-
   ignore@5.3.2: {}
 
   immer@11.1.4: {}
@@ -1787,6 +1785,8 @@ snapshots:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
+
+  tinykeys@3.0.0: {}
 
   tinypool@2.1.0: {}
 
