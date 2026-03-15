@@ -39,12 +39,12 @@ export default function Gist({ gist, file }: Props) {
   useEffect(() => {
     const gistCallback = Gist.nextGistCallback();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
+    // oxlint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-member-access
     (window as any)[gistCallback] = (res: any) => {
       toggleLoading(false);
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       setSrc(res.div);
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+      // oxlint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       addStylesheet(res.stylesheet);
     };
 
