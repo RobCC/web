@@ -7,4 +7,4 @@ function CleaningUp() {
   return <BlogPost file={mdFile} />;
 }
 
-export default fileUtils.create('cleaning_up.txt', CleaningUp);
+export default fileUtils.create('cleaning_up.md', CleaningUp);

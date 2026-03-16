@@ -8,6 +8,6 @@ function AnimationAndPositioning() {
 }
 
 export default fileUtils.create(
-  'animation_and_positioning.txt',
+  'animation_and_positioning.md',
   AnimationAndPositioning,
 );

@@ -10,13 +10,22 @@
     top: 1px;
   }
 
+  &.readme {
+    fill: var(--color-readme);
+    width: 14px;
+    height: 14px;
+    top: 1px;
+  }
+
   &.md {
     fill: var(--color-md);
     width: 14px;
     height: 14px;
+    top: 1px;
   }
 
   &.css {
+    top: 1px;
     fill: var(--color-css);
   }
 

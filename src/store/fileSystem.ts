@@ -17,7 +17,7 @@ export const useFileStore = createStore<State>({
     file: null,
     fullName: '',
   },
-  activeFiles: ['README.md', 'contact.css', 'Blog/cleaning_up.txt'],
+  activeFiles: ['README.md', 'contact.css', 'Blog/cleaning_up.md'],
 });
 
 export function openFile(fullName: string) {

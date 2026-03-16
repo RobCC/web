@@ -9,6 +9,7 @@ export { default as IconSettings } from './IconSettings';
 export { default as IconSettingsTab } from './IconSettingsTab';
 export { default as FolderIcon } from './FolderIcon';
 export { default as IconMd } from './IconMd';
+export { default as ReadmeIcon } from './ReadmeIcon';
 export { default as IconText } from './IconText';
 export { default as IconJs } from './IconJs';
 export { default as IconCss } from './IconCss';

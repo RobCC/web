@@ -56,8 +56,17 @@
       text-transform: uppercase;
     }
 
+    h2,
+    h3 {
+      color: var(--color-runner-seki);
+    }
+
     a {
-      color: var(--color-runner-syac);
+      color: var(--color-runner-traxus);
+    }
+
+    figcaption {
+      color: hsl(220deg 7.95% 76.79%);
     }
   }
 }
@@ -76,7 +85,7 @@
     -webkit-text-fill-color: transparent;
     background: linear-gradient(
       to right,
-      hsl(210, 29.03%, 24.31%),
+      hsl(118.32deg 38.92% 58.18%),
       hsl(204, 69.87%, 53.14%)
     );
   }

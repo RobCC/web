@@ -16,10 +16,18 @@ export default function ExtensionIcon({
   className = '',
 }: Props) {
   const identifier = (extension || shortName).toLocaleLowerCase();
-  const Icon = FILE_ICONS[identifier as keyof typeof FILE_ICONS];
+  const classNames = [styles.icon, className, styles[identifier]];
+  let Icon = FILE_ICONS[identifier as keyof typeof FILE_ICONS];
+
+  if (shortName === 'README.md') {
+    Icon = FILE_ICONS.readme;
+
+    classNames.pop();
+    classNames.push(styles.readme);
+  }
 
   return (
-    <div className={clsx(styles.icon, styles[identifier], className)}>
+    <div className={clsx(classNames)}>
       <Icon />
     </div>
   );

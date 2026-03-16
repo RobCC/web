@@ -1,5 +1,6 @@
 import {
   IconMd,
+  ReadmeIcon,
   IconText,
   IconJs,
   IconCss,
@@ -16,6 +17,7 @@ export const FILE_ICONS = {
   md: IconMd,
   txt: IconText,
   // Some icons are determined by the file name (eg. Settings)
+  readme: ReadmeIcon,
   resume: IconUser,
   settings: IconSettingsTab,
 } as const;

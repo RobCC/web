@@ -7,6 +7,7 @@ import { Editor } from '#/components';
 import { fileSystem } from '#/store';
 import { fileUtils } from '#/utils/directory';
 
+import Placeholder from './Placeholder';
 import styles from './content.module.css';
 
 const { useFileStore, getCurrentFile, openFile } = fileSystem;
@@ -33,11 +34,7 @@ function Content() {
     <div className={styles.wrapper}>
       <div id="content" className={styles.content}>
         <FileTabMenu />
-        {currentFile ? (
-          renderContent(currentFile.content)
-        ) : (
-          <div className={styles.placeholder}>( ´◔ ω◔`) ノシ</div>
-        )}
+        {currentFile ? renderContent(currentFile.content) : <Placeholder />}
       </div>
     </div>
   );

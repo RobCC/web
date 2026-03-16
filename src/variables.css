@@ -105,7 +105,8 @@
   --darkmodern-string: #ce9178;
 
   /* Techs */
-  --color-md: #519aba;
+  --color-readme: #519aba;
+  --color-md: hsl(198, 43%, 52%);
   --color-npm: #cb0303;
   --color-facebook: #4267b2;
   --color-linkedin: #0074b2;
@@ -137,12 +138,14 @@
   --color-runner-bg-dark: hsl(120, 100%, 1%);
   --color-runner-bg-light: hsl(220, 10%, 12%);
   --color-runner-white: hsl(0, 0%, 90%);
+  --color-runner-blue: hsl(240, 82%, 36%);
   --color-runner-primary: hsl(76, 97%, 46%);
   --color-runner-syac: hsl(136, 98%, 40%);
   --color-runner-nc: hsl(336, 79%, 55%);
   --color-runner-mida: hsl(280, 67%, 68%);
   --color-runner-arachne: hsl(360, 92%, 48%);
   --color-runner-traxus: hsl(28, 92%, 47%);
+  --color-runner-seki: hsl(148, 72%, 71%);
 
   /* Theme variables */
   --font-family-text: var(--font-family-segoe);
