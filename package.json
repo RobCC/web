@@ -17,19 +17,19 @@
   "dependencies": {
     "clsx": "^2.1.1",
     "marked": "^17.0.4",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "tinykeys": "^3.0.0",
     "wouter": "^3.9.0",
-    "zustand": "^5.0.11"
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
-    "@types/react": "^19.1.5",
-    "@types/react-dom": "^19.1.5",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "gh-pages": "^6.3.0",
-    "typescript": "^5.8.3",
-    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "typescript": "^5.9.3",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.1.11",
     "vite-plus": "latest"
   },
   "packageManager": "pnpm@10.32.1",
