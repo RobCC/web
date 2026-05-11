@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "clsx": "^2.1.1",
-    "marked": "^18.0.0",
+    "marked": "^18.0.2",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "tinykeys": "^3.0.0",
